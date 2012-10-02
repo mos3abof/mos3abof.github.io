@@ -1,0 +1,216 @@
+body {
+ background: url(images/bg.gif) top left repeat-x #fff;
+ background-color: #ffffff;
+ font-family: "Palatino Linotype","Book Antiqua","Palatino","URW Palladio L","FreeSerif",serif;
+ font-weight: normal
+ font-size: 11pt;
+ margin: 0 5em 0 5em;
+ line-height: 1.4em;
+}
+
+a { 
+ text-decoration: none;
+}
+
+a:hover { 
+ text-decoration: underline;
+}
+
+#header {
+ height: 5em;
+ line-height: 4em;
+ font-style: italic;
+}
+
+#header h2 {
+ font-size: 2.5em;
+ text-decoration: none;
+ color:#2a85e8;
+ background-color: inherit;
+ background-image: none;
+ border: inherit;
+ float: right;
+ margin: 0.2em 0.2em 0.2em 0.2em;
+ padding: 0 0 0 0;
+ border: 0 0 0 0;
+}
+
+#navbar {
+ text-align: right;
+ border: 0 0 0 0;
+ padding: 0.3em 0.5em 0.3em 0.5em;
+}
+
+#navbar a {
+ color: #336699;
+ text-decoration: none;
+}
+
+
+#sidebar {
+ text-align: center;
+ float: right;
+ width: 285px;
+}
+
+#sidebar ul {
+ list-style: none;
+ marker-offset: 0px;
+ display: inline;
+ margin: 0 0 0 0;
+ padding 0 0 0 0;
+}
+
+#sidebar li {
+ padding: 0 0 0.5em 0;
+ margin: 0;
+}
+
+/* #sidebar a {
+ font-weight: bold;
+ font-size: 1.1em;
+ color: #000000;
+ text-decoration: none;
+} */
+
+#sidebar a img {
+ border: none;
+}
+
+#sidebar p {
+ text-aign: left;
+}
+
+#content {
+ margin-right: 315px;
+ padding: 0;
+
+}
+
+ul {
+ list-style-type: diamond;
+}
+
+h1 {
+ font-size: 2em;
+}
+
+
+h2 {
+ font-size: 1.4em;
+}
+
+h3 {
+ font-size: 1.2em;
+}
+
+h1, h2, h3 {
+ text-align: left;
+ margin: 0.4em 0 0.4em 0;
+ padding: 0.1em 0.3em 0.1em 0;
+ border-bottom: 2px solid #336699;
+}
+
+li {
+ padding-bottom: 9px
+}
+
+ul.nopad li { 
+  padding-bottom: 0;
+}
+
+.note {
+ margin: 1em 0 1em 0;
+ border: 2px solid red;
+ padding: 0 10px 10px 10px;
+ width: 500px;
+}
+
+.note h3, .note h2, .note h1 {
+ text-align: center;
+ font-weight: bold;
+ background: red;
+ color: white;
+ border: 0px;
+ margin: 0 -10px 10px -10px;
+}
+
+.note p {
+ margin: 0 0 0 0;
+ padding: 0 0 0 0;
+}
+
+#footer {
+ text-align: center;
+ font-size: 0.8em;
+}
+
+hr {
+ border: none;
+ background-color: #336699;
+ height: 2px;
+ width: auto;
+}
+
+#footer hr {
+ margin: 2em 0 1em 0;
+}
+
+
+/* styles for the talk page */
+
+.talk_list {
+ padding-left: 0px; 
+}
+
+.talk_listing {
+ padding-bottom: 9px;
+ list-style: square inside;
+}
+
+.talk_listing .talk_title {
+ font-weight: bold;
+}
+
+.talk_listing .talk_date {
+ font-style: italic;
+}
+
+.talk_listing .talk_description {
+ /* display: none; */
+ display: block; 
+ padding: 0.5em 1.5em 0.5em 1.5em;
+}
+
+.talk_listing .talk_description_show, .talk_listing .talk_description_hide {
+ font-size: 0.8em;
+}
+
+.talk_listing .talk_materials {
+ font-size: 0.8em;
+}
+
+.talk_listing .talk_materials a {
+}
+
+/* notice box based on the wiki page */
+.noticebox {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    margin-right: auto; 
+    margin-left: auto; 
+    width: 60%;
+    font-style: italic;
+    border: 2px dashed lightblue;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.affil-logos li { 
+  display: inline;
+}
+
+a {
+
+color:#2a85e8;
+}
