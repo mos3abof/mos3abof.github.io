@@ -1,0 +1,37 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <!--<a class="brand" href="#">Mosab Ahmad</a>-->
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="{% if html_class == 'welcome' %} active {% endif %}">
+            <a href="/">Home</a>
+          </li>
+          <li class="{% if html_class == 'code' %} active {% endif %}">
+            <a href="{{url_for('code')}}">Code</a>
+          </li>
+          <li>
+            <a href="http://www.supposedlyageek.com" target="_blank">Tech Blog</a>
+          </li>
+          <li>
+            <a href="http://mos3abof.blogspot.com" target="_blank">Personal Blog (Arabic)</a>
+          </li>
+          <!-- <li>
+            <a href="http://amira.mos3abof.com" target="_blank">My wife</a>
+          </li>
+          <li>
+            <a href="http://adam.mos3abof.com" target="_blank">My son</a>
+          </li> -->
+          <li class="{% if html_class == 'feedback' %} active {% endif %}">
+            <a href="{{url_for('feedback')}}">Contact</a>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
