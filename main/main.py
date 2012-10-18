@@ -29,6 +29,7 @@ def welcome():
 def code():
   return flask.render_template(
       'code.html',
+      title='Code',
       html_class='code',
       channel_name='code',
     )
