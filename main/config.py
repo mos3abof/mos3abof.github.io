@@ -1,19 +1,19 @@
 try:
-  # This part is surrounded in try/except because the this config.py file is
-  # also used in the build.py script which is used to compile/minify the client
-  # side files (*.less, *.coffee, *.js) and is not aware of the GAE
-  import model
-  CONFIG_DB = model.Config.get_master_db()
-  SECRET_KEY = CONFIG_DB.flask_secret_key.encode('ascii')
+    # This part is surrounded in try/except because the this config.py file is
+    # also used in the build.py script which is used to compile/minify the client
+    # side files (*.less, *.coffee, *.js) and is not aware of the GAE
+    import model
+    CONFIG_DB = model.Config.get_master_db()
+    SECRET_KEY = CONFIG_DB.flask_secret_key.encode('ascii')
 except:
-  pass
+    pass
 
 import os
 CURRENT_VERSION_ID = os.environ.get('CURRENT_VERSION_ID', None)
 if os.environ.get('SERVER_SOFTWARE', '').startswith('Google App Engine'):
-  DEVELOPMENT = False
+    DEVELOPMENT = False
 else:
-  DEVELOPMENT = True
+    DEVELOPMENT = True
 
 PRODUCTION = not DEVELOPMENT
 DEBUG = DEVELOPMENT
