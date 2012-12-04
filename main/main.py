@@ -1,6 +1,8 @@
 import sys
 if not ('lib.zip' in sys.path):
     sys.path.insert(0, 'lib.zip')
+    
+
 
 import flask
 from flaskext import wtf
@@ -12,9 +14,9 @@ app.config.from_object(config)
 from google.appengine.api import mail
 
 import auth
-import util
+#import util
 import model
-import admin
+#import admin
 
 
 @app.route('/')
