@@ -1,0 +1,26 @@
+application: mos3abofsite
+version: 2
+runtime: python
+api_version: 1
+threadsafe: true
+
+handlers:
+# index files
+- url: /(.*)/
+  static_files: public/\1/index.html
+  upload: public/(.*)/index.html
+  expiration: "15m"
+
+# site root
+- url: /
+  static_files: public/index.html
+  upload: public/index.html
+  expiration: "15m"
+
+- url: /blog/(.*)
+  static_files: public/blog/\1/index.html
+  upload: public/blog/(.*)/index.html
+  expiration: "15m"
+
+- url: /
+  static_dir: public

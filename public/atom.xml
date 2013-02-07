@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Mosab Ahmad]]></title>
+  <link href="http://www.mos3abof.com/atom.xml" rel="self"/>
+  <link href="http://www.mos3abof.com/"/>
+  <updated>2013-02-07T22:18:39+02:00</updated>
+  <id>http://www.mos3abof.com/</id>
+  <author>
+    <name><![CDATA[Mosab Ahmad]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Installing Gdata Python Client on Dreamhost]]></title>
+    <link href="http://www.mos3abof.com/blog/2013/02/07/installing-gdata-python-client-on-dreamhost/"/>
+    <updated>2013-02-07T22:05:00+02:00</updated>
+    <id>http://www.mos3abof.com/blog/2013/02/07/installing-gdata-python-client-on-dreamhost</id>
+    <content type="html"><![CDATA[<p>Our company&#8217;s website is hosted on Dreamhost. Today I needed to write a python script that utilizes some of Youtube&#8217;s APIs to send us a daily digest of videos we are interested in, so I ran into the problem of needing to install a python library on our hosting account which I don&#8217;t have root or admin access to.</p>
+
+<p>Here is what I did.</p>
+
+<p>First of all, I am assuming that you have enabled SSH access to your domain name you are doing this for. If this is not the case, then this article may be of great help : DreamHost  SSH</p>
+
+<ol>
+<li>I downloaded the gdata-python-client from code.google.com (at the moment I am writing this post the latest stable version is 2.0.17) using the following command :</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd ~ 
+</span><span class='line'>wget http://gdata-python-client.googlecode.com/files/gdata-2.0.17.tar.gz</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>Untar the tarball:</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tar -xzvf gdata-2.0.17.tar.gz</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>Change your directory to the uncompressed folder:</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd gdata-2.0.17</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>Here is the trick, since we don&#8217;t have administrative access, we can&#8217;t install the library system-wide, but we can however install it for our account by running this command :</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>python setup.py install --home=~/</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>Although the library is now installed on your account, you can&#8217;t yet import it directly, you need to add the path of libraries to the system.path in your python script in order to be able to import it, so at the beginning of your script add the following two lines:./tests/run_all_tests.py</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import os, syssys.path.append(os.environ['HOME'] + '/lib/python')</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What these two lines do is constructing a dynamic path to your new lib folder that contains gdata-python-client by getting the home path from the system registered in the variable os.environ[&#8216;HOME&#8217;] and concatinating &#8216;/lib/python&#8217; to it, then it appends this dynamically generated path to the system path so that the python interpreter will look into this folder when importing gdata</p>
+
+<ol>
+<li>Now you can do stuff with gdata like :</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import gdata.youtubeimport 
+</span><span class='line'>gdata.youtube.service</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here is my final script that I wrote, and I set up a cron job to run it every morning :</p>
+
+<div><script src='https://gist.github.com/4164654.js'></script>
+<noscript><pre><code>#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# Important imports
+import os, sys
+
+# Append the python libs installed on dreamhost to the sys.path
+sys.path.append(os.environ['HOME'] +'/lib/python')
+
+# Import email stuff
+import smtplib
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEBase import MIMEBase
+from email.MIMEText import MIMEText
+from email import Encoders
+
+# Import the Gdata library
+import gdata.youtube
+import gdata.youtube.service
+
+def PrintEntryDetails(entry):
+    '''
+    Takes an entry from a youtube standard feed and returns some of
+    its data as a human readable string
+    '''
+    entry_details = 'Video title: %s' % entry.media.title.text + '\n'
+    entry_details += 'Video published on: %s ' % entry.published.text + '\n'
+    entry_details += 'Video watch page: %s' % entry.media.player.url + '\n'
+    entry_details += 'Video duration: %s' % entry.media.duration.seconds + '\n'
+    entry_details += &quot;==========================================&quot; + '\n'
+
+    return entry_details
+
+def PrintVideoFeed(feed):
+    '''
+    Takes a youtube standard feed, formats it and returns a list of all included videos 
+    in a human readable string
+    '''
+    output = ''
+    for entry in feed.entry:
+        try:
+            output += PrintEntryDetails(entry)
+        except:
+            pass
+    return output
+
+
+def mail(to, subject, text, gmail_user, gmail_pwd):
+    '''
+    Sends mail using gmail
+    '''
+    msg = MIMEMultipart()
+
+    # Setting up message data
+    msg['From']     = 'FROM-EMAIL'
+    msg['To']       = to
+    msg['Subject']  = subject
+
+    msg.attach(MIMEText(text))
+
+    # Opening the connection with Gmail SMTP server
+    mailServer = smtplib.SMTP(&quot;smtp.gmail.com&quot;, 587)
+    mailServer.ehlo()
+    mailServer.starttls()
+    mailServer.ehlo()
+    mailServer.login(gmail_user, gmail_pwd)
+
+    # Actual sending of the email
+    mailServer.sendmail(gmail_user, to, msg.as_string())
+    
+    # Closing the connection
+    # Should be mailServer.quit(), but that crashes
+    mailServer.close()
+
+# Defining the main function
+if __name__ == '__main__':
+    # Setting up mail credentials
+    gmail_user  = &quot;REPLACE-THIS-WITH-YOUR-GMAIL-USERNAME&quot;
+    gmail_pwd   = &quot;REPLACE-THIS-WITH-YOUR-GMAIL-PASSWORD&quot;
+
+    # List of people to receive this daily digest
+        # Modify this to match your recipients list
+    recepient_list = [
+        'recepient1@example.com',
+        'recepient2@example.com',
+    ]
+
+    # Instantiate a YouYubeService object
+    yt_service = gdata.youtube.service.YouTubeService()
+
+    # Set the developer key and client id for monitoris this app
+    yt_service.developer_key = 'REPLACE-THIS-WITH-YOUR-YOUTUBE-DEVELOPER-KEY'
+    yt_service.client_id = 'REPLACE-THIS-WITH-YOUR-YOUTUBE-CLIENT-ID'
+
+
+    # The standard feed URI for most shared videos in region Egypt
+    uri = 'http://gdata.youtube.com/feeds/api/standardfeeds/EG/most_shared?v=2'
+
+    # Preparing the email body to be sent
+    # By assigning the videos in the feed in a human readable string format
+    email_body = PrintVideoFeed(yt_service.GetYouTubeVideoFeed(uri))
+    
+    # Looping over recepients and emailing them the digest
+    for recepient in recepient_list:
+        mail(recepient, &quot;أكثر مقاطع الفيديو مشاركة على يوتيوب اليوم&quot;,  email_body, gmail_user, gmail_pwd)</code></pre></noscript></div>
+
+
+
+]]></content>
+  </entry>
+  
+</feed>

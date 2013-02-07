@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mosab Ahmad</title>
+  <meta name="author" content="Mosab Ahmad">
+
+  
+  <meta name="description" content="Our company&#8217;s website is hosted on Dreamhost. Today I needed to write a python script that utilizes some of Youtube&#8217;s APIs to send us a &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.mos3abof.com/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Mosab Ahmad" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mosab Ahmad</a></h1>
+  
+    <h2>Supposedly a geek, a Software Engineer & Entrepreneur in the make!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.mos3abof.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/07/installing-gdata-python-client-on-dreamhost/">Installing Gdata Python Client on Dreamhost</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-07T22:05:00+02:00" pubdate data-updated="true">Feb 7<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/02/07/installing-gdata-python-client-on-dreamhost/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Our company&#8217;s website is hosted on Dreamhost. Today I needed to write a python script that utilizes some of Youtube&#8217;s APIs to send us a daily digest of videos we are interested in, so I ran into the problem of needing to install a python library on our hosting account which I don&#8217;t have root or admin access to.</p>
+
+<p>Here is what I did.</p>
+
+<p>First of all, I am assuming that you have enabled SSH access to your domain name you are doing this for. If this is not the case, then this article may be of great help : DreamHost  SSH</p>
+
+<ol>
+<li>I downloaded the gdata-python-client from code.google.com (at the moment I am writing this post the latest stable version is 2.0.17) using the following command :</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd ~ 
+</span><span class='line'>wget http://gdata-python-client.googlecode.com/files/gdata-2.0.17.tar.gz</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>Untar the tarball:</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tar -xzvf gdata-2.0.17.tar.gz</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>Change your directory to the uncompressed folder:</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd gdata-2.0.17</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>Here is the trick, since we don&#8217;t have administrative access, we can&#8217;t install the library system-wide, but we can however install it for our account by running this command :</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>python setup.py install --home=~/</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>Although the library is now installed on your account, you can&#8217;t yet import it directly, you need to add the path of libraries to the system.path in your python script in order to be able to import it, so at the beginning of your script add the following two lines:./tests/run_all_tests.py</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import os, syssys.path.append(os.environ['HOME'] + '/lib/python')</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What these two lines do is constructing a dynamic path to your new lib folder that contains gdata-python-client by getting the home path from the system registered in the variable os.environ[&#8216;HOME&#8217;] and concatinating &#8216;/lib/python&#8217; to it, then it appends this dynamically generated path to the system path so that the python interpreter will look into this folder when importing gdata</p>
+
+<ol>
+<li>Now you can do stuff with gdata like :</li>
+</ol>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import gdata.youtubeimport 
+</span><span class='line'>gdata.youtube.service</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here is my final script that I wrote, and I set up a cron job to run it every morning :</p>
+
+<div><script src='https://gist.github.com/4164654.js'></script>
+<noscript><pre><code>#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# Important imports
+import os, sys
+
+# Append the python libs installed on dreamhost to the sys.path
+sys.path.append(os.environ['HOME'] +'/lib/python')
+
+# Import email stuff
+import smtplib
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEBase import MIMEBase
+from email.MIMEText import MIMEText
+from email import Encoders
+
+# Import the Gdata library
+import gdata.youtube
+import gdata.youtube.service
+
+def PrintEntryDetails(entry):
+    '''
+    Takes an entry from a youtube standard feed and returns some of
+    its data as a human readable string
+    '''
+    entry_details = 'Video title: %s' % entry.media.title.text + '\n'
+    entry_details += 'Video published on: %s ' % entry.published.text + '\n'
+    entry_details += 'Video watch page: %s' % entry.media.player.url + '\n'
+    entry_details += 'Video duration: %s' % entry.media.duration.seconds + '\n'
+    entry_details += &quot;==========================================&quot; + '\n'
+
+    return entry_details
+
+def PrintVideoFeed(feed):
+    '''
+    Takes a youtube standard feed, formats it and returns a list of all included videos 
+    in a human readable string
+    '''
+    output = ''
+    for entry in feed.entry:
+        try:
+            output += PrintEntryDetails(entry)
+        except:
+            pass
+    return output
+
+
+def mail(to, subject, text, gmail_user, gmail_pwd):
+    '''
+    Sends mail using gmail
+    '''
+    msg = MIMEMultipart()
+
+    # Setting up message data
+    msg['From']     = 'FROM-EMAIL'
+    msg['To']       = to
+    msg['Subject']  = subject
+
+    msg.attach(MIMEText(text))
+
+    # Opening the connection with Gmail SMTP server
+    mailServer = smtplib.SMTP(&quot;smtp.gmail.com&quot;, 587)
+    mailServer.ehlo()
+    mailServer.starttls()
+    mailServer.ehlo()
+    mailServer.login(gmail_user, gmail_pwd)
+
+    # Actual sending of the email
+    mailServer.sendmail(gmail_user, to, msg.as_string())
+    
+    # Closing the connection
+    # Should be mailServer.quit(), but that crashes
+    mailServer.close()
+
+# Defining the main function
+if __name__ == '__main__':
+    # Setting up mail credentials
+    gmail_user  = &quot;REPLACE-THIS-WITH-YOUR-GMAIL-USERNAME&quot;
+    gmail_pwd   = &quot;REPLACE-THIS-WITH-YOUR-GMAIL-PASSWORD&quot;
+
+    # List of people to receive this daily digest
+        # Modify this to match your recipients list
+    recepient_list = [
+        'recepient1@example.com',
+        'recepient2@example.com',
+    ]
+
+    # Instantiate a YouYubeService object
+    yt_service = gdata.youtube.service.YouTubeService()
+
+    # Set the developer key and client id for monitoris this app
+    yt_service.developer_key = 'REPLACE-THIS-WITH-YOUR-YOUTUBE-DEVELOPER-KEY'
+    yt_service.client_id = 'REPLACE-THIS-WITH-YOUR-YOUTUBE-CLIENT-ID'
+
+
+    # The standard feed URI for most shared videos in region Egypt
+    uri = 'http://gdata.youtube.com/feeds/api/standardfeeds/EG/most_shared?v=2'
+
+    # Preparing the email body to be sent
+    # By assigning the videos in the feed in a human readable string format
+    email_body = PrintVideoFeed(yt_service.GetYouTubeVideoFeed(uri))
+    
+    # Looping over recepients and emailing them the digest
+    for recepient in recepient_list:
+        mail(recepient, &quot;أكثر مقاطع الفيديو مشاركة على يوتيوب اليوم&quot;,  email_body, gmail_user, gmail_pwd)</code></pre></noscript></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/07/installing-gdata-python-client-on-dreamhost/">Installing Gdata Python Client on Dreamhost</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/mos3abof">@mos3abof</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'mos3abof',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("mos3abof", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/mos3abof" class="twitter-follow-button" data-show-count="false">Follow @mos3abof</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/103419053954297467507?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+	Copyright &copy; 2007-2013 - <a href="/">Mosab Ahmad</a> | 
+	This site is built with
+	<a href="http://octopress.org" target="_blank">Octopress</a>
+	and is hosted on 
+	<a href="https://cloud.google.com/products/" target="_blank">Google App Engine</a>. 
+</p>
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'mos3abof';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
