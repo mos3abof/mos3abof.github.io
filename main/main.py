@@ -1,7 +1,7 @@
 import sys
 if not ('lib.zip' in sys.path):
     sys.path.insert(0, 'lib.zip')
-    
+
 
 
 import flask
@@ -103,10 +103,10 @@ def extras():
     'city_lat_long': city_lat_long,
     'user_agent': flask.request.headers['User-Agent'],
     }
-    
+
     if flask.request.path.startswith('/_s/'):
         return flask.jsonify(extra_info)
-    
+
     return flask.render_template(
       'extras.html',
       html_class='extras',
@@ -124,6 +124,13 @@ def chat():
 	  channel_name='chat',
 	)
 
+@app.route('/pinterest-ba754.html')
+def pinterest():
+    return flask.render_template(
+        'pinterest.html',
+        title='pinterest',
+        html_class='pinterest',
+    )
 
 ################################################################################
 # Error Handling
