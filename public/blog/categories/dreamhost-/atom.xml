@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dreamhost, | Mosab Ahmad]]></title>
   <link href="http://www.mos3abof.com/blog/categories/dreamhost-/atom.xml" rel="self"/>
   <link href="http://www.mos3abof.com/"/>
-  <updated>2013-02-07T22:18:39+02:00</updated>
+  <updated>2013-02-08T01:50:12+02:00</updated>
   <id>http://www.mos3abof.com/</id>
   <author>
     <name><![CDATA[Mosab Ahmad]]></name>
@@ -15,54 +15,49 @@
   
   <entry>
     <title type="html"><![CDATA[Installing Gdata Python Client on Dreamhost]]></title>
-    <link href="http://www.mos3abof.com/blog/2013/02/07/installing-gdata-python-client-on-dreamhost/"/>
-    <updated>2013-02-07T22:05:00+02:00</updated>
-    <id>http://www.mos3abof.com/blog/2013/02/07/installing-gdata-python-client-on-dreamhost</id>
-    <content type="html"><![CDATA[<p>Our company's website is hosted on Dreamhost. Today I needed to write a python script that utilizes some of Youtube's APIs to send us a daily digest of videos we are interested in, so I ran into the problem of needing to install a python library on our hosting account which I don't have root or admin access to.</p>
+    <link href="http://www.mos3abof.com/blog/2012/11/29/installing-gdata-python-client-on-dreamhost/"/>
+    <updated>2012-11-29T22:05:00+02:00</updated>
+    <id>http://www.mos3abof.com/blog/2012/11/29/installing-gdata-python-client-on-dreamhost</id>
+    <content type="html"><![CDATA[<p><img src="http://2.bp.blogspot.com/-ILyPuIzOCFA/ULU4WBlgvdI/AAAAAAAADLU/NokoEzlRnSQ/s400/google_devlogo.jpeg" alt="Google Developers Logo" />
+Our company's website is hosted on <a href="" title="http://www.dreamhost.com&quot;, &quot;DreamHost">Dreamhost</a>. Today I needed to write a python script that utilizes some of Youtube's APIs to send us a daily digest of videos we are interested in, so I ran into the problem of needing to install a python library on our hosting account which I don't have root or admin access to.</p>
 
 <p>Here is what I did.</p>
 
-<p>First of all, I am assuming that you have enabled SSH access to your domain name you are doing this for. If this is not the case, then this article may be of great help : DreamHost  SSH</p>
+<p>First of all, I am assuming that you have enabled SSH access to your domain name you are doing this for. If this is not the case, then this article may be of great help : <a href="" title="http://ahappycustomer.dreamhosters.com/dreamhost-ssh.html&quot;, &quot;DreamHost SSH">DreamHost  SSH</a></p>
 
-<ol>
-<li>I downloaded the gdata-python-client from code.google.com (at the moment I am writing this post the latest stable version is 2.0.17) using the following command :</li>
-</ol>
-
+<p>1. I downloaded the <a href="" title="http://code.google.com/p/gdata-python-client/downloads/list">gdata-python-client</a> from code.google.com (at the moment I am writing this post the latest stable version is 2.0.17) using the following command :</p>
 
 <p><code>
 cd ~
-wget http://gdata-python-client.googlecode.com/files/gdata-2.0.17.tar.gz
+$ wget http://gdata-python-client.googlecode.com/files/gdata-2.0.17.tar.gz
 </code></p>
 
-<ol>
-<li><p>Untar the tarball:
+<p>2. Untar the tarball:
 <code>
-tar -xzvf gdata-2.0.17.tar.gz
-</code></p></li>
-<li><p>Change your directory to the uncompressed folder:
-<code>
-cd gdata-2.0.17
-</code></p></li>
-<li><p>Here is the trick, since we don't have administrative access, we can't install the library system-wide, but we can however install it for our account by running this command :
-<code>
-python setup.py install --home=~/
-</code></p></li>
-<li><p>Although the library is now installed on your account, you can't yet import it directly, you need to add the path of libraries to the system.path in your python script in order to be able to import it, so at the beginning of your script add the following two lines:./tests/run_all_tests.py</p></li>
-</ol>
+$ tar -xzvf gdata-2.0.17.tar.gz
+</code></p>
 
+<p>3. Change your directory to the uncompressed folder:
+<code>
+$ cd gdata-2.0.17
+</code></p>
 
-<p><code>
-import os, syssys.path.append(os.environ['HOME'] + '/lib/python')
+<p>4. Here is the trick, since we don't have administrative access, we can't install the library system-wide, but we can however install it for our account by running this command :
+<code>
+$ python setup.py install --home=~/
+</code></p>
+
+<p>5. Although the library is now installed on your account, you can't yet import it directly, you need to add the path of libraries to the system.path in your python script in order to be able to import it, so at the beginning of your script add the following two lines:
+<code>
+$ ./tests/run_all_tests.py
+$ import os, syssys.path.append(os.environ['HOME'] + '/lib/python')
 </code></p>
 
 <p>What these two lines do is constructing a dynamic path to your new lib folder that contains gdata-python-client by getting the home path from the system registered in the variable os.environ['HOME'] and concatinating '/lib/python' to it, then it appends this dynamically generated path to the system path so that the python interpreter will look into this folder when importing gdata</p>
 
-<ol>
-<li>Now you can do stuff with gdata like :</li>
-</ol>
+<p>6. Now you can do stuff with gdata like :</p>
 
-
-<p><code>
+<p><code>python
 import gdata.youtubeimport
 gdata.youtube.service
 </code></p>

@@ -1,0 +1,105 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# Important imports
+import os, sys
+
+# Append the python libs installed on dreamhost to the sys.path
+sys.path.append(os.environ['HOME'] +'/lib/python')
+
+# Import email stuff
+import smtplib
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEBase import MIMEBase
+from email.MIMEText import MIMEText
+from email import Encoders
+
+# Import the Gdata library
+import gdata.youtube
+import gdata.youtube.service
+
+def PrintEntryDetails(entry):
+	'''
+	Takes an entry from a youtube standard feed and returns some of
+	its data as a human readable string
+	'''
+	entry_details = 'Video title: %s' % entry.media.title.text + '\n'
+	entry_details += 'Video published on: %s ' % entry.published.text + '\n'
+	entry_details += 'Video watch page: %s' % entry.media.player.url + '\n'
+	entry_details += 'Video duration: %s' % entry.media.duration.seconds + '\n'
+	entry_details += "==========================================" + '\n'
+
+	return entry_details
+
+def PrintVideoFeed(feed):
+	'''
+	Takes a youtube standard feed, formats it and returns a list of all included videos 
+	in a human readable string
+	'''
+	output = ''
+	for entry in feed.entry:
+		try:
+			output += PrintEntryDetails(entry)
+		except:
+			pass
+	return output
+
+
+def mail(to, subject, text, gmail_user, gmail_pwd):
+	'''
+	Sends mail using gmail
+	'''
+	msg = MIMEMultipart()
+
+	# Setting up message data
+	msg['From'] 	= 'FROM-EMAIL'
+	msg['To'] 		= to
+	msg['Subject']	= subject
+
+	msg.attach(MIMEText(text))
+
+	# Opening the connection with Gmail SMTP server
+	mailServer = smtplib.SMTP("smtp.gmail.com", 587)
+	mailServer.ehlo()
+	mailServer.starttls()
+	mailServer.ehlo()
+	mailServer.login(gmail_user, gmail_pwd)
+
+	# Actual sending of the email
+	mailServer.sendmail(gmail_user, to, msg.as_string())
+	
+	# Closing the connection
+	# Should be mailServer.quit(), but that crashes
+	mailServer.close()
+
+# Defining the main function
+if __name__ == '__main__':
+	# Setting up mail credentials
+	gmail_user	= "REPLACE-THIS-WITH-YOUR-GMAIL-USERNAME"
+	gmail_pwd	= "REPLACE-THIS-WITH-YOUR-GMAIL-PASSWORD"
+
+	# List of people to receive this daily digest
+        # Modify this to match your recipients list
+	recepient_list = [
+		'recepient1@example.com',
+		'recepient2@example.com',
+	]
+
+	# Instantiate a YouYubeService object
+	yt_service = gdata.youtube.service.YouTubeService()
+
+	# Set the developer key and client id for monitoris this app
+	yt_service.developer_key = 'REPLACE-THIS-WITH-YOUR-YOUTUBE-DEVELOPER-KEY'
+	yt_service.client_id = 'REPLACE-THIS-WITH-YOUR-YOUTUBE-CLIENT-ID'
+
+
+	# The standard feed URI for most shared videos in region Egypt
+	uri = 'http://gdata.youtube.com/feeds/api/standardfeeds/EG/most_shared?v=2'
+
+	# Preparing the email body to be sent
+	# By assigning the videos in the feed in a human readable string format
+	email_body = PrintVideoFeed(yt_service.GetYouTubeVideoFeed(uri))
+	
+	# Looping over recepients and emailing them the digest
+	for recepient in recepient_list:
+		mail(recepient, "أكثر مقاطع الفيديو مشاركة على يوتيوب اليوم",  email_body, gmail_user, gmail_pwd)
