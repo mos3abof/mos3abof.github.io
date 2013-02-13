@@ -1,0 +1,10 @@
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">urllib</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">resposne_code</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;http://www.example.com&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getcode</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">response_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+    <span class="c"># Here write code to do whatever you want to do when the website is down.</span>
+</pre></div>

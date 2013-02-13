@@ -30,6 +30,18 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5860432-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -92,8 +104,9 @@
   </header>
 
 
-<div class="entry-content"><p><img src="http://2.bp.blogspot.com/-ILyPuIzOCFA/ULU4WBlgvdI/AAAAAAAADLU/NokoEzlRnSQ/s400/google_devlogo.jpeg" alt="Google Developers Logo" />
-Our company&#8217;s website is hosted on <a href="" title="http://www.dreamhost.com&quot;, &quot;DreamHost">Dreamhost</a>. Today I needed to write a python script that utilizes some of Youtube&#8217;s APIs to send us a daily digest of videos we are interested in, so I ran into the problem of needing to install a python library on our hosting account which I don&#8217;t have root or admin access to.</p>
+<div class="entry-content"><p><img src="http://2.bp.blogspot.com/-ILyPuIzOCFA/ULU4WBlgvdI/AAAAAAAADLU/NokoEzlRnSQ/s400/google_devlogo.jpeg" alt="Google Developers Logo" /></p>
+
+<p>Our company&#8217;s website is hosted on <a href="" title="http://www.dreamhost.com&quot;, &quot;DreamHost">Dreamhost</a>. Today I needed to write a python script that utilizes some of Youtube&#8217;s APIs to send us a daily digest of videos we are interested in, so I ran into the problem of needing to install a python library on our hosting account which I don&#8217;t have root or admin access to.</p>
 
 <p>Here is what I did.</p>
 
@@ -103,7 +116,7 @@ Our company&#8217;s website is hosted on <a href="" title="http://www.dreamhost.
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd ~ 
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd ~ 
 </span><span class='line'>$ wget http://gdata-python-client.googlecode.com/files/gdata-2.0.17.tar.gz</span></code></pre></td></tr></table></div></figure>
 
 
@@ -125,12 +138,18 @@ Our company&#8217;s website is hosted on <a href="" title="http://www.dreamhost.
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ python setup.py install --home=~/</span></code></pre></td></tr></table></div></figure>
 
 
+<p>To test if everything is right run the following command :</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ./tests/run_all_tests.py</span></code></pre></td></tr></table></div></figure>
+
+
 <p>5. Although the library is now installed on your account, you can&#8217;t yet import it directly, you need to add the path of libraries to the system.path in your python script in order to be able to import it, so at the beginning of your script add the following two lines:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ ./tests/run_all_tests.py
-</span><span class='line'>$ import os, syssys.path.append(os.environ['HOME'] + '/lib/python')</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import os, sys
+</span><span class='line'>sys.path.append(os.environ['HOME'] + '/lib/python')</span></code></pre></td></tr></table></div></figure>
 
 
 <p>What these two lines do is constructing a dynamic path to your new lib folder that contains gdata-python-client by getting the home path from the system registered in the variable os.environ[&#8216;HOME&#8217;] and concatinating &#8216;/lib/python&#8217; to it, then it appends this dynamically generated path to the system path so that the python interpreter will look into this folder when importing gdata</p>
@@ -139,8 +158,8 @@ Our company&#8217;s website is hosted on <a href="" title="http://www.dreamhost.
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">gdata.youtubeimport</span>
-</span><span class='line'><span class="n">gdata</span><span class="o">.</span><span class="n">youtube</span><span class="o">.</span><span class="n">service</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">gdata.youtubeimport</span>
+</span><span class='line'><span class="o">&gt;&gt;&gt;</span> <span class="n">gdata</span><span class="o">.</span><span class="n">youtube</span><span class="o">.</span><span class="n">service</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -305,6 +324,8 @@ if __name__ == '__main__':
     <p class="meta">
       
       
+        <a class="basic-alignment right" href="/blog/2013/02/11/monitoring-a-website-using-python/" title="Next Post: Poor man's guide for Monitoring a website using Python">Poor man's guide for Monitoring a website using Python &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -319,9 +340,21 @@ if __name__ == '__main__':
 
 <aside class="sidebar">
   
-    Included file 'asieds/aboutme.html' not found in _includes directory<section>
+    <section>
+<a href="http://www.flickr.com/photos/mos3ab/4308510641/" title="Mosab The Great by mos3ab, on Flickr">
+<img src="http://farm5.staticflickr.com/4018/4308510641_81e137b4c9_n.jpg" width="280" height="165" alt="Mosab The Great" /></a>
+<br />
+I am a proud Muslim Egyptian, a caffeine junkie, a food lover, supposedly a geek, 
+a software engineer, an open source & free software believer and -finally- 
+an entrepreneur in the make. Currently living in Cairo, Egypt.
+</section>
+<section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/11/monitoring-a-website-using-python/">Poor man's guide for Monitoring a website using Python</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/11/29/installing-gdata-python-client-on-dreamhost/">Installing Gdata Python Client on Dreamhost</a>

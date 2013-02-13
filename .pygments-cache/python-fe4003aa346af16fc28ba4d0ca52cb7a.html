@@ -1,0 +1,40 @@
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">smtplib</span>
+<span class="kn">from</span> <span class="nn">email.MIMEMultipart</span> <span class="kn">import</span> <span class="n">MIMEMultipart</span>
+<span class="kn">from</span> <span class="nn">email.MIMEBase</span> <span class="kn">import</span> <span class="n">MIMEBase</span>
+<span class="kn">from</span> <span class="nn">email.MIMEText</span> <span class="kn">import</span> <span class="n">MIMEText</span>
+<span class="kn">from</span> <span class="nn">email</span> <span class="kn">import</span> <span class="n">Encoders</span>
+
+
+<span class="n">subject</span>		<span class="o">=</span> <span class="s">&#39;Your website is down&#39;</span>
+<span class="n">email_body</span>	<span class="o">=</span> <span class="s">&#39;Your website is down&#39;</span>
+<span class="n">gmail_user</span>	<span class="o">=</span> <span class="s">&#39;YOUR-GMAIL-ADDRESS&#39;</span>
+<span class="n">gmail_pwd</span>	<span class="o">=</span> <span class="s">&#39;YOUR-GMAIL-PASSWORD&#39;</span>
+<span class="n">recepient</span> 	<span class="o">=</span> <span class="s">&#39;DEVOPS-EMAIL&#39;</span>
+
+<span class="k">def</span> <span class="nf">mail</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">gmail_user</span><span class="p">,</span> <span class="n">gmail_pwd</span><span class="p">):</span>
+	<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">	Sends mail using gmail</span>
+<span class="sd">	&#39;&#39;&#39;</span>
+	<span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEMultipart</span><span class="p">()</span>
+ 
+	<span class="c"># Setting up message data</span>
+	<span class="n">msg</span><span class="p">[</span><span class="s">&#39;From&#39;</span><span class="p">]</span> 	<span class="o">=</span> <span class="s">&#39;DEVOPS-EMAIL&#39;</span>
+	<span class="n">msg</span><span class="p">[</span><span class="s">&#39;To&#39;</span><span class="p">]</span> 		<span class="o">=</span> <span class="n">to</span>
+	<span class="n">msg</span><span class="p">[</span><span class="s">&#39;Subject&#39;</span><span class="p">]</span>	<span class="o">=</span> <span class="n">subject</span>
+ 
+	<span class="n">msg</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">MIMEText</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+ 
+	<span class="c"># Opening the connection with Gmail SMTP server</span>
+	<span class="n">mailServer</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s">&quot;smtp.gmail.com&quot;</span><span class="p">,</span> <span class="mi">587</span><span class="p">)</span>
+	<span class="n">mailServer</span><span class="o">.</span><span class="n">ehlo</span><span class="p">()</span>
+	<span class="n">mailServer</span><span class="o">.</span><span class="n">starttls</span><span class="p">()</span>
+	<span class="n">mailServer</span><span class="o">.</span><span class="n">ehlo</span><span class="p">()</span>
+	<span class="n">mailServer</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">gmail_user</span><span class="p">,</span> <span class="n">gmail_pwd</span><span class="p">)</span>
+ 
+	<span class="c"># Actual sending of the email</span>
+	<span class="n">mailServer</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="n">gmail_user</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">as_string</span><span class="p">())</span>
+	
+	<span class="c"># Closing the connection</span>
+	<span class="c"># Should be mailServer.quit(), but that crashes</span>
+	<span class="n">mailServer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GData | Mosab Ahmad]]></title>
   <link href="http://www.mos3abof.com/blog/categories/gdata/atom.xml" rel="self"/>
   <link href="http://www.mos3abof.com/"/>
-  <updated>2013-02-08T01:50:12+02:00</updated>
+  <updated>2013-02-13T03:56:54+02:00</updated>
   <id>http://www.mos3abof.com/</id>
   <author>
     <name><![CDATA[Mosab Ahmad]]></name>
@@ -18,8 +18,9 @@
     <link href="http://www.mos3abof.com/blog/2012/11/29/installing-gdata-python-client-on-dreamhost/"/>
     <updated>2012-11-29T22:05:00+02:00</updated>
     <id>http://www.mos3abof.com/blog/2012/11/29/installing-gdata-python-client-on-dreamhost</id>
-    <content type="html"><![CDATA[<p><img src="http://2.bp.blogspot.com/-ILyPuIzOCFA/ULU4WBlgvdI/AAAAAAAADLU/NokoEzlRnSQ/s400/google_devlogo.jpeg" alt="Google Developers Logo" />
-Our company's website is hosted on <a href="" title="http://www.dreamhost.com&quot;, &quot;DreamHost">Dreamhost</a>. Today I needed to write a python script that utilizes some of Youtube's APIs to send us a daily digest of videos we are interested in, so I ran into the problem of needing to install a python library on our hosting account which I don't have root or admin access to.</p>
+    <content type="html"><![CDATA[<p><img src="http://2.bp.blogspot.com/-ILyPuIzOCFA/ULU4WBlgvdI/AAAAAAAADLU/NokoEzlRnSQ/s400/google_devlogo.jpeg" alt="Google Developers Logo" /></p>
+
+<p>Our company's website is hosted on <a href="" title="http://www.dreamhost.com&quot;, &quot;DreamHost">Dreamhost</a>. Today I needed to write a python script that utilizes some of Youtube's APIs to send us a daily digest of videos we are interested in, so I ran into the problem of needing to install a python library on our hosting account which I don't have root or admin access to.</p>
 
 <p>Here is what I did.</p>
 
@@ -28,7 +29,7 @@ Our company's website is hosted on <a href="" title="http://www.dreamhost.com&qu
 <p>1. I downloaded the <a href="" title="http://code.google.com/p/gdata-python-client/downloads/list">gdata-python-client</a> from code.google.com (at the moment I am writing this post the latest stable version is 2.0.17) using the following command :</p>
 
 <p><code>
-cd ~
+$ cd ~
 $ wget http://gdata-python-client.googlecode.com/files/gdata-2.0.17.tar.gz
 </code></p>
 
@@ -45,22 +46,27 @@ $ cd gdata-2.0.17
 <p>4. Here is the trick, since we don't have administrative access, we can't install the library system-wide, but we can however install it for our account by running this command :
 <code>
 $ python setup.py install --home=~/
+</code>
+To test if everything is right run the following command :
+<code>
+$ ./tests/run_all_tests.py
 </code></p>
 
 <p>5. Although the library is now installed on your account, you can't yet import it directly, you need to add the path of libraries to the system.path in your python script in order to be able to import it, so at the beginning of your script add the following two lines:
 <code>
-$ ./tests/run_all_tests.py
-$ import os, syssys.path.append(os.environ['HOME'] + '/lib/python')
+import os, sys
+sys.path.append(os.environ['HOME'] + '/lib/python')
 </code></p>
 
 <p>What these two lines do is constructing a dynamic path to your new lib folder that contains gdata-python-client by getting the home path from the system registered in the variable os.environ['HOME'] and concatinating '/lib/python' to it, then it appends this dynamically generated path to the system path so that the python interpreter will look into this folder when importing gdata</p>
 
 <p>6. Now you can do stuff with gdata like :</p>
 
-<p><code>python
-import gdata.youtubeimport
+<p>``` python</p>
+
+<blockquote><blockquote><blockquote><p>import gdata.youtubeimport
 gdata.youtube.service
-</code></p>
+```</p></blockquote></blockquote></blockquote>
 
 <p>Here is my final script that I wrote, and I set up a cron job to run it every morning :</p>
 
