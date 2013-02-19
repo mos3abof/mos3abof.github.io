@@ -8,11 +8,21 @@
     </url>
     <url>
         <loc>http://www.mos3abof.com/blog/2013/02/11/monitoring-a-website-using-python/</loc>
-        <lastmod>2013-02-13T03:56:49+02:00</lastmod>
+        <lastmod>2013-02-13T06:16:37+02:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://www.mos3abof.com/blog/2013/02/19/reading-data-from-excel-sheets-in-python/
+        </loc>
+        <lastmod>2013-02-19T18:32:40+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.mos3abof.com/about/</loc>
+        <lastmod>2013-02-13T05:05:02+02:00</lastmod>
     </url>
     <url>
         <loc>http://www.mos3abof.com/</loc>
-        <lastmod>2013-02-13T03:56:49+02:00</lastmod>
+        <lastmod>2013-02-19T18:32:40+02:00</lastmod>
     </url>
     <url>
         <loc>http://www.mos3abof.com/robots.txt</loc>
@@ -20,6 +30,6 @@
     </url>
     <url>
         <loc>http://www.mos3abof.com/blog/archives/</loc>
-        <lastmod>2013-02-13T03:56:49+02:00</lastmod>
+        <lastmod>2013-02-19T18:32:40+02:00</lastmod>
     </url>
 </urlset>

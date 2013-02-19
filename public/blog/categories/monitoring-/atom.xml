@@ -4,7 +4,7 @@
   <title><![CDATA[Category: monitoring, | Mosab Ahmad]]></title>
   <link href="http://www.mos3abof.com/blog/categories/monitoring-/atom.xml" rel="self"/>
   <link href="http://www.mos3abof.com/"/>
-  <updated>2013-02-13T03:56:54+02:00</updated>
+  <updated>2013-02-19T20:03:13+02:00</updated>
   <id>http://www.mos3abof.com/</id>
   <author>
     <name><![CDATA[Mosab Ahmad]]></name>
@@ -18,7 +18,9 @@
     <link href="http://www.mos3abof.com/blog/2013/02/11/monitoring-a-website-using-python/"/>
     <updated>2013-02-11T17:34:00+02:00</updated>
     <id>http://www.mos3abof.com/blog/2013/02/11/monitoring-a-website-using-python</id>
-    <content type="html"><![CDATA[<p>In one of the projects I am working on there was a problem with Apache server. It went down almost on a daily basis, and we were reading the logs to get the bottom of the root cause. But untill we got our solution we needed to monitor the server's accssibility through the web, and get alerted if it went down, and ultimately restart it when this happened.</p>
+    <content type="html"><![CDATA[<p><img src="http://s8.postimage.org/gvv1dcv4l/website_monitoring_with_python.jpg" alt="Monitor your website with Python" /></p>
+
+<p>In one of the projects I am working on there was a problem with Apache server. It went down almost on a daily basis, and we were reading the logs to get the bottom of the root cause. But untill we got our solution we needed to monitor the server's accssibility through the web, and get alerted if it went down, and ultimately restart it when this happened.</p>
 
 <p>So I fired up my console and text editor and started hacking a little script to do the above mentioned side goals.</p>
 

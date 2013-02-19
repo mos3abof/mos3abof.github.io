@@ -5,6 +5,9 @@ date: 2013-02-11 17:34
 comments: true
 categories:  Python, urllib, monitoring, Fabric
 ---
+
+![Monitor your website with Python](http://s8.postimage.org/gvv1dcv4l/website_monitoring_with_python.jpg)
+
 In one of the projects I am working on there was a problem with Apache server. It went down almost on a daily basis, and we were reading the logs to get the bottom of the root cause. But untill we got our solution we needed to monitor the server's accssibility through the web, and get alerted if it went down, and ultimately restart it when this happened.
 
 So I fired up my console and text editor and started hacking a little script to do the above mentioned side goals.
