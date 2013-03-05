@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python, | Mosab Ahmad]]></title>
   <link href="http://www.mos3abof.com/blog/categories/python-/atom.xml" rel="self"/>
   <link href="http://www.mos3abof.com/"/>
-  <updated>2013-02-19T20:03:13+02:00</updated>
+  <updated>2013-02-19T23:31:49+02:00</updated>
   <id>http://www.mos3abof.com/</id>
   <author>
     <name><![CDATA[Mosab Ahmad]]></name>
@@ -18,9 +18,11 @@
     <link href="http://www.mos3abof.com/blog/2013/02/19/reading-data-from-excel-sheets-in-python/"/>
     <updated>2013-02-19T13:18:00+02:00</updated>
     <id>http://www.mos3abof.com/blog/2013/02/19/reading-data-from-excel-sheets-in-python</id>
-    <content type="html"><![CDATA[<p>On May 22nd 2012 I was approached by the official campaign of the presidential candidate "<a href="http://www.abolfotoh.net/">Abolfotoh</a>".
+    <content type="html"><![CDATA[<p><img src="http://i.stack.imgur.com/Jl8fh.png" alt="Excel Date Sample" /></p>
+
+<p>On <em>May 22nd 2012</em> I was approached by the official campaign of the presidential candidate "<a href="http://www.abolfotoh.net/">Abolfotoh</a>".
 They needed help setting up a Google App Engine project.
-It was originally created by "<a href="http://www.espace.com.eg">e-space</a>" -an awesome Egyptian company- and published on <a href="https://code.google.com/p/egypt-election-2012-demo/">Google Code</a>.
+It was originally created by "<a href="http://www.espace.com.eg">Espace</a>" <em>-an awesome Egyptian company-</em> and published on <a href="https://code.google.com/p/egypt-election-2012-demo/">Google Code</a>.
 I helped them with he setup, but that is another story.</p>
 
 <p>The application was an interactive map that uses Google Maps to plot data about voters and polling stations.
@@ -64,7 +66,8 @@ $ easy_install xlrd
 
 <p>Let's start coding.</p>
 
-<p>XLRD calls the whole excel document a "Workbook", to open we can do this in an interactive python shell from the same path as the file:</p>
+<p>XLRD calls the whole excel document a "Workbook", to open it we can do the following in an interactive python
+shell from the same path as the file:</p>
 
 <p>```python</p>
 

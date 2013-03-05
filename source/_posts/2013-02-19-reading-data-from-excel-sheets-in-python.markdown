@@ -6,9 +6,11 @@ comments: true
 categories: Python, XLRD, Excel
 ---
 
-On May 22nd 2012 I was approached by the official campaign of the presidential candidate "[Abolfotoh](http://www.abolfotoh.net/)".
+![Excel Date Sample](http://i.stack.imgur.com/Jl8fh.png)
+
+On *May 22nd 2012* I was approached by the official campaign of the presidential candidate "[Abolfotoh](http://www.abolfotoh.net/)".
 They needed help setting up a Google App Engine project. 
-It was originally created by "[e-space](http://www.espace.com.eg)" -an awesome Egyptian company- and published on [Google Code](https://code.google.com/p/egypt-election-2012-demo/). 
+It was originally created by "[Espace](http://www.espace.com.eg)" *-an awesome Egyptian company-* and published on [Google Code](https://code.google.com/p/egypt-election-2012-demo/). 
 I helped them with he setup, but that is another story.
 
 The application was an interactive map that uses Google Maps to plot data about voters and polling stations. 
@@ -52,7 +54,8 @@ $ easy_install xlrd
 
 Let's start coding.
 
-XLRD calls the whole excel document a "Workbook", to open we can do this in an interactive python shell from the same path as the file:
+XLRD calls the whole excel document a "Workbook", to open it we can do the following in an interactive python 
+shell from the same path as the file:
 
 ```python
 >>> from xlrd import open_workbook
