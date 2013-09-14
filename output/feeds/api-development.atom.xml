@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mosab Ahmad</title><link href="http://www.mos3abof.com/" rel="alternate"></link><link href="./feeds/api-development.atom.xml" rel="self"></link><id>http://www.mos3abof.com/</id><updated>2013-06-17T06:00:00+02:00</updated><entry><title>Toggl Target Open Source Project</title><link href="http://www.mos3abof.com/toggl-target.html" rel="alternate"></link><updated>2013-06-17T06:00:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2013-06-17:toggl-target.html</id><summary type="html">&lt;p&gt;&lt;img alt="My little open source script Toggl Target in action." src="http://farm4.staticflickr.com/3832/9067864209_17b3b8d1c8_o.png" /&gt;&lt;/p&gt;
+&lt;p&gt;At our company, &lt;a href="http://www.yubb-software.com"&gt;Yubb Software&lt;/a&gt;, we track our working hours using the greate time tracker created by the folks at &lt;a href="http://www.toggl.com"&gt;Toggl&lt;/a&gt;, and we have monthly goals that we need to achieve. I have always had a problem with time management, and this time I decided I should start working on them.&lt;/p&gt;
+&lt;p&gt;So I created this small project to calculate how many hours I should work to achieve my monthly goals.
+This information has provided me with a whole new level of awarenes of how productive I am! It is scary, but at the same time it give you a greate indicator of how good -or bad- you are sticking to your goals and if you need to have some crunch time or just relax the next weekend.&lt;/p&gt;
+&lt;p&gt;I then published the script under GPL license V2 on &lt;a href="https://github.com/mos3abof/toggl_target"&gt;Github&lt;/a&gt;.
+I got great deal of help from one of my role model software engineers in Egypt, &lt;a href="http://www.mtayseer.net/"&gt;Mohammed Tayseer&lt;/a&gt;, in making the code more Pythonic. He also added installation instructions for Windows users, as I don't use windows anymore, and he is now a contributor to the repository on Github.&lt;/p&gt;
+&lt;p&gt;Today, Monday June 17th, Toggl added a link to my script on their new documentation in the &lt;a href="https://github.com/toggl/toggl_api_docs"&gt;Code Examples&lt;/a&gt; section.&lt;/p&gt;
+&lt;p&gt;My little open source script that uses is the first -and so far the only- mentioned in their new API Documentation. Checkt it on their &lt;a href="https://github.com/toggl/toggl_api_docs#code-examples"&gt;API Documenation&lt;/a&gt; on Github, or check the following screenshot :&lt;/p&gt;
+&lt;p&gt;&lt;img alt="My little open source script that uses is the first -and so far the only- mentioned in Toggl's API new Documentation." src="http://farm8.staticflickr.com/7432/9069807810_0084073717_b.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;This really made my day. Thank you Toggl :)&lt;/p&gt;
+&lt;h3 id="update-1-friday-june-21st-350-pm"&gt;&lt;strong&gt;&lt;em&gt;Update 1 : Friday June 21st, 3:50 PM&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;I received an email today from someone with the following content :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hi Mosab,&lt;/p&gt;
+&lt;p&gt;I’m currently making a small Python app that interacts with the toggl API, and your toggl target script has been helpful in getting me started. I’m using a modified version of your api.py file, and I’d like to credit you in my project when I put it on GitHub, but I’m not sure how (I’m rather new to all of this). Is it sufficient to mention that in the readme or should I leave the line "#@author Mosab Ahmad &lt;a href="&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#109;&amp;#111;&amp;#115;&amp;#97;&amp;#98;&amp;#46;&amp;#97;&amp;#104;&amp;#109;&amp;#97;&amp;#100;&amp;#64;&amp;#103;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#46;&amp;#99;&amp;#111;&amp;#109;"&gt;&amp;#109;&amp;#111;&amp;#115;&amp;#97;&amp;#98;&amp;#46;&amp;#97;&amp;#104;&amp;#109;&amp;#97;&amp;#100;&amp;#64;&amp;#103;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;" at the beginning of the file?&lt;/p&gt;
+&lt;p&gt;If you’re interested, it’s an implementation of &lt;a href="http://blog.sethroberts.net/2011/05/01/percentile-feedback-and-productivity/"&gt;this&lt;/a&gt; (percentile feedback)&lt;/p&gt;
+&lt;p&gt;Best&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I am really glad my code helped someone :)&lt;/p&gt;
+&lt;h3 id="update-2-wednesday-jul-10th-1143-pm"&gt;&lt;strong&gt;&lt;em&gt;Update 2 : Wednesday Jul 10th, 11:43 PM&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;Seems that my little Toggl Target script is picking up some momentum.&lt;/p&gt;
+&lt;p&gt;I got this email 45 minutes ago :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hi,&lt;/p&gt;
+&lt;p&gt;you probably have already seen it, but i forked your toggl_target repo.&lt;/p&gt;
+&lt;p&gt;i just wanted to see how fast i could add reports api support and what data comes out of there... while doing that i replaced the way the config is loaded to something similar like django works and loading a config file directly from a user's home dir... and added a setup.py to install everything.&lt;/p&gt;
+&lt;p&gt;so now there is a separate script to get some reports and an api wrapper for reports subclassing yours. i also did a little refactoring in your code.&lt;/p&gt;
+&lt;p&gt;since you seem to plan on writing a separate pytoggle lib i thought some of that is useful for you... so i wanted to give you an overview of what i changed and let you know, i probably won't do anything more with that.&lt;/p&gt;
+&lt;p&gt;here is the sauce:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/fdemmer/toggl_target"&gt;https://github.com/fdemmer/toggl_target&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;regards,&lt;/p&gt;
+&lt;p&gt;Florian&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I am really surprised and humbled by all your contributions, thank you.&lt;/p&gt;</summary><category term="Python"></category><category term="Toggl"></category><category term="API"></category></entry></feed>

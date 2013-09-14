@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mosab Ahmad</title><link href="http://www.mos3abof.com/" rel="alternate"></link><link href="./feeds/random.atom.xml" rel="self"></link><id>http://www.mos3abof.com/</id><updated>2009-09-14T00:00:00+02:00</updated><entry><title>"Bank Masr" Security Exposure</title><link href="http://www.mos3abof.com/bank-masr-security-exposure.html" rel="alternate"></link><updated>2009-09-14T00:00:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2009-09-14:bank-masr-security-exposure.html</id><summary type="html">&lt;p&gt;Today I and my colleague Eslam were at Bank Masr because he was doing something there. Not only the bank looks poor, in my opinion, but also the screen on the wall got me stunned!&lt;/p&gt;
+&lt;p&gt;The screen was displaying a windows desktop with a folder minimized to the task bar and a window of internet exploerer displaying a page containing currency rates.&lt;/p&gt;
+&lt;p&gt;Apart from the ugliness of that page, the problem was they were showing the internal IP address the browser is using!!!&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;http://192.168.111.162/currencies/la2yenfa3.htm&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The page name itself &lt;strong&gt;"la2yenfa3"&lt;/strong&gt; is the Egyptian Arabic slang to say &lt;strong&gt;"no it is possible"&lt;/strong&gt;! It was obvious two members at the IT were arguing whether they can show this page or not!&lt;/p&gt;
+&lt;p&gt;I couldn't take a pic with my mobile at the time, but will the next time i go there.&lt;/p&gt;
+&lt;p&gt;Oh did i mention that there was a warning too on the taskbar?!&lt;/p&gt;</summary><category term="Security"></category></entry><entry><title>The Email I Sent To Microsoft</title><link href="http://www.mos3abof.com/email-sent-to-microsoft.html" rel="alternate"></link><updated>2009-06-17T00:00:00+03:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2009-06-17:email-sent-to-microsoft.html</id><summary type="html">&lt;p&gt;Yesterday was a day of hell to me, because Internet Explorer deserves to be renamed to "internet Exploder!"...&lt;/p&gt;
+&lt;p&gt;I was working on the project and everything was going just fine, it looked very neat on firefox, opera and epiphany web browsers, with no errors or annoying distortions of any kind, it even passed the test of the w3c validator.&lt;/p&gt;
+&lt;p&gt;But when i was giving my client a status report, he told me the project is messed up, i opened an &lt;a href="http://www.tatanka.com.br/ies4linux/page/Main_Page"&gt;IE installation&lt;/a&gt; I have on my linux machine and everything was really upside down, with no obvious reason why it went like this!!&lt;/p&gt;
+&lt;p&gt;The client was upset, and he has the right to be so. So I spent all today trying to fix what IE destroyed. I really hate their browser, it is even not self-compatible, when you deal with IE the version differs so much that you have to make hacks in your CSS and HTML code for each and every version of them! How stupid that the same broswer renders html in a totally different way just because you are using another version!!&lt;/p&gt;
+&lt;p&gt;Out of frustration i issued a ticket to Microsoft's customer support as following:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Subject :&lt;/strong&gt; Please stop releasing internet explorer&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Message :&lt;/strong&gt; Dear Sir/Madam, you don't know how much i am frustrated and filled with anger now because of your piece of software named Internet Explorer, I am in a very bad situation that is about to cost me a lot in my job because you don't care about web standards, and because of the unpredicted behaviour of your IE.&lt;/p&gt;
+&lt;p&gt;I please ask you seriously, and really you can't feel how much i feel badly inside, to stop releasing any further versions, stop shipping it, remove it from your websites and ask people not to use it anymore.&lt;/p&gt;
+&lt;p&gt;Thank you for your time, and your time only, but please stop using that time to make our lives like hell..&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Today came a reply from an employee there :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Dear Mr. Mosab,&lt;/p&gt;
+&lt;p&gt;Thank you for contacting Microsoft Technical support. Kindly be informed that your complaint has been reported to the responsible team.&lt;/p&gt;
+&lt;p&gt;Your feedback is highly appreciated.&lt;/p&gt;
+&lt;/blockquote&gt;</summary><category term="Microsoft"></category><category term="IE"></category></entry><entry><title>Caffeine Code Cycle</title><link href="http://www.mos3abof.com/caffeine-code-cycle.html" rel="alternate"></link><updated>2009-03-12T00:00:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2009-03-12:caffeine-code-cycle.html</id><summary type="html">&lt;p&gt;I saw this quote and loved it :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Developers are living organisms that convert Caffeine into code!
+-- Source Unknown&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So I made this diagram :&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Developers are living organisms that convert Caffeine into code" src="http://1.bp.blogspot.com/__NpWKU9Ntik/SoGQ0xB-lAI/AAAAAAAAAeo/WTEPrJnuJmY/s400/caffeineCode.png" /&gt;&lt;/p&gt;</summary><category term="Caffeine"></category><category term="Code"></category></entry></feed>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>Mosab Ahmad</title>
+    <meta name=author content="Mosab Ahmad">
+    <link href="http://www.mos3abof.com/theme/local.css" rel=stylesheet>
+    <script>function script(src) {
+        var d = document, s = d.createElement('script');
+        s.async = true; s.src = src; d.body.appendChild(s);
+    }</script>
+    
+        <meta property="og:type"            content="website" />
+    <meta property="og:url"             content="http://www.mos3abof.com/installing-mysql-5-6-ubuntu.html" />
+    <meta property="og:title"           content="Installing MySQL 5.6 on Ubuntu | Mosab Ahmad" />
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=141545232609877";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<header class=top>
+    <a class=brand href="http://www.mos3abof.com">Mosab Ahmad</a>
+    <div style=float:right>
+                <a href="http://www.mos3abof.com/pages/about.html">About</a>
+                <a href="http://www.mos3abof.com/pages/projects.html">Projects</a>
+                <a href="http://www.mos3abof.com/tags.html">Tags</a>
+                <a href="http://www.mos3abof.com/feeds/all.atom.xml">Atom Feed</a>
+            </div>
+</header>
+
+<section>
+    <article>
+        <article>
+    <header>
+        <h1>Installing MySQL 5.6 on Ubuntu</h1>
+        <time>Mon, 13 May 2013</time>    </header>
+
+    <p><p>MySQL 5.6 has a lot of performance and replication improvements. Unfortunately MySQL 5.6 is not yet available through apt-get, so we will have to download the debian package and install it manually.</p>
+<p>First of all we need to install <code>libaio-dev</code></p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo apt-get install libaio-dev
+</pre></div>
+
+
+<p>Then install the MySQL package :</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo dpkg -i mysql-5.6.11-debian6.0-x86_64.deb
+</pre></div>
+
+
+<p>Create MySQL user and group :</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo groupadd mysql
+<span class="nv">$ </span>sudo useradd -r -g mysql mysql
+</pre></div>
+
+
+<p>Now the bove package has installed mysql in <code>/opt/mysql/server-5.6</code>. We need to set the permissions right :</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo chown -R root.root /opt/mysql
+<span class="nv">$ </span>sudo chown -R mysql.mysql /opt/mysql/server-5.6
+</pre></div>
+
+
+<p>Now we should specify data directory :</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo install -o mysql -g mysql -d /var/lib/mysql
+<span class="nv">$ </span>sudo -u mysql /opt/mysql/server-5.6/scripts/mysql_install_db --user<span class="o">=</span>mysql --datadir<span class="o">=</span>/var/lib/mysql
+</pre></div>
+
+
+<p>Till now the system is not aware of Mysql, so we need to setup <code>/etc/my.cnf</code></p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo vim /etc/my.cnf
+</pre></div>
+
+
+<p>And write these lined to it :</p>
+<div class="codehilite"><pre><span class="o">[</span>mysqld<span class="o">]</span>
+<span class="nv">basedir</span> <span class="o">=</span> /opt/mysql/server-5.6
+<span class="nv">datadir</span> <span class="o">=</span> /var/lib/mysql
+</pre></div>
+
+
+<p>To be able to make use of MySQL different scripts createa <code>/etc/profile.d/mysql.sh</code> file</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo vim /etc/profile.d/mysql.sh
+</pre></div>
+
+
+<p>And paste the following into it :</p>
+<div class="codehilite"><pre><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/opt/mysql/server-5.6/bin:$PATH&quot;</span>
+<span class="nv">MANPATH</span><span class="o">=</span><span class="s2">&quot;/opt/mysql/server-5.6/man:$MANPATH&quot;</span>
+</pre></div>
+
+
+<p>Then <code>source</code> it, or logout and log in again for the above changes to take effect :</p>
+<div class="codehilite"><pre><span class="nv">$ </span><span class="nb">source</span> /etc/profile.d/mysql.sh
+</pre></div>
+
+
+<p>And we create the <code>init.d</code> scripts to start and stop the service, and set it to start on server startup :</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo cp /opt/mysql/server-5.6/support-files/mysql.server /etc/init.d/mysql
+<span class="nv">$ </span>sudo update-rc.d mysql defaults
+</pre></div>
+
+
+<p>You can now start the service for the first time :</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo /etc/init.d/mysql start
+</pre></div>
+
+
+<p>One last step is to secure the MySQL installation because the root has no password so farand anyone can access it, run <code>mysql_secure_installation</code> and follow the dialogue :</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo mysql_secure_installation
+</pre></div></p>
+
+    <hr>
+
+    <div class=social-controls>
+
+    <div class="fb-like" data-href="http://www.mos3abof.com/installing-mysql-5-6-ubuntu.html" data-send="true" data-width="400" data-show-faces="true"></div>
+
+    
+</div>
+        <h2>Comments</h2>
+    <div id=disqus_thread></div>
+<script>script('http://mos3abof.disqus.com/embed.js')</script>
+<noscript>Please enable JavaScript to view comments.</noscript>    </article>
+    </article>
+
+    <hr />
+
+    <footer>
+        <p>
+            Site is built using
+            <a href="http://docs.getpelican.com/en/latest/getting_started.html" target="_blank">Pelican</a>
+            (static site generator, written in <a href="http://www.python.org" target="_blank">Python</a>),
+            runs on <a href="https://developers.google.com/appengine/" target="_blank">Google AppEngine</a>,
+            icons by <a href="http://simpleicons.org/" target="_blank">Simple Icons</a>
+            and uses <a href="https://github.com/sharat87/sharats.me" target="_blank">Shrikant Sharat</a>'s theme.
+            <br />
+            &copy; All rights reserved to <a href="http://www.mos3abof.com">Mosab Ahmad</a> 2007 - 2013
+        </p>
+        <section class=social>
+            <a href="./feeds/all.atom.xml" target=_blank>
+                <img src="theme/img/rss.png" style="color: #FF8300; background-color: #FF8300;">
+            </a>
+            <a href="http://facebook.com/mos3abof" target=_blank>
+                <img style="color:#3B5998; background-color: #3B5998;"  src="theme/img/facebook.png" />
+            </a>
+            <a href="http://twitter.com/mos3abof" target=_blank>
+                <img src="theme/img/twitter.png" style="color: #00ACED; background-color: #00ACED;">
+            </a>
+            <a href="http://github.com/mos3abof" target=_blank>
+                <img src="theme/img/github.png" style="color: #4183C4; background-color: #4183C4;">
+            </a>
+            <a href="https://plus.google.com/103419053954297467507" target=_blank>
+                <img src="theme/img/googleplus.png" style="color: #D14836; background-color: #D14836;">
+            </a>
+            <a href="http://stackoverflow.com/users/253214/mosab-ahmad" target=_blank>
+                <img src="theme/img/stackoverflow.png" style="color: #F47920; background-color: #F47920;">
+            </a>
+        </section>
+    </footer>
+</section>
+
+<script>script('//static.getclicky.com/js')</script>
+<noscript><img width=1 height=1 src="//in.getclicky.com/100601461ns.gif"></noscript><script async src="http://www.mos3abof.com/theme/main.js"></script>

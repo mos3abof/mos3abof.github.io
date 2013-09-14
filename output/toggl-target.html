@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>Mosab Ahmad</title>
+    <meta name=author content="Mosab Ahmad">
+    <link href="http://www.mos3abof.com/theme/local.css" rel=stylesheet>
+    <script>function script(src) {
+        var d = document, s = d.createElement('script');
+        s.async = true; s.src = src; d.body.appendChild(s);
+    }</script>
+    
+        <meta property="og:type"            content="website" />
+    <meta property="og:url"             content="http://www.mos3abof.com/toggl-target.html" />
+    <meta property="og:title"           content="Toggl Target Open Source Project | Mosab Ahmad" />
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=141545232609877";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<header class=top>
+    <a class=brand href="http://www.mos3abof.com">Mosab Ahmad</a>
+    <div style=float:right>
+                <a href="http://www.mos3abof.com/pages/about.html">About</a>
+                <a href="http://www.mos3abof.com/pages/projects.html">Projects</a>
+                <a href="http://www.mos3abof.com/tags.html">Tags</a>
+                <a href="http://www.mos3abof.com/feeds/all.atom.xml">Atom Feed</a>
+            </div>
+</header>
+
+<section>
+    <article>
+        <article>
+    <header>
+        <h1>Toggl Target Open Source Project</h1>
+        <time>Mon, 17 Jun 2013</time>    </header>
+
+    <p><p><img alt="My little open source script Toggl Target in action." src="http://farm4.staticflickr.com/3832/9067864209_17b3b8d1c8_o.png" /></p>
+<p>At our company, <a href="http://www.yubb-software.com">Yubb Software</a>, we track our working hours using the greate time tracker created by the folks at <a href="http://www.toggl.com">Toggl</a>, and we have monthly goals that we need to achieve. I have always had a problem with time management, and this time I decided I should start working on them.</p>
+<p>So I created this small project to calculate how many hours I should work to achieve my monthly goals.
+This information has provided me with a whole new level of awarenes of how productive I am! It is scary, but at the same time it give you a greate indicator of how good -or bad- you are sticking to your goals and if you need to have some crunch time or just relax the next weekend.</p>
+<p>I then published the script under GPL license V2 on <a href="https://github.com/mos3abof/toggl_target">Github</a>.
+I got great deal of help from one of my role model software engineers in Egypt, <a href="http://www.mtayseer.net/">Mohammed Tayseer</a>, in making the code more Pythonic. He also added installation instructions for Windows users, as I don't use windows anymore, and he is now a contributor to the repository on Github.</p>
+<p>Today, Monday June 17th, Toggl added a link to my script on their new documentation in the <a href="https://github.com/toggl/toggl_api_docs">Code Examples</a> section.</p>
+<p>My little open source script that uses is the first -and so far the only- mentioned in their new API Documentation. Checkt it on their <a href="https://github.com/toggl/toggl_api_docs#code-examples">API Documenation</a> on Github, or check the following screenshot :</p>
+<p><img alt="My little open source script that uses is the first -and so far the only- mentioned in Toggl's API new Documentation." src="http://farm8.staticflickr.com/7432/9069807810_0084073717_b.jpg" /></p>
+<p>This really made my day. Thank you Toggl :)</p>
+<h3 id="update-1-friday-june-21st-350-pm"><strong><em>Update 1 : Friday June 21st, 3:50 PM</em></strong></h3>
+<p>I received an email today from someone with the following content :</p>
+<blockquote>
+<p>Hi Mosab,</p>
+<p>I’m currently making a small Python app that interacts with the toggl API, and your toggl target script has been helpful in getting me started. I’m using a modified version of your api.py file, and I’d like to credit you in my project when I put it on GitHub, but I’m not sure how (I’m rather new to all of this). Is it sufficient to mention that in the readme or should I leave the line "#@author Mosab Ahmad <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#111;&#115;&#97;&#98;&#46;&#97;&#104;&#109;&#97;&#100;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#109;&#111;&#115;&#97;&#98;&#46;&#97;&#104;&#109;&#97;&#100;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>" at the beginning of the file?</p>
+<p>If you’re interested, it’s an implementation of <a href="http://blog.sethroberts.net/2011/05/01/percentile-feedback-and-productivity/">this</a> (percentile feedback)</p>
+<p>Best</p>
+</blockquote>
+<p>I am really glad my code helped someone :)</p>
+<h3 id="update-2-wednesday-jul-10th-1143-pm"><strong><em>Update 2 : Wednesday Jul 10th, 11:43 PM</em></strong></h3>
+<p>Seems that my little Toggl Target script is picking up some momentum.</p>
+<p>I got this email 45 minutes ago :</p>
+<blockquote>
+<p>hi,</p>
+<p>you probably have already seen it, but i forked your toggl_target repo.</p>
+<p>i just wanted to see how fast i could add reports api support and what data comes out of there... while doing that i replaced the way the config is loaded to something similar like django works and loading a config file directly from a user's home dir... and added a setup.py to install everything.</p>
+<p>so now there is a separate script to get some reports and an api wrapper for reports subclassing yours. i also did a little refactoring in your code.</p>
+<p>since you seem to plan on writing a separate pytoggle lib i thought some of that is useful for you... so i wanted to give you an overview of what i changed and let you know, i probably won't do anything more with that.</p>
+<p>here is the sauce:</p>
+<p><a href="https://github.com/fdemmer/toggl_target">https://github.com/fdemmer/toggl_target</a></p>
+<p>regards,</p>
+<p>Florian</p>
+</blockquote>
+<p>I am really surprised and humbled by all your contributions, thank you.</p></p>
+
+    <hr>
+
+    <div class=social-controls>
+
+    <div class="fb-like" data-href="http://www.mos3abof.com/toggl-target.html" data-send="true" data-width="400" data-show-faces="true"></div>
+
+    
+</div>
+        <h2>Comments</h2>
+    <div id=disqus_thread></div>
+<script>script('http://mos3abof.disqus.com/embed.js')</script>
+<noscript>Please enable JavaScript to view comments.</noscript>    </article>
+    </article>
+
+    <hr />
+
+    <footer>
+        <p>
+            Site is built using
+            <a href="http://docs.getpelican.com/en/latest/getting_started.html" target="_blank">Pelican</a>
+            (static site generator, written in <a href="http://www.python.org" target="_blank">Python</a>),
+            runs on <a href="https://developers.google.com/appengine/" target="_blank">Google AppEngine</a>,
+            icons by <a href="http://simpleicons.org/" target="_blank">Simple Icons</a>
+            and uses <a href="https://github.com/sharat87/sharats.me" target="_blank">Shrikant Sharat</a>'s theme.
+            <br />
+            &copy; All rights reserved to <a href="http://www.mos3abof.com">Mosab Ahmad</a> 2007 - 2013
+        </p>
+        <section class=social>
+            <a href="./feeds/all.atom.xml" target=_blank>
+                <img src="theme/img/rss.png" style="color: #FF8300; background-color: #FF8300;">
+            </a>
+            <a href="http://facebook.com/mos3abof" target=_blank>
+                <img style="color:#3B5998; background-color: #3B5998;"  src="theme/img/facebook.png" />
+            </a>
+            <a href="http://twitter.com/mos3abof" target=_blank>
+                <img src="theme/img/twitter.png" style="color: #00ACED; background-color: #00ACED;">
+            </a>
+            <a href="http://github.com/mos3abof" target=_blank>
+                <img src="theme/img/github.png" style="color: #4183C4; background-color: #4183C4;">
+            </a>
+            <a href="https://plus.google.com/103419053954297467507" target=_blank>
+                <img src="theme/img/googleplus.png" style="color: #D14836; background-color: #D14836;">
+            </a>
+            <a href="http://stackoverflow.com/users/253214/mosab-ahmad" target=_blank>
+                <img src="theme/img/stackoverflow.png" style="color: #F47920; background-color: #F47920;">
+            </a>
+        </section>
+    </footer>
+</section>
+
+<script>script('//static.getclicky.com/js')</script>
+<noscript><img width=1 height=1 src="//in.getclicky.com/100601461ns.gif"></noscript><script async src="http://www.mos3abof.com/theme/main.js"></script>

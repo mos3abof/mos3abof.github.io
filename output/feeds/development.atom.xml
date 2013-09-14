@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mosab Ahmad</title><link href="http://www.mos3abof.com/" rel="alternate"></link><link href="./feeds/development.atom.xml" rel="self"></link><id>http://www.mos3abof.com/</id><updated>2013-06-20T02:53:00+02:00</updated><entry><title>My Sublime Text 2 Setup</title><link href="http://www.mos3abof.com/my-sublime-text-setup.html" rel="alternate"></link><updated>2013-06-20T02:53:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2013-06-20:my-sublime-text-setup.html</id><summary type="html">&lt;p&gt;I have been suffering for a while with IDEs, and ventured out to see what options do I have. I ended up using mainly Vim and Sublime for a long while now, and my life was never easier and I was never happier! In this post however I am talking about my &lt;a href="https://www.sublimetext.com/"&gt;Sublime Text&lt;/a&gt; Setup.&lt;/p&gt;
+&lt;h2 id="1-package-control"&gt;1. Package Control&lt;/h2&gt;
+&lt;p&gt;You don't know what sublime is really capable of untill you install the "&lt;a href="http://wbond.net/sublime_packages/package_control/"&gt;Package Control&lt;/a&gt;".&lt;/p&gt;
+&lt;p&gt;The website describes it as :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;A full-featured package manager that helps discovering, installing, updating and removing
+packages for Sublime Text 2. It features an automatic upgrader and supports GitHub,
+BitBucket and a full channel/repository system.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you are using Sublime and not using it, STOP READING &amp;amp; NOW GO &lt;a href="http://wbond.net/sublime_packages/package_control/installation"&gt;INSTALL IT&lt;/a&gt;! After that go have a look &lt;a href="http://wbond.net/sublime_packages/package_control/usage"&gt;how to use it&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="2-the-packages-i-use"&gt;2. The packages I use&lt;/h2&gt;
+&lt;p&gt;I have a list of awesome packages I use :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SublimeLinter&lt;/strong&gt; : Uses "lint" programs to highlight lines of code the linter deems to contain (potential) errors. It also supports highlighting special annotations (for example: TODO) so that they can be quickly located.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SideBarEnhancements&lt;/strong&gt; : Adds lots of enhancements to default Sublime Text sidebar. Files and folders.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHubinator&lt;/strong&gt; : Allows you to select text in a Sublime Text 2 file, and see the highlighted lines on GitHub's remote repo, if one exists.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Git&lt;/strong&gt; : Plugin for some git integration into Sublime Text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Djaneiro&lt;/strong&gt; : Django support for Sublime Text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SublimeCodeIntel&lt;/strong&gt; : Full-featured code intelligence and smart autocomplete engine.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PHP-Twig&lt;/strong&gt; : Adds support for &lt;code&gt;.twig&lt;/code&gt; template files.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BracketHilighter&lt;/strong&gt; : Matches and higlights a variety of brackets for better readability.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SublimeRope&lt;/strong&gt; : Adds Python completions and some IDE-like functions to Sublime Text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;jQuery&lt;/strong&gt; : Provides help with jQuery functions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Xdebug&lt;/strong&gt; : Xdebug Interface for Sublime Text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SublimeREPL&lt;/strong&gt; : Helps you run an interpreter inside Sublime Text for various languages (like Python, Ruby, Shell) and you can configure it to run others as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To install any of these packages -after installing the Package Control- press &lt;code&gt;ctrl+shift+p&lt;/code&gt; then type &lt;code&gt;install package&lt;/code&gt;. A list will appear with all available packages to your, just click on the package you want and voila!&lt;/p&gt;
+&lt;p&gt;I highly recommend you watch this video on Youtube : &lt;a href="http://www.youtube.com/watch?v=TZ-bgcJ6fQo"&gt;Perfect Workflow in Sublime Text 2 &lt;/a&gt;. It might seem very long, but it is actually divided into 10 minutes chunks -more or less- and it is one of the best resources I have seen about Sublime.&lt;/p&gt;
+&lt;p&gt;Happy hacking/coding with Sublime :)&lt;/p&gt;</summary><category term="Sublime"></category><category term="IDE"></category></entry></feed>
