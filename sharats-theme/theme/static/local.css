@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-    font-size: 1.2em;
+    font-size: 20px;
     font-family: 'PT Sans', sans-serif;
 }
 
@@ -36,21 +36,9 @@ header.top a:hover {
     color: white;
 }
 
-blockquote {
-    font-style: italic;
-    font-size: 1.1em;
-    font-weight: bold;
-
-}
-
 code, pre {
     font-family: Inconsolata, monospace;
-    background-color: #F8F8F8;
-    border: 1px solid #DDDDDD;
-    border-radius: 3px 3px 3px 3px;
-    margin: 0 2px;
-    padding: 0 5px;
-    /*line-height: 1.5em;*/
+    line-height: 1.5em;
 }
 
 pre {
@@ -99,16 +87,15 @@ footer {
 .social {
     text-align: center;
 }
-.social a img {
-    border-radius: 64px 64px 64px 64px;
-    box-shadow: 0 0 2px;
-    margin: 12px;
-    transition: box-shadow 0.2s ease-out 0s;
-    text-decoration: none;
+
+.social a {
+    opacity: .9;
 }
-.social a:hover img {
-    box-shadow: 0 0 18px;
+
+.social a:hover {
+    opacity: 1;
 }
+
 .social-controls iframe {
     margin-left: 6px;
 }
