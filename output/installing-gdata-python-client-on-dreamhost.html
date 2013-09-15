@@ -27,9 +27,9 @@
 <header class=top>
     <a class=brand href="http://www.mos3abof.com">Mosab Ahmad</a>
     <div style=float:right>
-                <a href="http://www.mos3abof.com/pages/about.html">About</a>
-                <a href="http://www.mos3abof.com/pages/projects.html">Projects</a>
-                <a href="http://www.mos3abof.com/tags.html">Tags</a>
+                <a href="http://www.mos3abof.com/about.html">About</a>
+                <a href="http://www.mos3abof.com/projects.html">Projects</a>
+                <a href="http://www.mos3abof.com/archives.html">Archives</a>
                 <a href="http://www.mos3abof.com/feeds/all.atom.xml">Atom Feed</a>
             </div>
 </header>
@@ -39,162 +39,132 @@
         <article>
     <header>
         <h1>Installing Gdata Python Client on Dreamhost</h1>
-        <time>Thu, 29 Nov 2012</time>    </header>
+        <time>29 Nov, 2012</time>    </header>
 
-    <p><p>Our company's website is hosted on <a href="" title="http://www.dreamhost.com&quot;, &quot;DreamHost">Dreamhost</a>. Today I needed to write a python script that utilizes some of Youtube's APIs to send us a daily digest of videos we are interested in, so I ran into the problem of needing to install a python library on our hosting account which I don't have root or admin access to.</p>
+    <p><p>Our company's website is hosted on <a href="http://www.mos3abof.com/feeds/all.atom.xml" title="http://www.dreamhost.com&quot;, &quot;DreamHost">Dreamhost</a>. Today I needed to
+write a python script that utilizes some of Youtube's APIs to send us a
+daily digest of videos we are interested in, so I ran into the problem
+of needing to install a python library on our hosting account which I
+don't have root or admin access to.</p>
+</p>
+
 <p>Here is what I did.</p>
-<p>First of all, I am assuming that you have enabled SSH access to your domain name you are doing this for. If this is not the case, then this article may be of great help : <a href="" title="http://ahappycustomer.dreamhosters.com/dreamhost-ssh.html&quot;, &quot;DreamHost SSH">DreamHost  SSH</a></p>
-<p>1. I downloaded the <a href="" title="http://code.google.com/p/gdata-python-client/downloads/list">gdata-python-client</a> from code.google.com (at the moment I am writing this post the latest stable version is 2.0.17) using the following command :</p>
-<div class="codehilite"><pre><span class="nv">$ </span><span class="nb">cd</span> ~
-<span class="nv">$ </span>wget http://gdata-python-client.googlecode.com/files/gdata-2.0.17.tar.gz
-</pre></div>
+</p>
 
+<p>First of all, I am assuming that you have enabled SSH access to your
+domain name you are doing this for. If this is not the case, then this
+article may be of great help : <a href="http://www.mos3abof.com/feeds/all.atom.xml" title="http://ahappycustomer.dreamhosters.com/dreamhost-ssh.html&quot;, &quot;DreamHost SSH">DreamHost SSH</a></p>
+</p>
 
-<p>2. Untar the tarball:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>tar -xzvf gdata-2.0.17.tar.gz
-</pre></div>
+<p>​1. I downloaded the <a href="http://www.mos3abof.com/feeds/all.atom.xml" title="http://code.google.com/p/gdata-python-client/downloads/list">gdata-python-client</a> from code.google.com (at
+the moment I am writing this post the latest stable version is 2.0.17)
+using the following command :</p>
+</p>
 
+<div class="codehilite">
+    $ cd ~$ wget http://gdata-python-client.googlecode.com/files/gdata-2.0.17.tar.gz
 
-<p>3. Change your directory to the uncompressed folder:</p>
-<div class="codehilite"><pre><span class="nv">$ </span><span class="nb">cd </span>gdata-2.0.17
-</pre></div>
+</div>
 
+</p>
 
-<p>4. Here is the trick, since we don't have administrative access, we can't install the library system-wide, but we can however install it for our account by running this command :</p>
-<div class="codehilite"><pre><span class="nv">$ </span>python setup.py install --home<span class="o">=</span>~/
-</pre></div>
+<p>​2. Untar the tarball:</p>
+</p>
 
+<div class="codehilite">
+    $ tar -xzvf gdata-2.0.17.tar.gz
+
+</div>
+
+</p>
+
+<p>​3. Change your directory to the uncompressed folder:</p>
+</p>
+
+<div class="codehilite">
+    $ cd gdata-2.0.17
+
+</div>
+
+</p>
+
+<p>​4. Here is the trick, since we don't have administrative access, we
+can't install the library system-wide, but we can however install it for
+our account by running this command :</p>
+</p>
+
+<div class="codehilite">
+    $ python setup.py install --home=~/
+
+</div>
+
+</p>
 
 <p>To test if everything is right run the following command :</p>
-<div class="codehilite"><pre><span class="nv">$ </span>./tests/run_all_tests.py
-</pre></div>
+</p>
 
+<div class="codehilite">
+    $ ./tests/run_all_tests.py
 
-<p>5. Although the library is now installed on your account, you can't yet import it directly, you need to add the path of libraries to the system.path in your python script in order to be able to import it, so at the beginning of your script add the following two lines:</p>
-<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;HOME&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s">&#39;/lib/python&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<p>What these two lines do is constructing a dynamic path to your new lib folder that contains gdata-python-client by getting the home path from the system registered in the variable os.environ['HOME'] and concatinating '/lib/python' to it, then it appends this dynamically generated path to the system path so that the python interpreter will look into this folder when importing gdata</p>
-<p>6. Now you can do stuff with gdata like :</p>
-<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">gdata.youtubeimport</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">gdata</span><span class="o">.</span><span class="n">youtube</span><span class="o">.</span><span class="n">service</span>
-</pre></div>
-
-
-<p>Here is my final script that I wrote, and I set up a cron job to run it every morning :</p>
-<div class="gist">
-    <script src='https://gist.github.com/4164654.js'></script>
-    <noscript>
-        <pre><code>#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
-# Important imports
-import os, sys
-
-# Append the python libs installed on dreamhost to the sys.path
-sys.path.append(os.environ['HOME'] +'/lib/python')
-
-# Import email stuff
-import smtplib
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEBase import MIMEBase
-from email.MIMEText import MIMEText
-from email import Encoders
-
-# Import the Gdata library
-import gdata.youtube
-import gdata.youtube.service
-
-def PrintEntryDetails(entry):
-	'''
-	Takes an entry from a youtube standard feed and returns some of
-	its data as a human readable string
-	'''
-	entry_details = 'Video title: %s' % entry.media.title.text + '\n'
-	entry_details += 'Video published on: %s ' % entry.published.text + '\n'
-	entry_details += 'Video watch page: %s' % entry.media.player.url + '\n'
-	entry_details += 'Video duration: %s' % entry.media.duration.seconds + '\n'
-	entry_details += "==========================================" + '\n'
-
-	return entry_details
-
-def PrintVideoFeed(feed):
-	'''
-	Takes a youtube standard feed, formats it and returns a list of all included videos 
-	in a human readable string
-	'''
-	output = ''
-	for entry in feed.entry:
-		try:
-			output += PrintEntryDetails(entry)
-		except:
-			pass
-	return output
-
-
-def mail(to, subject, text, gmail_user, gmail_pwd):
-	'''
-	Sends mail using gmail
-	'''
-	msg = MIMEMultipart()
-
-	# Setting up message data
-	msg['From'] 	= 'FROM-EMAIL'
-	msg['To'] 		= to
-	msg['Subject']	= subject
-
-	msg.attach(MIMEText(text))
-
-	# Opening the connection with Gmail SMTP server
-	mailServer = smtplib.SMTP("smtp.gmail.com", 587)
-	mailServer.ehlo()
-	mailServer.starttls()
-	mailServer.ehlo()
-	mailServer.login(gmail_user, gmail_pwd)
-
-	# Actual sending of the email
-	mailServer.sendmail(gmail_user, to, msg.as_string())
-	
-	# Closing the connection
-	# Should be mailServer.quit(), but that crashes
-	mailServer.close()
-
-# Defining the main function
-if __name__ == '__main__':
-	# Setting up mail credentials
-	gmail_user	= "REPLACE-THIS-WITH-YOUR-GMAIL-USERNAME"
-	gmail_pwd	= "REPLACE-THIS-WITH-YOUR-GMAIL-PASSWORD"
-
-	# List of people to receive this daily digest
-        # Modify this to match your recipients list
-	recepient_list = [
-		'recepient1@example.com',
-		'recepient2@example.com',
-	]
-
-	# Instantiate a YouYubeService object
-	yt_service = gdata.youtube.service.YouTubeService()
-
-	# Set the developer key and client id for monitoris this app
-	yt_service.developer_key = 'REPLACE-THIS-WITH-YOUR-YOUTUBE-DEVELOPER-KEY'
-	yt_service.client_id = 'REPLACE-THIS-WITH-YOUR-YOUTUBE-CLIENT-ID'
-
-
-	# The standard feed URI for most shared videos in region Egypt
-	uri = 'http://gdata.youtube.com/feeds/api/standardfeeds/EG/most_shared?v=2'
-
-	# Preparing the email body to be sent
-	# By assigning the videos in the feed in a human readable string format
-	email_body = PrintVideoFeed(yt_service.GetYouTubeVideoFeed(uri))
-	
-	# Looping over recepients and emailing them the digest
-	for recepient in recepient_list:
-		mail(recepient, "أكثر مقاطع الفيديو مشاركة على يوتيوب اليوم",  email_body, gmail_user, gmail_pwd)</code></pre>
-    </noscript>
 </div>
-<p>Happy Gdata programming on Dreamhost :)</p></p>
+
+</p>
+
+<p>​5. Although the library is now installed on your account, you can't yet
+import it directly, you need to add the path of libraries to the
+system.path in your python script in order to be able to import it, so
+at the beginning of your script add the following two lines:</p>
+</p>
+
+<div class="codehilite">
+    import os, syssys.path.append(os.environ['HOME'] + '/lib/python')
+
+</div>
+
+</p>
+
+<p>What these two lines do is constructing a dynamic path to your new lib
+folder that contains gdata-python-client by getting the home path from
+the system registered in the variable os.environ['HOME'] and
+concatinating '/lib/python' to it, then it appends this dynamically
+generated path to the system path so that the python interpreter will
+look into this folder when importing gdata</p>
+</p>
+
+<p>​6. Now you can do stuff with gdata like :</p>
+</p>
+
+<div class="codehilite">
+    >>> import gdata.youtubeimport>>> gdata.youtube.service
+
+</div>
+
+</p>
+
+<p>Here is my final script that I wrote, and I set up a cron job to run it
+every morning :</p>
+</p>
+
+<div class="gist">
+</p>
+
+<p>
+<noscript>
+</p>
+<p>
+    #!/usr/bin/python# -*- coding: utf-8 -*-# Important importsimport os, sys# Append the python libs installed on dreamhost to the sys.pathsys.path.append(os.environ['HOME'] +'/lib/python')# Import email stuffimport smtplibfrom email.MIMEMultipart import MIMEMultipartfrom email.MIMEBase import MIMEBasefrom email.MIMEText import MIMETextfrom email import Encoders# Import the Gdata libraryimport gdata.youtubeimport gdata.youtube.servicedef PrintEntryDetails(entry):  '''  Takes an entry from a youtube standard feed and returns some of  its data as a human readable string  '''  entry_details = 'Video title: %s' % entry.media.title.text + '\n'    entry_details += 'Video published on: %s ' % entry.published.text + '\n' entry_details += 'Video watch page: %s' % entry.media.player.url + '\n'  entry_details += 'Video duration: %s' % entry.media.duration.seconds + '\n'  entry_details += "==========================================" + '\n'  return entry_detailsdef PrintVideoFeed(feed):  '''  Takes a youtube standard feed, formats it and returns a list of all included videos  in a human readable string   '''  output = ''  for entry in feed.entry:     try:         output += PrintEntryDetails(entry)       except:          pass return outputdef mail(to, subject, text, gmail_user, gmail_pwd):    '''  Sends mail using gmail   '''  msg = MIMEMultipart() # Setting up message data    msg['From']     = 'FROM-EMAIL'   msg['To']       = to msg['Subject']  = subject msg.attach(MIMEText(text))    # Opening the connection with Gmail SMTP server  mailServer = smtplib.SMTP("smtp.gmail.com", 587) mailServer.ehlo()    mailServer.starttls()    mailServer.ehlo()    mailServer.login(gmail_user, gmail_pwd)   # Actual sending of the email    mailServer.sendmail(gmail_user, to, msg.as_string())  # Closing the connection # Should be mailServer.quit(), but that crashes  mailServer.close()# Defining the main functionif __name__ == '__main__':    # Setting up mail credentials    gmail_user  = "REPLACE-THIS-WITH-YOUR-GMAIL-USERNAME"    gmail_pwd   = "REPLACE-THIS-WITH-YOUR-GMAIL-PASSWORD" # List of people to receive this daily digest        # Modify this to match your recipients list  recepient_list = [       'recepient1@example.com',        'recepient2@example.com',    ] # Instantiate a YouYubeService object    yt_service = gdata.youtube.service.YouTubeService()   # Set the developer key and client id for monitoris this app yt_service.developer_key = 'REPLACE-THIS-WITH-YOUR-YOUTUBE-DEVELOPER-KEY'    yt_service.client_id = 'REPLACE-THIS-WITH-YOUR-YOUTUBE-CLIENT-ID'  # The standard feed URI for most shared videos in region Egypt   uri = 'http://gdata.youtube.com/feeds/api/standardfeeds/EG/most_shared?v=2'   # Preparing the email body to be sent    # By assigning the videos in the feed in a human readable string format  email_body = PrintVideoFeed(yt_service.GetYouTubeVideoFeed(uri))  # Looping over recepients and emailing them the digest   for recepient in recepient_list:     mail(recepient, "أكثر مقاطع الفيديو مشاركة على يوتيوب اليوم",  email_body, gmail_user, gmail_pwd)
+
+</p>
+<p>
+</noscript>
+</p>
+<p>
+</div>
+
+</p>
+
+<p>Happy Gdata programming on Dreamhost :)</p>
+</p></p>
 
     <hr>
 
@@ -206,7 +176,7 @@ if __name__ == '__main__':
 </div>
         <h2>Comments</h2>
     <div id=disqus_thread></div>
-<script>script('http://mos3abof.disqus.com/embed.js')</script>
+<script>script('http://mos3abof.com.disqus.com/embed.js')</script>
 <noscript>Please enable JavaScript to view comments.</noscript>    </article>
     </article>
 
@@ -224,24 +194,26 @@ if __name__ == '__main__':
             &copy; All rights reserved to <a href="http://www.mos3abof.com">Mosab Ahmad</a> 2007 - 2013
         </p>
         <section class=social>
-            <a href="./feeds/all.atom.xml" target=_blank>
-                <img src="theme/img/rss.png" style="color: #FF8300; background-color: #FF8300;">
-            </a>
-            <a href="http://facebook.com/mos3abof" target=_blank>
-                <img style="color:#3B5998; background-color: #3B5998;"  src="theme/img/facebook.png" />
-            </a>
-            <a href="http://twitter.com/mos3abof" target=_blank>
-                <img src="theme/img/twitter.png" style="color: #00ACED; background-color: #00ACED;">
-            </a>
-            <a href="http://github.com/mos3abof" target=_blank>
-                <img src="theme/img/github.png" style="color: #4183C4; background-color: #4183C4;">
-            </a>
-            <a href="https://plus.google.com/103419053954297467507" target=_blank>
-                <img src="theme/img/googleplus.png" style="color: #D14836; background-color: #D14836;">
-            </a>
-            <a href="http://stackoverflow.com/users/253214/mosab-ahmad" target=_blank>
-                <img src="theme/img/stackoverflow.png" style="color: #F47920; background-color: #F47920;">
-            </a>
+    		<a href="./feeds/all.atom.xml" target=_blank><img src="theme/img/rss.png" style="color: #FF8300; background-color: #FF8300;"></a>
+    		<a href="http://github.com/mos3abof" target=_blank><img src="theme/img/github.png" style="color: #4183C4; background-color: #4183C4;"></a>
+            <a href="https://bitbucket.org/mos3abof" target=_blank><img src="theme/img/bitbucket.png" style="color: #205081; background-color: #205081;"></a>
+            <a href="http://linkedin.com/in/mosab" target=_blank><img src="theme/img/linkedin.png" style="color: #007FB1; background-color: #007FB1;"></a>
+    		<a href="http://facebook.com/mos3abof" target=_blank><img style="color:#3B5998; background-color: #3B5998;"  src="theme/img/facebook.png" /></a>
+            <a href="http://twitter.com/mos3abof" target=_blank><img src="theme/img/twitter.png" style="color: #00ACED; background-color: #00ACED;"></a>
+            <a href="https://plus.google.com/103419053954297467507" target=_blank><img src="theme/img/googleplus.png" style="color: #D14836; background-color: #D14836;"></a>
+    		<a href="http://stackoverflow.com/users/253214/mosab-ahmad" target=_blank><img src="theme/img/stackoverflow.png" style="color: #F47920; background-color: #F47920;"></a>
+    		<a href="http://instagram.com/mos3abof" target=_blank><img src="theme/img/instagram.png" style="color: #3F729B; background-color: #3F729B;"></a>
+    		<a href="http://www.flickr.com/photos/mos3abof/" target=_blank><img src="theme/img/flickr.png" style="color: #0063DB; background-color: #0063DB;"></a>
+    		<a href="https://foursquare.com/mos3abof" target=_blank><img src="theme/img/foursquare.png" style="color: #2398C9; background-color: #2398C9;"></a>
+            <a href="http://about.me/mosab.ahmad" target=_blank><img src="theme/img/aboutme.png" style="color: #00405D; background-color: #00405D;"></a>
+            <a href="http://www.slideshare.net/mos3abof" target=_blank><img src="theme/img/slideshare.png" style="color: #009999; background-color: #009999;"></a>
+            <a href="https://geekli.st//mos3abof" target=_blank><img src="theme/img/geeklist.png" style="color: #8CC63E; background-color: #8CC63E;"></a>
+            <a href="https://soundcloud.com/mos3abof" target=_blank><img src="theme/img/soundcloud.png" style="color: #FF6600; background-color: #FF6600;"></a>
+            <a href="http://www.pinterest.com/mos3abof/" target=_blank><img src="theme/img/pinterest.png" style="color: #CB2027; background-color: #CB2027;"></a>
+            <a href="https://drupal.org/user/279579" target=_blank><img src="theme/img/drupal.png" style="color: #0077C0; background-color: #0077C0;"></a>
+            <a href="http://en.wikipedia.org/wiki/User:Mos3abof" target=_blank><img src="theme/img/wikipedia.png" style="color: #000000; background-color: #000000;"></a>
+            <a href="https://www.quora.com/Mosab-Ahmad" target=_blank><img src="theme/img/quora.png" style="color: #A82400; background-color: #A82400;"></a>
+            <a href="skype:mos3abof?chat" target=_blank><img src="theme/img/skype.png" style="color: #00AFF0; background-color: #00AFF0;"></a>
         </section>
     </footer>
 </section>
