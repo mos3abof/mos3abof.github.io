@@ -1,26 +1,29 @@
+# https://developers.google.com/appengine/docs/python/config/appconfig
+
 application: mos3abofsite
-version: 2
-runtime: python
+version: pelican
+runtime: python27
 api_version: 1
 threadsafe: true
 
+
 handlers:
-# index files
-- url: /(.*)/
-  static_files: public/\1/index.html
-  upload: public/(.*)/index.html
-  expiration: "15m"
 
-# site root
-- url: /
-  static_files: public/index.html
-  upload: public/index.html
-  expiration: "15m"
+  - url: /\d+/\d+/[^\d][^/]+/?
+    script: dynamic.legacy_redirect.app
 
-- url: /blog/(.*)
-  static_files: public/blog/\1/index.html
-  upload: public/blog/(.*)/index.html
-  expiration: "15m"
+  - url: /(favicon\.ico|robots\.txt)
+    static_files: output/static/misc/\1
+    upload: output/static/misc/(favicon\.ico|robots\.txt)
 
-- url: /
-  static_dir: public
+  - url: /
+    static_files: output/index.html
+    upload: output/index\.html
+
+  - url: /theme/css/.*\.ttf
+    static_files: output/theme/css/\1
+    upload: output/static/misc/.*\.ttf
+    mime_type: application/x-font-ttf
+
+  - url: /
+    static_dir: output

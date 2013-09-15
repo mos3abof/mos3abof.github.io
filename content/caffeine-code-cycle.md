@@ -6,25 +6,12 @@ Slug: caffeine-code-cycle
 
 I saw this quote and loved it :
 
-</p>
-<p>
-> </p>
->
 > Developers are living organisms that convert Caffeine into code!
 >
 > -- Source Unknown
->
-> </p>
-> <p>
-
-</p>
 
 So I made this diagram :
 
-</p>
-
 ![Developers are living organisms that convert Caffeine into code][]
 
-</p>
-
-  [Developers are living organisms that convert Caffeine into code]: http://1.bp.blogspot.com/__NpWKU9Ntik/SoGQ0xB-lAI/AAAAAAAAAeo/WTEPrJnuJmY/s400/caffeineCode.png
+[Developers are living organisms that convert Caffeine into code]: http://1.bp.blogspot.com/__NpWKU9Ntik/SoGQ0xB-lAI/AAAAAAAAAeo/WTEPrJnuJmY/s400/caffeineCode.png

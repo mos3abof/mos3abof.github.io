@@ -44,87 +44,60 @@
     <p><p>On <em>May 22nd 2012</em> I was approached by the official campaign of the
 presidential candidate "<a href="http://www.abolfotoh.net/">Abolfotoh</a>".</p>
 <p>They needed help setting up a Google App Engine application.</p>
-</p>
-
 <p>It was an interactive map that uses Google Maps to plot data about
 voters and polling stations.</p>
 <p>What they wanted further was to create another application to collect
 data from their official representatives on the ground and use this tool</p>
 <p>to feed the Google App Engine application with data.</p>
-</p>
-
 <p>The application was originally created by "<a href="http://www.espace.com.eg">Espace</a>" <em>-an awesome
 Egyptian company-</em> and published on <a href="https://code.google.com/p/egypt-election-2012-demo/">Google Code</a>.</p>
 <p>I helped the official campaign with the setup on Google App Enginer, but
 that is another story.</p>
-</p>
-
 <p>Before running the project in production, we needed to import a lot of
 data about the polling stations and the voters, like the Governorate it
 belonged to, the city, the number of voters per every station, the
 police station it belongs to, address, etc.</p>
-</p>
-
 <p>This data was only available in an excel sheet so I had to find a quick
 programatical way to import it.</p>
-</p>
-
 <p>For the sake of simplicity, lets assume the data in the excel sheet was
 formatted like this :</p>
-</p>
+<div class="codehilite"><pre><span class="o">+-------------------+------------+------------------------+</span>
+<span class="o">|</span> <span class="n">Polling</span> <span class="n">Station</span>   <span class="o">|</span> <span class="n">City</span>       <span class="o">|</span> <span class="n">Total</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">Voters</span> <span class="o">|</span>
+<span class="o">+-------------------+------------+------------------------+</span>
+<span class="o">|</span> <span class="n">polling_station_1</span> <span class="o">|</span> <span class="n">Cairo</span>      <span class="o">|</span> <span class="mi">7734</span>                   <span class="o">|</span>
+<span class="o">+-------------------+------------+------------------------+</span>
+<span class="o">|</span> <span class="n">polling_station_2</span> <span class="o">|</span> <span class="n">Giza</span>       <span class="o">|</span> <span class="mi">13332</span>                  <span class="o">|</span>
+<span class="o">+-------------------+------------+------------------------+</span>
+<span class="o">|</span> <span class="n">polling_station_3</span> <span class="o">|</span> <span class="n">Alexandria</span> <span class="o">|</span> <span class="mi">10901</span>                  <span class="o">|</span>
+<span class="o">+-------------------+------------+------------------------+</span>
+</pre></div>
 
-<div class="codehilite">
-    +-------------------+------------+------------------------+| Polling Station   | City       | Total Number of Voters |+-------------------+------------+------------------------+| polling_station_1 | Cairo      | 7734                   |+-------------------+------------+------------------------+| polling_station_2 | Giza       | 13332                  |+-------------------+------------+------------------------+| polling_station_3 | Alexandria | 10901                  |+-------------------+------------+------------------------+
-
-</div>
-
-</p>
 
 <p>As in most spreadsheets, the first row is the header row that describes
 the data, and the actual data is in the rows to follow.</p>
-</p>
-
 <p>I did a quick search and found several libraries that deal with excel in
 Python,</p>
 <p>there is even a website dedicated to listing them
 <a href="http://www.python-excel.org">http://www.python-excel.org</a>.</p>
 <p>I chose to go with <a href="http://pypi.python.org/pypi/xlrd">XLRD</a>, and you can find it in <a href="http://www.lexicon.net/sjmachin/xlrd.htm">PyPi</a> as well.</p>
-</p>
-
 <p>We need to install it first by running this command :</p>
-</p>
+<div class="codehilite"><pre><span class="nv">$ </span>pip install xlrd
+</pre></div>
 
-<div class="codehilite">
-    $ pip install xlrd
-
-</div>
-
-</p>
 
 <p>or</p>
-</p>
+<div class="codehilite"><pre><span class="nv">$ </span>easy_install xlrd
+</pre></div>
 
-<div class="codehilite">
-    $ easy_install xlrd
-
-</div>
-
-</p>
 
 <p>Let's start coding.</p>
-</p>
-
 <p>XLRD calls the whole excel document a "Workbook", to open it we can do
 the following in an interactive python</p>
 <p>shell from the same path as the file:</p>
-</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">xlrd</span> <span class="kn">import</span> <span class="n">open_workbook</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">book</span> <span class="o">=</span> <span class="n">open_workbook</span><span class="p">(</span><span class="s">&#39;data.xls&#39;</span><span class="p">)</span>
+</pre></div>
 
-<div class="codehilite">
-    >>> from xlrd import open_workbook>>> book = open_workbook('data.xls')
-
-</div>
-
-</p>
 
 <p>Now we can manipulate the excel document using this "book" object we
 created. Remember the book has all the document.</p>
@@ -132,17 +105,10 @@ created. Remember the book has all the document.</p>
 the data.</p>
 <p>The first sheet has an index of 0, the second has an index of 1 and so
 on.</p>
-</p>
-
 <p>To open the first sheet which holds the sample data above we do this :</p>
-</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">first_sheet</span> <span class="o">=</span> <span class="n">book</span><span class="o">.</span><span class="n">sheet_by_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
 
-<div class="codehilite">
-    >>> first_sheet = book.sheet_by_index(0)
-
-</div>
-
-</p>
 
 <p>Now we are ready to manipulate the sheet, get information about it and
 extract data from it.</p>
@@ -150,50 +116,43 @@ extract data from it.</p>
 can print the <code>ncols</code> attribute of the sheet,</p>
 <p>or to know the number of "effective rows", the rows that contain data,
 we can use the <code>nrows</code> attribute.</p>
-</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">first_sheet</span><span class="o">.</span><span class="n">ncols</span>
+<span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">first_sheet</span><span class="o">.</span><span class="n">nrows</span>
+<span class="mi">4</span>
+</pre></div>
 
-<div class="codehilite">
-    >>> print first_sheet.ncols3>>> print first_sheet.nrows4
-
-</div>
-
-</p>
 
 <p>We now know how many rows contain actual data in the first sheet of our
 excel document. Time to loop over the rows and extract data.</p>
-</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">first_sheet</span><span class="o">.</span><span class="n">nrows</span><span class="p">):</span>        
+      <span class="n">row</span> <span class="o">=</span> <span class="n">first_sheet</span><span class="o">.</span><span class="n">row_slice</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>        
+      <span class="n">station</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>        
+      <span class="n">city</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>        
+      <span class="n">voters</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>        
+      <span class="k">print</span> <span class="s">&quot;Polling Station : {} in {} has {} voter&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">station</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">voters</span><span class="p">)</span>
+<span class="n">Polling</span> <span class="n">station</span> <span class="n">polling_station_1</span> <span class="ow">in</span> <span class="n">Cairo</span> <span class="n">has</span> <span class="mf">7734.0</span> <span class="n">voters</span>
+<span class="n">Polling</span> <span class="n">station</span> <span class="n">polling_station_2</span> <span class="ow">in</span> <span class="n">Giza</span> <span class="n">has</span> <span class="mf">13332.0</span> <span class="n">voters</span>
+<span class="n">Polling</span> <span class="n">station</span> <span class="n">polling_station_3</span> <span class="ow">in</span> <span class="n">Alexandria</span> <span class="n">has</span> <span class="mf">10901.0</span> <span class="n">voters</span>
+</pre></div>
 
-<div class="codehilite">
-    >>> for i in range(1, first_sheet.nrows):        row = first_sheet.row_slice(i)        station = row[0].value        city = row[1].value        voters = row[2].value        print "Polling Station : {} in {} has {} voter".format(station, city, voters)Polling station polling_station_1 in Cairo has 7734.0 votersPolling station polling_station_2 in Giza has 13332.0 votersPolling station polling_station_3 in Alexandria has 10901.0 voters
-
-</div>
-
-</p>
 
 <p>In the previous snippet of code we started to loop over the rows
 skipping the first row <code>range(1, first_sheet.nrows)</code></p>
 <p>Then we sliced every row out of the sheet with <code>row_slice()</code> and then
 accessed it by column index to extract data from columns <code>row[]</code></p>
 <p>and then we accessed the value of the cell by calling the <code>row[].value</code>.</p>
-</p>
-
 <p>This is a very simple usage of the library, I suggest you read its
 documentation, you will find many great stuff :</p>
-</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">xlrd</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">help</span><span class="p">(</span><span class="n">xlrd</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">help</span><span class="p">(</span><span class="n">xlrd</span><span class="o">.</span><span class="n">sheet</span><span class="p">)</span>
+</pre></div>
 
-<div class="codehilite">
-    >>> import xlrd>>> help(xlrd)>>> help(xlrd.sheet)
-
-</div>
-
-</p>
 
 <p>Finally check my answer on a question about the issue on
 <a href="http://stackoverflow.com/questions/13805274/have-no-idea-with-python-excel-read-data-file/13805734#13805734">StackOverflow</a>.</p>
-</p>
-
-<p>That's it for now.</p>
-</p></p>
+<p>That's it for now.</p></p>
 
     <hr>
 
@@ -205,7 +164,7 @@ documentation, you will find many great stuff :</p>
 </div>
         <h2>Comments</h2>
     <div id=disqus_thread></div>
-<script>script('http://mos3abof.com.disqus.com/embed.js')</script>
+<script>script('http://mos3abof.disqus.com/embed.js')</script>
 <noscript>Please enable JavaScript to view comments.</noscript>    </article>
     </article>
 

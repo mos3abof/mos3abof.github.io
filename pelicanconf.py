@@ -29,13 +29,16 @@ MD_EXTENSIONS = 'extra codehilite toc sane_lists'.split()
 
 #PLUGINS = 'minify'.split()
 
-DISQUS_SITENAME = 'mos3abof.com'
+DISQUS_SITENAME = 'mos3abof'
 
 DEFAULT_LANG = 'en'
 
 DEFAULT_PAGINATION = False
 
 THEME = 'theme'
+
+PLUGIN_PATH = 'plugins/'
+PLUGINS = ('gist', )
 
 # TODO: Typogrify depends on Django. Cut it and then use it.
 # TYPOGRIFY = True
@@ -48,17 +51,3 @@ MENUITEMS = [
     ('Archives', 'archives.html'),
     ('Atom Feed', FEED_ATOM),
 ]
-
-# Blogroll
-LINKS = [
-    ('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
-    ('Python.org', 'http://python.org'),
-    ('Jinja2', 'http://jinja.pocoo.org'),
-]
-
-# Social widget
-SOCIAL = [
-    ('You can add links in your config file', '#'),
-    ('Another social link', '#'),
-]
-
