@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Mosab Ahmad</title><link href="http://www.mos3abof.com/" rel="alternate"></link><link href="./feeds/misc.atom.xml" rel="self"></link><id>http://www.mos3abof.com/</id><updated>2013-06-20T00:53:00+02:00</updated><entry><title>My Sublime Text 2 Setup</title><link href="http://www.mos3abof.com/my-sublime-text-2-setup.html" rel="alternate"></link><updated>2013-06-20T00:53:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2013-06-20:my-sublime-text-2-setup.html</id><summary type="html">&lt;p&gt;I have been suffering for a while with IDEs, and ventured out to see
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mosab Ahmad</title><link href="./" rel="alternate"></link><link href="./feeds/misc.atom.xml" rel="self"></link><id>./</id><updated>2013-06-20T00:53:00+02:00</updated><entry><title>My Sublime Text 2 Setup</title><link href="./my-sublime-text-2-setup.html" rel="alternate"></link><updated>2013-06-20T00:53:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:.,2013-06-20:my-sublime-text-2-setup.html</id><summary type="html">&lt;p&gt;I have been suffering for a while with IDEs, and ventured out to see
 what options do I have. I ended up using mainly Vim and Sublime for a
 long while now, and my life was never easier and I was never happier! In
 this post however I am talking about my &lt;a href="https://www.sublimetext.com/"&gt;Sublime Text&lt;/a&gt; Setup.&lt;/p&gt;
@@ -78,7 +78,7 @@ resources I have seen about Sublime.&lt;/p&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Happy hacking/coding with Sublime :)&lt;/p&gt;
-&lt;/p&gt;</summary><category term="Sublime"></category><category term="IDE"></category></entry><entry><title>Toggl Target Open Source Project</title><link href="http://www.mos3abof.com/toggl-target-open-source-project.html" rel="alternate"></link><updated>2013-06-17T04:00:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2013-06-17:toggl-target-open-source-project.html</id><summary type="html">&lt;p&gt;&lt;img alt="My little open source script Toggl Target in action." src="http://farm4.staticflickr.com/3832/9067864209_17b3b8d1c8_o.png" /&gt;&lt;/p&gt;
+&lt;/p&gt;</summary><category term="Sublime"></category><category term="IDE"></category></entry><entry><title>Toggl Target Open Source Project</title><link href="./toggl-target-open-source-project.html" rel="alternate"></link><updated>2013-06-17T04:00:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:.,2013-06-17:toggl-target-open-source-project.html</id><summary type="html">&lt;p&gt;&lt;img alt="My little open source script Toggl Target in action." src="http://farm4.staticflickr.com/3832/9067864209_17b3b8d1c8_o.png" /&gt;&lt;/p&gt;
 &lt;/p&gt;
 
 &lt;p&gt;At our company, &lt;a href="http://www.yubb-software.com"&gt;Yubb Software&lt;/a&gt;, we track our working hours using the
@@ -209,7 +209,7 @@ with that.&lt;/p&gt;
 &lt;/p&gt;
 
 &lt;p&gt;[My little open source script that uses is the first -and so far the
-  only- mentioned in Toggl's API new Documentation.]: http://farm8.staticflickr.com/7432/9069807810_0084073717_b.jpg&lt;/p&gt;</summary><category term="Python"></category><category term="Toggl"></category><category term="API"></category></entry><entry><title>Reading Data from Excel Sheets in Python</title><link href="http://www.mos3abof.com/reading-data-from-excel-sheets-in-python.html" rel="alternate"></link><updated>2013-02-19T11:18:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2013-02-19:reading-data-from-excel-sheets-in-python.html</id><summary type="html">&lt;p&gt;On &lt;em&gt;May 22nd 2012&lt;/em&gt; I was approached by the official campaign of the
+  only- mentioned in Toggl's API new Documentation.]: http://farm8.staticflickr.com/7432/9069807810_0084073717_b.jpg&lt;/p&gt;</summary><category term="Python"></category><category term="Toggl"></category><category term="API"></category></entry><entry><title>Reading Data from Excel Sheets in Python</title><link href="./reading-data-from-excel-sheets-in-python.html" rel="alternate"></link><updated>2013-02-19T11:18:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:.,2013-02-19:reading-data-from-excel-sheets-in-python.html</id><summary type="html">&lt;p&gt;On &lt;em&gt;May 22nd 2012&lt;/em&gt; I was approached by the official campaign of the
 presidential candidate "&lt;a href="http://www.abolfotoh.net/"&gt;Abolfotoh&lt;/a&gt;".&lt;/p&gt;
 &lt;p&gt;They needed help setting up a Google App Engine application.&lt;/p&gt;
 &lt;/p&gt;
@@ -361,7 +361,7 @@ documentation, you will find many great stuff :&lt;/p&gt;
 &lt;/p&gt;
 
 &lt;p&gt;That's it for now.&lt;/p&gt;
-&lt;/p&gt;</summary><category term="Python"></category><category term="XLRD"></category><category term="Excel"></category></entry><entry><title>Poor Man's Guide for Monitoring a Website in Python</title><link href="http://www.mos3abof.com/poor-mans-guide-for-monitoring-a-website-in-python.html" rel="alternate"></link><updated>2013-02-11T15:34:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2013-02-11:poor-mans-guide-for-monitoring-a-website-in-python.html</id><summary type="html">&lt;p&gt;In one of the projects I am working on there was a problem with Apache
+&lt;/p&gt;</summary><category term="Python"></category><category term="XLRD"></category><category term="Excel"></category></entry><entry><title>Poor Man's Guide for Monitoring a Website in Python</title><link href="./poor-mans-guide-for-monitoring-a-website-in-python.html" rel="alternate"></link><updated>2013-02-11T15:34:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:.,2013-02-11:poor-mans-guide-for-monitoring-a-website-in-python.html</id><summary type="html">&lt;p&gt;In one of the projects I am working on there was a problem with Apache
 server. It went down almost on a daily basis, and we were reading the
 logs to get the bottom of the root cause. But untill we got our solution
 we needed to monitor the server's accssibility through the web, and get
@@ -574,7 +574,7 @@ a cron job to do it periodically for us.&lt;/p&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Happy website monitoring.&lt;/p&gt;
-&lt;/p&gt;</summary><category term="Python"></category><category term="urllib"></category><category term="monitoring"></category><category term="Fabric"></category></entry><entry><title>Installing Gdata Python Client on Dreamhost</title><link href="http://www.mos3abof.com/installing-gdata-python-client-on-dreamhost.html" rel="alternate"></link><updated>2012-11-29T20:05:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2012-11-29:installing-gdata-python-client-on-dreamhost.html</id><summary type="html">&lt;p&gt;Our company's website is hosted on &lt;a href="http://www.mos3abof.com/feeds/all.atom.xml" title="http://www.dreamhost.com&amp;quot;, &amp;quot;DreamHost"&gt;Dreamhost&lt;/a&gt;. Today I needed to
+&lt;/p&gt;</summary><category term="Python"></category><category term="urllib"></category><category term="monitoring"></category><category term="Fabric"></category></entry><entry><title>Installing Gdata Python Client on Dreamhost</title><link href="./installing-gdata-python-client-on-dreamhost.html" rel="alternate"></link><updated>2012-11-29T20:05:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:.,2012-11-29:installing-gdata-python-client-on-dreamhost.html</id><summary type="html">&lt;p&gt;Our company's website is hosted on &lt;a href="http://www.mos3abof.com/feeds/all.atom.xml" title="http://www.dreamhost.com&amp;quot;, &amp;quot;DreamHost"&gt;Dreamhost&lt;/a&gt;. Today I needed to
 write a python script that utilizes some of Youtube's APIs to send us a
 daily digest of videos we are interested in, so I ran into the problem
 of needing to install a python library on our hosting account which I
@@ -697,7 +697,7 @@ every morning :&lt;/p&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Happy Gdata programming on Dreamhost :)&lt;/p&gt;
-&lt;/p&gt;</summary><category term="Python"></category><category term="Dreamhost"></category><category term="GData"></category></entry><entry><title>I Started Learning Python</title><link href="http://www.mos3abof.com/i-started-learning-python.html" rel="alternate"></link><updated>2012-02-08T00:53:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2012-02-08:i-started-learning-python.html</id><summary type="html">&lt;p&gt;I have joined a relatively new startup called Inmobly.&lt;/p&gt;
+&lt;/p&gt;</summary><category term="Python"></category><category term="Dreamhost"></category><category term="GData"></category></entry><entry><title>I Started Learning Python</title><link href="./i-started-learning-python.html" rel="alternate"></link><updated>2012-02-08T00:53:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:.,2012-02-08:i-started-learning-python.html</id><summary type="html">&lt;p&gt;I have joined a relatively new startup called Inmobly.&lt;/p&gt;
 &lt;/p&gt;
 
 &lt;p&gt;I am working on two extremely interesting projects, but that is not What
@@ -715,7 +715,7 @@ in any python shell, just type "import this" and you will get this :&lt;/p&gt;
 
 &lt;/div&gt;
 
-&lt;/p&gt;</summary><category term="Python"></category></entry><entry><title>"Bank Masr" Security Exposure</title><link href="http://www.mos3abof.com/bank-masr-security-exposure.html" rel="alternate"></link><updated>2009-09-13T22:00:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2009-09-13:bank-masr-security-exposure.html</id><summary type="html">&lt;p&gt;Today I and my colleague Eslam were at Bank Masr because he was doing
+&lt;/p&gt;</summary><category term="Python"></category></entry><entry><title>"Bank Masr" Security Exposure</title><link href="./bank-masr-security-exposure.html" rel="alternate"></link><updated>2009-09-13T22:00:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:.,2009-09-13:bank-masr-security-exposure.html</id><summary type="html">&lt;p&gt;Today I and my colleague Eslam were at Bank Masr because he was doing
 something there. Not only the bank looks poor, in my opinion, but also
 the screen on the wall got me stunned!&lt;/p&gt;
 &lt;/p&gt;
@@ -742,7 +742,7 @@ i go there.&lt;/p&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Oh did i mention that there was a warning too on the taskbar?!&lt;/p&gt;
-&lt;/p&gt;</summary><category term="Security"></category></entry><entry><title>The Email I Sent To Microsoft</title><link href="http://www.mos3abof.com/the-email-i-sent-to-microsoft.html" rel="alternate"></link><updated>2009-06-16T21:00:00+03:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2009-06-16:the-email-i-sent-to-microsoft.html</id><summary type="html">&lt;p&gt;Yesterday was a day of hell to me, because Internet Explorer deserves to
+&lt;/p&gt;</summary><category term="Security"></category></entry><entry><title>The Email I Sent To Microsoft</title><link href="./the-email-i-sent-to-microsoft.html" rel="alternate"></link><updated>2009-06-16T21:00:00+03:00</updated><author><name>Mosab Ahmad</name></author><id>tag:.,2009-06-16:the-email-i-sent-to-microsoft.html</id><summary type="html">&lt;p&gt;Yesterday was a day of hell to me, because Internet Explorer deserves to
 be renamed to "internet Exploder!"...&lt;/p&gt;
 &lt;/p&gt;
 
@@ -813,7 +813,7 @@ team.&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;/p&gt;</summary><category term="Microsoft"></category><category term="IE"></category></entry><entry><title>Caffeine Code Cycle</title><link href="http://www.mos3abof.com/caffeine-code-cycle.html" rel="alternate"></link><updated>2009-03-11T22:00:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2009-03-11:caffeine-code-cycle.html</id><summary type="html">&lt;p&gt;I saw this quote and loved it :&lt;/p&gt;
+&lt;/p&gt;</summary><category term="Microsoft"></category><category term="IE"></category></entry><entry><title>Caffeine Code Cycle</title><link href="./caffeine-code-cycle.html" rel="alternate"></link><updated>2009-03-11T22:00:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:.,2009-03-11:caffeine-code-cycle.html</id><summary type="html">&lt;p&gt;I saw this quote and loved it :&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;blockquote&gt;
