@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Mosab Ahmad</title><link href="http://www.mos3abof.com/" rel="alternate"></link><link href="./feeds/all-en.atom.xml" rel="self"></link><id>http://www.mos3abof.com/</id><updated>2013-09-29T20:45:00+02:00</updated><entry><title>Deactivating my Facebook account for a while</title><link href="http://www.mos3abof.com/deactivating-facebook.html" rel="alternate"></link><updated>2013-09-29T20:45:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2013-09-29:deactivating-facebook.html</id><summary type="html">&lt;p&gt;I found out I spend too much time on facebook, the social network. So I decided to deactivate my account for a while.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Mosab Ahmad</title><link href="http://www.mos3abof.com/" rel="alternate"></link><link href="./feeds/all-en.atom.xml" rel="self"></link><id>http://www.mos3abof.com/</id><updated>2013-10-01T12:00:00+02:00</updated><entry><title>Enabling Fringerprint Reader On Ubuntu 13.04</title><link href="http://www.mos3abof.com/fingerprint-reader-ubuntu-13.04.html" rel="alternate"></link><updated>2013-10-01T12:00:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2013-10-01:fingerprint-reader-ubuntu-13.04.html</id><summary type="html">&lt;p&gt;The company I work for (a cool company called &lt;a href="http://www.yubb-software.com"&gt;Yubb Software&lt;/a&gt;) 
+has provided me with a &lt;a href="http://shop.lenovo.com/us/en/laptops/thinkpad/edge-series/e430/index.html"&gt;Lenovo Thinkpad E430&lt;/a&gt; 
+laptop to work on. The laptop has a fingerprint reader, 
+which I was always looking to try for fun but never had one on my personal laptop.&lt;/p&gt;
+&lt;p&gt;I have Ubuntu 13.04 installed on it, so Ifter a very simple google search, I fired up my terminal by hitting &lt;code&gt;ctrl+alt+t&lt;/code&gt; 
+and followed these steps :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Add the fingerprind reader integration repository to the apt-get packages repositories :&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo add-apt-repository ppa:fingerprint/fingerprint-gui
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;Resynchronize the package index files from their sources :&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get update
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;Install the FingerGUI package &amp;amp; some dependencies :&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install libbsapi policykit-1-fingerprint-gui fingerprint-gui
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Logout of your session, and login again.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Launch the FingerPrint GUI and follow the steps.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Further information can be found on &lt;a href="https://launchpad.net/~fingerprint/+archive/fingerprint-gui"&gt;this page&lt;/a&gt; 
+created by the Official Fingerprint Reader Integration Team.&lt;/p&gt;</summary><category term="Security Ubuntu Fingerprint"></category></entry><entry><title>Deactivating my Facebook account for a while</title><link href="http://www.mos3abof.com/deactivating-facebook.html" rel="alternate"></link><updated>2013-09-29T20:45:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2013-09-29:deactivating-facebook.html</id><summary type="html">&lt;p&gt;I found out I spend too much time on facebook, the social network. So I decided to deactivate my account for a while.&lt;/p&gt;
 &lt;p&gt;I will re-activate again. But I need some time to hack my productivity, my new Raspberry Pi and some other experiments I want to carry on.&lt;/p&gt;
 &lt;p&gt;Don't worry dear friends, I am fine :)&lt;/p&gt;
 &lt;p&gt;See you in a while.&lt;/p&gt;</summary><category term="Facebook"></category></entry><entry><title>My Sublime Text 2 Setup</title><link href="http://www.mos3abof.com/my-sublime-text-2-setup.html" rel="alternate"></link><updated>2013-06-20T00:53:00+02:00</updated><author><name>Mosab Ahmad</name></author><id>tag:www.mos3abof.com,2013-06-20:my-sublime-text-2-setup.html</id><summary type="html">&lt;p&gt;I have been suffering for a while with IDEs, and ventured out to see
