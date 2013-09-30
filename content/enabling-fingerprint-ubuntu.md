@@ -12,28 +12,28 @@ which I was always looking to try for fun but never had one on my personal lapto
 I have Ubuntu 13.04 installed on it, so Ifter a very simple google search, I fired up my terminal by hitting `ctrl+alt+t` 
 and followed these steps :
 
-1. Add the fingerprind reader integration repository to the apt-get packages repositories :
+1\. Add the fingerprind reader integration repository to the apt-get packages repositories :
 
 
 ```bash
 $ sudo add-apt-repository ppa:fingerprint/fingerprint-gui
 ```
 
-2. Resynchronize the package index files from their sources :
+2\. Resynchronize the package index files from their sources :
 
 ```bash
 $ sudo apt-get update
 ```
 
-3. Install the FingerGUI package & some dependencies :
+3\. Install the FingerGUI package & some dependencies :
 
 ```bash
 $ sudo apt-get install libbsapi policykit-1-fingerprint-gui fingerprint-gui
 ``` 
 
-4. Logout of your session, and login again.
+4\. Logout of your session, and login again.
 
-5. Launch the FingerPrint GUI and follow the steps.
+5\. Launch the FingerPrint GUI and follow the steps.
 
 Further information can be found on [this page](https://launchpad.net/~fingerprint/+archive/fingerprint-gui) 
 created by the Official Fingerprint Reader Integration Team.

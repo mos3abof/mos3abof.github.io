@@ -47,35 +47,23 @@ laptop to work on. The laptop has a fingerprint reader,
 which I was always looking to try for fun but never had one on my personal laptop.</p>
 <p>I have Ubuntu 13.04 installed on it, so Ifter a very simple google search, I fired up my terminal by hitting <code>ctrl+alt+t</code> 
 and followed these steps :</p>
-<ol>
-<li>Add the fingerprind reader integration repository to the apt-get packages repositories :</li>
-</ol>
+<p>1. Add the fingerprind reader integration repository to the apt-get packages repositories :</p>
 <div class="codehilite"><pre><span class="nv">$ </span>sudo add-apt-repository ppa:fingerprint/fingerprint-gui
 </pre></div>
 
 
-<ol>
-<li>Resynchronize the package index files from their sources :</li>
-</ol>
+<p>2. Resynchronize the package index files from their sources :</p>
 <div class="codehilite"><pre><span class="nv">$ </span>sudo apt-get update
 </pre></div>
 
 
-<ol>
-<li>Install the FingerGUI package &amp; some dependencies :</li>
-</ol>
+<p>3. Install the FingerGUI package &amp; some dependencies :</p>
 <div class="codehilite"><pre><span class="nv">$ </span>sudo apt-get install libbsapi policykit-1-fingerprint-gui fingerprint-gui
 </pre></div>
 
 
-<ol>
-<li>
-<p>Logout of your session, and login again.</p>
-</li>
-<li>
-<p>Launch the FingerPrint GUI and follow the steps.</p>
-</li>
-</ol>
+<p>4. Logout of your session, and login again.</p>
+<p>5. Launch the FingerPrint GUI and follow the steps.</p>
 <p>Further information can be found on <a href="https://launchpad.net/~fingerprint/+archive/fingerprint-gui">this page</a> 
 created by the Official Fingerprint Reader Integration Team.</p></p>
 
