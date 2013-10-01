@@ -5,7 +5,7 @@ laptop to work on. The laptop has a fingerprint reader,
 which I was always looking to try for fun but never had one on my personal laptop.&lt;/p&gt;
 &lt;p&gt;I have Ubuntu 13.04 installed on it, so Ifter a very simple google search, I fired up my terminal by hitting &lt;code&gt;ctrl+alt+t&lt;/code&gt; 
 and followed these steps :&lt;/p&gt;
-&lt;p&gt;1. Add the fingerprind reader integration repository to the apt-get packages repositories :&lt;/p&gt;
+&lt;p&gt;1. Add the fingerprint reader repository to the apt-get packages repositories :&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo add-apt-repository ppa:fingerprint/fingerprint-gui
 &lt;/pre&gt;&lt;/div&gt;
 

@@ -12,7 +12,7 @@ which I was always looking to try for fun but never had one on my personal lapto
 I have Ubuntu 13.04 installed on it, so Ifter a very simple google search, I fired up my terminal by hitting `ctrl+alt+t` 
 and followed these steps :
 
-1\. Add the fingerprind reader integration repository to the apt-get packages repositories :
+1\. Add the fingerprint reader repository to the apt-get packages repositories :
 
 
 ```bash
