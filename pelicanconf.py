@@ -48,6 +48,6 @@ TWITTER_USERNAME = 'mos3abof'
 MENUITEMS = [
     ('About', 'about.html'),
     ('Projects', 'projects.html'),
-    ('Archives', 'archives.html'),
-    ('Atom Feed', FEED_ATOM),
+#    ('Archives', 'archives.html'),
+#    ('Atom Feed', FEED_ATOM),
 ]
