@@ -29,11 +29,13 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <header class=top>
-    <a class=brand href="{{ SITEURL }}">{{ SITENAME }}</a>
-    <div style=float:right>
-        {% for name, loc in MENUITEMS %}
-        <a href="{{ SITEURL }}/{{ loc }}">{{ name }}</a>
-        {% endfor %}
+    <div class="top-menu">
+    	<a class=brand href="{{ SITEURL }}">{{ SITENAME }}</a>
+    	<div style=float:right>
+        	{% for name, loc in MENUITEMS %}
+        	<a href="{{ SITEURL }}/{{ loc }}">{{ name }}</a>
+        	{% endfor %}
+    	</div>
     </div>
 </header>
 

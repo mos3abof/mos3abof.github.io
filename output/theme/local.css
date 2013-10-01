@@ -13,6 +13,7 @@ body {
 }
 
 header.top {
+
     padding: 0 24px;
     background-color: #2E435E;
     background-image: linear-gradient(top, #2E435E, #172E50);
@@ -28,12 +29,17 @@ header.top {
 header.top a {
     display: inline-block;
     color: #DDD;
-    padding: 6px 12px;
+    padding: 6px 12px 12px 0px;
     text-decoration: none;
 }
 
 header.top a:hover {
     color: white;
+}
+
+.top-menu {
+	width:800px;
+	margin:0 auto;
 }
 
 blockquote {
@@ -78,7 +84,8 @@ h1, h2, h3 {
 }
 
 body > section {
-    width: 960px;
+/*    width: 960px;*/
+    width:800px;
     margin: 18px auto 0;
 }
 
