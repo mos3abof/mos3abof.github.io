@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Inconsolata|PT+Sans:400,700,400italic,700italic);
+/*@import url(http://fonts.googleapis.com/css?family=Inconsolata|PT+Sans:400,700,400italic,700italic);*/
 
 html, body {
     margin: 0;
@@ -9,7 +9,8 @@ html, body {
 
 body {
     font-size: 1.2em;
-    font-family: 'PT Sans', sans-serif;
+/*    font-family: 'PT Sans', sans-serif;*/
+    font-family: "acuta",serif;
 }
 
 header.top {
@@ -50,7 +51,9 @@ blockquote {
 }
 
 code, pre {
-    font-family: Inconsolata, monospace;
+    /*font-family: Inconsolata, monospace;*/
+    font-family: "courier-std",monospace;
+    font-size: 0.8em;
     background-color: #F8F8F8;
     border: 1px solid #DDDDDD;
     border-radius: 3px 3px 3px 3px;
