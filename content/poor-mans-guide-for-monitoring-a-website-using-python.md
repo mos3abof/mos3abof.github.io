@@ -1,8 +1,8 @@
-Title: Poor Man's Guide for Monitoring a Website in Python
+Title: Poor Man's Guide for Monitoring a Website Using Python
 Date: 2013-02-11 15:34
 Author: Mosab Ahmad
 Tags: Python, urllib, monitoring, Fabric
-Slug: poor-mans-guide-for-monitoring-a-website-in-python
+Slug: poor-mans-guide-for-monitoring-a-website-using-python
 
 In one of the projects I am working on there was a problem with Apache
 server. It went down almost on a daily basis, and we were reading the
@@ -61,12 +61,12 @@ Time to put it together in a script :
 ```python
 import urllib
 
-try:    
-    resposne_code = urllib.urlopen("http://www.example.com").getcode()    
-    if response_code != 200:        
+try:
+    resposne_code = urllib.urlopen("http://www.example.com").getcode()
+    if response_code != 200:
         raise ValueError
-except:    
-    pass    
+except:
+    pass
         # Here write code to do whatever you want to do when the website is down.
 ```
 
@@ -97,7 +97,7 @@ from fabric.api import env, sudo
 env.hosts       = ['user@server']
 env.passwords   = {'user@server' : 'password' }
 
-def restart_apache():    
+def restart_apache():
     sudo("apache2ctl restart")
 ```
 
@@ -149,28 +149,28 @@ gmail_user  = 'YOUR-GMAIL-ADDRESS'
 gmail_pwd   = 'YOUR-GMAIL-PASSWORD'
 recepient   = 'DEVOPS-EMAIL'
 
-def mail(to, subject, text, gmail_user, gmail_pwd):    
-    '''    Sends mail using gmail    '''    
-    msg = MIMEMultipart()    
+def mail(to, subject, text, gmail_user, gmail_pwd):
+    '''    Sends mail using gmail    '''
+    msg = MIMEMultipart()
 
-    # Setting up message data    
-    msg['From']     = 'DEVOPS-EMAIL'    
-    msg['To']       = to    
-    msg['Subject']  = subject    
-    msg.attach(MIMEText(text))    
+    # Setting up message data
+    msg['From']     = 'DEVOPS-EMAIL'
+    msg['To']       = to
+    msg['Subject']  = subject
+    msg.attach(MIMEText(text))
 
-    # Opening the connection with Gmail SMTP server    
-    mailServer = smtplib.SMTP("smtp.gmail.com", 587)    
-    mailServer.ehlo()    
-    mailServer.starttls()    
-    mailServer.ehlo()    
-    mailServer.login(gmail_user, gmail_pwd)    
+    # Opening the connection with Gmail SMTP server
+    mailServer = smtplib.SMTP("smtp.gmail.com", 587)
+    mailServer.ehlo()
+    mailServer.starttls()
+    mailServer.ehlo()
+    mailServer.login(gmail_user, gmail_pwd)
 
-    # Actual sending of the email    
-    mailServer.sendmail(gmail_user, to, msg.as_string())    
+    # Actual sending of the email
+    mailServer.sendmail(gmail_user, to, msg.as_string())
 
-    # Closing the connection    
-    # Should be mailServer.quit(), but that crashes    
+    # Closing the connection
+    # Should be mailServer.quit(), but that crashes
     mailServer.close()
 ```
 

@@ -11,17 +11,19 @@ FEED_ATOM = 'feeds/all.atom.xml'
 
 DIRECT_TEMPLATES = [
     'index',
-#    'tags',
+    #'tags',
     'categories',
     'archives',
-   'about',
-   'projects',
+    'about',
+    'projects',
+    '2014',
 ]
 
 TIMEZONE = 'Africa/Cairo'
 DEFAULT_DATE_FORMAT = '%d %b, %Y'
 DATE_FORMATS = {
     'en': '%d %b, %Y',
+    'ar': '%Y / %m / %d',
 }
 
 # Markdown extensions at http://pythonhosted.org/Markdown/extensions/index.html
@@ -48,6 +50,7 @@ TWITTER_USERNAME = 'mos3abof'
 MENUITEMS = [
     ('About', 'about.html'),
     ('Projects', 'projects.html'),
+    ('2014', '2014.html'),
 #    ('Archives', 'archives.html'),
 #    ('Atom Feed', FEED_ATOM),
 ]

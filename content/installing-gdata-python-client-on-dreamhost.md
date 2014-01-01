@@ -62,7 +62,9 @@ at the beginning of your script add the following two lines:
 
 
 ```python
-import os, sys
+import os
+import sys
+
 sys.path.append(os.environ['HOME'] + '/lib/python')
 ```
 

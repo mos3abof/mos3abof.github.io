@@ -15,8 +15,8 @@
     }</script>
     
         <meta property="og:type"            content="website" />
-    <meta property="og:url"             content="http://www.mos3abof.com/poor-mans-guide-for-monitoring-a-website-in-python.html" />
-    <meta property="og:title"           content="Poor Man's Guide for Monitoring a Website in Python | Mosab Ahmad" />
+    <meta property="og:url"             content="http://www.mos3abof.com/poor-mans-guide-for-monitoring-a-website-using-python.html" />
+    <meta property="og:title"           content="Poor Man's Guide for Monitoring a Website Using Python | Mosab Ahmad" />
 </head>
 <body>
 <div id="fb-root"></div>
@@ -34,6 +34,7 @@
     	<div style=float:right>
         	        	<a href="http://www.mos3abof.com/about.html">About</a>
         	        	<a href="http://www.mos3abof.com/projects.html">Projects</a>
+        	        	<a href="http://www.mos3abof.com/2014.html">2014</a>
         	    	</div>
     </div>
 </header>
@@ -42,7 +43,7 @@
     <article>
         <article>
     <header>
-        <h1>Poor Man's Guide for Monitoring a Website in Python</h1>
+        <h1>Poor Man's Guide for Monitoring a Website Using Python</h1>
         <time>11 Feb, 2013</time>    </header>
 
     <p><p>In one of the projects I am working on there was a problem with Apache
@@ -86,12 +87,12 @@ your way, etc).</p>
 <p>Time to put it together in a script :</p>
 <div class="codehilite"><pre><span class="kn">import</span> <span class="nn">urllib</span>
 
-<span class="k">try</span><span class="p">:</span>    
-    <span class="n">resposne_code</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;http://www.example.com&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getcode</span><span class="p">()</span>    
-    <span class="k">if</span> <span class="n">response_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>        
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">resposne_code</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&quot;http://www.example.com&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getcode</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">response_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span>
-<span class="k">except</span><span class="p">:</span>    
-    <span class="k">pass</span>    
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
         <span class="c"># Here write code to do whatever you want to do when the website is down.</span>
 </pre></div>
 
@@ -115,7 +116,7 @@ see in Fabric's documenation.</p>
 <span class="n">env</span><span class="o">.</span><span class="n">hosts</span>       <span class="o">=</span> <span class="p">[</span><span class="s">&#39;user@server&#39;</span><span class="p">]</span>
 <span class="n">env</span><span class="o">.</span><span class="n">passwords</span>   <span class="o">=</span> <span class="p">{</span><span class="s">&#39;user@server&#39;</span> <span class="p">:</span> <span class="s">&#39;password&#39;</span> <span class="p">}</span>
 
-<span class="k">def</span> <span class="nf">restart_apache</span><span class="p">():</span>    
+<span class="k">def</span> <span class="nf">restart_apache</span><span class="p">():</span>
     <span class="n">sudo</span><span class="p">(</span><span class="s">&quot;apache2ctl restart&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -157,28 +158,28 @@ then you need to use the <code>-f</code> option like this :</p>
 <span class="n">gmail_pwd</span>   <span class="o">=</span> <span class="s">&#39;YOUR-GMAIL-PASSWORD&#39;</span>
 <span class="n">recepient</span>   <span class="o">=</span> <span class="s">&#39;DEVOPS-EMAIL&#39;</span>
 
-<span class="k">def</span> <span class="nf">mail</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">gmail_user</span><span class="p">,</span> <span class="n">gmail_pwd</span><span class="p">):</span>    
-    <span class="sd">&#39;&#39;&#39;    Sends mail using gmail    &#39;&#39;&#39;</span>    
-    <span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEMultipart</span><span class="p">()</span>    
+<span class="k">def</span> <span class="nf">mail</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">gmail_user</span><span class="p">,</span> <span class="n">gmail_pwd</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;    Sends mail using gmail    &#39;&#39;&#39;</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEMultipart</span><span class="p">()</span>
 
-    <span class="c"># Setting up message data    </span>
-    <span class="n">msg</span><span class="p">[</span><span class="s">&#39;From&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="s">&#39;DEVOPS-EMAIL&#39;</span>    
-    <span class="n">msg</span><span class="p">[</span><span class="s">&#39;To&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="n">to</span>    
-    <span class="n">msg</span><span class="p">[</span><span class="s">&#39;Subject&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">subject</span>    
-    <span class="n">msg</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">MIMEText</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>    
+    <span class="c"># Setting up message data</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s">&#39;From&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="s">&#39;DEVOPS-EMAIL&#39;</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s">&#39;To&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="n">to</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s">&#39;Subject&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">subject</span>
+    <span class="n">msg</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">MIMEText</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
 
-    <span class="c"># Opening the connection with Gmail SMTP server    </span>
-    <span class="n">mailServer</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s">&quot;smtp.gmail.com&quot;</span><span class="p">,</span> <span class="mi">587</span><span class="p">)</span>    
-    <span class="n">mailServer</span><span class="o">.</span><span class="n">ehlo</span><span class="p">()</span>    
-    <span class="n">mailServer</span><span class="o">.</span><span class="n">starttls</span><span class="p">()</span>    
-    <span class="n">mailServer</span><span class="o">.</span><span class="n">ehlo</span><span class="p">()</span>    
-    <span class="n">mailServer</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">gmail_user</span><span class="p">,</span> <span class="n">gmail_pwd</span><span class="p">)</span>    
+    <span class="c"># Opening the connection with Gmail SMTP server</span>
+    <span class="n">mailServer</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s">&quot;smtp.gmail.com&quot;</span><span class="p">,</span> <span class="mi">587</span><span class="p">)</span>
+    <span class="n">mailServer</span><span class="o">.</span><span class="n">ehlo</span><span class="p">()</span>
+    <span class="n">mailServer</span><span class="o">.</span><span class="n">starttls</span><span class="p">()</span>
+    <span class="n">mailServer</span><span class="o">.</span><span class="n">ehlo</span><span class="p">()</span>
+    <span class="n">mailServer</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">gmail_user</span><span class="p">,</span> <span class="n">gmail_pwd</span><span class="p">)</span>
 
-    <span class="c"># Actual sending of the email    </span>
-    <span class="n">mailServer</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="n">gmail_user</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">as_string</span><span class="p">())</span>    
+    <span class="c"># Actual sending of the email</span>
+    <span class="n">mailServer</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="n">gmail_user</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">as_string</span><span class="p">())</span>
 
-    <span class="c"># Closing the connection    </span>
-    <span class="c"># Should be mailServer.quit(), but that crashes    </span>
+    <span class="c"># Closing the connection</span>
+    <span class="c"># Should be mailServer.quit(), but that crashes</span>
     <span class="n">mailServer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 
@@ -209,7 +210,7 @@ a cron job to do it periodically for us.</p>
 
     <div class=social-controls>
 
-    <div class="fb-like" data-href="http://www.mos3abof.com/poor-mans-guide-for-monitoring-a-website-in-python.html" data-send="true" data-width="400" data-show-faces="true"></div>
+    <div class="fb-like" data-href="http://www.mos3abof.com/poor-mans-guide-for-monitoring-a-website-using-python.html" data-send="true" data-width="400" data-show-faces="true"></div>
 
     
 </div>
@@ -226,11 +227,11 @@ a cron job to do it periodically for us.</p>
             Site is built using
             <a href="http://docs.getpelican.com/en/latest/getting_started.html" target="_blank">Pelican</a>
             (static site generator, written in <a href="http://www.python.org" target="_blank">Python</a>),
-            runs on <a href="https://developers.google.com/appengine/" target="_blank">Google AppEngine</a>,
+            runs on <a href="http://www.dreamhost.com/r.cgi?1017456" target="_blank">DreamHost green hosting</a>,
             icons by <a href="http://simpleicons.org/" target="_blank">Simple Icons</a>
             and uses <a href="https://github.com/sharat87/sharats.me" target="_blank">Shrikant Sharat</a>'s theme.
             <br />
-            &copy; All rights reserved to <a href="http://www.mos3abof.com">Mosab Ahmad</a> 2007 - 2013
+            &copy; All rights reserved to <a href="http://www.mos3abof.com">Mosab Ahmad</a> 2002 - 2014
         </p>
         <section class=social>
     		<a href="./feeds/all.atom.xml" target=_blank><img src="theme/img/rss.png" style="color: #FF8300; background-color: #FF8300;"></a>
