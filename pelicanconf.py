@@ -7,7 +7,7 @@ SITENAME = 'Mosab Ahmad'
 SITEURL = '.'
 
 FEED_DOMAIN = SITEURL
-FEED_ATOM = 'feeds/all.atom.xml'
+# FEED_ATOM = 'feeds/all.atom.xml'
 
 DIRECT_TEMPLATES = [
     'index',

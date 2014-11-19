@@ -5,7 +5,7 @@ Tags: Raspberry Pi, Open Source
 Slug: raspberry-pi-kitchen-project-pikitchen
 
 
-### Introduction
+## Introduction
 
 In late January 2013 I joined a cool tech company in Egypt called “[Yubb Software][]”. We are basically the technical arm for another cool American startup called “[zlien][]”. I joined Yubb at the same time they started moving office to a cool co-working space in Cairo, Maadi called “[The District][]”.
 
@@ -18,7 +18,7 @@ Working in a  co-working space also means far better opportunities to meet prosp
 Personally speaking, “The District” is one of the cool things that happened to me in the past few years. It is an amazing , educating and joyful experience.
 
 
-### The Raspberry Pi Workshop
+## The Raspberry Pi Workshop
 
 The [Raspberry Pi][] is a credit-card sized computer that plugs into your TV and a keyboard. It is a capable little computer which can be used in electronics projects, and for many of the things that your desktop PC does, like spreadsheets, word-processing and games. It also plays high-definition video.
 
@@ -26,13 +26,15 @@ The [Raspberry Pi][] is a credit-card sized computer that plugs into your TV and
 
 One of the cool workshops that took place in  “The District” was a  two days practical “Raspberry Pi Workshop” conducted by the great founders of “[Blue Horizon Embedded Systems][]”. They are two amazing brothers and engineers from Cape Town in South Africa, who have worked for years in two different companies in the UK and decided it was time they got back to their home country and founded their own venture.
 
-Frederick Lötter and Ernest Lötter, their names, are way too cool to just buy a ticket and go home. They instead planned a very [long roadtrip through two continents][], Europe and Africa, to share their knowledge and conduct a series of hands on workshops in many countries and cities. I was really lucky that not only they gave a workshop in my city, but at the very same co-working space I work from!
+Frederick Lötter and Ernest Lötter, their names, are way too cool to just buy a ticket and go home. They instead planned a very [long roadtrip through two continents][], Europe and Africa, to share their knowledge and conduct a series of hands on workshops in many countries and cities. I was really lucky that not only they gave a workshop in my city, but at the very same co-working space I work from! I even got a Raspberry Pi mug at the end of the workshop :)
+
+![Raspberry Pi Mug][]
 
 I already had bought a Raspberry Pi and got it shipped to Egypt way before the workshop, but I didn't have the time to start hacking any projects using it. After finishing the two days sessions, the inner geek started pushing me to just do something with it.
 
 As any true geek, you start hacking a project that solves your own problem, so I started looking for one of those. I had many cool ideas, but I thought it is time to give back to the community at the place I work in. Thus this project was born.
 
-### The Problem
+## The Problem
 
 “The District” has a cool little kitchen service. Co-workers have access to kitchen supplies, like soda drinks, bakery, chocolates, yogurt, juice, etc, for a price near to the market. This saves the co-workers a lot of time going downstairs to the nearest super market, one wouldn't need to that, just walk to the kitchen and your little snack is there waiting for you.
 
@@ -65,7 +67,7 @@ Sometimes the prices change. Other times the items list change either by introdu
 
 ![Kitchen Paper Problem][]
 
-### The Proposed Solution
+## The Proposed Solution
 
 After defining the problem, I started thinking of digitizing the process, since this is my area of expertise.
 
@@ -83,7 +85,7 @@ The second web application is for the co-workers themselves to be able to monito
 
 After talking with “The District” team they liked the idea very much!
 
-### The Plan
+## The Plan
 
 I am a full time employee right now, and this means I only get to work on this project in my personal free time. This proposes a big challenge, as I would only have one day per week to work on this project (I have to spend the other weekend day with my beloved wife and my little son).
 
@@ -103,6 +105,7 @@ That's it for now. See you in future sequels for this post.
 [The District]: http://www.district-egypt.com
 [Raspberry Pi]: http://www.raspberrypi.org/faqs
 [Raspberry Pi Picture]: http://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/RaspberryPi.jpg/800px-RaspberryPi.jpg
+[Raspberry Pi Mug]: http://distilleryimage7.ak.instagram.com/580354b23fa611e3b94022000aeb0db5_8.jpg
 [Blue Horizon Embedded Systems]: http://www.bluehorizonembedded.co.za/
 [long roadtrip through two continents]: http://www.raspberrypi.org/archives/3939
 [Kitchen Paper]: http://farm6.staticflickr.com/5475/11676439544_2e3e8a037a_c.jpg
