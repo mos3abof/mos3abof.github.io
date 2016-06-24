@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Toggl Target : An Open Source Project Of My Own - Mosab Ahmad</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://www.mos3abof.com/toggl-target-open-source-project.html">
+
+        <meta name="author" content="Mosab Ahmad" />
+        <meta name="keywords" content="Python,Toggl,API" />
+        <meta name="description" content="At our company, Yubb Software, we track our working hours using the great time tracker created by the folks at Toggl, and we have monthly goals that we need to achieve. I have always had a problem with time management, and this time I decided I should start working on ..." />
+
+        <meta property="og:site_name" content="Mosab Ahmad" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Toggl Target : An Open Source Project Of My Own"/>
+        <meta property="og:url" content="http://www.mos3abof.com/toggl-target-open-source-project.html"/>
+        <meta property="og:description" content="At our company, Yubb Software, we track our working hours using the great time tracker created by the folks at Toggl, and we have monthly goals that we need to achieve. I have always had a problem with time management, and this time I decided I should start working on ..."/>
+        <meta property="article:published_time" content="2013-06-17" />
+            <meta property="article:section" content="misc" />
+            <meta property="article:tag" content="Python" />
+            <meta property="article:tag" content="Toggl" />
+            <meta property="article:tag" content="API" />
+            <meta property="article:author" content="Mosab Ahmad" />
+            <meta property="og:image"
+                  content="http://www.mos3abof.com/http://www.mos3abof.com/theme/img/cigar-about-green-eye-medium.jpg"/>
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://www.mos3abof.com/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="http://www.mos3abof.com/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://www.mos3abof.com/theme/css/pygments/monokai.css" rel="stylesheet">
+	<!--<link rel="stylesheet" href="http://www.mos3abof.com/theme/css/style.css" type="text/css"/>-->
+
+        <link href="http://www.mos3abof.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Mosab Ahmad ATOM Feed"/>
+	
+	<!-- Added by Mosab -->
+	<!--<link href="http://getbootstrap.com/examples/blog/blog.css" rel="stylesheet">-->
+	<link href='http://fonts.googleapis.com/css?family=Vollkorn:400,700' rel='stylesheet' type='text/css'>
+	<style>body,h1,h2,h3,h4,p,div,span{font-family:'Vollkorn',serif!important}h2{font-size:1.6em}h3{font-size:1.3em}.axis{font:10px sans-serif}.axis path,.axis line{fill:none;stroke:#000;shape-rendering:crispEdges}rect.bordered{stroke:#e6e6e6;stroke-width:2px}text.mono{font-size:9pt;font-family:Consolas,courier;fill:#aaa}text.axis-workweek{fill:#000}text.axis-worktime{fill:#000}i{color:#5cb85c}</style>
+	<!-- End of Added by Mosab -->
+</head>
+<body>
+
+
+	<div class="blog-masthead">
+	<div class="container">
+        <nav class="blog-nav">
+            <a href="http://www.mos3abof.com/" class="blog-nav-item">
+Mosab Ahmad                         <a class="blog-nav-item " href="http://www.mos3abof.com/pages/about.html">
+                             About
+                          </a>
+                         <a class="blog-nav-item " href="http://www.mos3abof.com/pages/projects.html">
+                             Projects
+                          </a>
+              <a href="http://www.mos3abof.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            
+		</nav>
+    </div>
+	</div> <!-- /.navbar -->
+
+
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://www.mos3abof.com/toggl-target-open-source-project.html"
+                       rel="bookmark"
+                       title="Permalink to Toggl Target : An Open Source Project Of My Own">
+                        Toggl Target : An Open Source Project Of My Own
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-06-17T04:00:00+02:00"> 17 Jun, 2013</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://www.mos3abof.com/tag/python.html">Python</a>
+        /
+	<a href="http://www.mos3abof.com/tag/toggl.html">Toggl</a>
+        /
+	<a href="http://www.mos3abof.com/tag/api.html">API</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>At our company, <a href="http://www.yubb-software.com">Yubb Software</a>, we track our working hours using the
+great time tracker created by the folks at <a href="http://www.toggl.com">Toggl</a>, and we have
+monthly goals that we need to achieve. I have always had a problem with
+time management, and this time I decided I should start working on them.</p>
+<p>So I created this small project to calculate how many more hours I should
+work to achieve my monthly goals.</p>
+<p>This is how the output of this script looks like :</p>
+<div class="highlight"><pre>Hi
+Checking Internet connectivity...
+Internet seems fine!
+
+Trying to connect to Toggl, hang on!
+
+So far you have tracked 120.00 hours
+
+Business days left till deadline : 7
+Total days left till deadline : 10
+
+Required working hours for this month : 170
+
+To achieve the minimum :
+    you should log 4.00 hours every business day
+    or log 3.00 hours every day
+
+To achieve the required :
+    you should log 7.00 hours every business day
+    or log 5.0 hours every day
+
+So far you have achieved:
+
+70.59% [=================================================--------------|------]
+</pre></div>
+
+
+<p>This information has provided me with a whole new level of awarenes of
+how productive I am! It is scary, but at the same time it gives you a
+great indicator of how good -or bad- you are sticking to your goals and
+if you need to have some crunch time or just relax the next weekend.</p>
+<p>I then published the script under GPL license V2 on <a href="https://github.com/mos3abof/toggl_target">Github</a>.</p>
+<p>I got great deal of help from one of my role model software engineers in
+Egypt, <a href="http://www.mtayseer.net/">Mohammed Tayseer</a>, making the code more Pythonic. He also
+added installation instructions for Windows users, as I don't use
+windows anymore, and he is now a contributor to the repository on
+Github.</p>
+<p>Today, Monday June 17th, Toggl added a link to my script on their new
+documentation in the <a href="https://github.com/toggl/toggl_api_docs">Code Examples</a> section.</p>
+<p>My little open source script that uses is the first -and so far the
+only- mentioned project in their new API Documentation. Check it on their <a href="https://github.com/toggl/toggl_api_docs#code-examples">API
+Documenation</a> on Github, or check the following screenshot :</p>
+<p>![My little open source script is the first -and so far the only- mentioned project in Toggl's API new Documentation.][]</p>
+<p>This really made my day. Thank you Toggl :)</p>
+<h3><strong><em>Update 1 : Friday June 21st, 3:50 PM</em></strong></h3>
+<p>I received an email today from someone with the following content :</p>
+<blockquote>
+<p>Hi Mosab,</p>
+<p>I’m currently making a small Python app that interacts with the toggl
+API, and your toggl target script has been helpful in getting me
+started. I’m using a modified version of your api.py file, and I’d
+like to credit you in my project when I put it on GitHub, but I’m not
+sure how (I’m rather new to all of this). Is it sufficient to mention
+that in the readme or should I leave the line "#@author Mosab Ahmad
+<a href="http://www.mos3abof.com/feeds/mailto:mosab.ahmad@gmail.com">mosab.ahmad@gmail.com</a>" at the beginning of the file?</p>
+<p>If you’re interested, it’s an implementation of <a href="http://blog.sethroberts.net/2011/05/01/percentile-feedback-and-productivity/">this</a> (percentile
+feedback)</p>
+<p>Best</p>
+</blockquote>
+<p>I am really glad my code helped someone :)</p>
+<h3><strong><em>Update 2 : Wednesday Jul 10th, 11:43 PM</em></strong></h3>
+<p>Seems that my little Toggl Target script is picking up some momentum.</p>
+<p>I got this email 45 minutes ago :</p>
+<blockquote>
+<p>hi,</p>
+<p>you probably have already seen it, but i forked your toggl_target
+repo.</p>
+<p>i just wanted to see how fast i could add reports api support and what
+data comes out of there... while doing that i replaced the way the
+config is loaded to something similar like django works and loading a
+config file directly from a user's home dir... and added a setup.py to
+install everything.</p>
+<p>so now there is a separate script to get some reports and an api
+wrapper for reports subclassing yours. i also did a little refactoring
+in your code.</p>
+<p>since you seem to plan on writing a separate pytoggle lib i thought
+some of that is useful for you... so i wanted to give you an overview
+of what i changed and let you know, i probably won't do anything more
+with that.</p>
+<p>here is the sauce:</p>
+<p><a href="https://github.com/fdemmer/toggl_target">https://github.com/fdemmer/toggl_target</a></p>
+<p>regards,</p>
+<p>Florian</p>
+</blockquote>
+<p>I am really surprised and humbled by all your contributions, thank you.</p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_tweet"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <!-- AddThis Button END -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'mos3abof'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'toggl-target-open-source-project';
+                var disqus_url = 'http://www.mos3abof.com/toggl-target-open-source-project.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="http://twitter.com/mos3abof"><i class="fa fa-twitter-square fa-lg"></i> twitter</a></li>
+                <li class="list-group-item"><a href="http://www.linkedin.com/in/mosab"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
+                <li class="list-group-item"><a href="http://github.com/mos3abof"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="http://www.mos3abof.com/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/addon.html">
+                            Addon
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/api.html">
+                            API
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/caffeine.html">
+                            Caffeine
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/career.html">
+                            Career
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/code.html">
+                            Code
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/dreamhost.html">
+                            Dreamhost
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/excel.html">
+                            Excel
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/fabric.html">
+                            Fabric
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/firefox.html">
+                            Firefox
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/gdata.html">
+                            GData
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/ide.html">
+                            IDE
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/ie.html">
+                            IE
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/microsoft.html">
+                            Microsoft
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/monitoring.html">
+                            monitoring
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/open-source.html">
+                            Open Source
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/power.html">
+                            Power
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://www.mos3abof.com/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/raspberry-pi.html">
+                            Raspberry Pi
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/security.html">
+                            Security
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/security-ubuntu-fingerprint.html">
+                            Security Ubuntu Fingerprint
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/sublime.html">
+                            Sublime
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/toggl.html">
+                            Toggl
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/urllib.html">
+                            urllib
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://www.mos3abof.com/tag/xlrd.html">
+                            XLRD
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+    <li class="list-group-item"><h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
+        <div id="gh_repos">
+            <p class="list-group-item">Status updating...</p>
+        </div>
+            <a href="https://github.com/mos3abof">@mos3abof</a> on GitHub
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Mosab Ahmad
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://www.mos3abof.com/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://www.mos3abof.com/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://www.mos3abof.com/theme/js/respond.min.js"></script>
+
+    <!-- GitHub JS -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://www.mos3abof.com/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'mos3abof',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://www.mos3abof.com/theme/js/github.js" type="text/javascript"></script>
+    <!-- End GitHub JS Code -->
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'mos3abof'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=mos3abof"></script>
+</body>
+</html>
