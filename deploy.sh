@@ -1,2 +1,2 @@
-rsync -avz ./ mosab@mos3abof.com:~/mos3abof.com --exclude ".idea*" --exclude "deploy.sh" --exclude ".git*" --exclude ".gitignore" --delete
+rsync -avz ./ mosab@mos3abof.com:~/mos3abof.com --exclude ".idea*" --exclude "deploy.sh" --exclude ".git*" --exclude ".gitignore" --exclude "README.md" --delete
 
