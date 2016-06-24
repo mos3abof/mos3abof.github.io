@@ -1,0 +1,72 @@
+==================================================================
+https://keybase.io/mos3abof
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://www.mos3abof.com
+  * I am mos3abof (https://keybase.io/mos3abof) on keybase.
+  * I have a public key with fingerprint 6790 DAF9 AA13 12E6 795D  A629 E302 7A1B 0CD9 3952
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "6790daf9aa1312e6795da629e3027a1b0cd93952",
+            "host": "keybase.io",
+            "key_id": "e3027a1b0cd93952",
+            "uid": "2011535a677b83870b901825d62a4000",
+            "username": "mos3abof"
+        },
+        "revoke": {
+            "sig_ids": [
+                "0bff41ffc07cd65dc4296b64cd378bf8e86529ab7e3eaf58b03f6c4584cbe2230f"
+            ]
+        },
+        "service": {
+            "hostname": "www.mos3abof.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1403271550,
+    "expire_in": 157680000,
+    "prev": "180515e695a3b48c6c0c97a2be9038f05ff2220b9117d4e6dd95db3683458601",
+    "seqno": 5,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v0.1.22
+Comment: https://keybase.io/crypto
+
+yMIzAnicbVJNbBtFGHVIwNRqpFRAD5QKMRSagzHzszP7w18oQgoRFFCSQkSxO7M7
+664c77q7ztquVRt6IQIkEBEyFRJwQDkkUoT4UTi1gFoO4DrCQiqosqBQKdBeoHCo
+qkp0bLU3TqvvzZv33vd2To4OJ1JDFh3L7VtbgUPff/38QmL6Y7NRByJwasCqg4Ic
+fFzPz8uwFHp+GViA6SZ0uGtyjgjCUo3U4QybkkCscySg7ZjEpBikwcEg6t9QMoJH
+MuMFClNDznMU+j/8hcEBhghRQjnTdWEQQ4fChMjA1GGYaxDCPjGSoc+LUrGLQUS4
+CFxwJA1CGQcFBdZB5OWVSwSslwAUrqsh17WhbjuMOraGTSaYZjtEN4RrSINRbHKh
+SyK5Sw0BictsjRqaLSTGBLrgZaWtHGPPHoj317ruXqlUMjcSZOygqLKVwqAc2MG8
+Oj1YLpesfrByrTRgS5G7rpMTnu+oXtWFWIaRF/jAQoppl72+MNIgwTqiFKaBrJa8
+UOa8PoPqzFAVKLSkllWSyIAUUclMyonQDJvZ0DZ1joU0ITFcSF0XY6wqREh3NMkc
+R/0uQZhB1IYMIuUfyUN+ACyqYvK8klTd+by8EEpw5Juv9o8khlKJW26+qf8yEqkt
+Yzfey+eF5NVbr95ZPTo9s+4/nv0sbLbv3/lUr/Va79s3H8mO1FYP1N84++vUiZP7
+cOaxHUvNbbdPXnwhmb3r0g9898/nU3e0uqOVubs/qhxPbu4Zr+dfebGAL52+uPb3
+7PpzNXQu2SoUu+90wvbRjfPZE5OjG90vz/CJ9hNXdlbl8N77Gg9d2P1nY/ZVcObU
+3G97NguHZp78ae7y72xz1+t7mynr2DOLMxMd8ME9W07Nk+3xJ8uL6UcbD8Z/Tf77
+z8Pn2BeLS73vOtXm4V+m3nv6w/jY/L1L8f7D7O2tTjK+0Dmw/Y9nP21NZd/d1d0x
+tryxDa5OBJezI8dzZ6+4p2sP/Dje+29l61u3tVv598evAbNhJ8s=
+=KPy8
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mos3abof
+
+==================================================================
+

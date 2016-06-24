@@ -21,7 +21,7 @@ After installation, this icon will appear as a button in your browser :
 
 Press on it, and an input field will appear. Write the keyword or domain name in it and press enter, and voila!
 
-![Screenshot](https://d262ilb51hltx0.cloudfront.net/max/899/1*IRXZxyKWj1vd4DpaT1Fl8g.png)
+![](https://d262ilb51hltx0.cloudfront.net/max/899/1*IRXZxyKWj1vd4DpaT1Fl8g.png)
 
 ## What’s next for "Power Close"
 

@@ -1,0 +1,3 @@
+[submodule "plugins/gist"]
+	path = plugins/gist
+	url = https://github.com/kfr2/pelican-gist.git

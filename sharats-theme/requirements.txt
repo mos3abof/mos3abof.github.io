@@ -1,0 +1,6 @@
+pelican
+Markdown
+Pygments
+htmlmin
+cssmin
+ghp-import
