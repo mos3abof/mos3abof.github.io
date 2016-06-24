@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mosab Ahmad</title><link>http://www.mos3abof.com:8000/</link><description></description><atom:link href="http://www.mos3abof.com:8000/feeds/mosab-ahmad.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 28 Sep 2014 12:00:00 +0200</lastBuildDate><item><title>Power Close, My First Firefox Addon</title><link>http://www.mos3abof.com:8000/firefox-power-close.html</link><description>&lt;p&gt;I open a lot of tabs on firefox, and I mean A LOT! I was searching for addons to help me close tabs as fast as I open them so that I would keep the rate of open tabs steady. The best I found was something that closed duplicate tabs.&lt;/p&gt;
+&lt;p&gt;I usually have a lot of tabs from the same domain name open most of the time when I am researching something, or even when I am surfing facebook. So I thought it would be cool if I could close tabs belonging to a specific domain name, and not just duplicate.&lt;/p&gt;
+&lt;p&gt;I didn't find it, so I created it. Pretty basic, no optimization whatsoever, but &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/firefox-power-close/developers"&gt;here it is&lt;/a&gt; and here is the &lt;a href="https://github.com/mos3abof/firefox-power-close"&gt;code&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I submitted it yesterday for review by Mozila, and today I got an email stating that the addon has undergone full review :)&lt;/p&gt;
+&lt;h2 id="how-to-use-it"&gt;How to use it&lt;/h2&gt;
+&lt;p&gt;After installation, this icon will appear as a button in your browser :&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Firefox Power Close Addon Button" src="https://raw.githubusercontent.com/mos3abof/firefox-power-close/master/data/icon-64.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Press on it, and an input field will appear. Write the keyword or domain name in it and press enter, and voila!&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Screenshot" src="https://d262ilb51hltx0.cloudfront.net/max/899/1*IRXZxyKWj1vd4DpaT1Fl8g.png" /&gt;&lt;/p&gt;
+&lt;h2 id="whats-next-for-power-close"&gt;What’s next for "Power Close"&lt;/h2&gt;
+&lt;p&gt;There are a couple of ideas for future features :&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Context menu shortcut :&lt;/em&gt; Adding a context menu entry to close all tabs from current selected tab’s domain&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Autocomplete:&lt;/em&gt; I am planning on implementing autocomplete so you don’t have to type full domain names.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;List current open domains:&lt;/em&gt; a feature to list currently open domain names listed by the count of open tabs from every domain in a descending.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;IDN domain names support:&lt;/em&gt; currently the addon does not support domain names using non English letters and numbers. I am planning on adding this support at some point or another.&lt;/p&gt;
+&lt;p&gt;Other closing options would be thought of as well. feel free to suggest ideas.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mosab Ahmad</dc:creator><pubDate>Sun, 28 Sep 2014 12:00:00 +0200</pubDate><guid>tag:www.mos3abof.com:8000,2014-09-28:firefox-power-close.html</guid><category>Firefox</category><category>Addon</category></item><item><title>Heading For The Dark Ages!</title><link>http://www.mos3abof.com:8000/power-dark-ages.html</link><description>&lt;p&gt;&lt;em&gt;[tl;dr? Check the graph at the end of the post]&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In Egypt we are having an electricity crisis. It started in Mubrak's presidency, the dude ousted by the great Jan 2011 Revolution. After his removal, the crises started to deepen.&lt;/p&gt;
+&lt;p&gt;Morsi came to office as the president in the elections right after the revolution, and in his rule the crisis took an even worse turn. It became normal that electricity cuts off once a day for an hour. That was one of the main reasons people revolted against Morsi, and the military seized the opportunity and removed him from office and put the supreme court's president in his place for a year. Power outages were slightly imporoved right after ousting Morsi, but then it gradually was becoming worse and worse.&lt;/p&gt;
+&lt;p&gt;Marshall Sisi won the next presidential elections, he is the current president of Egypt and now we are having 5 or more power outages a day!!! This dude is a bloody savage and a mass murderer and if there was any justice in the world he would be considered a war criminal, but that's a story for another time!&lt;/p&gt;
+&lt;p&gt;Anyway, things were getting a lot worse without any government official having a shred of decency to come up and talk to the people about it. Not an apolgy, or a bit of information of how bad and/or how long will this go on. Not a statement on whatever measures the government put in place to solve this. Not a thing!!&lt;/p&gt;
+&lt;p&gt;Then I saw &lt;a href="http://eg.okfn.org/2014/08/egyptera_current_load/"&gt;this post&lt;/a&gt; by my fried &lt;a href="http://tarekamr.appspot.com/"&gt;Tarek Amr&lt;/a&gt;. He wrote that the Egyptian Electric Utility and Consumer Protection Regulatory Agency (EGYPTERA) has released an online meter to show the current load status on the Egyptian power grid. He said that the meter did not provide any way to be processed programmatically, like an API, and he invited his fellow programmers to try and do so.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="EGYPTERA Load Meter" src="http://eg.okfn.org/files/2014/08/Screen-Shot-2014-08-06-at-19.59.15-222x300.png" /&gt;&lt;/p&gt;
+&lt;p&gt;I liked the idea very much, and worked on a &lt;a href="http://www.gridstatusnow.com/"&gt;web application&lt;/a&gt; that parses the meter data and provides it as an &lt;a href="http://www.gridstatusnow.com/status"&gt;API&lt;/a&gt; for other programmers to use, and open sourced &lt;a href="https://github.com/mos3abof/power-grid-status"&gt;the code&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Unfortunately, EGYPTERA's load meter only shows if the power is in the "Safe Zone", "Warning Zone" or "Danger Zone". It also shows the load distribution throughout the day's hours. It does not show any historical data. It does not show location specific load status. Just a load status on the entire power network across Egypt!!&lt;/p&gt;
+&lt;p&gt;After I released the api, I worte another script that used that api to save the status into a database on my online server withe a timestamp. I collected data for the past 7 days and a half about the load status every 10 minutes.&lt;/p&gt;
+&lt;p&gt;When I plotted it using D3js, the output was scary!&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Load Distribution Graph" src="https://farm6.staticflickr.com/5588/15061405582_bb8de1c0cc_n.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;Each row represents a day, and every block stands for an hour of the day starting at 12 am and finishing at 12 am the next day.&lt;/p&gt;
+&lt;p&gt;Load level has a value of three :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Danger (represented in red)&lt;/li&gt;
+&lt;li&gt;Warning (represented in yellow)&lt;/li&gt;
+&lt;li&gt;Normal (represented in green)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can reach the load distribution graph &lt;a href="http://www.gridstatusnow.com/history"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We were heading for the "Dark Ages" figuratively with all that blood spilled and corrupted governments, corrupted military, corrupted judicial system, corrupted police and corrupted media. &lt;strong&gt;Now were are heading for the Dark Ages, LITERALLY!!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Update 1: The application has been featured on a TV show on Alnahar Alyoum channel. Ironically the name of the channel means "The Day Light Daily" while we are in a power crisis. Here is the &lt;a href="https://www.youtube.com/watch?v=o2amh54k3eQ"&gt;video link&lt;/a&gt;. I have been called by the program on phone from minute 17 to minute 27.&lt;/p&gt;
+&lt;p&gt;Update 2: The application now has been moved to its own domain name (www.gridstatusnow.com) and has been undergoing some UI enhancements for a better user experience.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mosab Ahmad</dc:creator><pubDate>Mon, 18 Aug 2014 04:00:00 +0300</pubDate><guid>tag:www.mos3abof.com:8000,2014-08-18:power-dark-ages.html</guid><category>Power</category></item><item><title>Introducing The “Raspberry Pi Kitchen” Project (PiKitchen)</title><link>http://www.mos3abof.com:8000/raspberry-pi-kitchen-project-pikitchen.html</link><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In late January 2013 I joined a cool tech company in Egypt called “&lt;a href="http://www.yubb-software.com"&gt;Yubb Software&lt;/a&gt;”. We are basically the technical arm for another cool American startup called “&lt;a href="http://www.zlien.com"&gt;zlien&lt;/a&gt;”. I joined Yubb at the same time they started moving office to a cool co-working space in Cairo, Maadi called “&lt;a href="http://www.district-egypt.com"&gt;The District&lt;/a&gt;”.&lt;/p&gt;
+&lt;p&gt;A co-working space is a place that people and companies from different industries and backgrounds work together in the same office. A good co-working space is usually operated by a great team that takes care of all the business needs of the co-workers from the internet connection to the printers setup to the desks and chairs and many other details that are essential for any business but are a headache to manage on your own.&lt;/p&gt;
+&lt;p&gt;Not only that, a co-working space's managing team also takes care of creating a healthy, vibrant, and fun community that shares many great values like cooperation and inspiration.&lt;/p&gt;
+&lt;p&gt;Working in a  co-working space also means far better opportunities to meet prospect clients, hires or friends that you won't usually find in a normal office. Not to mention that you are in the center of a place where a lot is going on other than work; group lunches, parties, workshops, etc. It is like being in a bee hive, a lot is going on, and in a good way.&lt;/p&gt;
+&lt;p&gt;Personally speaking, “The District” is one of the cool things that happened to me in the past few years. It is an amazing , educating and joyful experience.&lt;/p&gt;
+&lt;h2 id="the-raspberry-pi-workshop"&gt;The Raspberry Pi Workshop&lt;/h2&gt;
+&lt;p&gt;The &lt;a href="http://www.raspberrypi.org/faqs"&gt;Raspberry Pi&lt;/a&gt; is a credit-card sized computer that plugs into your TV and a keyboard. It is a capable little computer which can be used in electronics projects, and for many of the things that your desktop PC does, like spreadsheets, word-processing and games. It also plays high-definition video.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Raspberry Pi Picture" src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/RaspberryPi.jpg/800px-RaspberryPi.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;One of the cool workshops that took place in  “The District” was a  two days practical “Raspberry Pi Workshop” conducted by the great founders of “&lt;a href="http://www.bluehorizonembedded.co.za/"&gt;Blue Horizon Embedded Systems&lt;/a&gt;”. They are two amazing brothers and engineers from Cape Town in South Africa, who have worked for years in two different companies in the UK and decided it was time they got back to their home country and founded their own venture.&lt;/p&gt;
+&lt;p&gt;Frederick Lötter and Ernest Lötter, their names, are way too cool to just buy a ticket and go home. They instead planned a very &lt;a href="http://www.raspberrypi.org/archives/3939"&gt;long roadtrip through two continents&lt;/a&gt;, Europe and Africa, to share their knowledge and conduct a series of hands on workshops in many countries and cities. I was really lucky that not only they gave a workshop in my city, but at the very same co-working space I work from! I even got a Raspberry Pi mug at the end of the workshop :)&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Raspberry Pi Mug" src="http://distilleryimage7.ak.instagram.com/580354b23fa611e3b94022000aeb0db5_8.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;I already had bought a Raspberry Pi and got it shipped to Egypt way before the workshop, but I didn't have the time to start hacking any projects using it. After finishing the two days sessions, the inner geek started pushing me to just do something with it.&lt;/p&gt;
+&lt;p&gt;As any true geek, you start hacking a project that solves your own problem, so I started looking for one of those. I had many cool ideas, but I thought it is time to give back to the community at the place I work in. Thus this project was born.&lt;/p&gt;
+&lt;h2 id="the-problem"&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;“The District” has a cool little kitchen service. Co-workers have access to kitchen supplies, like soda drinks, bakery, chocolates, yogurt, juice, etc, for a price near to the market. This saves the co-workers a lot of time going downstairs to the nearest super market, one wouldn't need to that, just walk to the kitchen and your little snack is there waiting for you.&lt;/p&gt;
+&lt;p&gt;Co-workers would take whatever they want and write down what they consumed on a paper hanged at the fridge in the kitchen. That paper is actually a little neat system consisting of two papers, one listing the codes for the goods, for example, a soda can or juice would go with the code letter “a”, a chocolate bar would go with the code letter “b” and so on. Then we have this other paper that we put a mark under the column corresponding to the item you took, so if you took a soda can you would mark a pipe (the “|” on keyboard) like shown in the picture below :&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Kitchen Paper" src="http://farm6.staticflickr.com/5475/11676439544_2e3e8a037a_c.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;Every week “The District” team would take that paper of the fridge, calculate every co-worker's tap, and then co-workers would ask weekly or monthly (the managing team is really cool about it) what there tap is and pay for it when they want.&lt;/p&gt;
+&lt;p&gt;Every week, “The District” has a group lunch, where all the co-workers decide where to order lunch from, and then we all gather around 3.00 pm to have lunch together. It is a custom that every week we have one co-worker speak about himself, specially if he is a new comer, and we all have get to know each other better.&lt;/p&gt;
+&lt;p&gt;This lunch is managed by “The District” team. They would collect everybody's order, and call the restaurant, and set the dining room. They also pay for it, and then calculate what each co-worker is supposed to pay, and write that number to the co-worker's tap as well.&lt;/p&gt;
+&lt;p&gt;It also happens that some musician, handicraftsman, or a graphic designer would put some of his or her products by the reception desk. Co-workers who are interested in buying any of those products can just grab them and put them on their taps with “The District” team.&lt;/p&gt;
+&lt;p&gt;So basically there are two taps for every co-worker, the one hanged in the kitchen, and the other individual items and lunch tap.&lt;/p&gt;
+&lt;p&gt;It is really a cool system. But as a software engineer, I thought we could do better. So I fired up my laptop and started defining the problems with that system :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;It involves a lot of tedious manual calculations and paper work from “The District” team to maintain two taps for every co-worker.
+Sometimes the prices change. Other times the items list change either by introducing new products or removing old ones. In a paper-based workflow this can become easily a big mess!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I noticed that 20% of the items are driving 80% of the taps! Despite this fact, the paper is divided to equal spaced columns. The space reserved for those 20% is the same as the other less frequently marked items. This is already a problem, but if you add joint taps -like the company I work for- to the equation it becomes a disaster! Check the picture below this list.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The paper is designed in a way that every co-worker would reserve a row for his name and then mark his or her items in the intersection between his row and the column representing the code letter of the item he bought. Some times the number of rows in smaller than the number of active co-workers that week, so co-workers start extending the table manually and “The District” team would notice and print even more papers to cover the need.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Any analysis of the previous data would be hell! If “The District” team wanted to any kind of analysis on that data they will first have to digitize it manually before it made any sense!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Paper systems like this one have no sense of timings! They will give you total purchases done on single day, but they will never tell you when was each purchase made, or how are those purchases distributed along the day.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Kitchen Paper Problem" src="http://farm3.staticflickr.com/2807/11676439514_6b1271daa0_c.jpg" /&gt;&lt;/p&gt;
+&lt;h2 id="the-proposed-solution"&gt;The Proposed Solution&lt;/h2&gt;
+&lt;p&gt;After defining the problem, I started thinking of digitizing the process, since this is my area of expertise.&lt;/p&gt;
+&lt;p&gt;The first solution I came up with is to create a web based application that co-workers would log on to and add the items they bought to their taps. I talked with “The District” team members and Eline, one of the team, pointed out that any alternative solution has to be in the kitchen. People would grab some items and on the way they may chat with other co-workers and by the time they get to their desks they may have forgotten that they grabbed something in the first place!&lt;/p&gt;
+&lt;p&gt;Having taken that Raspberry Pi workshop, I thought I could make use of that. So I came up with the idea of attaching a Pi to a touch screen. Every co-worker would receive a secret number to unlock the screen and log in. They would then see a list of the available products and would just mark what they took. The pi would then save their purchase, with a timestamp.&lt;/p&gt;
+&lt;p&gt;This setup would serve well for collecting data, but it would be painful to view data just yet. So I thought of creating a web based application that the pi would send the data periodically to through the internet using a custom designed API.&lt;/p&gt;
+&lt;p&gt;From here it seemed pretty natural to create two other web based applications.&lt;/p&gt;
+&lt;p&gt;The first web application is for “The District” team to manage the co-workers accounts, manage the products, and view different kinds of reports, from the users taps to general graphs about consumptions rates and items popularity.&lt;/p&gt;
+&lt;p&gt;The second web application is for the co-workers themselves to be able to monitor their taps and save some time asking every now and then about their amount due.&lt;/p&gt;
+&lt;p&gt;After talking with “The District” team they liked the idea very much!&lt;/p&gt;
+&lt;h2 id="the-plan"&gt;The Plan&lt;/h2&gt;
+&lt;p&gt;I am a full time employee right now, and this means I only get to work on this project in my personal free time. This proposes a big challenge, as I would only have one day per week to work on this project (I have to spend the other weekend day with my beloved wife and my little son).&lt;/p&gt;
+&lt;p&gt;As a Free and Open Source Software (FOSS) believer, I thought the best model to go with this project is to open source it. This would leverage the great talent pool both in “The District” and online as everybody will be free to contribute to the project.&lt;/p&gt;
+&lt;p&gt;We just started the project a couple of weeks ago. I will be posting sequels to this post documenting how it evolves, and any lessons learned from it. If you are interested, this project is open to contribution, you can find the source code to the project on its &lt;a href="https://github.com/organizations/PiDistrict"&gt;Github repositories&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Since it is to an extent a critical project, we plan on testing it first on a few co-workers in a “closed beta” kind of. After it is thoroughly tested and production ready, we plan on releasing it for all co-workers in “The District”.&lt;/p&gt;
+&lt;p&gt;I am really excited for working on such a project.&lt;/p&gt;
+&lt;p&gt;That's it for now. See you in future sequels for this post.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mosab Ahmad</dc:creator><pubDate>Tue, 31 Dec 2013 21:59:00 +0200</pubDate><guid>tag:www.mos3abof.com:8000,2013-12-31:raspberry-pi-kitchen-project-pikitchen.html</guid><category>Raspberry Pi</category><category>Open Source</category></item><item><title>Enabling Fringerprint Reader On Ubuntu 13.04</title><link>http://www.mos3abof.com:8000/fingerprint-reader-ubuntu-13.04.html</link><description>&lt;p&gt;The company I work for (a cool company called &lt;a href="http://www.yubb-software.com"&gt;Yubb Software&lt;/a&gt;) 
+has provided me with a &lt;a href="http://shop.lenovo.com/us/en/laptops/thinkpad/edge-series/e430/index.html"&gt;Lenovo Thinkpad E430&lt;/a&gt; 
+laptop to work on. The laptop has a fingerprint reader, 
+which I was always looking to try for fun but never had one on my personal laptop.&lt;/p&gt;
+&lt;p&gt;I have Ubuntu 13.04 installed on it, so Ifter a very simple google search, I fired up my terminal by hitting &lt;code&gt;ctrl+alt+t&lt;/code&gt; 
+and followed these steps :&lt;/p&gt;
+&lt;p&gt;1. Add the fingerprint reader repository to the apt-get packages repositories :&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo add-apt-repository ppa:fingerprint/fingerprint-gui
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2. Resynchronize the package index files from their sources :&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get update
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;3. Install the FingerGUI package &amp;amp; some dependencies :&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install libbsapi policykit-1-fingerprint-gui fingerprint-gui
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;4. Logout of your session, and login again.&lt;/p&gt;
+&lt;p&gt;5. Launch the FingerPrint GUI and follow the steps.&lt;/p&gt;
+&lt;p&gt;Further information can be found on &lt;a href="https://launchpad.net/~fingerprint/+archive/fingerprint-gui"&gt;this page&lt;/a&gt; 
+created by the Official Fingerprint Reader Integration Team.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mosab Ahmad</dc:creator><pubDate>Tue, 01 Oct 2013 12:00:00 +0200</pubDate><guid>tag:www.mos3abof.com:8000,2013-10-01:fingerprint-reader-ubuntu-13.04.html</guid><category>Security Ubuntu Fingerprint</category></item><item><title>My Sublime Text 2 Setup</title><link>http://www.mos3abof.com:8000/my-sublime-text-2-setup.html</link><description>&lt;p&gt;I have been suffering for a while with IDEs, and ventured out to see
+what options do I have. I ended up using mainly Vim and Sublime for a
+long while now, and my life was never easier and I was never happier! In
+this post however I am talking about my &lt;a href="https://www.sublimetext.com/"&gt;Sublime Text&lt;/a&gt; Setup.&lt;/p&gt;
+&lt;h2 id="1-package-control"&gt;1. Package Control&lt;/h2&gt;
+&lt;p&gt;You don't know what sublime is really capable of untill you install the
+"&lt;a href="http://wbond.net/sublime_packages/package_control/"&gt;Package Control&lt;/a&gt;".&lt;/p&gt;
+&lt;p&gt;The website describes it as :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A full-featured package manager that helps discovering,
+installing, updating and removing&lt;/p&gt;
+&lt;p&gt;packages for Sublime Text 2. It features an automatic upgrader and
+supports GitHub,&lt;/p&gt;
+&lt;p&gt;BitBucket and a full channel/repository system.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you are using Sublime and not using it, STOP READING &amp;amp; NOW GO
+&lt;a href="http://wbond.net/sublime_packages/package_control/installation"&gt;INSTALL IT&lt;/a&gt;! After that go have a look &lt;a href="http://wbond.net/sublime_packages/package_control/usage"&gt;how to use it&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="2-the-packages-i-use"&gt;2. The packages I use&lt;/h2&gt;
+&lt;p&gt;I have a list of awesome packages I use :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SublimeLinter&lt;/strong&gt; : Uses "lint" programs to highlight lines of code
+    the linter deems to contain (potential) errors. It also supports
+    highlighting special annotations (for example: TODO) so that they
+    can be quickly located.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SideBarEnhancements&lt;/strong&gt; : Adds lots of enhancements to default
+    Sublime Text sidebar. Files and folders.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHubinator&lt;/strong&gt; : Allows you to select text in a Sublime Text 2
+    file, and see the highlighted lines on GitHub's remote repo, if one
+    exists.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Git&lt;/strong&gt; : Plugin for some git integration into Sublime Text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Djaneiro&lt;/strong&gt; : Django support for Sublime Text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SublimeCodeIntel&lt;/strong&gt; : Full-featured code intelligence and smart
+    autocomplete engine.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PHP-Twig&lt;/strong&gt; : Adds support for &lt;code&gt;.twig&lt;/code&gt; template files.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BracketHilighter&lt;/strong&gt; : Matches and higlights a variety of brackets
+    for better readability.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SublimeRope&lt;/strong&gt; : Adds Python completions and some IDE-like
+    functions to Sublime Text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;jQuery&lt;/strong&gt; : Provides help with jQuery functions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Xdebug&lt;/strong&gt; : Xdebug Interface for Sublime Text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SublimeREPL&lt;/strong&gt; : Helps you run an interpreter inside Sublime Text
+    for various languages (like Python, Ruby, Shell) and you can
+    configure it to run others as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To install any of these packages -after installing the Package Control-
+press &lt;code&gt;ctrl+shift+p&lt;/code&gt; then type &lt;code&gt;install package&lt;/code&gt;. A list will appear
+with all available packages to your, just click on the package you want
+and voila!&lt;/p&gt;
+&lt;p&gt;I highly recommend you watch this video on Youtube : &lt;a href="http://www.youtube.com/watch?v=TZ-bgcJ6fQo"&gt;Perfect Workflow
+in Sublime Text 2&lt;/a&gt;. It might seem very long, but it is actually
+divided into 10 minutes chunks -more or less- and it is one of the best
+resources I have seen about Sublime.&lt;/p&gt;
+&lt;p&gt;Happy hacking/coding with Sublime :)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mosab Ahmad</dc:creator><pubDate>Thu, 20 Jun 2013 00:53:00 +0200</pubDate><guid>tag:www.mos3abof.com:8000,2013-06-20:my-sublime-text-2-setup.html</guid><category>Sublime</category><category>IDE</category></item><item><title>Toggl Target : An Open Source Project Of My Own</title><link>http://www.mos3abof.com:8000/toggl-target-open-source-project.html</link><description>&lt;p&gt;At our company, &lt;a href="http://www.yubb-software.com"&gt;Yubb Software&lt;/a&gt;, we track our working hours using the
+great time tracker created by the folks at &lt;a href="http://www.toggl.com"&gt;Toggl&lt;/a&gt;, and we have
+monthly goals that we need to achieve. I have always had a problem with
+time management, and this time I decided I should start working on them.&lt;/p&gt;
+&lt;p&gt;So I created this small project to calculate how many more hours I should
+work to achieve my monthly goals.&lt;/p&gt;
+&lt;p&gt;This is how the output of this script looks like :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Hi
+Checking Internet connectivity...
+Internet seems fine!
+
+Trying to connect to Toggl, hang on!
+
+So far you have tracked 120.00 hours
+
+Business days left till deadline : 7
+Total days left till deadline : 10
+
+Required working hours for this month : 170
+
+To achieve the minimum :
+    you should log 4.00 hours every business day
+    or log 3.00 hours every day
+
+To achieve the required :
+    you should log 7.00 hours every business day
+    or log 5.0 hours every day
+
+So far you have achieved:
+
+70.59% [=================================================--------------|------]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This information has provided me with a whole new level of awarenes of
+how productive I am! It is scary, but at the same time it gives you a
+great indicator of how good -or bad- you are sticking to your goals and
+if you need to have some crunch time or just relax the next weekend.&lt;/p&gt;
+&lt;p&gt;I then published the script under GPL license V2 on &lt;a href="https://github.com/mos3abof/toggl_target"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I got great deal of help from one of my role model software engineers in
+Egypt, &lt;a href="http://www.mtayseer.net/"&gt;Mohammed Tayseer&lt;/a&gt;, making the code more Pythonic. He also
+added installation instructions for Windows users, as I don't use
+windows anymore, and he is now a contributor to the repository on
+Github.&lt;/p&gt;
+&lt;p&gt;Today, Monday June 17th, Toggl added a link to my script on their new
+documentation in the &lt;a href="https://github.com/toggl/toggl_api_docs"&gt;Code Examples&lt;/a&gt; section.&lt;/p&gt;
+&lt;p&gt;My little open source script that uses is the first -and so far the
+only- mentioned project in their new API Documentation. Check it on their &lt;a href="https://github.com/toggl/toggl_api_docs#code-examples"&gt;API
+Documenation&lt;/a&gt; on Github, or check the following screenshot :&lt;/p&gt;
+&lt;p&gt;![My little open source script is the first -and so far the only- mentioned project in Toggl's API new Documentation.][]&lt;/p&gt;
+&lt;p&gt;This really made my day. Thank you Toggl :)&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;&lt;em&gt;Update 1 : Friday June 21st, 3:50 PM&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;I received an email today from someone with the following content :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hi Mosab,&lt;/p&gt;
+&lt;p&gt;I’m currently making a small Python app that interacts with the toggl
+API, and your toggl target script has been helpful in getting me
+started. I’m using a modified version of your api.py file, and I’d
+like to credit you in my project when I put it on GitHub, but I’m not
+sure how (I’m rather new to all of this). Is it sufficient to mention
+that in the readme or should I leave the line "#@author Mosab Ahmad
+&lt;a href="http://www.mos3abof.com/feeds/mailto:mosab.ahmad@gmail.com"&gt;mosab.ahmad@gmail.com&lt;/a&gt;" at the beginning of the file?&lt;/p&gt;
+&lt;p&gt;If you’re interested, it’s an implementation of &lt;a href="http://blog.sethroberts.net/2011/05/01/percentile-feedback-and-productivity/"&gt;this&lt;/a&gt; (percentile
+feedback)&lt;/p&gt;
+&lt;p&gt;Best&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I am really glad my code helped someone :)&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;&lt;em&gt;Update 2 : Wednesday Jul 10th, 11:43 PM&lt;/em&gt;&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;Seems that my little Toggl Target script is picking up some momentum.&lt;/p&gt;
+&lt;p&gt;I got this email 45 minutes ago :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hi,&lt;/p&gt;
+&lt;p&gt;you probably have already seen it, but i forked your toggl_target
+repo.&lt;/p&gt;
+&lt;p&gt;i just wanted to see how fast i could add reports api support and what
+data comes out of there... while doing that i replaced the way the
+config is loaded to something similar like django works and loading a
+config file directly from a user's home dir... and added a setup.py to
+install everything.&lt;/p&gt;
+&lt;p&gt;so now there is a separate script to get some reports and an api
+wrapper for reports subclassing yours. i also did a little refactoring
+in your code.&lt;/p&gt;
+&lt;p&gt;since you seem to plan on writing a separate pytoggle lib i thought
+some of that is useful for you... so i wanted to give you an overview
+of what i changed and let you know, i probably won't do anything more
+with that.&lt;/p&gt;
+&lt;p&gt;here is the sauce:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/fdemmer/toggl_target"&gt;https://github.com/fdemmer/toggl_target&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;regards,&lt;/p&gt;
+&lt;p&gt;Florian&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I am really surprised and humbled by all your contributions, thank you.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mosab Ahmad</dc:creator><pubDate>Mon, 17 Jun 2013 04:00:00 +0200</pubDate><guid>tag:www.mos3abof.com:8000,2013-06-17:toggl-target-open-source-project.html</guid><category>Python</category><category>Toggl</category><category>API</category></item><item><title>Joining Yubb Software</title><link>http://www.mos3abof.com:8000/joining-yubb-software.html</link><description>&lt;p&gt;I am very excited to join &lt;a href="http://www.yubb-software.com"&gt;Yubb Software&lt;/a&gt;, a brilliant software development company. &lt;/p&gt;
+&lt;p&gt;I have worked with the founders and some of the workers there in previous companies, and I love this group. The project we are working on is challenging, and the role I am supposed to play is very interesting.&lt;/p&gt;
+&lt;p&gt;They are working from a co-working space called &lt;a href="http://www.district-egypt.com/"&gt;The District&lt;/a&gt;, which is even more cool :)&lt;/p&gt;
+&lt;p&gt;I am looking forward for a bunch of hard working months to come.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mosab Ahmad</dc:creator><pubDate>Fri, 01 Mar 2013 12:00:00 +0200</pubDate><guid>tag:www.mos3abof.com:8000,2013-03-01:joining-yubb-software.html</guid><category>Career</category></item><item><title>Reading Data from Excel Sheets in Python</title><link>http://www.mos3abof.com:8000/reading-data-from-excel-sheets-in-python.html</link><description>&lt;p&gt;On &lt;em&gt;May 22nd 2012&lt;/em&gt; I was approached by the official campaign of the
+presidential candidate "&lt;a href="http://www.abolfotoh.net/"&gt;Abolfotoh&lt;/a&gt;".&lt;/p&gt;
+&lt;p&gt;They needed help setting up a Google App Engine application.&lt;/p&gt;
+&lt;p&gt;It was an interactive map that uses Google Maps to plot data about
+voters and polling stations.&lt;/p&gt;
+&lt;p&gt;What they wanted further was to create another application to collect
+data from their official representatives on the ground and use this tool&lt;/p&gt;
+&lt;p&gt;to feed the Google App Engine application with data.&lt;/p&gt;
+&lt;p&gt;The application was originally created by "&lt;a href="http://www.espace.com.eg"&gt;Espace&lt;/a&gt;" &lt;em&gt;-an awesome
+Egyptian company-&lt;/em&gt; and published on &lt;a href="https://code.google.com/p/egypt-election-2012-demo/"&gt;Google Code&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I helped the official campaign with the setup on Google App Enginer, but
+that is another story.&lt;/p&gt;
+&lt;p&gt;Before running the project in production, we needed to import a lot of
+data about the polling stations and the voters, like the Governorate it
+belonged to, the city, the number of voters per every station, the
+police station it belongs to, address, etc.&lt;/p&gt;
+&lt;p&gt;This data was only available in an excel sheet so I had to find a quick
+programatical way to import it.&lt;/p&gt;
+&lt;p&gt;For the sake of simplicity, lets assume the data in the excel sheet was
+formatted like this :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;+-------------------+------------+------------------------+
+| Polling Station   | City       | Total Number of Voters |
++-------------------+------------+------------------------+
+| polling_station_1 | Cairo      | 7734                   |
++-------------------+------------+------------------------+
+| polling_station_2 | Giza       | 13332                  |
++-------------------+------------+------------------------+
+| polling_station_3 | Alexandria | 10901                  |
++-------------------+------------+------------------------+
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;As in most spreadsheets, the first row is the header row that describes
+the data, and the actual data is in the rows to follow.&lt;/p&gt;
+&lt;p&gt;I did a quick search and found several libraries that deal with excel in
+Python,&lt;/p&gt;
+&lt;p&gt;there is even a website dedicated to listing them
+&lt;a href="http://www.python-excel.org"&gt;http://www.python-excel.org&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I chose to go with &lt;a href="http://pypi.python.org/pypi/xlrd"&gt;XLRD&lt;/a&gt;, and you can find it in &lt;a href="http://www.lexicon.net/sjmachin/xlrd.htm"&gt;PyPi&lt;/a&gt; as well.&lt;/p&gt;
+&lt;p&gt;We need to install it first by running this command :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install xlrd
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;easy_install xlrd
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Let's start coding.&lt;/p&gt;
+&lt;p&gt;XLRD calls the whole excel document a "Workbook", to open it we can do
+the following in an interactive python&lt;/p&gt;
+&lt;p&gt;shell from the same path as the file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;xlrd&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;open_workbook&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;book&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;open_workbook&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;data.xls&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now we can manipulate the excel document using this "book" object we
+created. Remember the book has all the document.&lt;/p&gt;
+&lt;p&gt;An excel document can have one or multiple sheets inside it that hold
+the data.&lt;/p&gt;
+&lt;p&gt;The first sheet has an index of 0, the second has an index of 1 and so
+on.&lt;/p&gt;
+&lt;p&gt;To open the first sheet which holds the sample data above we do this :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;first_sheet&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;book&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sheet_by_index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now we are ready to manipulate the sheet, get information about it and
+extract data from it.&lt;/p&gt;
+&lt;p&gt;For example to know the number of "effective columns" in the sheet we
+can print the &lt;code&gt;ncols&lt;/code&gt; attribute of the sheet,&lt;/p&gt;
+&lt;p&gt;or to know the number of "effective rows", the rows that contain data,
+we can use the &lt;code&gt;nrows&lt;/code&gt; attribute.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;first_sheet&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ncols&lt;/span&gt;
+&lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;first_sheet&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nrows&lt;/span&gt;
+&lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We now know how many rows contain actual data in the first sheet of our
+excel document. Time to loop over the rows and extract data.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;first_sheet&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nrows&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;        
+      &lt;span class="n"&gt;row&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first_sheet&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;row_slice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;        
+      &lt;span class="n"&gt;station&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;        
+      &lt;span class="n"&gt;city&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;        
+      &lt;span class="n"&gt;voters&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;        
+      &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Polling Station : {} in {} has {} voter&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;station&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;city&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;voters&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;Polling&lt;/span&gt; &lt;span class="n"&gt;station&lt;/span&gt; &lt;span class="n"&gt;polling_station_1&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;Cairo&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="mf"&gt;7734.0&lt;/span&gt; &lt;span class="n"&gt;voters&lt;/span&gt;
+&lt;span class="n"&gt;Polling&lt;/span&gt; &lt;span class="n"&gt;station&lt;/span&gt; &lt;span class="n"&gt;polling_station_2&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;Giza&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="mf"&gt;13332.0&lt;/span&gt; &lt;span class="n"&gt;voters&lt;/span&gt;
+&lt;span class="n"&gt;Polling&lt;/span&gt; &lt;span class="n"&gt;station&lt;/span&gt; &lt;span class="n"&gt;polling_station_3&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;Alexandria&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="mf"&gt;10901.0&lt;/span&gt; &lt;span class="n"&gt;voters&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In the previous snippet of code we started to loop over the rows
+skipping the first row &lt;code&gt;range(1, first_sheet.nrows)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Then we sliced every row out of the sheet with &lt;code&gt;row_slice()&lt;/code&gt; and then
+accessed it by column index to extract data from columns &lt;code&gt;row[]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;and then we accessed the value of the cell by calling the &lt;code&gt;row[].value&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This is a very simple usage of the library, I suggest you read its
+documentation, you will find many great stuff :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;xlrd&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xlrd&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xlrd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sheet&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Finally check my answer on a question about the issue on
+&lt;a href="http://stackoverflow.com/questions/13805274/have-no-idea-with-python-excel-read-data-file/13805734#13805734"&gt;StackOverflow&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;That's it for now.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mosab Ahmad</dc:creator><pubDate>Tue, 19 Feb 2013 11:18:00 +0200</pubDate><guid>tag:www.mos3abof.com:8000,2013-02-19:reading-data-from-excel-sheets-in-python.html</guid><category>Python</category><category>XLRD</category><category>Excel</category></item><item><title>Poor Man's Guide for Monitoring a Website Using Python</title><link>http://www.mos3abof.com:8000/poor-mans-guide-for-monitoring-a-website-using-python.html</link><description>&lt;p&gt;In one of the projects I am working on there was a problem with Apache
+server. It went down almost on a daily basis, and we were reading the
+logs to get the bottom of the root cause. But untill we got our solution
+we needed to monitor the server's accssibility through the web, and get
+alerted if it went down, and ultimately restart it when this happened.&lt;/p&gt;
+&lt;p&gt;So I fired up my console and text editor and started hacking a little
+script to do the above mentioned side goals.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Monitoring the Apache server's accessiblity from a different server.&lt;/li&gt;
+&lt;li&gt;SSH-ing the linux box running the server and restarting Apache.&lt;/li&gt;
+&lt;li&gt;Alerting the DevOps team about the issue.&lt;/li&gt;
+&lt;li&gt;Putting it all together&lt;/li&gt;
+&lt;li&gt;Setting up a cron job to run the script&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I am assuming you are running an ubunut machine.&lt;/p&gt;
+&lt;h3 id="146-monitoring-the-apache-server"&gt;1. Monitoring the Apache Server&lt;/h3&gt;
+&lt;p&gt;I was confused between two &lt;code&gt;Python 2.x&lt;/code&gt; libraries (note that they are
+dramatically changed in &lt;code&gt;Python 3.x&lt;/code&gt; and choosing between them is
+subject to different ciretera).&lt;/p&gt;
+&lt;p&gt;The first library was &lt;code&gt;python-httplib&lt;/code&gt; and the second was &lt;code&gt;urllib&lt;/code&gt;.
+After a quick reading through both library's manual and a quick reading
+on StackOverflow I have decided to go for urllib.&lt;/p&gt;
+&lt;p&gt;Basically what I had in mind was to send a GET request to the website
+served by Apache and check the HTTP response code I got.&lt;/p&gt;
+&lt;p&gt;If it is &lt;em&gt;200&lt;/em&gt; -which is the SUCCESS response code according to HTTP
+standards- then everything is fine.&lt;/p&gt;
+&lt;p&gt;You can try this in a python interactive shell :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;urllib&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;response_code&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;urllib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urlopen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.example.com&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getcode&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;response_code&lt;/span&gt;
+&lt;span class="mi"&gt;200&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If the printed value is 200 then the website is up and running, if it
+has a different value or raises an Exception then the site is likely
+down (Assuming you have internet connectivity, no firewalls blocking
+your way, etc).&lt;/p&gt;
+&lt;p&gt;Time to put it together in a script :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;urllib&lt;/span&gt;
+
+&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;resposne_code&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;urllib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urlopen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.example.com&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getcode&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;response_code&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;pass&lt;/span&gt;
+        &lt;span class="c"&gt;# Here write code to do whatever you want to do when the website is down.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="246-restart-the-apache-server-remotely"&gt;2. Restart the Apache server remotely&lt;/h3&gt;
+&lt;p&gt;There is a wonderful Python library and a command-line tool called
+&lt;em&gt;&lt;a href="http://docs.fabfile.org/en/1.5/"&gt;Fabric&lt;/a&gt;&lt;/em&gt; that helps you streamlining the use of SSH for application
+deployment or systems administration tasks. It is ideally used to
+automate tedious error prone tasks in an easy way.&lt;/p&gt;
+&lt;p&gt;You can read about more about it in their documentation.&lt;/p&gt;
+&lt;p&gt;Install it by running the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install fabric
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We now need to create a new python file that I will name &lt;code&gt;fabfile.py&lt;/code&gt;,
+you can name it anything, but let's just follow the common name you will
+see in Fabric's documenation.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;fabric.api&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt;
+
+&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hosts&lt;/span&gt;       &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;user@server&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;passwords&lt;/span&gt;   &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;user@server&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;password&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;restart_apache&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;apache2ctl restart&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We start by importing what we need from Fabric. Then we tell it some
+information about the server we want to restart Apache on by setting the
+&lt;code&gt;env.hosts&lt;/code&gt; and &lt;code&gt;env.passwords&lt;/code&gt; variables.&lt;/p&gt;
+&lt;p&gt;Then we define a &lt;code&gt;restart_apache&lt;/code&gt; function that we will call later to do
+the actual restart.&lt;/p&gt;
+&lt;p&gt;There are three main functions that are used the most, &lt;code&gt;local()&lt;/code&gt; that
+runs local commands, &lt;code&gt;run()&lt;/code&gt; that runs commands on the remote server and
+&lt;code&gt;sudo()&lt;/code&gt; that runs commands on the remote server using &lt;code&gt;sudo&lt;/code&gt;. Since
+Apache restart requires a root user or sudo priveleges we used the
+&lt;code&gt;sudo()&lt;/code&gt; function.&lt;/p&gt;
+&lt;p&gt;To run a Fabric script open up your terminal and run the following
+command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;fabric fabfile.py restart_apache
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you want to run it from a different directory than the &lt;code&gt;fabfile.py&lt;/code&gt;
+then you need to use the &lt;code&gt;-f&lt;/code&gt; option like this :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;fabric -f /path/to/your/fabfile.py function_name
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="346-alerting-the-devops-team-about-the-issue"&gt;3. Alerting the DevOps team about the issue.&lt;/h3&gt;
+&lt;p&gt;We can re-use the email function from the previous post on this blog
+&lt;a href="http://www.mos3abof.com/installing-gdata-python-client-on-dreamhost.html"&gt;Installing Gdata Python Client on Dreamhost&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;smtplib&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;email.MIMEMultipart&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;MIMEMultipart&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;email.MIMEBase&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;MIMEBase&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;email.MIMEText&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;MIMEText&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;email&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Encoders&lt;/span&gt;
+
+&lt;span class="n"&gt;subject&lt;/span&gt;     &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Your website is down&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;email_body&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Your website is down&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;gmail_user&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;YOUR-GMAIL-ADDRESS&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;gmail_pwd&lt;/span&gt;   &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;YOUR-GMAIL-PASSWORD&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;recepient&lt;/span&gt;   &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;DEVOPS-EMAIL&amp;#39;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;mail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;subject&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gmail_user&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gmail_pwd&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;#39;&amp;#39;&amp;#39;    Sends mail using gmail    &amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MIMEMultipart&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Setting up message data&lt;/span&gt;
+    &lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;From&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;     &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;DEVOPS-EMAIL&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;To&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;       &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt;
+    &lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Subject&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subject&lt;/span&gt;
+    &lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MIMEText&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Opening the connection with Gmail SMTP server&lt;/span&gt;
+    &lt;span class="n"&gt;mailServer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;smtplib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SMTP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;smtp.gmail.com&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;587&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;mailServer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ehlo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;mailServer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;starttls&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;mailServer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ehlo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;mailServer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;login&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gmail_user&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gmail_pwd&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Actual sending of the email&lt;/span&gt;
+    &lt;span class="n"&gt;mailServer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sendmail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gmail_user&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;as_string&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+    &lt;span class="c"&gt;# Closing the connection&lt;/span&gt;
+    &lt;span class="c"&gt;# Should be mailServer.quit(), but that crashes&lt;/span&gt;
+    &lt;span class="n"&gt;mailServer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="446-putting-it-all-together"&gt;4. Putting it all together&lt;/h3&gt;
+&lt;p&gt;I have combined all the snippets mentioned above, modified them and
+added some logging functionality to it.&lt;/p&gt;
+&lt;p&gt;I have it installed on &lt;code&gt;/opt/fabfile.py&lt;/code&gt; and I have created a &lt;code&gt;/opt/fab_logs&lt;/code&gt; folder to hold the log files.&lt;/p&gt;
+&lt;p&gt;Below is how a complete script may look like.&lt;/p&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/mos3abof/4771874.js"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;h3 id="546-setting-up-a-cron-job-to-run-the-script"&gt;5. Setting up a cron job to run the script&lt;/h3&gt;
+&lt;p&gt;Now we have a great script, and we know how to run it manually. But it
+would be invonvenient to run it manually all the time. We need to setup
+a cron job to do it periodically for us.&lt;/p&gt;
+&lt;p&gt;Run the following command in the terminal to edit your crontab file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;crontab -e
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then add the following line to the file to run the script every hour:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="m"&gt;0&lt;/span&gt; * * * * /usr/bin/fab -f /path/to/your/fabfile.py restart_apache
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Happy website monitoring.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mosab Ahmad</dc:creator><pubDate>Mon, 11 Feb 2013 15:34:00 +0200</pubDate><guid>tag:www.mos3abof.com:8000,2013-02-11:poor-mans-guide-for-monitoring-a-website-using-python.html</guid><category>Python</category><category>urllib</category><category>monitoring</category><category>Fabric</category></item><item><title>Installing Gdata Python Client on Dreamhost</title><link>http://www.mos3abof.com:8000/installing-gdata-python-client-on-dreamhost.html</link><description>&lt;p&gt;Our company's website is hosted on &lt;a href="http://www.dreamhost.com"&gt;Dreamhost&lt;/a&gt;. Today I needed to
+write a python script that utilizes some of Youtube's APIs to send us a
+daily digest of videos we are interested in, so I ran into the problem
+of needing to install a python library on our hosting account which I
+don't have root or admin access to.&lt;/p&gt;
+&lt;p&gt;Here is what I did.&lt;/p&gt;
+&lt;p&gt;First of all, I am assuming that you have enabled SSH access to your
+domain name you are doing this for. If this is not the case, then this
+article may be of great help : &lt;a href="http://ahappycustomer.dreamhosters.com/dreamhost-ssh.html"&gt;DreamHost SSH&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;​1. I downloaded the &lt;a href="http://code.google.com/p/gdata-python-client/downloads/list"&gt;gdata-python-client&lt;/a&gt; from code.google.com (at
+the moment I am writing this post the latest stable version is 2.0.17)
+using the following command :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~
+&lt;span class="nv"&gt;$ &lt;/span&gt;wget http://gdata-python-client.googlecode.com/files/gdata-2.0.17.tar.gz
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;​2. Untar the tarball:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;tar -xzvf gdata-2.0.17.tar.gz
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;​3. Change your directory to the uncompressed folder:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;gdata-2.0.17
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;​4. Here is the trick, since we don't have administrative access, we
+can't install the library system-wide, but we can however install it for
+our account by running this command :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python setup.py install --home&lt;span class="o"&gt;=&lt;/span&gt;~/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To test if everything is right run the following command :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;./tests/run_all_tests.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;​5. Although the library is now installed on your account, you can't yet
+import it directly, you need to add the path of libraries to the
+system.path in your python script in order to be able to import it, so
+at the beginning of your script add the following two lines:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+
+&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;HOME&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;/lib/python&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;What these two lines do is constructing a dynamic path to your new lib
+folder that contains gdata-python-client by getting the home path from
+the system registered in the variable os.environ['HOME'] and
+concatinating '/lib/python' to it, then it appends this dynamically
+generated path to the system path so that the python interpreter will
+look into this folder when importing gdata&lt;/p&gt;
+&lt;p&gt;​6. Now you can do stuff with gdata like :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;gdata.youtubeimport&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;gdata&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;youtube&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here is my final script that I wrote, and I set up a cron job to run it
+every morning :&lt;/p&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/mos3abof/4164654.js"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;Happy Gdata programming on Dreamhost :)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mosab Ahmad</dc:creator><pubDate>Thu, 29 Nov 2012 20:05:00 +0200</pubDate><guid>tag:www.mos3abof.com:8000,2012-11-29:installing-gdata-python-client-on-dreamhost.html</guid><category>Python</category><category>Dreamhost</category><category>GData</category></item><item><title>I Started Learning Python</title><link>http://www.mos3abof.com:8000/i-started-learning-python.html</link><description>&lt;p&gt;I have joined a relatively new startup called Inmobly.&lt;/p&gt;
+&lt;p&gt;I am working on two extremely interesting projects, but that is not What
+I came here to say. I have started learning Python and I am simply
+stunned! This programming language is Amazing, Guido van Rossum did an
+amazing job creating this bless.&lt;/p&gt;
+&lt;p&gt;For example check their "zen philosophy" that is hidden in an easter egg
+in any python shell, just type "import this" and you will get this :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;this&lt;/span&gt;
+&lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;Zen&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;Python&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="n"&gt;Tim&lt;/span&gt; &lt;span class="n"&gt;Peters&lt;/span&gt;
+
+&lt;span class="n"&gt;Beautiful&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;better&lt;/span&gt; &lt;span class="n"&gt;than&lt;/span&gt; &lt;span class="n"&gt;ugly&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Explicit&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;better&lt;/span&gt; &lt;span class="n"&gt;than&lt;/span&gt; &lt;span class="n"&gt;implicit&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Simple&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;better&lt;/span&gt; &lt;span class="n"&gt;than&lt;/span&gt; &lt;span class="nb"&gt;complex&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Complex&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;better&lt;/span&gt; &lt;span class="n"&gt;than&lt;/span&gt; &lt;span class="n"&gt;complicated&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Flat&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;better&lt;/span&gt; &lt;span class="n"&gt;than&lt;/span&gt; &lt;span class="n"&gt;nested&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Sparse&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;better&lt;/span&gt; &lt;span class="n"&gt;than&lt;/span&gt; &lt;span class="n"&gt;dense&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Readability&lt;/span&gt; &lt;span class="n"&gt;counts&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Special&lt;/span&gt; &lt;span class="n"&gt;cases&lt;/span&gt; &lt;span class="n"&gt;aren&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;t special enough to break the rules.&lt;/span&gt;
+&lt;span class="n"&gt;Although&lt;/span&gt; &lt;span class="n"&gt;practicality&lt;/span&gt; &lt;span class="n"&gt;beats&lt;/span&gt; &lt;span class="n"&gt;purity&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Errors&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;never&lt;/span&gt; &lt;span class="k"&gt;pass&lt;/span&gt; &lt;span class="n"&gt;silently&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Unless&lt;/span&gt; &lt;span class="n"&gt;explicitly&lt;/span&gt; &lt;span class="n"&gt;silenced&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;face&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;ambiguity&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;refuse&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;temptation&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;guess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;There&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;preferably&lt;/span&gt; &lt;span class="n"&gt;only&lt;/span&gt; &lt;span class="n"&gt;one&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;obvious&lt;/span&gt; &lt;span class="n"&gt;way&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Although&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;way&lt;/span&gt; &lt;span class="n"&gt;may&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;obvious&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="n"&gt;unless&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;re Dutch.&lt;/span&gt;
+&lt;span class="n"&gt;Now&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;better&lt;/span&gt; &lt;span class="n"&gt;than&lt;/span&gt; &lt;span class="n"&gt;never&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Although&lt;/span&gt; &lt;span class="n"&gt;never&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;often&lt;/span&gt; &lt;span class="n"&gt;better&lt;/span&gt; &lt;span class="n"&gt;than&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;now&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;implementation&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;hard&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;explain&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;s a bad idea.&lt;/span&gt;
+&lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;implementation&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;easy&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;explain&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;may&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;good&lt;/span&gt; &lt;span class="n"&gt;idea&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Namespaces&lt;/span&gt; &lt;span class="n"&gt;are&lt;/span&gt; &lt;span class="n"&gt;one&lt;/span&gt; &lt;span class="n"&gt;honking&lt;/span&gt; &lt;span class="n"&gt;great&lt;/span&gt; &lt;span class="n"&gt;idea&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;let&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;s do more of those!&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mosab Ahmad</dc:creator><pubDate>Wed, 08 Feb 2012 00:53:00 +0200</pubDate><guid>tag:www.mos3abof.com:8000,2012-02-08:i-started-learning-python.html</guid><category>Python</category></item><item><title>"Bank Masr" Security Exposure</title><link>http://www.mos3abof.com:8000/bank-masr-security-exposure.html</link><description>&lt;p&gt;Today I and my colleague Eslam were at Bank Masr because he was doing
+something there. Not only the bank looks poor, in my opinion, but also
+the screen on the wall got me stunned!&lt;/p&gt;
+&lt;p&gt;The screen was displaying a windows desktop with a folder minimized to
+the task bar and a window of internet exploerer displaying a page
+containing currency rates.&lt;/p&gt;
+&lt;p&gt;Apart from the ugliness of that page, the problem was they were showing
+the internal IP address the browser is using!!!&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;http://192.168.111.162/currencies/la2yenfa3.htm&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The page name itself &lt;strong&gt;"la2yenfa3"&lt;/strong&gt; is the Egyptian Arabic slang to say
+&lt;strong&gt;"no it is possible"&lt;/strong&gt;! It was obvious two members at the IT were
+arguing whether they can show this page or not!&lt;/p&gt;
+&lt;p&gt;I couldn't take a pic with my mobile at the time, but will the next time
+i go there.&lt;/p&gt;
+&lt;p&gt;Oh did i mention that there was a warning too on the taskbar?!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mosab Ahmad</dc:creator><pubDate>Sun, 13 Sep 2009 22:00:00 +0200</pubDate><guid>tag:www.mos3abof.com:8000,2009-09-13:bank-masr-security-exposure.html</guid><category>Security</category></item><item><title>The Email I Sent To Microsoft</title><link>http://www.mos3abof.com:8000/the-email-i-sent-to-microsoft.html</link><description>&lt;p&gt;Yesterday was a day of hell to me, because Internet Explorer deserves to
+be renamed to "internet Exploder!"...&lt;/p&gt;
+&lt;p&gt;I was working on the project and everything was going just fine, it
+looked very neat on firefox, opera and epiphany web browsers, with no
+errors or annoying distortions of any kind, it even passed the test of
+the w3c validator.&lt;/p&gt;
+&lt;p&gt;But when i was giving my client a status report, he told me the project
+is messed up, i opened an &lt;a href="http://www.tatanka.com.br/ies4linux/page/Main_Page"&gt;IE installation&lt;/a&gt; I have on my linux machine
+and everything was really upside down, with no obvious reason why it
+went like this!!&lt;/p&gt;
+&lt;p&gt;The client was upset, and he has the right to be so. So I spent all
+today trying to fix what IE destroyed. I really hate their browser, it
+is even not self-compatible, when you deal with IE the version differs
+so much that you have to make hacks in your CSS and HTML code for each
+and every version of them! How stupid that the same broswer renders html
+in a totally different way just because you are using another version!!&lt;/p&gt;
+&lt;p&gt;Out of frustration i issued a ticket to Microsoft's customer support as
+following:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Subject :&lt;/strong&gt; Please stop releasing internet explorer&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Message :&lt;/strong&gt; Dear Sir/Madam, you don't know how much i am frustrated
+and filled with anger now because of your piece of software named
+Internet Explorer, I am in a very bad situation that is about to cost
+me a lot in my job because you don't care about web standards, and
+because of the unpredicted behaviour of your IE.&lt;/p&gt;
+&lt;p&gt;I please ask you seriously, and really you can't feel how much i feel
+badly inside, to stop releasing any further versions, stop shipping
+it, remove it from your websites and ask people not to use it anymore.&lt;/p&gt;
+&lt;p&gt;Thank you for your time, and your time only, but please stop using
+that time to make our lives like hell..&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Today came a reply from an employee there :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Dear Mr. Mosab,&lt;/p&gt;
+&lt;p&gt;Thank you for contacting Microsoft Technical support. Kindly be
+informed that your complaint has been reported to the responsible
+team.&lt;/p&gt;
+&lt;p&gt;Your feedback is highly appreciated.&lt;/p&gt;
+&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mosab Ahmad</dc:creator><pubDate>Tue, 16 Jun 2009 21:00:00 +0300</pubDate><guid>tag:www.mos3abof.com:8000,2009-06-16:the-email-i-sent-to-microsoft.html</guid><category>Microsoft</category><category>IE</category></item><item><title>Caffeine Code Cycle</title><link>http://www.mos3abof.com:8000/caffeine-code-cycle.html</link><description>&lt;p&gt;I saw this quote and loved it :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Developers are living organisms that convert Caffeine into code!&lt;/p&gt;
+&lt;p&gt;-- Source Unknown&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So I made this diagram :&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Developers are living organisms that convert Caffeine into code" src="http://1.bp.blogspot.com/__NpWKU9Ntik/SoGQ0xB-lAI/AAAAAAAAAeo/WTEPrJnuJmY/s400/caffeineCode.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Mosab Ahmad</dc:creator><pubDate>Wed, 11 Mar 2009 22:00:00 +0200</pubDate><guid>tag:www.mos3abof.com:8000,2009-03-11:caffeine-code-cycle.html</guid><category>Caffeine</category><category>Code</category></item></channel></rss>
