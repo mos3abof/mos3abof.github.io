@@ -335,3 +335,13 @@ table.arch_qualify th.arch {
 	border: 1px solid black;
 	text-align: center;
 }
+
+img.float-left {
+	float: left;
+	margin-right: 3px;
+}
+
+img.float-right {
+	float: right;
+	margin-left: 3px;
+}
