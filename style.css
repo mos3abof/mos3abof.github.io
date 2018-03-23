@@ -6,7 +6,7 @@
  * - Stefano Zacchiroli <zack@debian.org>
  */
 
-@import url('https://fonts.googleapis.com/css?family=Vollkorn');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
 /* --- Whole-Page --- */
 body {
@@ -14,7 +14,7 @@ body {
     padding: 30px;
     /*font-family: 'Source Sans Pro', sans-serif;*/
     /*font-family: "DejaVu Sans", "Bitstream Vera Sans", sans-serif; */ /*Prefer Free Fonts*/
-	font-family: 'Vollkorn', serif;
+    font-family: 'Source Code Pro', monospace;
     color: #000000;
     font-size: 100%;
     background-color: #fff;
