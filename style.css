@@ -5,7 +5,7 @@
  * - Enrico Tassi <gareuselesinge@debian.org>
  * - Stefano Zacchiroli <zack@debian.org>
  */
-@import url('//fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro|Cutive+Mono|Roboto|Fira+Mono|Overpass+Mono');
 
 /* --- Whole-Page --- */
 body {
@@ -13,7 +13,7 @@ body {
     padding: 30px;
     /*font-family: 'Source Sans Pro', sans-serif;*/
     /*font-family: "DejaVu Sans", "Bitstream Vera Sans", sans-serif; */ /*Prefer Free Fonts*/
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Overpass Mono', 'Fira Mono', 'Cutive Mono', 'Roboto', 'Source Code Pro', monospace;
     color: #000000;
     font-size: 100%;
     background-color: #fff;
