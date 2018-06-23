@@ -48,14 +48,20 @@ h1#title {
     /*    padding: 20px 0 0 280px;*/
     padding: 20px 0 0 20px;
     font-size: 150%;
+	color: #29487d;
     /*    min-height: 60px;
         height: auto !important; /* "Min-Height Fast Hack" */
     /*    height: 60px; */
 }
 
 h1#title a {
-    color: black;
+/*    color: black;*/
+	color: #29487d;
     text-decoration: none;
+}
+
+h2 {
+	color: #29487d;
 }
 
 div#subtitle {
@@ -67,12 +73,14 @@ div#subtitle {
         height: auto !important;
         height: 60px;*/
     font-weight: bold;
+	color: #29487d;
 }
 
 /* --- Content Pane --- */
 div#body {
     clear: both;
-    border-top: 2px solid #d70751;
+    /*border-top: 2px solid #d70751;*/
+    border-top: 2px solid #29487d;
     /*    background: #dfdfdf;*/
     padding: 1em 1em; /* 0em 0em */
 }
