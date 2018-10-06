@@ -54,7 +54,7 @@ h1#title {
     margin: 0 0 0 0;
     /*    padding: 20px 0 0 280px;*/
     padding: 20px 0 0 20px;
-    font-size: 150%;
+    font-size: 180%;
 	color: #29487d;
     /*    min-height: 60px;
         height: auto !important; /* "Min-Height Fast Hack" */
@@ -71,7 +71,7 @@ div#subtitle {
     margin: -1em 0 1em 0;
     /*padding: 20px 0 0 280px;*/
     padding: 20px 0 0 20px;
-    font-size: 80%;
+    font-size: 90%;
     /*    min-height: 60px;
         height: auto !important;
         height: 60px;*/
