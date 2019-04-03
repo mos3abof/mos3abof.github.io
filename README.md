@@ -1,2 +1,1 @@
-My personal wesbite.
-(www.mos3abof.com)
+My personal website. (www.mos3abof.com)
