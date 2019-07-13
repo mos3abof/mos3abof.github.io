@@ -75,8 +75,28 @@ div#subtitle {
   /*    min-height: 60px;
   height: auto !important;
   height: 60px;*/
-font-weight: bold;
-color: #29487d;
+  font-weight: bold;
+  color: #29487d;
+}
+
+
+div.menu {
+  margin: 15px 0 0 0;
+  font-size:115%;
+}
+
+ul.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li.menu {
+  display: inline;
+}
+
+li.selected a.selected {
+  text-decoration: none;
 }
 
 /* --- Content Pane --- */
