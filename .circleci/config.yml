@@ -58,8 +58,8 @@ jobs:
     steps:
       - install-pelican
       - add_ssh_keys:
-        fingerprints:
-          - "95:73:53:f7:ec:77:ea:19:08:53:e9:d2:ea:2a:37:d4"
+          fingerprints:
+            - "95:73:53:f7:ec:77:ea:19:08:53:e9:d2:ea:2a:37:d4"
       - run:
           name: "Install rsync"
           command: |
@@ -73,21 +73,13 @@ jobs:
           command: |
             . venv/bin/activate
             make rsync_upload
-
 workflows:
-  commit:
+  version: 2
+  pipeline:
     jobs:
       - build
       - deploy:
-        requires:
-          - build
-  weekly:
-    triggers:
-      - schedule:
-          cron: "0 10 * * 1"  # 10am GMT (6am EST), Monday
+          requires:
+            - build
           filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - deploy
+            branches: {only: master}
