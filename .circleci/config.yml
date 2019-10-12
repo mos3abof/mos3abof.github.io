@@ -43,11 +43,11 @@ jobs:
       - run:
           name: "Add keybase.txt"
           command: |
-            cp keybase.txt ./output/
+            cp keybase.txt ~/repo/output/
       - run:
           name: "Setup .htaccess"
           command: |
-            cp .htaccess ./output/
+            cp .htaccess ~/repo/output/
       - store_artifacts:
           path: output
           destination: output
@@ -72,7 +72,7 @@ jobs:
           name: "Publish Site"
           command: |
             . venv/bin/activate
-            make rsync_upload_circleci
+            make rsync_upload
 workflows:
   version: 2
   pipeline:
