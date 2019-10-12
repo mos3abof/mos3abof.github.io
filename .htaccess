@@ -11,5 +11,5 @@ Redirect 301 /contact.html /pages/contact.html
 Redirect 301 /resouces.html /pages/resources.html
 Redirect 301 /2018.html /pages/2018.html
 Redirect 301 /2019.html /pages/2019.html
-ErrorDocument 404 /pages/404.html
+ErrorDocument 404 /pages/404-page-not-found.html
 
