@@ -1,223 +1,204 @@
-body {
-    padding-top: 70px;
-}
-
-#sidebar .list-group, #sidebar .list-group-item {
-    background-color: transparent;
-}
-
-/* for list-groups nested within a list-group-item, reset the bottom margin */
-.list-group-item > .list-group {
-    margin-bottom: 0px;
-}
-
-/* for list-group-items nested within a list-group-item, reset the bottom
-   padding of the last item, b/c the containing item has paddimg already 
+/*
+ * Debian PTS stylesheet.
+ * by:
+ * - Dan Callahan <dan.callahan@gmail.com>
+ * - Enrico Tassi <gareuselesinge@debian.org>
+ * - Stefano Zacchiroli <zack@debian.org>
  */
-.list-group-item .list-group-item:last-child {
-    padding-bottom: 0px;
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro|Cutive+Mono|Roboto|Fira+Mono|Overpass+Mono');
+
+/* --- Whole-Page --- */
+body {
+  margin: 0;
+  padding: 30px;
+  /*font-family: 'Source Sans Pro', sans-serif;*/
+  /*font-family: "DejaVu Sans", "Bitstream Vera Sans", sans-serif; */ /*Prefer Free Fonts*/
+  font-family: 'Source Code Pro', 'Overpass Mono', 'Fira Mono', 'Cutive Mono', 'Roboto', monospace;
+  color: #000000;
+  font-size: 100%;
+  background-color: #fff;
 }
 
-.list-group-item {
-    border: none;
+a:link {
+  /*color: #0755d7;*/
+  color:#29487d;
+  text-decoration: underline;
 }
 
-.tag-0 {
-    font-size: 16pt;
+a:visited {
+  /*color: #0755d7;*/
+  color:#29487d;
+  text-decoration: underline;
 }
 
-.tag-1 {
-    font-size: 13pt;
+a:hover {
+  color: #032a6b;
+  text-decoration: underline;
 }
 
-.tag-2 {
-    font-size: 10pt;
+a:active {
+  /*color: #ff0000;*/
+  color: #29487d;
+  text-decoration: underline;
 }
 
-.tag-3 {
-    font-size: 8pt;
+a img {
+  border: none;
 }
 
-.tag-4 {
-    font-size: 6pt;
+h1, h2, h3, h4, h5, h6 {
+  color: #29487d;
 }
 
-#aboutme {
-    padding-top: 0px;
-    padding-bottom: 5px;
-    -ms-word-break: normal;
-    word-break: normal;
+h1#title {
+  margin: 0 0 0 0;
+  /*    padding: 20px 0 0 280px;*/
+  padding: 20px 0 0 20px;
+  font-size: 180%;
+  color: #29487d;
+  /*    min-height: 60px;
+  height: auto !important; /* "Min-Height Fast Hack" */
+  /*    height: 60px; */
 }
 
-#sidebar {
-    padding-top: 0px;
-    -ms-word-break: break-all;
-    word-break: break-all;
-    word-break: break-word;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
+h1#title a {
+  /*    color: black;*/
+  color: #29487d;
+  text-decoration: none;
 }
 
-#sidebar a {
-    color: inherit;
-}
-
-.icon-label {
-    margin-left: 10px;
-}
-
-/* Example for how to control spacing between icon and label in specific
-   lists in the sidebar. To change, override in your CUSTOM_CSS           */
-#sidebar #social i {
-    margin-right: 3px;
-}
-
-a, a:hover {
-    color: inherit;
-}
-
-.entry-content a {
-    text-decoration: none;
-    border-bottom: 1px dotted;
-}
-
-.entry-content a:hover {
-    text-decoration: none;
-    border-bottom: 1px solid;
-}
-
-.entry-content img {
-    max-width: 100%;
-    height: auto;
-}
-
-.entry-content figcaption, .caption {
-    font-size: small;
-    margin-bottom: 2px;
-}
-
-.summary img {
-    max-width: 100%;
-    height: auto;
+div#subtitle {
+  margin: -1em 0 1em 0;
+  /*padding: 20px 0 0 280px;*/
+  padding: 20px 0 0 20px;
+  font-size: 90%;
+  /*    min-height: 60px;
+  height: auto !important;
+  height: 60px;*/
+  font-weight: bold;
+  color: #29487d;
 }
 
 
-.floatright, .align-right {
-    float: right;
+div.menu {
+  margin: 15px 0 0 0;
+  font-size:115%;
 }
 
-.floatleft, .align-left {
-    float: left;
+ul.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.floatcenter, .align-center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+li.menu {
+  display: inline;
 }
 
-figure.floatright, .align-right {
-    margin-left: 4px;
+li.selected a.selected {
+  text-decoration: none;
 }
 
-figure.floatleft, .align-left {
-    margin-right: 4px;
+/* --- Content Pane --- */
+div#body {
+  clear: both;
+  /*border-top: 2px solid #d70751;*/
+  border-top: 2px solid #29487d;
+  /*    background: #dfdfdf;*/
+  padding: 1em 1em; /* 0em 0em */
 }
 
-figure.floatcenter, .align-center {
-    margin-bottom: 11px;
+span.indented {
+  padding-left: 1.5em;
 }
 
-.highlighttable pre {
-    /* Removes bootstrap default margin-bottom */
-    margin-bottom: 0px;
+#news-list {
+  max-height: 30em;
+  overflow: auto;
 }
 
-.highlighttable {
-    /* Adds them margin-bottom to highlightable instead of <pre> */
-    margin-bottom: 11px;
+/* - Central Table - */
+#problems {
+  background: #0755d7;
+  color: #ffffff;
 }
 
-.highlighttable {
-    width: 100%;
+#todo {
+  background: #0755d7;
+  color: #ffffff;
 }
 
-#categories ul, #tags ul {
-    list-style: none;
-    padding: 0;
-    margin-left: 0;
+/* --- Footer --- */
+div#body > hr {
+  display: none;
 }
 
-.docutils.footnote td.label {
-    display: table-cell;
-    font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    color: inherit;
-    text-align: inherit;
-    white-space: inherit;
-    border-radius: inherit;
+div.footer {
+  padding: 1em 0;
+  background-color: #ffffff;
+  text-align: center;
+  border-top: 2px solid #d70751;
+  margin: 0 0 0 0;
+  border-bottom: 0;
 }
 
-.categories-timestamp {
-    color: #AAAAAA;
-    font-size: 0.9em;
-    margin-right: 10px;
+tt {
+  font-family: "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
 }
 
-.tagcloud li {
-    padding: 0px;
+a.feedlink { /* Little orange RSS button */
+  background: #ff6600 !important;
+  color: #ffffff !important;
+  border: 1px solid !important;
+  border-color: #ffcc99 #663300 #333300 #ff9966 !important;
+  padding: 0 3px !important;
+  font-weight: bold !important;
+  font-size: 70% !important;
+  text-decoration: none !important;
+  vertical-align: 0.2em !important;
+  /* Without !important, inherets from td.titlecell a:* */
 }
 
-#banner {
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-attachment: scroll;
-    background-size: cover; 
-    background-color: #C4C4C4;
-    margin: 0 0 20px;
-    padding: 70px 0; /*controls padding around inner text*/
-    position: relative;
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-#banner .copy {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
-    display: inline;
-    float: left;
-    max-width: 600px;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
+li {
+  margin-top: 0.2em;
 }
 
-#banner h1 {
-    color: #fff;
-    font-family: "HelveticaNeue-CondensedBold","Helvetica Neue CE 600 Condensed","Helvetica Neue LT Condensed","Helvetica Neue 600 Condensed","HelveticaNeue-BoldCondensed","Helvetica Neue BoldCondensed","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 60px;
-    font-stretch: condensed;
-    font-weight: 700;
-    line-height: 0.9;
-    margin: 0;
-    text-transform: uppercase;
-}
-#banner .intro {
-    color: #fff;
-    font-size: 21px;
-    line-height: 1.33;
-    opacity: 0.75;
-}
-#banner .btn, #banner .intro {
-    margin-left: 4px;
+/*li { margin-top: 0.4em; }
+td > ul { padding-left: 1em; }
+a.none { color: #000 !important; text-decoration: none !important; }*/
+
+table.arch_qualify {
+  border-collapse: collapse;
 }
 
-/* Solutions for mobile and small screens  */
-@media (max-width: 650px) {
-    #banner h1{
-       font-size: 30px; /* !important;*/
-    }
-    #banner .intro{
-        font-size: 16px;
-    }
+table.arch_qualify td {
+  border: 1px solid black;
+  padding: 0 0.2em 0 0.2em;
+}
+
+table.arch_qualify th.criteria {
+  border: 1px solid black;
+  text-align: left;
+  font-weight: normal;
+  padding: 0 0.5em 0 0.5em;
+}
+
+table.arch_qualify th.arch {
+  border: 1px solid black;
+  text-align: center;
+}
+
+img.float-left {
+  float: left;
+  margin-right: 3px;
+}
+
+img.float-right {
+  float: right;
+  margin-left: 3px;
 }
