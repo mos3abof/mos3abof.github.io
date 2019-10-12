@@ -1,6 +1,5 @@
 Title: How To Install Firefox On Debian Jessie
 Date: 2016-05-10-10 00:00
-Slug: how-to-install-firefox-on-debian-jessie
 Author: Mosab Ibrahim
 Summary: *Iceweasel* is great, but I prefer *Firefox*.
 

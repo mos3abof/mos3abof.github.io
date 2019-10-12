@@ -67,6 +67,23 @@ h1#title a {
   text-decoration: none;
 }
 
+h2#post-title {
+  margin: 0 0 0 0;
+  /*    padding: 20px 0 0 280px;*/
+  padding: 20px 0 20px 0;
+  font-size: 220%;
+  color: #29487d;
+  /*    min-height: 60px;
+  height: auto !important; /* "Min-Height Fast Hack" */
+  /*    height: 60px; */
+}
+
+h2#post-title a {
+  /*    color: black;*/
+  color: #29487d;
+  text-decoration: none;
+}
+
 div#subtitle {
   margin: -1em 0 1em 0;
   /*padding: 20px 0 0 280px;*/
