@@ -69,6 +69,10 @@ jobs:
           command: |
             echo "$known_hosts" > ~/.ssh/known_hosts
       - run:
+          name: "list all files"
+          command: |
+            ls -lhas ~/repo/output
+      - run:
           name: "Publish Site"
           command: |
             . venv/bin/activate
