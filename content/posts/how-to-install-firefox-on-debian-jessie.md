@@ -3,6 +3,8 @@ Date: 2016-05-10-10 00:00
 Author: Mosab Ibrahim
 Summary: *Iceweasel* is great, but I prefer *Firefox*.
 
+![logo]({attach}/images/firefox-iceweasel-debian.png)
+
 *Iceweasel* is great, but I prefer *Firefox*.
 
 A while back I decided to go back to my favorite linux distribution, *Debian*.
