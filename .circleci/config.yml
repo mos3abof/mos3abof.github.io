@@ -72,7 +72,7 @@ jobs:
           name: "Publish Site"
           command: |
             . venv/bin/activate
-            make rsync_upload
+            make rsync_upload_circleci
 workflows:
   version: 2
   pipeline:
