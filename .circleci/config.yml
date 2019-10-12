@@ -1,33 +1,84 @@
-# Python CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-python/ for more details
-#
-version: 2
-jobs:
-  build:
+version: 2.1
+
+executors:
+  pelican-executor:
     docker:
-      - image: circleci/python:3.7.4
+      - image: circleci/python:3.7.2
 
-    working_directory: ~/repo
-
+commands:
+  install-pelican:
     steps:
       - checkout
-
-      # Download and cache dependencies
+      - run:
+          name: "Pull Submodules"
+          command: |
+            git submodule init
+            git submodule update --remote
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "requirements.txt" }}
-            # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-
       - run:
-          name: install dependencies
+          name: "Install Dependencies"
           command: |
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
-
       - save_cache:
           paths:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
+
+jobs:
+  build:
+    executor: pelican-executor
+    working_directory: ~/repo
+    steps:
+      - install-pelican
+      - run:
+          name: "Build Site"
+          command: |
+            . venv/bin/activate
+            make publish
+      - run:
+          name: "Add keybase.txt"
+          command: |
+            cp keybase.txt ./output/
+      - run:
+          name: "Setup .htaccess"
+          command: |
+            cp .htaccess ./output/
+      - store_artifacts:
+          path: output
+          destination: output
+
+  deploy:
+    executor: pelican-executor
+    working_directory: ~/repo
+    steps:
+      - install-pelican
+      - add_ssh_keys:
+        fingerprints:
+          - "95:73:53:f7:ec:77:ea:19:08:53:e9:d2:ea:2a:37:d4"
+      - run:
+          name: "Install rsync"
+          command: |
+            sudo apt-get install -y rsync
+      - run:
+          name: "Add Host Fingerprints"
+          command: |
+            echo "$known_hosts" > ~/.ssh/known_hosts
+      - run:
+          name: "Publish Site"
+          command: |
+            . venv/bin/activate
+            make rsync_upload
+
+workflows:
+  commit:
+    jobs:
+      - build
+      - deploy:
+        requires:
+          - build
+
