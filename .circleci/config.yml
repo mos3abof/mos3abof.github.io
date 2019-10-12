@@ -81,4 +81,13 @@ workflows:
       - deploy:
         requires:
           - build
-
+  weekly:
+    triggers:
+      - schedule:
+          cron: "0 10 * * 1"  # 10am GMT (6am EST), Monday
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - deploy
