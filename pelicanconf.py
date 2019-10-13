@@ -16,5 +16,14 @@ TIMEZONE = 'Europe/London'
 
 DEFAULT_LANG = 'en'
 
+PLUGINS = [
+    # ...
+    'pelican_gist',
+    # ...
+]
+
+DATE_FORMATS = {
+    'en': ('en_US', '%d %b %Y'),
+    }
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True

@@ -169,7 +169,8 @@ folder to hold the log files.
 
 Below is how a complete script may look like.
 
-[[ gist mos3abof:4771874 ]]
+[ gist:id=4771874 ]
+[gist:id=3254906]
 
 ### 5. Setting up a cron job to run the script
 {#546-setting-up-a-cron-job-to-run-the-script}
