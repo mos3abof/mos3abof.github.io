@@ -3,7 +3,7 @@ Date: 2009-03-11 22:00
 Author: Mosab Ibrahim
 Tags:Caffeine, Code
 
-I saw this quote and loved it :
+I saw this quote and loved it:
 
 > Developers are living organisms that convert Caffeine into code!
 >

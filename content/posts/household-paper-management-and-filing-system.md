@@ -65,13 +65,11 @@ we need to upgrade it.
 ### Physical Long Term Storage
 
 This is where almost all documents should be stored physically. For this, I went
-with the "[Really Useful
-Box](https://www.amazon.co.uk/Really-Useful-Box-24C-10SFCB/dp/B0146PSKZQ/ref=sr_1_9?crid=20JPA1DXEL8FE&keywords=filing+cabinet&qid=1554633129&s=gateway&sprefix=filing+ca%2Caps%2C143&sr=8-9)"
+with the "[Really Useful Box](https://www.amazon.co.uk/Really-Useful-Box-24C-10SFCB/dp/B0146PSKZQ/ref=sr_1_9?crid=20JPA1DXEL8FE&keywords=filing+cabinet&qid=1554633129&s=gateway&sprefix=filing+ca%2Caps%2C143&sr=8-9)"
 product, with 10 extra suspension files as well as some labels to attach to the
 suspension files. This should cover the categories listed below, and should we
 need more, we can add more suspension files, or if necessary, get another box.
-Another product that I considered is the [MYUSSN 24 Packet Expanding File
-Folder](https://www.amazon.co.uk/MYEUSSN-Expanding-Business-Document-Accordion/dp/B078MLY1FG/ref=sr_1_10?crid=20JPA1DXEL8FE&keywords=filing+cabinet&qid=1554633129&s=gateway&sprefix=filing+ca%2Caps%2C143&sr=8-10),
+Another product that I considered is the [MYUSSN 24 Packet Expanding File Folder](https://www.amazon.co.uk/MYEUSSN-Expanding-Business-Document-Accordion/dp/B078MLY1FG/ref=sr_1_10?crid=20JPA1DXEL8FE&keywords=filing+cabinet&qid=1554633129&s=gateway&sprefix=filing+ca%2Caps%2C143&sr=8-10),
 but I ended up choosing the “Really Useful Box”.
 
 
@@ -82,8 +80,7 @@ thing!
 ### Printing System
 
 This s a printer. It could be a good idea to find a cloud compatible printer. I
-ended up getting an [HP Envy
-5030](https://www.amazon.co.uk/gp/product/B074PMB9C9/) printer, with an instant
+ended up getting an [HP Envy 5030](https://www.amazon.co.uk/gp/product/B074PMB9C9/) printer, with an instant
 ink subscription that is free for the first 12 months.
 
 ### Digitisation System
@@ -117,9 +114,7 @@ shred” or “to recycle”. The first will go through the rest of the house ga
 system, while the latter needs to be shredded first, then joins the recycling
 route.
 
-For the shredder, we ended up getting the [AmazonBasics 8 Sheet Strip Cut
-Shredder with CD
-Shred](https://www.amazon.co.uk/AmazonBasics-Sheet-Strip-Shredder-Shred/dp/B01E3R7GWA/ref=sr_1_3?keywords=shredder&qid=1555953188&s=gateway&sr=8-3).
+For the shredder, we ended up getting the [AmazonBasics 8 Sheet Strip Cut Shredder with CD Shred](https://www.amazon.co.uk/AmazonBasics-Sheet-Strip-Shredder-Shred/dp/B01E3R7GWA/ref=sr_1_3?keywords=shredder&qid=1555953188&s=gateway&sr=8-3).
 
 ### [WIP] Background/Maintenance System
 

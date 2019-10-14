@@ -13,7 +13,8 @@ to achieve my monthly goals.
 
 This is how the output of this script looks like :
 
-``` Hi Checking Internet connectivity...  Internet seems fine!
+```
+Hi Checking Internet connectivity...  Internet seems fine!
 
 Trying to connect to Toggl, hang on!
 

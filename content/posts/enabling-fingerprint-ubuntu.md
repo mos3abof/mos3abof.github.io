@@ -39,5 +39,3 @@ fingerprint-gui
 Further information can be found on [this
 page](https://launchpad.net/~fingerprint/+archive/fingerprint-gui) created by
 the Official Fingerprint Reader Integration Team.
-
-

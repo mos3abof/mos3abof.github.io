@@ -28,7 +28,7 @@ using *Iceweasel*.
 
 I did a quick *Google* search on how to install *Firefox* on *Debian Jessie*,
 and a majority of the results suggested adding repositories from *Ubuntu*
-packages hosted on Sourceforge. I had two major problems with that:
+packages hosted on *Sourceforge*. I had two major problems with that:
 
 
 **Problem 1:** I don’t like Sourceforge. At all. For various reasons, but that’s
@@ -37,8 +37,7 @@ a story for another time.
 **Problem 2:** I don’t like the idea of adding the repositories of another
 distro to my current setup. Doesn’t seem like a neat solution.
 
-So I kept searching until I found this [“Debian Mozilla
-team”](http://mozilla.debian.net/) page. I knew I found my desired solution.
+So I kept searching until I found this [“Debian Mozilla team”](http://mozilla.debian.net/) page. I knew I found my desired solution.
 
 Below are the steps I followed from that page to get *Firefox* installed on
 *Debian Jessie*.

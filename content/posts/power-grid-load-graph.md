@@ -35,14 +35,12 @@ grid. He said that the meter did not provide any way to be processed
 programmatically, like an API, and he invited his fellow programmers to try and
 do so.
 
-![EGYPTERA Load
-Meter](http://eg.okfn.org/files/2014/08/Screen-Shot-2014-08-06-at-19.59.15-222x300.png)
+![EGYPTERA Load Meter](http://eg.okfn.org/files/2014/08/Screen-Shot-2014-08-06-at-19.59.15-222x300.png)
 
 I liked the idea very much, and worked on a [web
 application](http://www.gridstatusnow.com/) that parses the meter data and
 provides it as an [API](http://www.gridstatusnow.com/status) for other
-programmers to use, and open sourced [the
-code](https://github.com/mos3abof/power-grid-status).
+programmers to use, and open sourced [the code](https://github.com/mos3abof/power-grid-status).
 
 Unfortunately, EGYPTERA's load meter only shows if the power is in the "Safe
 Zone", "Warning Zone" or "Danger Zone". It also shows the load distribution
@@ -56,8 +54,7 @@ for the past 7 days and a half about the load status every 10 minutes.
 
 When I plotted it using D3js, the output was scary!
 
-![Load Distribution
-Graph](https://farm6.staticflickr.com/5588/15061405582_bb8de1c0cc_n.jpg)
+![Load Distribution Graph](https://farm6.staticflickr.com/5588/15061405582_bb8de1c0cc_n.jpg)
 
 Each row represents a day, and every block stands for an hour of the day
 starting at 12 am and finishing at 12 am the next day.
@@ -68,18 +65,16 @@ Load level has a value of three :
 2. Warning (represented in yellow)
 3. Normal (represented in green)
 
-You can reach the load distribution graph
-[here](http://www.gridstatusnow.com/history).
+You can reach the load distribution graph [here](http://www.gridstatusnow.com/history).
 
 We were heading for the "Dark Ages" figuratively with all that blood spilled and
 corrupted governments, corrupted military, corrupted judicial system, corrupted
 police and corrupted media. **Now were are heading for the Dark Ages,
-       LITERALLY!!**
+LITERALLY!!**
 
 Update 1: The application has been featured on a TV show on Alnahar Alyoum
 channel. Ironically the name of the channel means "The Day Light Daily" while we
-are in a power crisis. Here is the [video
-link](https://www.youtube.com/watch?v=o2amh54k3eQ). I have been called by the
+are in a power crisis. Here is the [video link](https://www.youtube.com/watch?v=o2amh54k3eQ). I have been called by the
 program on phone from minute 17 to minute 27.
 
 Update 2: The application now has been moved to its own domain name

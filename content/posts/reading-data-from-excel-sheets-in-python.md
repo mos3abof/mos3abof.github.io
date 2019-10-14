@@ -32,7 +32,6 @@ programmatic way to import it.
 For the sake of simplicity, lets assume the data in the excel sheet was
 formatted like this :
 
-
 ```
 +-------------------+------------+------------------------+ | Polling
 Station   | City       | Total Number of Voters |
@@ -90,10 +89,8 @@ Now we are ready to manipulate the sheet, get information about it and extract
 data from it.
 
 For example to know the number of "effective columns" in the sheet we can print
-the `ncols` attribute of the sheet,
-
-or to know the number of "effective rows", the rows that contain data, we can
-use the `nrows` attribute.
+the `ncols` attribute of the sheet, or to know the number of "effective rows",
+the rows that contain data, we can use the `nrows` attribute.
 
 ```python
 >>> print first_sheet.ncols

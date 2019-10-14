@@ -187,8 +187,8 @@ $ crontab -e
 
 Then add the following line to the file to run the script every hour:
 
-```
-bash 0 * * * * /usr/bin/fab -f /path/to/your/fabfile.py restart_apache
+```bash
+0 * * * * /usr/bin/fab -f /path/to/your/fabfile.py restart_apache
 ```
 
 Happy website monitoring.
