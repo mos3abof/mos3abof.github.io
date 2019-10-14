@@ -20,7 +20,7 @@ do the above mentioned side goals.
 
 I am assuming you are running an Ubuntu machine.
 
-### 1. Monitoring the Apache Server {#146-monitoring-the-apache-server}
+### 1. Monitoring the Apache Server
 
 I was confused between two `Python 2.x` libraries (note that they are
 dramatically changed in `Python 3.x` and choosing between them is subject to
@@ -64,7 +64,6 @@ except:
 
 
 ### 2. Restart the Apache server remotely
-{#246-restart-the-apache-server-remotely}
 
 There is a wonderful Python library and a command-line tool called *[Fabric][]*
 that helps you streamlining the use of SSH for application deployment or systems
@@ -120,7 +119,6 @@ $ fabric -f /path/to/your/fabfile.py function_name
 ```
 
 ### 3. Alerting the DevOps team about the issue.
-{#346-alerting-the-devops-team-about-the-issue}
 
 We can re-use the email function from the previous post on this blog [Installing
 Gdata Python Client on Dreamhost][]:
@@ -159,7 +157,7 @@ def mail(to, subject, text, gmail_user, gmail_pwd):
     mailServer.close()
 ```
 
-### 4. Putting it all together {#446-putting-it-all-together}
+### 4. Putting it all together
 
 I have combined all the snippets mentioned above, modified them and added some
 logging functionality to it.
@@ -169,11 +167,14 @@ folder to hold the log files.
 
 Below is how a complete script may look like.
 
-[ gist:id=4771874 ]
-[gist:id=3254906]
+<div class="gist">
+  <script src='https://gist.github.com/4771874.js'></script>
+  <noscript>
+  <pre><code>#!/bin/bash ...</code></pre>
+  </noscript>
+</div>
 
 ### 5. Setting up a cron job to run the script
-{#546-setting-up-a-cron-job-to-run-the-script}
 
 Now we have a great script, and we know how to run it manually. But it would be
 inconvenient to run it manually all the time. We need to setup a cron job to do
@@ -193,6 +194,5 @@ Then add the following line to the file to run the script every hour:
 
 Happy website monitoring.
 
-[Fabric]: http://docs.fabfile.org/en/1.5/ [Installing Gdata Python Client on
-Dreamhost]:
-http://www.mos3abof.com/installing-gdata-python-client-on-dreamhost.html
+[Fabric]: http://docs.fabfile.org/en/1.5/
+[Installing Gdata Python Client on Dreamhost]: https://mosab.co.uk/installing-gdata-python-client-on-dreamhost.html

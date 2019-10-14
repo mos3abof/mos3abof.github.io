@@ -64,9 +64,9 @@ sys.path.append(os.environ['HOME'] + '/lib/python')
 
 What these two lines do is constructing a dynamic path to your new lib folder
 that contains gdata-python-client by getting the home path from the system
-registered in the variable os.environ['HOME'] and concatenating '/lib/python' to
-it, then it appends this dynamically generated path to the system path so that
-the python interpreter will look into this folder when importing gdata
+registered in the variable `os.environ['HOME']` and concatenating `/lib/python`
+to it, then it appends this dynamically generated path to the system path so
+that the python interpreter will look into this folder when importing gdata
 
 6. Now you can do stuff with gdata like :
 
@@ -78,7 +78,12 @@ the python interpreter will look into this folder when importing gdata
 Here is my final script that I wrote, and I set up a cron job to run it every
 morning:
 
-[[ gist mos3abof:4164654 ]]
+<div class="gist">
+  <script src='https://gist.github.com/4164654.js'></script>
+  <noscript>
+  <pre><code>#!/bin/bash ...</code></pre>
+  </noscript>
+</div>
 
 Happy Gdata programming on Dreamhost :)
 

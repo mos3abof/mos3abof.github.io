@@ -10,22 +10,22 @@ laptop to work on. The laptop has a fingerprint reader, which I was always
 looking to try for fun but never had one on my personal laptop.
 
 I have Ubuntu 13.04 installed on it, so after a very simple google search, I
-fired up my terminal by hitting `ctrl+alt+t` and followed these steps :
+fired up my terminal by hitting `ctrl+alt+t` and followed these steps:
 
-1. Add the fingerprint reader repository to the apt-get packages repositories :
+1. Add the fingerprint reader repository to the apt-get packages repositories:
 
 
 ```bash
 $ sudo add-apt-repository ppa:fingerprint/fingerprint-gui
 ```
 
-2. Resynchronize the package index files from their sources :
+2. Resynchronize the package index files from their sources:
 
 ```
 bash $ sudo apt-get update
 ```
 
-3. Install the FingerGUI package & some dependencies :
+3. Install the FingerGUI package & some dependencies:
 
 ```bash
 $ sudo apt-get install libbsapi policykit-1-fingerprint-gui
