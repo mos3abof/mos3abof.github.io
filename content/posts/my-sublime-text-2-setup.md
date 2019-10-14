@@ -16,13 +16,9 @@ Control][]".
 
 The website describes it as:
 
-> A full-featured package manager that helps discovering,
-> installing, updating and removing
->
-> packages for Sublime Text 2. It features an automatic upgrader and
-> supports GitHub,
->
-> Bitbucket and a full channel/repository system.
+> A full-featured package manager that helps discovering, installing, updating
+> and removing packages for Sublime Text 2. It features an automatic upgrader
+> and supports GitHub, Bitbucket and a full channel/repository system.
 
 If you are using Sublime and not using it, STOP READING & NOW GO
 [INSTALL IT][]! After that go have a look [how to use it][].
