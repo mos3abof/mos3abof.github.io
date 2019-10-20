@@ -1,4 +1,4 @@
-Title: Enabling Fringerprint Reader On Ubuntu 13.04
+Title: Enabling Fingerprint Reader On Ubuntu 13.04
 Date: 2013-10-01 12:00
 Author: Mosab Ibrahim
 Tags: Security Ubuntu Fingerprint
@@ -34,7 +34,7 @@ fingerprint-gui
 
 4. Logout of your session, and login again.
 
-5. Launch the FingerPrint GUI and follow the steps.
+5. Launch the Fingerprint GUI and follow the steps.
 
 Further information can be found on [this
 page](https://launchpad.net/~fingerprint/+archive/fingerprint-gui) created by
