@@ -2,7 +2,7 @@ Title: 2018: State of the Union
 Date: 2019-01-13 00:00
 Author: Mosab Ibrahim
 
-![Millenium Bridge, London, United
+![Millennium Bridge, London, United
 Kingdom]({attach}/images/mosab-london-bridge.jpg)
 
 The last year, 2018, has been a very busy year for me, I barely had a break! I
