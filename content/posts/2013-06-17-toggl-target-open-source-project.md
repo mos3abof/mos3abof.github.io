@@ -1,12 +1,13 @@
-Title: Toggl Target : An Open Source Project Of My Own
+Title: Toggl Target: An Open Source Project of My Own
 Date: 2013-06-17 04:00
 Author: Mosab Ibrahim
 Tags: Python, Toggl, API
 
-At our company, [Yubb Software][], we track our working hours using the great
-time tracker created by the folks at [Toggl][], and we have monthly goals that
-we need to achieve. I have always had a problem with time management, and this
-time I decided I should start working on them.
+At our company, [Yubb Software](http://www.yubb-software.com), we track our
+working hours using the great time tracker created by the folks at
+[Toggl](http://www.toggl.com), and we have monthly goals that we need to
+achieve. I have always had a problem with time management, and this time I
+decided I should start working on them.
 
 So I created this small project to calculate how many more hours I should work
 to achieve my monthly goals.
@@ -40,22 +41,26 @@ productive I am! It is scary, but at the same time it gives you a great
 indicator of how good -or bad- you are sticking to your goals and if you need to
 have some crunch time or just relax the next weekend.
 
-I then published the script under GPL license V2 on [Github][].
+I then published the script under GPL license V2 on
+[Github](https://github.com/mos3abof/toggl_target).
 
 I got great deal of help from one of my role model software engineers in Egypt,
-  [Mohammed Tayseer][], making the code more Pythonic. He also added
-  installation instructions for Windows users, as I don't use windows anymore,
-  and he is now a contributor to the repository on Github.
+[Mohammed Tayseer](http://www.mtayseer.net/), making the code more Pythonic. He
+also added installation instructions for Windows users, as I don't use windows
+anymore, and he is now a contributor to the repository on Github.
 
 Today, Monday June 17th, Toggl added a link to my script on their new
-documentation in the [Code Examples][] section.
+documentation in the [Code Examples](https://github.com/toggl/toggl_api_docs)
+section.
 
 My little open source script that uses is the first -and so far the only-
 mentioned project in their new API Documentation. Check it on their [API
-Documentation][] on Github, or check the following screenshot :
+Documentation](https://github.com/toggl/toggl_api_docs#code-examples) on Github,
+or check the following screenshot :
 
-![My little open source script is the first -and so far the only- mentioned
-project in Toggl's API new Documentation.][]
+[My little open source script that uses is the first -and so far the only-
+mentioned in Toggl's API new
+Documentation.](http://farm8.staticflickr.com/7432/9069807810_0084073717_b.jpg)
 
 This really made my day. Thank you Toggl :)
 
@@ -73,7 +78,9 @@ I received an email today from someone with the following content :
 > "\#@author Mosab Ahmad [mosab.ahmad@gmail.com][]" at the beginning of the
 > file?
 >
-> If you’re interested, it’s an implementation of [this][] (percentile feedback)
+> If you’re interested, it’s an implementation of
+> [this](http://blog.sethroberts.net/2011/05/01/percentile-feedback-and-productivity/)
+> (percentile feedback)
 >
 > Best
 
@@ -111,12 +118,4 @@ I got this email 45 minutes ago :
 
 I am really surprised and humbled by all your contributions, thank you.
 
-[My little open source script Toggl Target in action.]: http://farm4.staticflickr.com/3832/9067864209_17b3b8d1c8_o.png
-[Yubb Software]: http://www.yubb-software.com
-[Toggl]: http://www.toggl.com [Github]: https://github.com/mos3abof/toggl_target
-[Mohammed Tayseer]: http://www.mtayseer.net/
-[Code Examples]: https://github.com/toggl/toggl_api_docs
-[API Documenation]: https://github.com/toggl/toggl_api_docs#code-examples
-[My little open source script that uses is the first -and so far the only- mentioned in Toggl's API new
-Documentation.]: http://farm8.staticflickr.com/7432/9069807810_0084073717_b.jpg
-[this]: http://blog.sethroberts.net/2011/05/01/percentile-feedback-and-productivity/
+[My little open source script Toggl Target in action.](http://farm4.staticflickr.com/3832/9067864209_17b3b8d1c8_o.png)
