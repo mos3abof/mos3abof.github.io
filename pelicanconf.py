@@ -6,7 +6,7 @@ AUTHOR = 'Mosab Ibrahim'
 SITENAME = 'Mosab Ibrahim'
 SITESUBTITLE = """Site Reliability Engineer
                 @
-                <a href="https://gocardless.com">GoCardless</a>"""
+                <a href="https://twitter">Twitter</a>"""
 SITEURL = 'https://mosab.co.uk'
 THEME = 'theme/mosab'
 
