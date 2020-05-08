@@ -14,6 +14,6 @@ I am super excited that starting next Monday I will be joining
 have met some of the team already, and can't wait to start working with them and
 meet the rest!
 
-This is a huge step for me, and I look forward to months of hard working,
-learning and making new friends while empowering everyone in the world to create
-and share ideas and information instantly without barriers!
+This is a huge step for me, and I look forward to months and years of hard
+working, learning and making new friends while empowering everyone in the world
+to create and share ideas and information instantly without barriers!
