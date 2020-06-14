@@ -3,7 +3,7 @@ Date: 2012-11-29 20:05
 Author: Mosab Ibrahim
 Tags: Python, Dreamhost, GData
 
-Our company's website is hosted on [Dreamhost][]. Today I needed to write a
+Our company's website is hosted on [Dreamhost](). Today I needed to write a
 python script that utilizes some of Youtube's APIs to send us a daily digest of
 videos we are interested in, so I ran into the problem of needing to install a
 python library on our hosting account which I don't have root or admin access
@@ -13,7 +13,7 @@ Here is what I did.
 
 First of all, I am assuming that you have enabled SSH access to your domain name
 you are doing this for. If this is not the case, then this article may be of
-great help : [DreamHost SSH][]
+great help : [DreamHost SSH]()
 
 1. I downloaded the [gdata-python-client][] from code.google.com (at the moment
    I am writing this post the latest stable version is 2.0.17) using the
