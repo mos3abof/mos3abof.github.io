@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+Redirect 301 /MosabAhmad.pdf /MosabIbrahim.pdf
+Redirect 301 /MosabIbrahim.pdf /theme/MosabIbrahim.pdf
+Redirect 301 /blog.html /pages/blog.html
+Redirect 301 /projects.html /pages/projects.html
+Redirect 301 /resume.html /pages/resume.html
+Redirect 301 /about.html /pages/about.html
+Redirect 301 /contact.html /pages/contact.html
+Redirect 301 /resouces.html /pages/resources.html
+Redirect 301 /2018.html /pages/2018.html
+Redirect 301 /2019.html /pages/2019.html
+ErrorDocument 404 /pages/404-page-not-found.html
+

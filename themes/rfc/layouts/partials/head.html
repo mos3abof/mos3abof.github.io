@@ -1,0 +1,33 @@
+<head>
+  <meta name="generator" content="Hugo 0.60.0" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <base href="https://mosab.co.uk" />
+  <meta
+    name="description"
+    content="Random blobs from an Egyptian SRE in the UK"
+  />
+  <meta name="author" content="Mosab Ibrahim" />
+  {{ $title := print .Site.Title " | " .Title }}
+  {{ if .IsHome }}
+  {{ $title = .Site.Title}}
+  {{
+    end
+  }}
+  <title>{{ $title }}</title>
+
+  <link rel="canonical" href="https://mosab.co.uk/" />
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    href="https://mosab.co.uk/index.xml"
+    title="Mosab Ibrahim"
+  />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/syntax.css" />
+  <link rel="shortcut icon" href="https://mosab.co.uk/images/favicon.ico" />
+</head>
