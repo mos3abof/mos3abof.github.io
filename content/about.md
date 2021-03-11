@@ -3,7 +3,7 @@ title: "About"
 draft: false
 ---
 
-![](https://mosab.co.uk/theme/images/mosab.png)
+![](https://mosab.co.uk/images/mosab.png)
 
 I am a passionate self-taught software engineer (and lately site reliability engineer), a father to
 two lovely kids, a husband to an [amazing wife](https://amiraqassim.com), supposedly a geek, a
