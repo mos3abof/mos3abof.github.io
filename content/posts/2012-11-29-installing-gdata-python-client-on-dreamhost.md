@@ -1,7 +1,13 @@
-Title: Installing Gdata Python Client on Dreamhost
-Date: 2012-11-29 20:05
+---
+title: "Installing Gdata Python Client on Dreamhost"
+Date: 2012-11-29T20:05:00Z
 Author: Mosab Ibrahim
-Tags: Python, Dreamhost, GData
+tags:
+  - "Python"
+  - "Dreamhost"
+  - "GData"
+post: true
+---
 
 Our company's website is hosted on [Dreamhost](). Today I needed to write a
 python script that utilizes some of Youtube's APIs to send us a daily digest of
@@ -17,7 +23,7 @@ great help : [DreamHost SSH]()
 
 1. I downloaded the [gdata-python-client][] from code.google.com (at the moment
    I am writing this post the latest stable version is 2.0.17) using the
-following command :
+   following command :
 
 ```bash
 $ cd ~
@@ -38,7 +44,7 @@ $ cd gdata-2.0.17
 
 4. Here is the trick, since we don't have administrative access, we can't
    install the library system-wide, but we can however install it for our
-account by running this command:
+   account by running this command:
 
 ```bash
 $ python setup.py install --home=~/
@@ -52,10 +58,10 @@ $ ./tests/run_all_tests.py
 
 5. Although the library is now installed on your account, you can't yet import
    it directly, you need to add the path of libraries to the system.path in your
-python script in order to be able to import it, so at the beginning of your
-script add the following two lines:
+   python script in order to be able to import it, so at the beginning of your
+   script add the following two lines:
 
-```python
+```python {linenos=table,linenostart=1}
 import os
 import sys
 
@@ -78,15 +84,10 @@ that the python interpreter will look into this folder when importing gdata
 Here is my final script that I wrote, and I set up a cron job to run it every
 morning:
 
-<div class="gist">
-  <script src='https://gist.github.com/4164654.js'></script>
-  <noscript>
-  <pre><code>#!/bin/bash ...</code></pre>
-  </noscript>
-</div>
+{{ <gist mos3abof 4164654> }}
 
 Happy Gdata programming on Dreamhost :)
 
-[Dreamhost]: http://www.dreamhost.com
-[DreamHost SSH]: http://ahappycustomer.dreamhosters.com/dreamhost-ssh.html
+[dreamhost]: http://www.dreamhost.com
+[dreamhost ssh]: http://ahappycustomer.dreamhosters.com/dreamhost-ssh.html
 [gdata-python-client]: http://code.google.com/p/gdata-python-client/downloads/list

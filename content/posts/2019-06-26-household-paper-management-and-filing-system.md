@@ -1,8 +1,11 @@
-Title: Household Paper Management and Filing System
-Date: 2019-06-26 00:00
+---
+title: "Household Paper Management and Filing System"
+Date: 2019-06-26T00:00:00Z
 Author: Mosab Ibrahim
+post: true
+---
 
-![Photo by Samuel Zeller on Unsplash]({attach}/images/filing-system.jpg)
+![Photo by Samuel Zeller on Unsplash](/images/filing-system.jpg)
 
 > **Disclaimer: This is a Work In Progress. More updates will come in the future
 > to this piece.**
@@ -46,7 +49,7 @@ requirement.
 
 ## Components of the System
 
-![Filing system sketch]({attach}/images/filing-system-sketch.png)
+![Filing system sketch](/images/filing-system-sketch.png)
 
 ### Staging Area
 
@@ -72,16 +75,15 @@ need more, we can add more suspension files, or if necessary, get another box.
 Another product that I considered is the [MYUSSN 24 Packet Expanding File Folder](https://www.amazon.co.uk/MYEUSSN-Expanding-Business-Document-Accordion/dp/B078MLY1FG/ref=sr_1_10?crid=20JPA1DXEL8FE&keywords=filing+cabinet&qid=1554633129&s=gateway&sprefix=filing+ca%2Caps%2C143&sr=8-10),
 but I ended up choosing the “Really Useful Box”.
 
-
 The good thing about “Really Useful Box” is that if later on we decided to
 replace it with another system, we can repurpose the box to another useful
 thing!
 
 ### Printing System
 
-This s a printer. It could be a good idea to find a cloud compatible printer. I
-ended up getting an [HP Envy 5030](https://www.amazon.co.uk/gp/product/B074PMB9C9/) printer, with an instant
-ink subscription that is free for the first 12 months.
+This is a printer. It could be a good idea to find a cloud compatible printer. I ended up getting an
+[HP Envy 5030](https://www.amazon.co.uk/gp/product/B074PMB9C9/) printer, with an instant ink
+subscription that is free for the first 12 months.
 
 ### Digitisation System
 
@@ -135,9 +137,9 @@ Any disaster recovery policy should be part of this component as well.
 Still evaluating some products that we may or may not end up using. Those
 products are:
 
-* Google Calendar
-* DAKBoard
-* A pet project raspberry pi with screen project
+- Google Calendar
+- DAKBoard
+- A pet project raspberry pi with screen project
 
 ### [WIP] Digital Gateway
 
@@ -156,11 +158,11 @@ elaborating more on it here.
 A lot -in fact most- of the ideas in this design are inspired are inspired by
 the following references, so thank you:
 
-* [https://earlybirdmom.com/how-to-organize-paperwork/](https://earlybirdmom.com/how-to-organize-paperwork/)
-* [https://www.thespruce.com/organizing-a-home-filing-system-2648257](https://www.thespruce.com/organizing-a-home-filing-system-2648257)
-* [http://organizedhome.com/time-money/paper-chase-abc-household-paper-management](http://organizedhome.com/time-money/paper-chase-abc-household-paper-management)
-* [https://thehomesihavemade.com/2018/08/how-to-organize-paperwork-part-8-managing-household-paper-flow/](https://thehomesihavemade.com/2018/08/how-to-organize-paperwork-part-8-managing-household-paper-flow/)
-* [https://www.containerstore.com/organization-projects/office/project/organize-bills-mail](https://www.containerstore.com/organization-projects/office/project/organize-bills-mail)
-* [https://makespace.com/blog/posts/organize-store-get-rid-of-paper-clutter/](https://makespace.com/blog/posts/organize-store-get-rid-of-paper-clutter/)
-* [https://www.refinedroomsllc.com/organize-with-binders/](https://www.refinedroomsllc.com/organize-with-binders/)
-* [https://www.archives.gov/preservation/family-archives](https://www.archives.gov/preservation/family-archives)
+- [https://earlybirdmom.com/how-to-organize-paperwork/](https://earlybirdmom.com/how-to-organize-paperwork/)
+- [https://www.thespruce.com/organizing-a-home-filing-system-2648257](https://www.thespruce.com/organizing-a-home-filing-system-2648257)
+- [http://organizedhome.com/time-money/paper-chase-abc-household-paper-management](http://organizedhome.com/time-money/paper-chase-abc-household-paper-management)
+- [https://thehomesihavemade.com/2018/08/how-to-organize-paperwork-part-8-managing-household-paper-flow/](https://thehomesihavemade.com/2018/08/how-to-organize-paperwork-part-8-managing-household-paper-flow/)
+- [https://www.containerstore.com/organization-projects/office/project/organize-bills-mail](https://www.containerstore.com/organization-projects/office/project/organize-bills-mail)
+- [https://makespace.com/blog/posts/organize-store-get-rid-of-paper-clutter/](https://makespace.com/blog/posts/organize-store-get-rid-of-paper-clutter/)
+- [https://www.refinedroomsllc.com/organize-with-binders/](https://www.refinedroomsllc.com/organize-with-binders/)
+- [https://www.archives.gov/preservation/family-archives](https://www.archives.gov/preservation/family-archives)

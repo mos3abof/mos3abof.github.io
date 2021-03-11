@@ -1,7 +1,12 @@
-Title: My First Podcast Appearance!
-Date: 2020-07-12 00:00
+---
+title: "My First Podcast Appearance!"
+Date: 2020-07-12T00:00:00Z
 Author: Mosab Ibrahim
-Tags: Podcast, SRE
+tags:
+  - "Podcast"
+  - "SRE"
+post: true
+---
 
 I have recently received an invitation from my dear friend [Ahmed Zain](https://iahmadzain.me/), who
 runs a very interesting podcast under the name of "Tech and Coffee", that is generally made for

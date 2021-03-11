@@ -1,9 +1,13 @@
-Title: Heading For The Dark Ages!
-Date: 2014-08-18 04:00
+---
+title: "Heading For The Dark Ages!"
+Date: 2014-08-18T04:00:00Z
 Author: Mosab Ibrahim
-Tags: Power
+tags:
+  - "Power"
+post: true
+---
 
-*[tl;dr? Check the graph at the end of the post]*
+_[tl;dr? Check the graph at the end of the post]_
 
 In Egypt we are having an electricity crisis. It started in Mubrak's presidency,
 the dude ousted by the great Jan 2011 Revolution. After his removal, the crises

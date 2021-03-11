@@ -1,13 +1,15 @@
-Title: Caffeine Code Cycle
-Date: 2009-03-11 22:00
+---
+title: "Caffeine Code Cycle"
+Date: 2009-03-11T22:00:00Z
 Author: Mosab Ibrahim
-Tags:Caffeine, Code
+post: true
+---
 
 I saw this quote and loved it:
 
 > Developers are living organisms that convert Caffeine into code!
 >
-> *-- Source Unknown*
+> _-- Source Unknown_
 
 So I made this diagram :
 

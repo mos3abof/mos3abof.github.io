@@ -1,7 +1,13 @@
-Title: Toggl Target: An Open Source Project of My Own
-Date: 2013-06-17 04:00
+---
+title: "Toggl Target: An Open Source Project of My Own"
+Date: 2013-06-17T04:00:00Z
 Author: Mosab Ibrahim
-Tags: Python, Toggl, API
+tags:
+  - "Python"
+  - "Toggl"
+  - "API"
+post: true
+---
 
 At our company, [Yubb Software](http://www.yubb-software.com), we track our
 working hours using the great time tracker created by the folks at
@@ -14,8 +20,8 @@ to achieve my monthly goals.
 
 This is how the output of this script looks like :
 
-```
-Hi Checking Internet connectivity...  Internet seems fine!
+```plaintext
+Hi Checking Internet connectivity... Internet seems fine!
 
 Trying to connect to Toggl, hang on!
 
@@ -64,7 +70,7 @@ Documentation.](http://farm8.staticflickr.com/7432/9069807810_0084073717_b.jpg)
 
 This really made my day. Thank you Toggl :)
 
-### ***Update 1 : Friday June 21st, 3:50 PM***
+### Update 1 : Friday June 21st, 3:50 PM
 
 I received an email today from someone with the following content :
 
@@ -86,7 +92,7 @@ I received an email today from someone with the following content :
 
 I am really glad my code helped someone :)
 
-### ***Update 2 : Wednesday Jul 10th, 11:43 PM***
+### Update 2 : Wednesday Jul 10th, 11:43 PM
 
 Seems that my little Toggl Target script is picking up some momentum.
 
@@ -94,7 +100,7 @@ I got this email 45 minutes ago :
 
 > hi,
 >
-> you probably have already seen it, but i forked your toggl\_target repo.
+> you probably have already seen it, but i forked your toggl_target repo.
 >
 > i just wanted to see how fast i could add reports api support and what data
 > comes out of there... while doing that i replaced the way the config is loaded
@@ -118,4 +124,4 @@ I got this email 45 minutes ago :
 
 I am really surprised and humbled by all your contributions, thank you.
 
-[My little open source script Toggl Target in action.](http://farm4.staticflickr.com/3832/9067864209_17b3b8d1c8_o.png)
+![My little open source script Toggl Target in action.](http://farm4.staticflickr.com/3832/9067864209_17b3b8d1c8_o.png)

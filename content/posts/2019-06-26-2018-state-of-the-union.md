@@ -1,9 +1,12 @@
-Title: 2018: State of the Union
-Date: 2019-01-13 00:00
+---
+title: "2018: State of the Union"
+Date: 2019-01-13T00:00:00Z
 Author: Mosab Ibrahim
+post: true
+---
 
 ![Millennium Bridge, London, United
-Kingdom]({attach}/images/mosab-london-bridge.jpg)
+Kingdom](/images/mosab-london-bridge.jpg)
 
 The last year, 2018, has been a very busy year for me, I barely had a break! I
 am going to list what has been accomplished, and important milestones very
@@ -39,20 +42,20 @@ scalability.
 
 ### The Year of The Good Reads
 
-![2018 Good Reads Challenge Results]({attach}/images/2018-good-reads.png)
+![2018 Good Reads Challenge Results](/images/2018-good-reads.png)
 
 This year, I started with a pledge to read 10 books on the annual Good Reads
 challenge. I ended up [reading 18
 books](https://www.goodreads.com/user_challenges/10640205)! The books were
 mainly in the following areas
 
-* Linux internals/kernel books
-* Data structures and algorithms
-* Python programming
-* Linux systems programming
-* Go programming
-* Java programming
-* A couple of non-fiction books, two of them about startups
+- Linux internals/kernel books
+- Data structures and algorithms
+- Python programming
+- Linux systems programming
+- Go programming
+- Java programming
+- A couple of non-fiction books, two of them about startups
 
 One of the achievements I am particularly proud of is reading the entire
 "[Systems Performance: Enterprise and the
@@ -67,7 +70,7 @@ of it with me. But I managed to grow this portion into a little library over the
 past year and 2 months. I have expanded both the hard copy books, my Kindle book
 collection, and ebooks from other sources like Packt Publishing.
 
-![My small library in Berlin]({attach}/images/small-library-berlin.jpg)
+![My small library in Berlin](/images/small-library-berlin.jpg)
 
 ### The year of “Finished” Online Courses
 
@@ -90,24 +93,24 @@ well as worked on improving some existing ones.
 
 The list of new technologies include:
 
-* Golang
-* Java
-* Spring Framework
-* Vert.x Framework
-* Terraform
-* MongoDB
-* Redis
-* Kafka
-* Aerospike
+- Golang
+- Java
+- Spring Framework
+- Vert.x Framework
+- Terraform
+- MongoDB
+- Redis
+- Kafka
+- Aerospike
 
 The technologies and skills I was keen on improving include:
 
-* Linux internals, linux administration and linux troubleshooting
-* Python
-* PHP
-* Bash
-* Docker
-* Docker Swarm
+- Linux internals, linux administration and linux troubleshooting
+- Python
+- PHP
+- Bash
+- Docker
+- Docker Swarm
 
 ### PyPI Package
 
@@ -187,14 +190,14 @@ and chips at “Sherlock” restaurant in Baker Street, had Egyptian pies, and
 overall great times.
 
 ![Sherlock fish and chips restaurant, Baker
-Street]({attach}/images/sherlock-fish-and-chips.jpg)
+Street](/images/sherlock-fish-and-chips.jpg)
 
 There was also a magical weekend that was well spent in Vienna, Austria. A
 friend of mine was visiting another country in Europe, and we spontaneously
 agreed to meet in Vienna for a weekend. A friend of his was amazing and gave us
 shelter at his house, and took great care of us during the entire visit.
 
-![A party in Vienna, Austria]({attach}/images/vienna-party.jpg)
+![A party in Vienna, Austria](/images/vienna-party.jpg)
 
 During the 4 days trip to Amsterdam for the second interview at Booking, I took
 some time to meet some friends in Amsterdam. I also visited Haarlem since it is
@@ -202,7 +205,7 @@ a popular residential place for families and met another friend living there who
 took me on a tour of the city. The Netherlands is always a delight to visit.
 
 ![The amazing view from one of Booking.com’s
-offices]({attach}/images/booking-office-view.jpg)
+offices](/images/booking-office-view.jpg)
 
 ### First Tax Declaration!
 
@@ -233,7 +236,7 @@ account every month without requiring me to intervene.
 
 ### New Laptop Sticker
 
-![My 2018 laptop sticker collection]({attach}/images/2018-laptop-stickers.jpg)
+![My 2018 laptop sticker collection](/images/2018-laptop-stickers.jpg)
 
 This year, I bought a new personal laptop, and of course, needed some stickers
 to decorate it. I bought some stickers from Sticker Mule and got others from
@@ -268,7 +271,7 @@ countless occasions, often on short notice. Thank you, neighbours/friends!
 ### A Friend Visited from Egypt
 
 ![Picking Osama, on the right, from Schönefeld
-airport]({attach}/images/osama-shoenefeld.jpg)
+airport](/images/osama-shoenefeld.jpg)
 
 In 2018, my friend Osama visited me from Egypt as part of a Euro-trip he had.
 Unfortunately, we couldn’t spend as much time together as we hoped to because of
@@ -340,9 +343,9 @@ A lot of my friends here kept telling me that by the end of the year I will miss
 Egypt again. Truth is, I have not. Not even a little. I only miss very few
 things there:
 
-* My brothers, and few members of my family, and my wife’s family
-* A few friends from work and otherwise
-* A few restaurants
+- My brothers, and few members of my family, and my wife’s family
+- A few friends from work and otherwise
+- A few restaurants
 
 Many of my friends say the weather here is gloomy, but the weather here is one
 of the things I like, and of the reasons I moved here.

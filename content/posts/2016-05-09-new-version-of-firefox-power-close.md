@@ -1,11 +1,16 @@
-Title: New Version of Power Close
-Date: 2016-05-09 12:00
+---
+title: "New Version of Power Close"
+Date: 2016-05-09T12:00:00Z
 Author: Mosab Ibrahim
-Tags: Firefox, Addon
+tags:
+  - "Firefox"
+  - "Addon"
+post: true
+---
 
 New website, new icon, and improvements for the tab addict Firefox add-on
 
-![firefox-header]({attach}/images/firefox-mosaic.jpg)
+![firefox-header](/images/firefox-mosaic.jpg)
 
 ## A Brief History
 
@@ -19,7 +24,7 @@ The first version published version, 0.2.1, was officially released on September
 A few bug fixes and little improvements were released since that date, and then
 I got busy with my life and work.
 
-![download and usage stats]({attach}/images/power-close/stats.png)
+![download and usage stats](/images/power-close/stats.png)
 
 ## What’s New
 
@@ -33,20 +38,20 @@ by [Freepik](http://www.freepik.com/) from [Flat
 Icon](http://www.flaticon.com/), that was licensed under [CC-BY
 License](http://creativecommons.org/licenses/by/3.0/).
 
-![Old version of the icon]({attach}/images/power-close/old-logo.png)
+![Old version of the icon](/images/power-close/old-logo.png)
 
 In this release, the icon used for the logo and the toolbar button is a mash of
 two icons from Google’s [Material Design
 Icons](https://design.google.com/icons/) that are published as an open source
 project under the [CC-By License](https://creativecommons.org/licenses/by/4.0/).
 
-![The new icon used]({attach}/images/power-close/new-logo.png)
+![The new icon used](/images/power-close/new-logo.png)
 
 ### Selection Context Menu Option
 
 In previous versions of the add-on, the user had to click in a non-interactive
-part of the page to see the *"close all tabs from this domain"* context menu
-item.  This caused usability issues because the option didn’t appear if you
+part of the page to see the _"close all tabs from this domain"_ context menu
+item. This caused usability issues because the option didn’t appear if you
 right click on the page while having a portion of the text selected.
 
 Now the same option is added to the “Selection Context Menu”, so now the user
@@ -66,10 +71,10 @@ I have also registered a domain name for the add-on, and moved it from the
 sub-domain under my personal website power-close.mos3abof.com, where it used to
 live, to [power-close.com](https://power-close.com).
 
-![website face lift]({attach}/images/power-close/website-facelift.png)
+![website face lift](/images/power-close/website-facelift.png)
 
 The website was given a face lift to make it more usable, but this is an early
-release with new enhancements and features in the backlog.  The website is
+release with new enhancements and features in the backlog. The website is
 hosted on [Dreamhost](https://www.dreamhost.com/r.cgi?1017456), and is HTTPs
 enabled using a certificate issued from [Let’s
 Encrypt](https://letsencrypt.org/).
@@ -105,4 +110,4 @@ Or you can click on the button below and add Power Close to your firefox browser
 now!
 
 [![Get the
-power]({attach}/images/power-close/add-to-firefox.png)](https://power-close.com)
+power](/images/power-close/add-to-firefox.png)](https://power-close.com)

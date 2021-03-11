@@ -1,7 +1,11 @@
-Title: Joining Yubb Software
-Date: 2013-03-01 12:00
+---
+title: "Joining Yubb Software"
+Date: 2013-03-01T12:00:00Z
 Author: Mosab Ibrahim
-Tags: Career
+tags:
+  - "Career"
+post: true
+---
 
 I am very excited to join [Yubb Software](http://www.yubb-software.com), a
 brilliant software development company.

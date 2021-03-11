@@ -1,7 +1,14 @@
-Title: Poor Man's Guide for Monitoring a Website Using Python
-Date: 2013-02-11 15:34
+---
+title: "Poor Man's Guide: Monitoring a Website Using Python"
+Date: 2013-02-11T15:34:00Z
 Author: Mosab Ibrahim
-Tags: Python, urllib, monitoring, Fabric
+tags:
+  - "Python"
+  - "urllib"
+  - "monitoring"
+  - "Fabric"
+post: true
+---
 
 In one of the projects I am working on there was a problem with Apache server.
 It went down almost on a daily basis, and we were reading the logs to get the
@@ -20,21 +27,20 @@ do the above mentioned side goals.
 
 I am assuming you are running an Ubuntu machine.
 
-### 1. Monitoring the Apache Server
+## Monitoring the Apache Server
 
 I was confused between two `Python 2.x` libraries (note that they are
 dramatically changed in `Python 3.x` and choosing between them is subject to
 different criteria).
 
-The first library was `python-httplib` and the second was `urllib`.  After a
+The first library was `python-httplib` and the second was `urllib`. After a
 quick reading through both library's manual and a quick reading on StackOverflow
 I have decided to go for urllib.
-
 
 Basically what I had in mind was to send a GET request to the website served by
 Apache and check the HTTP response code I got.
 
-If it is *200* -which is the SUCCESS response code according to HTTP standards-
+If it is _200_ -which is the SUCCESS response code according to HTTP standards-
 then everything is fine.
 
 You can try this in a python interactive shell :
@@ -51,7 +57,7 @@ you have internet connectivity, no firewalls blocking your way, etc).
 
 Time to put it together in a script :
 
-```python
+```python {linenos=table,linenostart=1}
 import urllib
 
 try:
@@ -62,10 +68,9 @@ except:
   pass # Here write code to do whatever you want to do when the website is down.
 ```
 
+## Restart the Apache server remotely
 
-### 2. Restart the Apache server remotely
-
-There is a wonderful Python library and a command-line tool called *[Fabric][]*
+There is a wonderful Python library and a command-line tool called _[Fabric][]_
 that helps you streamlining the use of SSH for application deployment or systems
 administration tasks. It is ideally used to automate tedious error prone tasks
 in an easy way.
@@ -82,8 +87,7 @@ We now need to create a new python file that I will name `fabfile.py`, you can
 name it anything, but let's just follow the common name you will see in Fabric's
 documentation.
 
-
-```python
+```python {linenos=table,linenostart=1}
 from fabric.api import env, sudo
 
 env.hosts = ['user@server'] env.passwords = {'user@server' : 'password'}
@@ -104,7 +108,6 @@ commands, `run()` that runs commands on the remote server and `sudo()` that runs
 commands on the remote server using `sudo`. Since Apache restart requires a root
 user or sudo privileges we used the `sudo()` function.
 
-
 To run a Fabric script open up your terminal and run the following command:
 
 ```bash
@@ -118,12 +121,12 @@ need to use the `-f` option like this :
 $ fabric -f /path/to/your/fabfile.py function_name
 ```
 
-### 3. Alerting the DevOps team about the issue.
+## Alerting the DevOps team about the issue.
 
 We can re-use the email function from the previous post on this blog [Installing
 Gdata Python Client on Dreamhost][]:
 
-```python
+```python {linenos=table,linenostart=1}
 import smtplib
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEBase import MIMEBase
@@ -157,7 +160,7 @@ def mail(to, subject, text, gmail_user, gmail_pwd):
     mailServer.close()
 ```
 
-### 4. Putting it all together
+## Putting it all together
 
 I have combined all the snippets mentioned above, modified them and added some
 logging functionality to it.
@@ -167,14 +170,9 @@ folder to hold the log files.
 
 Below is how a complete script may look like.
 
-<div class="gist">
-  <script src='https://gist.github.com/4771874.js'></script>
-  <noscript>
-  <pre><code>#!/bin/bash ...</code></pre>
-  </noscript>
-</div>
+{{< gist mos3abof 4771874 >}}
 
-### 5. Setting up a cron job to run the script
+## Setting up a cron job to run the script
 
 Now we have a great script, and we know how to run it manually. But it would be
 inconvenient to run it manually all the time. We need to setup a cron job to do
@@ -194,5 +192,5 @@ Then add the following line to the file to run the script every hour:
 
 Happy website monitoring.
 
-[Fabric]: http://docs.fabfile.org/en/1.5/
-[Installing Gdata Python Client on Dreamhost]: https://mosab.co.uk/installing-gdata-python-client-on-dreamhost.html
+[fabric]: http://docs.fabfile.org/en/1.5/
+[installing gdata python client on dreamhost]: https://mosab.co.uk/installing-gdata-python-client-on-dreamhost.html

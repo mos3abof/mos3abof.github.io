@@ -1,9 +1,14 @@
-Title: Joining Twitter SRE Team!
-Date: 2020-05-08 00:00
+---
+title: "Joining Twitter SRE Team!"
+Date: 2020-05-08T00:00:00Z
 Author: Mosab Ibrahim
-Tags: Twitter, SRE
+tags:
+  - "Twitter"
+  - "SRE"
+post: true
+---
 
-![Twitter]({attach}/images/twitter-logo.png)
+![Twitter](/images/twitter-logo.png)
 
 Last Friday was my last day at [GoCardless](https://gocardless.com). It has been
 a year -and change- full of knowing smart and great colleagues, and learning a

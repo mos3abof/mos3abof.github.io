@@ -1,9 +1,15 @@
-Title: Reading Data from Excel Sheets in Python
-Date: 2013-02-19 11:18
+---
+title: "Reading Data from Excel Sheets in Python"
+Date: 2013-02-19T11:18:00Z
 Author: Mosab Ibrahim
-Tags: Python, XLRD, Excel
+tags:
+  - "Python"
+  - "XLRD"
+  - "Excel"
+post: true
+---
 
-On *May 22nd 2012* I was approached by the official campaign of the presidential
+On _May 22nd 2012_ I was approached by the official campaign of the presidential
 candidate "[Abolfotoh][]".
 
 They needed help setting up a Google App Engine application.
@@ -15,8 +21,8 @@ What they wanted further was to create another application to collect data from
 their official representatives on the ground and use this tool to feed the
 Google App Engine application with data.
 
-The application was originally created by "[Espace][]" *-an awesome Egyptian
-company-* and published on [Google Code][].
+The application was originally created by "[Espace][]" _-an awesome Egyptian
+company-_ and published on [Google Code][].
 
 I helped the official campaign with the setup on Google App Engine, but that is
 another story.
@@ -32,15 +38,15 @@ programmatic way to import it.
 For the sake of simplicity, lets assume the data in the excel sheet was
 formatted like this :
 
-```
-+-------------------+------------+------------------------+ | Polling
-Station   | City       | Total Number of Voters |
-+-------------------+------------+------------------------+ | polling_station_1
-| Cairo      | 7734                   |
-+-------------------+------------+------------------------+ | polling_station_2
-| Giza       | 13332                  |
-+-------------------+------------+------------------------+ | polling_station_3
-| Alexandria | 10901                  |
+```plaintext
++-------------------+------------+------------------------+
+| Polling Station   | City       | Total Number of Voters |
++-------------------+------------+------------------------+
+| polling_station_1 | Cairo      | 7734                   |
++-------------------+------------+------------------------+
+| polling_station_2 | Giza       | 13332                  |
++-------------------+------------+------------------------+
+| polling_station_3 | Alexandria | 10901                  |
 +-------------------+------------+------------------------+
 ```
 
@@ -132,9 +138,9 @@ Finally check my answer on a question about the issue on [StackOverflow][].
 
 That's it for now!
 
-[Abolfotoh]: http://www.abolfotoh.net/
-[Espace]: http://www.espace.com.eg
-[Google Code]: https://code.google.com/p/egypt-election-2012-demo/
-[XLRD]: http://pypi.python.org/pypi/xlrd
-[PyPi]: http://www.lexicon.net/sjmachin/xlrd.htm
-[StackOverflow]: http://stackoverflow.com/questions/13805274/have-no-idea-with-python-excel-read-data-file/13805734#13805734
+[abolfotoh]: http://www.abolfotoh.net/
+[espace]: http://www.espace.com.eg
+[google code]: https://code.google.com/p/egypt-election-2012-demo/
+[xlrd]: http://pypi.python.org/pypi/xlrd
+[pypi]: http://www.lexicon.net/sjmachin/xlrd.htm
+[stackoverflow]: http://stackoverflow.com/questions/13805274/have-no-idea-with-python-excel-read-data-file/13805734#13805734

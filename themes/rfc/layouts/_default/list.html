@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div id="content-list">
+  <h2>Articles</h2>
+  {{ range.Site.Pages.ByPublishDate.Reverse }}
+  {{ if  .Params.post }}
+  <article>
+    <p style="margin: 0">
+      <time>
+        {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+        {{ $dateFormat := .Site.Params.dateFormat | default "Jan 02, 2006" }}
+        {{ .PublishDate.Format $dateFormat }}
+      </time>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </p>
+  </article>
+  {{ end }}
+  {{ end }}
+</div>
+{{ end }}

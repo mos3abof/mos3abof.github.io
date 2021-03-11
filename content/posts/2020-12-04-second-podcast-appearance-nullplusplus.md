@@ -1,7 +1,12 @@
-Title: About SRE with null++
-Date: 2020-12-04 00:00
+---
+title: "About SRE with null++"
+Date: 2020-12-04T00:00:00Z
 Author: Mosab Ibrahim
-Tags: Podcast, SRE
+tags:
+  - "Podcast"
+  - "SRE"
+post: true
+---
 
 Today, I was the guest in one of my favourite podcasts in Arabic:
 ["null++"](https://nullplus.plus/). It is my favourite for two reasons:
