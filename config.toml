@@ -11,30 +11,30 @@ theme = "rfc"
     name = "Home"
     url = "/"
     weight = 1
-  # [[menu.main]]
-  #   name = "Blog"
-  #   url = "/posts/"
-  #   weight = 2
+  [[menu.main]]
+    name = "Blog"
+    url = "/posts/"
+    weight = 5
   [[menu.main]]
     name = "Projects"
     url = "/projects/"
-    weight = 4
+    weight = 10
   [[menu.main]]
     name = "Resources"
     url = "/resources/"
-    weight = 5
+    weight = 15
   [[menu.main]]
     name = "Resume"
     url = "/resume/"
-    weight = 6
+    weight = 20
   [[menu.main]]
     name = "About"
     url = "/about/"
-    weight = 9
+    weight = 25
   [[menu.main]]
     name = "Contact"
     url = "/contact/"
-    weight = 10
+    weight = 30
 
 [markup]
   [markup.highlight]
