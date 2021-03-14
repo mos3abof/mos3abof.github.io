@@ -1,5 +1,6 @@
 ---
 title: "Resources"
+description: "Over time, I have compiled and distilled a list of lists of useful resources."
 draft: false
 ---
 

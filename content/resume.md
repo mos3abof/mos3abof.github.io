@@ -1,5 +1,6 @@
 ---
 title: "Resume"
+description: "Mosab Ibrahim's Resume"
 draft: false
 ---
 

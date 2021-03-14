@@ -1,5 +1,6 @@
 ---
 title: "About SRE with null++"
+descriptions: "Discussing SRE and other topics on nul++"
 Date: 2020-12-04T00:00:00Z
 Author: Mosab Ibrahim
 tags:

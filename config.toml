@@ -36,6 +36,11 @@ theme = "rfc"
     url = "/contact/"
     weight = 30
 
+[params]
+  description = "Random blobs from an Egyptian SRE in the UK"
+  images = ["mosab-london-bridge.jpg"]
+  title = "Mosab Ibrahim"
+
 [markup]
   [markup.highlight]
     anchorLineNos = false
