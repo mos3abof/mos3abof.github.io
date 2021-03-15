@@ -41,6 +41,9 @@ Here is my [non-technical book wishlist](https://www.amazon.co.uk/hz/wishlist/ls
 - [CS107: Programming Paradigms](https://see.stanford.edu/Course/CS107), by Stanford Center for Professional Development.
 - Cloud Computing Concepts [Part 1](https://www.coursera.org/learn/cloud-computing), and [Part 2](https://www.coursera.org/learn/cloud-computing-2), part of the [Cloud Computing Scpecialization](https://www.coursera.org/specializations/cloud-computing), on Coursera, Illinois. _\* Probably should be called Introduction to Distributed Programming_
 - [6.824: Distributed Systems](https://www.youtube.com/playlist?list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB), by MIT.
+- [Distributed Systems Lecture
+  Series](https://www.youtube.com/playlist?list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB), by Martin
+  Kleppmann.
 - [CS144: Introduction to Computer Networking](https://lagunita.stanford.edu/courses/Engineering/Networking-SP/SelfPaced/about), by Stanford.
 - [Introduction to Databases](https://online.stanford.edu/courses/soe-ydatabases-databases), by Stanford.
 - [CMU 15-445/645 Intro to Database Systems](https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi), by Carnegie Mellon University.
