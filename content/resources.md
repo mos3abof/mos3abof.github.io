@@ -102,6 +102,7 @@ Here is my [non-technical book wishlist](https://www.amazon.co.uk/hz/wishlist/ls
 - [Brian Will's Youtube Channel](https://www.youtube.com/user/briantwill/featured)
 - [Explain Shell](https://explainshell.com)
 - [Regular Expressions 101](https://regex101.com)
+- [Greg Hurrell's Youtube Channel about vim and neovim](https://www.youtube.com/channel/UCXPHFM88IlFn68OmLwtPmZA)
 
 ## Good Jekyll Themes
 
