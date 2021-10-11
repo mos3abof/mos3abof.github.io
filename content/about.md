@@ -4,7 +4,7 @@ description: "Get to know me!"
 draft: false
 ---
 
-![](https://mosab.co.uk/images/mosab-lake.png)
+![](https://mosab.co.uk/images/mosab.png)
 
 I am a passionate self-taught software engineer (and lately site reliability engineer), a father to
 two lovely kids, a husband to an [amazing wife](https://amiraqassim.com), supposedly a geek, a
@@ -20,4 +20,10 @@ Over the years, I have compiled and distilled a list of [lists of useful
 resources](https://mosab.co.uk/resources/). If you have any feedback please don't hesitate to [send
 it my way](https://mosab.co.uk/contact/).
 
-_Photo by: Amira Qassim_
+Here is another photo I like:
+
+![](https://mosab.co.uk/images/mosab-lake.png)
+
+_Photo 1 by: Amira Qassim_
+
+_Photo 2 by: Mohammed Bassem_
