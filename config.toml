@@ -32,9 +32,13 @@ theme = "rfc"
     url = "/about/"
     weight = 25
   [[menu.main]]
+    name = "Cycling"
+    url = "/cycling/"
+    weight = 30
+  [[menu.main]]
     name = "Contact"
     url = "/contact/"
-    weight = 30
+    weight = 35
 
 [params]
   description = "Random blobs from an Egyptian SRE in the UK"
