@@ -44,7 +44,8 @@ Here is my [non-technical book wishlist](https://www.amazon.co.uk/hz/wishlist/ls
 - [Distributed Systems Lecture
   Series](https://www.youtube.com/playlist?list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB), by Martin
   Kleppmann.
-- [CS144: Introduction to Computer Networking](https://www.youtube.com/playlist?list=PLoCMsyE1cvdWKsLVyf6cPwCLDIZnOj0NS), by Stanford.
+- ~~[CS144: Introduction to Computer Networking](https://www.youtube.com/playlist?list=PLoCMsyE1cvdWKsLVyf6cPwCLDIZnOj0NS), by Stanford.~~
+- [Computer Networking: A Top-Down Approach](http://gaia.cs.umass.edu/kurose_ross/online_lectures.htm)
 - [Introduction to Databases](https://online.stanford.edu/courses/soe-ydatabases-databases), by Stanford.
 - [CMU 15-445/645 Intro to Database Systems](https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi), by Carnegie Mellon University.
 - [CMU 15-721 Advanced Database Systems](https://www.youtube.com/playlist?list=PLSE8ODhjZXja7K1hjZ01UTVDnGQdx5v5U), by Carnegie Mellon University.
