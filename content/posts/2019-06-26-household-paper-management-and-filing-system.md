@@ -3,6 +3,7 @@ title: "Household Paper Management and Filing System"
 Date: 2019-06-26T00:00:00Z
 Author: Mosab Ibrahim
 post: true
+draft: true
 ---
 
 ![Photo by Samuel Zeller on Unsplash](/images/filing-system.jpg)

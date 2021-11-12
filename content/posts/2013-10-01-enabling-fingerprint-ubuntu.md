@@ -5,6 +5,7 @@ Author: Mosab Ibrahim
 tags:
   - "Security Ubuntu Fingerprint"
 post: true
+draft: true
 ---
 
 The company I work for (a cool company called [Yubb
