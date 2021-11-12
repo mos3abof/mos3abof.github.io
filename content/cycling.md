@@ -13,6 +13,7 @@ Also, let's connect on
 [Komoot](https://www.komoot.com/user/1565437931381), and
 [Strava](https://www.strava.com/athletes/60680051).
 
+![](https://mosab.co.uk/images/topstone.png)
 ![](https://mosab.co.uk/images/topstone-2-1.jpeg)
 ![](https://mosab.co.uk/images/topstone-2-2.jpeg)
 ![](https://mosab.co.uk/images/topstone-2-3.jpeg)
