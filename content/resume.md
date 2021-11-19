@@ -4,8 +4,6 @@ description: "Mosab Ibrahim's Resume"
 draft: false
 ---
 
-## Quick Intro
-
 A resourceful and passionate Software & Systems Engineer with almost two decades of experience in
 designing, developing, operating and maintaining software systems at various scales, solving
 problems in different industries & domains.
@@ -19,11 +17,7 @@ instantly without barriers.
 
 Worked previously at GoCardless, Levelset, Wuzzuf, Inmobly, 20@, and more!
 
-## Download Resume
-
-> Download my [one-page resume](/pdfs/MosabIbrahim.pdf).
-
-## Recommendations
+> Download my [resume](/pdfs/MosabIbrahim.pdf).
 
 Below is a few recommendations I have received from colleagues on Linkedin.
 
@@ -107,7 +101,3 @@ He is an intellectual GEEK who can inspire people by his different way of thinki
 Mosab is a very motivated software engineer who is majorly interested in Open Source software and
 technology. His constant output has proven his passion for writing code. Mosab can always provide
 help to colleagues, work under stress and provides necessary communication skills.
-
---
-
-Visit my [Linkedin profile](https://linkedin.com/in/mosab) for a full employment history, or check the rest of recommendations.
