@@ -109,3 +109,7 @@ Here is my [non-technical book wishlist](https://www.amazon.co.uk/hz/wishlist/ls
 
 - [Mickey](https://github.com/vincentchan/mickey)
 - [Tufte-Jekyll](https://github.com/clayh53/tufte-jekyll)
+
+## Cycling Resources
+
+- [Hills Are NOT Harder Than Cycling On The Flat (Says Science)](https://www.youtube.com/watch?v=ipENw6mjjSg)
