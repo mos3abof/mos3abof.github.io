@@ -12,7 +12,7 @@ I am especially passionate about Developing Large-scale Systems, Linux, Systems
 Programming, Distributed Systems, and Automation at Scale, as well as Free
 Software and Open-source Software.
 
-Currently working in the capacity of a Production Engineer at Facebook/Meta.
+Currently working in the capacity of a Production Engineer at Meta/Facebook.
 
 Previously I worked on improving the availability, scalability, performance and
 reliability of Twitter’s production services, in a quest to give everyone the
