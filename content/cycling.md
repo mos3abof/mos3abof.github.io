@@ -33,3 +33,13 @@ Also, let's connect on
 
 <iframe src="https://www.komoot.com/tour/636080427/embed?profile=1" width="100%" height="680" frameborder="0" scrolling="no"></iframe>
 {{< /rawhtml >}}
+
+## Videos
+
+Here are some of the videos I recorded while cycling
+
+{{< youtube kbq9XcBJdQk >}}
+
+{{< youtube O0s0MB4IKCw >}}
+
+{{< youtube U4LP-4IYHtg >}}
