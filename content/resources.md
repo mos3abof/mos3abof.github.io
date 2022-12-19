@@ -98,18 +98,13 @@ Here is my [non-technical book wishlist](https://www.amazon.co.uk/hz/wishlist/ls
 - [Namespaces in Operation (LWN Series)](https://lwn.net/Articles/531114/)
 - [Control Groups (LWN Series)](https://lwn.net/Articles/603762/)
 - [Levels: Compare Career Levels across Companies](https://www.levels.fyi)
-- [ArsDigita University](http://www.aduni.org/)
 - [Martin Kleppmann's Blog Posts](https://martin.kleppmann.com/archive.html)
 - [Brian Will's Youtube Channel](https://www.youtube.com/user/briantwill/featured)
 - [Explain Shell](https://explainshell.com)
 - [Regular Expressions 101](https://regex101.com)
 - [Greg Hurrell's Youtube Channel about vim and neovim](https://www.youtube.com/channel/UCXPHFM88IlFn68OmLwtPmZA)
 
-## Good Jekyll Themes
-
-- [Mickey](https://github.com/vincentchan/mickey)
-- [Tufte-Jekyll](https://github.com/clayh53/tufte-jekyll)
-
 ## Cycling Resources
 
-- [Hills Are NOT Harder Than Cycling On The Flat (Says Science)](https://www.youtube.com/watch?v=ipENw6mjjSg)
+- [Hills Are NOT Harder Than Cycling On The Flat (Says Science)](https://www.youtube.com/watch?v=ipENw5mjjSg)
+- [Hill Climb Science: How to Correctly Pace Long Hill Climbs using a Power Meter](https://youtu.be/HlglnUNnAnY)

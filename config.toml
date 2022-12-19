@@ -4,13 +4,20 @@ baseURL = "https://mosab.co.uk/"
 # baseURL = "http://localhost:1313/"
 languageCode = "en-us"
 title = "Mosab Ibrahim"
-theme = "rfc"
+#theme = "rfc"
+theme = "hugo-bearblog"
+
+copyright = "(c) 2022 Mosab Ibrahim"
+
+# Generate "Bearblog"-like URLs !only!, see https://bearblog.dev/.
+disableKinds = ["taxonomy"]
+ignoreErrors = ["error-disable-taxonomy"]
+
+[permalinks]
+  blog = "/:slug/"
+  tags = "/blog/:slug"
 
 [menu]
-  [[menu.main]]
-    name = "Home"
-    url = "/"
-    weight = 1
   [[menu.main]]
     name = "Blog"
     url = "/posts/"
@@ -28,12 +35,12 @@ theme = "rfc"
     url = "/resume/"
     weight = 20
   [[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 25
-  [[menu.main]]
     name = "Cycling"
     url = "/cycling/"
+    weight = 25
+  [[menu.main]]
+    name = "Woodworking"
+    url = "/woodworking/"
     weight = 30
   [[menu.main]]
     name = "Contact"
@@ -41,20 +48,21 @@ theme = "rfc"
     weight = 35
 
 [params]
-  description = "Random blobs from an Egyptian SRE in the UK"
+  name = "Mosab Ibrahim"
+  description = "Random blobs from an Egyptian Software/Systems Engineer living in the UK"
   images = ["mosab-london-bridge.jpg"]
   title = "Mosab Ibrahim"
 
-[markup]
-  [markup.highlight]
-    anchorLineNos = false
-    codeFences = true
-    guessSyntax = false
-    hl_Lines = ""
-    lineAnchors = ""
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = true
-    style = "monokai"
-    tabWidth = 4
+#[markup]
+#  [markup.highlight]
+#    anchorLineNos = false
+#    codeFences = true
+#    guessSyntax = false
+#    hl_Lines = ""
+#    lineAnchors = ""
+#    lineNoStart = 1
+#    lineNos = false
+#    lineNumbersInTable = true
+#    noClasses = true
+#    style = "monokai"
+#    tabWidth = 4

@@ -83,7 +83,7 @@ Everywhere](https://see.stanford.edu/),
 even some Youtube playlists for courses by MIT, Waterloo, & Carnegie Mellon
 universities. You can find some of the interesting ones listed on my homepage.
 It is worth noting that not all the courses on my [resources
-page](/pages/resources.html) I have finished yet, but I found
+page](/resources/) I have finished yet, but I found
 interesting enough to share with others.
 
 ### Technologies and Skills

@@ -8,6 +8,8 @@ I recently got into cycling, and will update this page with some interesting det
 meantime though, will leave you with some pictures of my new bike, the [Cannondale Topstone
 2](https://www.cannondale.com/en-gb/bikes/road/gravel/topstone-alloy/topstone-2) below.
 
+Check out my [first metric century ride](/posts/2022-05-21-first-metric-century/)!
+
 Also, let's connect on
 [Garmin](https://connect.garmin.com/modern/profile/18583322-eb7e-4f3f-8179-705ed2de5438),
 [Komoot](https://www.komoot.com/user/1565437931381), and

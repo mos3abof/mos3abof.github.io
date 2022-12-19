@@ -5,7 +5,7 @@ draft: false
 
 ## Find Me on the Web
 
-- [My Resume](/pages/resume.html)
+- [My Resume](/resume/)
 - [Twitter](https://www.twitter.com/mos3abof)
 - [Github](https://www.github.com/mos3abof)
 - [Dotfiles](https://github.com/mos3abof/dotfiles)

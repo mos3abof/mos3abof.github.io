@@ -20,7 +20,9 @@ power to create and share ideas and information instantly without barriers, as
 well as other great companies like GoCardless, Levelset, Wuzzuf, Inmobly, 20@,
 and more!
 
-> Download my [resume](/pdfs/MosabIbrahim.pdf).
+# [Download my resume](/pdfs/MosabIbrahim.pdf).
+
+---------
 
 Below is a few recommendations I have received from colleagues on Linkedin.
 
