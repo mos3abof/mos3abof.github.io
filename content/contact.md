@@ -6,11 +6,12 @@ draft: false
 ## Find Me on the Web
 
 - [My Resume](/resume/)
-- [Twitter](https://www.twitter.com/mos3abof)
+- [Threads](https://www.threads.net/@mos3abof)
 - [Github](https://www.github.com/mos3abof)
 - [Dotfiles](https://github.com/mos3abof/dotfiles)
 - [Linkedin](https://www.linkedin.com/in/mosab)
 - [Facebook](https://www.facebook.com/mos3abof)
+- [Twitter](https://www.twitter.com/mos3abof)
 - [Quora](https://quora.com/Mosab-Ahmad)
 - [Soundcloud](https://www.soundcloud.com/mos3abof)
 - [Instagram](https://www.instagram.com/mos3abof)
