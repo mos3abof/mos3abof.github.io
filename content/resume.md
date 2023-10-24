@@ -1,4 +1,8 @@
---- title: "Resume" description: "Mosab Ibrahim's Resume" draft: false ---
+---
+title: "Resume"
+description: "Mosab Ibrahim's Resume"
+draft: false
+---
 
 As a resourceful and passionate Software & Systems Engineer with almost two decades of experience, I
 have honed my skills in designing, developing, operating, and maintaining software systems at
