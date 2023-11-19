@@ -116,3 +116,15 @@ wishlist](https://www.amazon.co.uk/hz/wishlist/ls/314HICF494KE3?type=wishlist&fi
 - [Regular Expressions 101](https://regex101.com)
 - [Greg Hurrell's Youtube Channel about vim and neovim](https://www.youtube.com/channel/UCXPHFM88IlFn68OmLwtPmZA)
 
+
+## LibraryThings
+
+You can view my physical books library on LibraryThings:
+
+{{< rawhtml >}}
+<div id="w7587718bc373bf92b2a686c31c5f9bd6"></div>
+<script type="text/javascript" charset="UTF-8" src="https://www.librarything.com/widget_get.php?userid=mos3abof&theID=w7587718bc373bf92b2a686c31c5f9bd6"></script>
+<noscript>
+  <a href="https://www.librarything.com/profile/mos3abof">My Library</a> at <a href="https://www.librarything.com">LibraryThing</a>
+</noscript>
+{{< /rawhtml >}}
