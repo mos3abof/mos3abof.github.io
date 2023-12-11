@@ -46,3 +46,12 @@ The best of the internet for Arab users! A platform that collects and aggregates
 interesting content for Arab internet users.
 
 [zobad.net](https://zobad.net)
+
+
+## Gaza News Aggregator (2014)
+
+An aggregator of all news related to the 2014 military operation launched on [Gaza Strip](https://en.wikipedia.org/wiki/Gaza_Strip) 
+in a descending chronological timeline. Data is pulled from news feeds from 
+[Google News](http://news.google.com/) and [akhbarak.net](http://www.akhbarak.net/).
+
+[Gaza - 2014](https://gaza.mos3abof.com/)
