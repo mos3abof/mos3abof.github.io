@@ -2,7 +2,7 @@
 title = "Top 10 Man Pages Every Linux Sys Admin Should Read"
 date = "2020-02-08T10:00:00Z"
 [taxonomies]
-tags = ["linux","sysadmin"]
+tags=["linux","sysadmin"]
 +++
 
 In August 2018, I came across a question on Quora (A great question and answers

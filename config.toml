@@ -65,11 +65,12 @@ hard_link_static = false
 #       {name = "authors"}, # Basic definition: no feed or pagination
 #     ]
 #
-taxonomies = []
+taxonomies = [{ name = "tags", feed = true }]
 
 # When set to "true", a search index is built from the pages and section
 # content for `default_language`.
 build_search_index = true
+
 
 # Configuration of the Markdown rendering
 [markdown]
@@ -146,7 +147,7 @@ include_content = true
 # become too big to load on the site. Defaults to not being set.
 # truncate_content_length = 100
 
-# Wether to produce the search index as a javascript file or as a JSON file
+# Whether to produce the search index as a javascript file or as a JSON file
 # Accepted value "elasticlunr_javascript" or "elasticlunr_json"
 index_format = "elasticlunr_javascript"
 
@@ -177,7 +178,6 @@ index_format = "elasticlunr_javascript"
 # generate_feed = true
 # build_search_index = true
 # taxonomies = [{ name = "auteurs" }, { name = "tags" }]
-taxonomies = [{ name = "tags", feed = true }]
 
 # You can put any kind of data here. The data
 # will be accessible in all templates
