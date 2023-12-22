@@ -2,7 +2,6 @@
 title = "About SRE with null++"
 description = "Discussing SRE and other topics on nul++"
 date = 2020-12-04T00:00:00Z
-tags = ["podcast", "sre"]
 +++
 
 Today, I was the guest in one of my favourite podcasts in Arabic:

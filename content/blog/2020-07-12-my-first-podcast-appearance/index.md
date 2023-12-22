@@ -2,8 +2,6 @@
 title = "My First Podcast Appearance!"
 description = "Discussed career, SRE, and other topics with a dear friend"
 date = "2020-07-12T00:00:00Z"
-[taxonomies]
-tags = ["podcast", "sre"]
 +++
 
 I have recently received an invitation from my dear friend [Ahmed Zain](https://iahmadzain.me/), who

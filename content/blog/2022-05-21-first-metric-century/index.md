@@ -1,8 +1,6 @@
 +++
 title = "My First Metric Century"
 date = "2022-05-21T23:00:00Z"
-[taxonomies]
-tags = ["cycling"]
 +++
 
 ![Audax Tour De Ricky](/images/audax-brevet.png)

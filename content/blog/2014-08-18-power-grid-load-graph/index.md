@@ -1,8 +1,6 @@
 +++
 title = "Heading For The Dark Ages!"
 date = "2014-08-18T04:00:00Z"
-[taxonomies]
-tags = ["energy"]
 +++
 
 _[tl;dr? Check the graph at the end of the post]_

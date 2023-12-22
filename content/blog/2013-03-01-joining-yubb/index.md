@@ -1,8 +1,6 @@
 +++
 title = "Joining Yubb Software"
 date = "2013-03-01T12:00:00Z"
-[taxonomies]
-tags = ["Career"]
 +++
 
 I am very excited to join [Yubb Software](http://www.yubb-software.com), a
