@@ -1,8 +1,6 @@
 +++
 title= "Poor Man's Guide: Monitoring a Website Using Python"
 date= "2013-02-11T15:34:00Z"
-[taxonomies]
-tags= ["Python", "urllib", "monitoring", "Fabric"]
 +++
 
 In one of the projects I am working on there was a problem with Apache server.
@@ -56,7 +54,7 @@ Time to put it together in a script :
 import urllib
 
 try:
-  resposne_code = urllib.urlopen("http://www.example.com").getcode()
+  response_code = urllib.urlopen("http://www.example.com").getcode()
   if response_code != 200:
     raise ValueError
 except:
@@ -130,7 +128,7 @@ from email import Encoders
 
 subject = 'Your website is down' email_body = 'Your website is down'
 gmail_user = 'YOUR-GMAIL-ADDRESS' gmail_pwd = 'YOUR-GMAIL-PASSWORD'
-recepient = 'DEVOPS-EMAIL'
+recipient = 'DEVOPS-EMAIL'
 
 def mail(to, subject, text, gmail_user, gmail_pwd):
     '''Sends mail using gmail'''

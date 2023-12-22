@@ -1,8 +1,6 @@
 +++
 title ="My Sublime Text 2 Setup"
 date = "2013-06-20T00:53:00Z"
-[taxonomies]
-tags= ["Sublime", "IDE"]
 +++
 
 I have been suffering for a while with IDEs, and ventured out to see what

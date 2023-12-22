@@ -1,8 +1,6 @@
 +++
 title = "Joining Production Engineering at Facebook/Meta"
 date = "2022-03-06T00:00:00Z"
-[taxonomies]
-tags = ["facebook","meta","production engineering", "sre"]
 +++
 
 ![Meta](/images/meta-logo.png)

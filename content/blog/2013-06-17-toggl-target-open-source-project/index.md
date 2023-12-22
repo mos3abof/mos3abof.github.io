@@ -1,8 +1,6 @@
 +++
 title = "Toggl Target: An Open Source Project of My Own"
 date = "2013-06-17T04:00:00Z"
-[taxonomies]
-tags = ["Python", "Toggl", "API"]
 +++
 
 At our company, [Yubb Software](http://www.yubb-software.com), we track our

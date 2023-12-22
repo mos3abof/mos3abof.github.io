@@ -1,8 +1,6 @@
 +++
 title = "Joining Twitter SRE Team!"
 date = "2020-05-08T00:00:00Z"
-[taxonomies]
-tags = ["twitter","sre"]
 +++
 
 ![Twitter](/images/twitter-logo.png)
