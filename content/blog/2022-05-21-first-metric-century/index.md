@@ -31,7 +31,7 @@ bibshort if it 10 degrees celsius or above, etc).
 below the FTP especially on those hill.
 
 
-  3.1. That required better shifting for the gears, and that's somehting I have always heard, but never
+  3.1. That required better shifting for the gears, and that's something I have always heard, but never
   really understood
 
 

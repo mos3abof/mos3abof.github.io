@@ -28,7 +28,7 @@ be:
   themselves as such if they don’t know how processes work in linux. Also, the
   information there will be very useful while interpreting the output of other
   commands that include any information about processes.
-- `man find`: surprisingly, you can learn a lot about the filesytems in linux by
+- `man find`: surprisingly, you can learn a lot about the filesystems in linux by
   reading this long man page. Also understanding this page can help with other
   commands like `ls`.
 - `man vmstat`: (if you don’t have vmstat installed, get it installed) vmstat is
@@ -36,7 +36,7 @@ be:
   good insight into most of the system. Learn its options, because it can make
   your life easier while troubleshooting/debugging an issue.
 - `man iptables`: linux’s tool for IPv4 and Ipv6 filtration, as well as NAT.
-- `man ss`: a linux utitlity to investigate sockets.
+- `man ss`: a linux utility to investigate sockets.
 - `man sar`: a utility to collect, report, and/or save system activity. Can be
   useful in various areas of investigation.
 - `man iostat`: a utility that prints statistics about CPU as well as devices

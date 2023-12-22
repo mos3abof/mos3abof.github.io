@@ -14,7 +14,7 @@ revolution, and in his rule the crisis took an even worse turn. It became normal
 that electricity cuts off once a day for an hour. That was one of the main
 reasons people revolted against Morsi, and the military seized the opportunity
 and removed him from office and put the supreme court's president in his place
-for a year. Power outages were slightly imporoved right after ousting Morsi, but
+for a year. Power outages were slightly improved right after ousting Morsi, but
 then it gradually was becoming worse and worse.
 
 Marshall Sisi won the next presidential elections, he is the current president

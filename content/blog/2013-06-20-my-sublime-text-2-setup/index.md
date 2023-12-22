@@ -42,7 +42,7 @@ I have a list of awesome packages I use:
 - **SublimeCodeIntel** : Full-featured code intelligence and smart
   autocomplete engine.
 - **PHP-Twig** : Adds support for `.twig` template files.
-- **BracketHilighter** : Matches and higlights a variety of brackets for
+- **BracketHilighter** : Matches and highlights a variety of brackets for
   better readability.
 - **SublimeRope** : Adds Python completions and some IDE-like functions to
   Sublime Text.
