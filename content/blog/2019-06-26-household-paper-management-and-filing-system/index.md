@@ -4,7 +4,7 @@ date = "2019-06-26T00:00:00Z"
 draft = true
 +++
 
-![Photo by Samuel Zeller on Unsplash](/images/filing-system.jpg)
+![Photo by Samuel Zeller on Unsplash](filing-system.jpg)
 
 > **Disclaimer: This is a Work In Progress. More updates will come in the future
 > to this piece.**
@@ -48,7 +48,7 @@ requirement.
 
 ## Components of the System
 
-![Filing system sketch](/images/filing-system-sketch.png)
+![Filing system sketch](filing-system-sketch.png)
 
 ### Staging Area
 

@@ -5,7 +5,7 @@ date = "2016-05-09T12:00:00Z"
 
 New website, new icon, and improvements for the tab addict Firefox add-on
 
-![firefox-header](/images/firefox-mosaic.jpg)
+![firefox-header](firefox-mosaic.jpg)
 
 ## A Brief History
 
@@ -19,7 +19,7 @@ The first version published version, 0.2.1, was officially released on September
 A few bug fixes and little improvements were released since that date, and then
 I got busy with my life and work.
 
-![download and usage stats](/images/power-close/stats.png)
+![download and usage stats](stats.png)
 
 ## What’s New
 
@@ -33,14 +33,14 @@ by [Freepik](http://www.freepik.com/) from [Flat
 Icon](http://www.flaticon.com/), that was licensed under [CC-BY
 License](http://creativecommons.org/licenses/by/3.0/).
 
-![Old version of the icon](/images/power-close/old-logo.png)
+![Old version of the icon](old-logo.png)
 
 In this release, the icon used for the logo and the toolbar button is a mash of
 two icons from Google’s [Material Design
 Icons](https://design.google.com/icons/) that are published as an open source
 project under the [CC-By License](https://creativecommons.org/licenses/by/4.0/).
 
-![The new icon used](/images/power-close/new-logo.png)
+![The new icon used](new-logo.png)
 
 ### Selection Context Menu Option
 
@@ -66,7 +66,7 @@ I have also registered a domain name for the add-on, and moved it from the
 sub-domain under my personal website power-close.mos3abof.com, where it used to
 live, to [power-close.com](https://power-close.com).
 
-![website face lift](/images/power-close/website-facelift.png)
+![website face lift](website-facelift.png)
 
 The website was given a face lift to make it more usable, but this is an early
 release with new enhancements and features in the backlog. The website is
@@ -105,4 +105,4 @@ Or you can click on the button below and add Power Close to your firefox browser
 now!
 
 [![Get the
-power](/images/power-close/add-to-firefox.png)](https://power-close.com)
+power](add-to-firefox.png)](https://power-close.com)

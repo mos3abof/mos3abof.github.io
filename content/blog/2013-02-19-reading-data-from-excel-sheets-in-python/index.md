@@ -54,13 +54,13 @@ I chose to go with [XLRD][], and you can find it in [PyPi][] as well.
 We need to install it first by running this command :
 
 ```bash
-$ pip install xlrd
+pip install xlrd
 ```
 
 Or
 
 ```bash
-$ easy_install xlrd
+easy_install xlrd
 ```
 
 Let's start coding.

@@ -3,8 +3,7 @@ title = "Joining Production Engineering at Facebook/Meta"
 date = "2022-03-06T00:00:00Z"
 +++
 
-![Meta](/images/meta-logo.png)
-
+![Meta](meta-logo.png)
 
 Super excited and thrilled to share that I am joining the Production Engineering team at
 [Meta/Facebook](https://facebook.com) in London!  My first day is tomorrow, and I can not wait for
@@ -21,12 +20,10 @@ community. PE’s write production code and solve hard problems in systems servi
 across Facebook, services like Instagram, WhatsApp, and Oculus, and in diverse infrastructure areas
 like machine learning/inference, storage, and networking.
 
-
 If you still are trying to figure out what a production engineer does, watch [this
 video](https://www.youtube.com/watch?v=TnCY6Apxibk)!
 
 {{< youtube TnCY6Apxibk >}}
-
 
 Or you can watch this presentation at SRECon 2015 that talks about Production Engineering at
 Facebook and how it evolved:

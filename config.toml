@@ -45,7 +45,7 @@ feed_filename = "rss.xml"
 
 # The number of articles to include in the feed. All items are included if
 # this limit is not set (the default).
-feed_limit = 20
+feed_limit = 100
 
 # When set to "true", files in the `static` directory are hard-linked. Useful for large
 # static files. Note that for this to work, both `static` and the

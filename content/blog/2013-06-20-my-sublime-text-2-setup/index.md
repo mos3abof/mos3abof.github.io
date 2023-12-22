@@ -8,9 +8,7 @@ options do I have. I ended up using mainly Vim and Sublime for a long while now,
 and my life was never easier and I was never happier! In this post however I am
 talking about my [Sublime Text][] Setup.
 
-1. Package Control {#1-package-control}
-
----
+### 1) Package Control {#1-package-control}
 
 You don't know what sublime is really capable of until you install the "[Package
 Control][]".
@@ -24,9 +22,7 @@ The website describes it as:
 If you are using Sublime and not using it, STOP READING & NOW GO
 [INSTALL IT][]! After that go have a look [how to use it][].
 
-2. The packages I use {#2-the-packages-i-use}
-
----
+### 2) The packages I use {#2-the-packages-i-use}
 
 I have a list of awesome packages I use:
 

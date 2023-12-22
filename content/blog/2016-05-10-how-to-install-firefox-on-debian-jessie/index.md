@@ -3,7 +3,7 @@ title = "How To Install Firefox On Debian Jessie"
 date = "2016-05-10T00:00:00Z"
 +++
 
-![logo](/images/firefox-iceweasel-debian.png)
+![logo](firefox-iceweasel-debian.png)
 
 _Iceweasel_ is great, but I prefer _Firefox_.
 
@@ -48,7 +48,7 @@ Open a terminal as root, and add a new file to `/etc/apt/sources.list.d/`
 directory:
 
 ```shell
-$ touch /etc/apt/sources.list.d/debian-mozilla.list
+touch /etc/apt/sources.list.d/debian-mozilla.list
 ```
 
 Open the file using your favorite text editor, mine happens to be vim, and add
@@ -68,9 +68,9 @@ package, and install it. The package requires that `debian-keying` package be
 installed.
 
 ```shell
-$ cd ~/
-$ wget mozilla.debian.net/pkg-mozilla-archive-keyring_1.1_all.deb
-$ dpkg -i pkg-mozilla-archive-keyring_1.1_all.deb
+cd ~/
+wget mozilla.debian.net/pkg-mozilla-archive-keyring_1.1_all.deb
+dpkg -i pkg-mozilla-archive-keyring_1.1_all.deb
 ```
 
 ## Step 3: Install Firefox
@@ -78,8 +78,8 @@ $ dpkg -i pkg-mozilla-archive-keyring_1.1_all.deb
 Now it is time to update the archives and install _Firefox_:
 
 ```shell
-$ apt-get update
-$ apt-get install -t jessie-backports firefox
+apt-get update
+apt-get install -t jessie-backports firefox
 ```
 
 And now you have _Firefox_ installed.

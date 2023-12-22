@@ -22,7 +22,7 @@ that the addon has undergone full review :)
 
 After installation, this icon will appear as a button in your browser:
 
-![Firefox Power Close Addon Button](https://raw.githubusercontent.com/mos3abof/firefox-power-close/master/data/icon-64.png)
+![Firefox Power Close Addon Button](icon.png)
 
 Press on it, and an input field will appear. Write the keyword or domain name in
 it and press enter, and voila!

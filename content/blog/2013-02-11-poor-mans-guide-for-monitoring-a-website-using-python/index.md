@@ -12,11 +12,11 @@ ultimately restart it when this happened.
 So I fired up my console and text editor and started hacking a little script to
 do the above mentioned side goals.
 
-1.  Monitoring the Apache server's accessibility from a different server.
-2.  SSH the linux box running the server and restarting Apache.
-3.  Alerting the DevOps team about the issue.
-4.  Putting it all together
-5.  Setting up a cron job to run the script
+1. Monitoring the Apache server's accessibility from a different server.
+2. SSH the linux box running the server and restarting Apache.
+3. Alerting the DevOps team about the issue.
+4. Putting it all together
+5. Setting up a cron job to run the script
 
 I am assuming you are running an Ubuntu machine.
 
@@ -73,7 +73,7 @@ You can read about more about it in their documentation.
 Install it by running the following command:
 
 ```bash
-$ sudo apt-get install fabric
+sudo apt-get install fabric
 ```
 
 We now need to create a new python file that I will name `fabfile.py`, you can
@@ -104,14 +104,14 @@ user or sudo privileges we used the `sudo()` function.
 To run a Fabric script open up your terminal and run the following command:
 
 ```bash
-$ fabric fabfile.py restart_apache
+fabric fabfile.py restart_apache
 ```
 
 If you want to run it from a different directory than the `fabfile.py` then you
 need to use the `-f` option like this :
 
 ```bash
-$ fabric -f /path/to/your/fabfile.py function_name
+fabric -f /path/to/your/fabfile.py function_name
 ```
 
 ## Alerting the DevOps team about the issue.
@@ -174,7 +174,7 @@ it periodically for us.
 Run the following command in the terminal to edit your crontab file:
 
 ```bash
-$ crontab -e
+crontab -e
 ```
 
 Then add the following line to the file to run the script every hour:

@@ -16,19 +16,19 @@ fired up my terminal by hitting `ctrl+alt+t` and followed these steps:
 - Add the fingerprint reader repository to the apt-get packages repositories:
 
 ```bash
-$ sudo add-apt-repository ppa:fingerprint/fingerprint-gui
+sudo add-apt-repository ppa:fingerprint/fingerprint-gui
 ```
 
 - Resynchronize the package index files from their sources:
 
 ```bash
-$ sudo apt-get update
+sudo apt-get update
 ```
 
 - Install the FingerGUI package & some dependencies:
 
 ```bash
-$ sudo apt-get install libbsapi policykit-1-fingerprint-gui fingerprint-gui
+sudo apt-get install libbsapi policykit-1-fingerprint-gui fingerprint-gui
 ```
 
 - Logout of your session, and login again.

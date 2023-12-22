@@ -3,7 +3,7 @@ title = "Joining Twitter SRE Team!"
 date = "2020-05-08T00:00:00Z"
 +++
 
-![Twitter](/images/twitter-logo.png)
+![Twitter](twitter-logo.png)
 
 Last Friday was my last day at [GoCardless](https://gocardless.com). It has been
 a year -and change- full of knowing smart and great colleagues, and learning a

@@ -5,41 +5,22 @@
 {% endblock head_extend %}
 
 {% block content %}
-<div class="h-screen lg:h-auto lg:w-screen flex flex-col lg:flex-row space-y-16 
-            lg:space-y-0 items-center lg:items-start lg:text-left">
-    <div class="lg:h-screen lg:w-1/2 flex items-center">
-        <div class="mx-16 flex flex-col space-y-16 lg:space-y-4">
-            <h1 class="font-serif text-8xl lg:text-4xl text-slate-900 dark:text-slate-300">
-                {{ config.title }}
-            </h1>
-            {% block homepage_content_extend %}
-            <div class="mt-4 text-8xl lg:text-xl flex gap-2">
-              Welcome to my online space! I am a self-taught software and systems engineer with a passion for database systems, 
-              distributed systems, systems programming, operating systems, and open source/free software. When I’m not working, 
-              you can find me spending time with my lovely family or indulging in my hobbies of cycling, cooking and woodworking.
+  <h1 class="font-serif text-8xl lg:text-4xl text-slate-900 dark:text-slate-300">
+    {{ config.title }}
+  </h1>
 
-              <img 
-                class="intro-image"
-                src="{{get_url(path='/img/mosab-cigar.png')}}" 
-                alt="Mosab smoking a cigar"
-                title="{{config.title}}"
-                style="display:block;"
-              />
+{% block homepage_content_extend %}
+  Welcome to my online space! I am a self-taught software and systems engineer with a passion for database systems, 
+  distributed systems, systems programming, operating systems, and open source/free software. When I’m not working, 
+  you can find me spending time with my lovely family or indulging in my hobbies of cycling, cooking and woodworking.
 
-            </div>
-            <div class="mt-4 text-8xl lg:text-xl flex gap-2">
-              <ul>
-                <li style="display:inline;"><a href="{{get_url(path='@/blog/_index.md')}}">blog</a></li> | 
-                <li style="display:inline;"><a href="{{get_url(path='@/projects.md')}}">Projects</a></li> |
-                <li style="display:inline;"><a href="{{get_url(path='@/resources.md')}}">Resources</a></li> |
-                <li style="display:inline;"><a href="{{get_url(path='@/resume.md')}}">Resume</a></li> |
-                <li style="display:inline;"><a href="{{get_url(path='@/cycling.md')}}">Cycling</a></li> |
-                <li style="display:inline;"><a href="{{get_url(path='@/woodworking.md')}}">Woodworking</a></li> |
-                <li style="display:inline;"><a href="{{get_url(path='@/contact.md')}}">Contact</a></li>
-              </ul>
-          </div>
-            {% endblock homepage_content_extend %}
-        </div>
-    </div>
-</div>
+  <img 
+    class="intro-image"
+    src="{{get_url(path='/img/mosab-cigar.png')}}" 
+    alt="Mosab smoking a cigar"
+    title="{{config.title}}"
+    style="display:block;"
+  />
+
+{% endblock homepage_content_extend %}
 {% endblock content %}

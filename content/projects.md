@@ -16,9 +16,9 @@ applications on top of it.
 
 ## Toggle Target
 
-At work, long time ago, we had to track our working hours on Toggl
-(www.toggl.com), so I created this small project to calculate how many hours I
-should work to achieve my monthly goals.
+At work, long time ago, we had to track our working hours on [Toggl](www.toggl.com),
+so I created this small project to calculate how many hours I should work to achieve
+my monthly goals.
 
 [github](https://github.com/mos3abof/toggl_target)
 
@@ -46,11 +46,10 @@ interesting content for Arab internet users.
 
 [zobad.net](https://zobad.net)
 
-
 ## Gaza News Aggregator (2014)
 
-An aggregator of all news related to the 2014 military operation launched on [Gaza Strip](https://en.wikipedia.org/wiki/Gaza_Strip) 
-in a descending chronological timeline. Data is pulled from news feeds from 
+An aggregator of all news related to the 2014 military operation launched on [Gaza Strip](https://en.wikipedia.org/wiki/Gaza_Strip)
+in a descending chronological timeline. Data is pulled from news feeds from
 [Google News](http://news.google.com/) and [akhbarak.net](http://www.akhbarak.net/).
 
 [Gaza - 2014](https://gaza.mos3abof.com/)
