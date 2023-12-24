@@ -32,8 +32,8 @@ Also, let's connect on
 
 Here are some of the videos I recorded while cycling
 
-youtube kbq9XcBJdQk
+{{youtube(id="kbq9XcBJdQk")}}
 
-youtube O0s0MB4IKCw
+{{youtube(id="outube O0s0MB4IKCw")}}
 
-youtube U4LP-4IYHtg
+{{youtube(id="outube U4LP-4IYHtg")}}

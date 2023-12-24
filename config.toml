@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://mos3abof.github.io"
+base_url = "https://mosab.co.uk"
 
 # The site title and description; used in feeds by default.
 title = "Mosab | مُصْعَب"
@@ -9,9 +9,8 @@ description = "Ramblings of Mosab!"
 # TODO: Add Arabic
 default_language = "en"
 
-# TODO: add Boring theme
 # The site theme to use.
-# theme = ""
+# theme = "apollo"
 
 # Whether dotfiles at the root level of the output directory are preserved when (re)building the site.
 # Enabling this also prevents the deletion of the output folder itself on rebuilds.
@@ -79,15 +78,17 @@ highlight_code = true
 
 # A list of directories used to search for additional `.sublime-syntax` and `.tmTheme` files.
 # TODO: explore this further
-extra_syntaxes_and_themes = []
+# extra_syntaxes_and_themes = []
 
 # The theme to use for code highlighting.
 # See below for list of allowed values.
-highlight_theme = "base16-ocean-dark"
+# highlight_theme = "base16-ocean-dark"
+# hhighlight_code = true
+highlight_theme = "nord"
 
 # When set to "true", emoji aliases translated to their corresponding
 # Unicode emoji equivalent in the rendered Markdown files. (e.g.: :smile: => 😄)
-render_emoji = false
+render_emoji = true
 
 # Whether external links are to be opened in a new tab
 # If this is true, a `rel="noopener"` will always automatically be added for security reasons
@@ -187,3 +188,4 @@ index_format = "elasticlunr_javascript"
 #
 # author value will be available using {{ config.extra.author }} in templates
 [extra]
+# TODO: Add social media links

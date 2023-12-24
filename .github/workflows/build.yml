@@ -1,7 +1,7 @@
 name: Build and deploy my website
 
 env:
-  ZOLA_VERSION: "0.18.0"
+  ZOLA_VERSION: "0.13.0"
   SOURCE_BRANCH: "master"
   TARGET_BRANCH: "gh-pages"
 

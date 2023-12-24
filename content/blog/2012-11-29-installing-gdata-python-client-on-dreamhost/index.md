@@ -75,12 +75,12 @@ great help : [DreamHost SSH][dreamhost ssh]
    >>> gdata.youtube.service
    ```
 
-   Here is my final script that I wrote, and I set up a cron job to run it every
-   morning:
+Here is my final script that I wrote, and I set up a cron job to run it every
+morning:
 
-   {{ <gist mos3abof 4164654> }}
+{{gist(user='mos3abof', gist=4164654)}}
 
-   Happy Gdata programming on Dreamhost :)
+Happy Gdata programming on Dreamhost :)
 
 [dreamhost]: http://www.dreamhost.com
 [dreamhost ssh]: http://ahappycustomer.dreamhosters.com/dreamhost-ssh.html

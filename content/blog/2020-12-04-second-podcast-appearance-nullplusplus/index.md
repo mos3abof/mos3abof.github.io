@@ -1,6 +1,5 @@
 +++
 title = "About SRE with null++"
-description = "Discussing SRE and other topics on nul++"
 date = 2020-12-04T00:00:00Z
 +++
 

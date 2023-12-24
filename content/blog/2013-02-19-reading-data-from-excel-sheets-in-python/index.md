@@ -69,7 +69,8 @@ XLRD calls the whole excel document a "Workbook", to open it we can do the
 following in an interactive python shell from the same path as the file:
 
 ```python
->>> from xlrd import open_workbook book = open_workbook('data.xls')
+>>> from xlrd import open_workbook 
+book = open_workbook('data.xls')
 ```
 
 Now we can manipulate the excel document using this "book" object we created.

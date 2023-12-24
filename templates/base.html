@@ -1,45 +1,36 @@
+{% import "macros/macros.html" as post_macros %}
+
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-  <meta charset="utf-8">
-    <title>{{config.title}} {% if page.title %} | {{ page.title }} {% endif %}</title>
-    <link rel="stylesheet" href="{{get_url(path='/css/style.css')}}" />
-    <link rel="stylesheet" href="{{get_url(path='/css/line-awesome.css')}}" />
-    <!--<script src="/js/main.js" defer></script> -->
-    {% block head_extend %}{% endblock %}
-  </head>
+<html lang="en" class="sm:scroll-smooth">
 
-  <body class="flex">
-    <div class="flex w-screen top-0">
-      <header>
-        <ul>
-          <li><a href="{{get_url(path='/')}}">Home</a></li> |
-          <li><a href="{{get_url(path='@/blog/_index.md')}}">blog</a></li> |
-          <li><a href="{{get_url(path='@/projects.md')}}">Projects</a></li> |
-          <li><a href="{{get_url(path='@/resources.md')}}">Resources</a></li> |
-          <li><a href="{{get_url(path='@/resume.md')}}">Resume</a></li> |
-          <li><a href="{{get_url(path='@/cycling.md')}}">Cycling</a></li> |
-          <li><a href="{{get_url(path='@/woodworking.md')}}">Woodworking</a></li> |
-          <li><a href="{{get_url(path='@/contact.md')}}">Contact</a></li>
-        </ul>
-      </header>
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{get_url(path='css/style.css')}}">
+  <link rel="icon" type="image/x-icon" href="{{get_url(path='./images/favicon.ico')}}">
+  <title>
+    {{config.title}}
+    {% if page.title %}
+    | {{page.title}}
+    {% endif %}
+  </title>
+</head>
 
-    <div class="flex">
-      {% block content %} {% endblock %}
-    </div>
+<body class="min-h-screen bg-slate-50 dark:bg-black dark:text-white selection:text-white
+    selection:bg-blue-600">
 
-    <div class="flex">
-      <footer>
-        <hr />
-        (c) 2024 Mosab 
-        <a href="http://www.catb.org/hacker-emblem/"><img
-          src="https://mosab.co.uk/images/glider.png"
-          alt="hacker emblem"
-          title="hacker emblem"
-          style="display: inline"
-        /></a>
-      </footer>
-    </div>
-  </body>
+  <!-- Header -->
+  {% include "partials/header.html" %}
+
+  <!-- Main  part of the page -->
+  <main class="max-w-6xl mx-auto my-4">
+    {% block main_content %} {% endblock %}
+  </main>
+
+
+  <!-- Footer -->
+  {% include "partials/footer.html" %}
+</body>
+
 </html>

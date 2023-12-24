@@ -23,11 +23,11 @@ like machine learning/inference, storage, and networking.
 If you still are trying to figure out what a production engineer does, watch [this
 video](https://www.youtube.com/watch?v=TnCY6Apxibk)!
 
-{{< youtube TnCY6Apxibk >}}
+{{youtube(id="TnCY6Apxibk")}}
 
 Or you can watch this presentation at SRECon 2015 that talks about Production Engineering at
 Facebook and how it evolved:
 
-{{< youtube ugkkza3vKbc >}}
+{{youtube(id="Tugkkza3vKbc")}}
 
 Can not wait to get starts on a journey of challenges, learnings and hyper growth!

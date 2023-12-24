@@ -1,26 +1,58 @@
 {% extends "base.html" %}
 
-{% block head_extend %}
-    <title>Home | {{ config.title }}</title>
-{% endblock head_extend %}
+{% block main_content %}
+<!-- Intro Section -->
+<section class="flex flex-col-reverse justify-center sm:flex-row p-6
+        items-center gap-8 scroll-mt-40">
+  <article class="sm:w-1/2">
+    <h1 class="max-w-md text-2xl font-bold text-center sm:text-5xl sm:text-left text-slate-900
+            dark:text-slate-300">Welcome to my online space<span
+        class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h1>
+    <p class="max-w-md text-xl text-center sm:text-left text-slate-700 dark:text-slate-300 pt-5">
+      I am a <span class="text-teal-600 dark:test-slate-600">self-taught</span> software/systems engineer with a
+      passion for <span class="bg-green-100 dark:text-slate-600">database
+        systems</span>,
+      <span class="bg-yellow-50 dark: text-slate-600 dark:text-slate-600">distributed systems</span>, <span
+        class="bg-pink-100 dark:text-slate-600">systems
+        programming</span>,
+      <span class="bg-orange-100 dark:text-slate-600">operating systems</span>, and <span class="bg-teal-100
+              dark:text-slate-600">
+        open source/free software</span>.
+    </p>
 
-{% block content %}
-  <h1 class="font-serif text-8xl lg:text-4xl text-slate-900 dark:text-slate-300">
-    {{ config.title }}
-  </h1>
+    <p class="max-w-md text-xl text-center sm:text-left text-slate-700 dark:text-slate-300 pt-5">
+      When I’m not
+      working, you
+      can find me spending time with my lovely family or indulging in my hobbies of <a
+                                                                                        href="{{get_url(path='/hobbies/cycling')}}"
+        class="underline text-indigo-500 hover:bg-indigo-500 hover:text-white p-1 dark:text-indigo-300">cycling</a>,<a
+        href="{{get_url(path='/hobbies/diy')}}" class="underline text-teal-800 p-1 hover:bg-teal-500 hover:text-white dark:text-teal-300">diy
+        projects</a>, <a href="{{get_url(path='/hobbies/cooking')}}"
+        class="underline text-pink-800 p-1 hover:bg-pink-500 hover:text-white dark:text-pink-300">cooking</a>
+      and
+      <a href="{{get_url(path='/hobbies/woodworking')}}"
+        class="underline text-orange-800 p-1 hover:bg-orange-800 hover:text-white dark:text-orange-300">woodworking</a>.
+    </p>
 
-{% block homepage_content_extend %}
-  Welcome to my online space! I am a self-taught software and systems engineer with a passion for database systems, 
-  distributed systems, systems programming, operating systems, and open source/free software. When I’m not working, 
-  you can find me spending time with my lovely family or indulging in my hobbies of cycling, cooking and woodworking.
+  </article>
+  <img src="{{get_url(path='/images/mosab-cigar.png')}}" alt="A picture of me smoking a cigar"
+    title="A picture of me smoking a cigar" class="w-1/2 rounded-xl drop-shadow-xl shadow-xl" />
+</section>
 
-  <img 
-    class="intro-image"
-    src="{{get_url(path='/img/mosab-cigar.png')}}" 
-    alt="Mosab smoking a cigar"
-    title="{{config.title}}"
-    style="display:block;"
-  />
+<section class="p-6 my-4 scroll-mt-40">
+  <h2 class="max-w-md text-2xl font-bold text-center sm:text-4xl sm:text-left text-slate-900 dark:text-slate-300">
+    Posts<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
+  {% set blog_section = get_section(path="blog/_index.md") %}
+  <ul class="list-none mx-auto my-4">
+    {% for year, posts in blog_section.pages | group_by(attribute="year") %}
+      {% for post in posts %}
+      <li class="my-1 flex"><time class="text-slate-400 hidden sm:block pt-3">{{post.date | date(format="%Y-%m-%d")}}</time> <a href="{{ post.permalink }}"
+        class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1">{{ post.title }}</a></li>
+      {% endfor %}
+    {% endfor %}
+  </ul>
 
-{% endblock homepage_content_extend %}
-{% endblock content %}
+  <a href="{{get_url(path='/blog')}}" class="text-xl hover:text-white hover:bg-teal-600 p-1">Read More</a>
+</section>
+
+{% endblock main_content %}

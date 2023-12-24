@@ -1,7 +1,6 @@
 +++
 title = "Caffeine Code Cycle"
 date = "2009-03-11T22:00:00Z"
-author = "Mosab Ibrahim"
 +++
 
 I saw this quote and loved it:

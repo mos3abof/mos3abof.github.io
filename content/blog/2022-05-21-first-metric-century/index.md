@@ -5,8 +5,8 @@ date = "2022-05-21T23:00:00Z"
 
 ![Audax Tour De Ricky](audax-brevet.png)
 
-Today I finished my first metric century (a ride that is 100km or more)! Was riding in “Tour De
-Ricky” audax, and it was a challenging route for me. Took me 7 hours and 22 minutes of riding (10
+Today I finished my first _**metric century**_ (a ride that is 100km or more)! Was riding in _**Tour De
+Ricky**_ audax, and it was a challenging route for me. Took me 7 hours and 22 minutes of riding (10
 hours if you include the cafe and rest stops) but I did it!
 
 Distance: 119.8 km
@@ -68,4 +68,4 @@ bunch of fellow colleagues, but that's ok.
 
 Here is a video about the ride:
 
-{{< youtube uhsU0AqyNgM >}}
+{{ youtube(id="uhsU0AqyNgM" class="w-fit") }}

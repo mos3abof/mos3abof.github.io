@@ -1,6 +1,5 @@
 +++
 title = "Resources"
-description = "Over time, I have compiled and distilled a list of lists of useful resources."
 +++
 
 Over time, I have compiled and distilled a list of lists of useful resources.
@@ -12,7 +11,7 @@ wishlist](https://www.amazon.co.uk/hz/wishlist/ls/1ZVYP207HZR6H?type=wishlist&fi
 would be awesome! There is also my [non-technical book
 wishlist](https://www.amazon.co.uk/hz/wishlist/ls/314HICF494KE3?type=wishlist&filter=unpurchased&sort=priority).
 
-## Database Systems and Database Reliability Engineering
+## Database Systems and Reliability Engineering
 
 - High Performance MySQL, by Baron Schwartz, Peter Zaitsev & Vadim Tkachenko.
 - [Introduction to Databases](https://online.stanford.edu/courses/soe-ydatabases-databases), by Stanford.
@@ -60,7 +59,7 @@ wishlist](https://www.amazon.co.uk/hz/wishlist/ls/314HICF494KE3?type=wishlist&fi
 - [Transforming Code into Beautiful, Idiomatic Python](https://www.youtube.com/watch?v=OSGv2VnC0go) by Raymond Hettinger at Next Day Video.
 - [Go development with vim-go](https://www.youtube.com/watch?v=7BqJ8dzygtU) by Fatih Arslan at DigitalOcean NYC Meetup.
 
-## Production Engineering and Site Reliability Engineering
+## Production Engineering and SRE
 
 - Systems Performance: Enterprise and the Cloud, by Brendann Gregg.
 - Site Reliability Engineering, edited by Betsy Beyer, Chris Jones, Jennifer Petoff, and Niall Richard Murphy.

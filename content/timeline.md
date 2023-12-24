@@ -1,6 +1,5 @@
 +++
 title = "Timeline"
-description = "Timeline"
 +++
 
 - 1986 - born

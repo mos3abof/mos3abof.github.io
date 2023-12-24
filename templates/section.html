@@ -1,57 +1,37 @@
 {% extends "base.html" %}
 
-{% import "macros.html" as macros %}
+{% block main_content %}
+{% if section.extra.section_path -%}
+{% set section = get_section(path=section.extra.section_path) %}
+{% endif -%}
 
-{% block head_extend %}
-    <title>{{ section.title }} | {{ config.title }}</title>
-{% endblock head_extend %}
+{% block title %}
+{{ post_macros::page_header(title=section.title) }}
+{% endblock title %}
 
-{% block content %}
-    {{ macros::header(components=section.components, is_page=false) }}
-    <div class="container mb-16">
-        {% if section.pages %}
-            <div class="my-8">
-                <div class="text-6xl lg:text-2xl bg-amber-100 text-slate-800
-                    dark:bg-indigo-900 dark:text-slate-300 p-2 w-max">
-                    Posts
-                </div>
-                <ul>
-                    {% for page in section.pages %}
-                        <li class="text-slate-900 hover:text-slate-600
-                            dark:text-slate-400 hover:dark:text-slate-300
-                            transition">
-                            <a class="flex my-12 lg:my-4 text-4xl lg:text-base" href="{{ page.permalink | safe }}">
-                                {{ page.title }}
-                                <div class="ml-2 hidden lg:inline">
-                                    <i class="las la-arrow-right"></i>
-                                </div>
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        {% endif %}
-        {% if section.subsections %}
-            <div class="my-8">
-                <div class="text-6xl lg:text-2xl bg-amber-100 dark:bg-indigo-900
-                    text-slate-800 dark:text-slate-300 p-2 w-max">
-                    Categories 
-                </div>
-                <ul>
-                    {% for sub in section.subsections %}
-                        {% set sect = get_section(path=sub, metadata_only=true) %}
-                        <li class="text-slate-900 hover:text-slate-600
-                            dark:text-slate-400 hover:dark:text-slate-300 transition">
-                            <a class="flex my-12 lg:my-4 text-4xl lg:text-base" href="{{ sect.permalink }}">
-                                {{ sect.title }}
-                                <div class="ml-2 hidden lg:inline">
-                                    <i class="las la-arrow-right"></i>
-                                </div>
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        {% endif %}
-    </div>
-{% endblock content %}
+{% block post_list %}
+  {%- if paginator %}
+  {%- set show_pages = paginator.pages -%}
+  {% else %}
+  {%- set show_pages = section.pages -%}
+  {% endif -%}
+
+  {{ post_macros::list_posts(pages=show_pages) }}
+{% endblock post_list %}
+
+{% if paginator %}
+<ul class="pagination text-center mt-8">
+  {% if paginator.previous %}
+  <span class="page-item page-prev">
+    <a href={{ paginator.previous }} class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
+  </span>
+  {% endif %}
+
+  {% if paginator.next %}
+  <span class="page-item page-next">
+    <a href={{ paginator.next }} class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
+  </span>
+  {% endif %}
+</ul>
+{% endif %}
+{% endblock main_content %}

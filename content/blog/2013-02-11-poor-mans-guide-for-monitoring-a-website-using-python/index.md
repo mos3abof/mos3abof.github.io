@@ -38,7 +38,7 @@ then everything is fine.
 
 You can try this in a python interactive shell :
 
-```shell
+```python
 >>> import urllib response_code =
 >>> urllib.urlopen("http://www.example.com").getcode() print response_code
 200
@@ -119,7 +119,7 @@ fabric -f /path/to/your/fabfile.py function_name
 We can re-use the email function from the previous post on this blog [Installing
 Gdata Python Client on Dreamhost][]:
 
-```python,linenos,linenostart=1
+```python
 import smtplib
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEBase import MIMEBase
@@ -161,9 +161,9 @@ logging functionality to it.
 I have it installed on `/opt/fabfile.py` and I have created a `/opt/fab_logs`
 folder to hold the log files.
 
-Below is how a complete script may look like.
+Here is a gist with the complete script:
 
-{{< gist mos3abof 4771874 >}}
+{{gist(user='mos3abof', gist=4771874)}}
 
 ## Setting up a cron job to run the script
 

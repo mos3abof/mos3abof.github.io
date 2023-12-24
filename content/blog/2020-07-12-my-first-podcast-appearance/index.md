@@ -1,6 +1,5 @@
 +++
 title = "My First Podcast Appearance!"
-description = "Discussed career, SRE, and other topics with a dear friend"
 date = "2020-07-12T00:00:00Z"
 +++
 

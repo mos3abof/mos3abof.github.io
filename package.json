@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "tailwindcss": "^3.4.0",
+    "watch": "^1.0.2"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production npx tailwindcss -i styles/input.css -o static/css/styles.css",
+    "serve": "zola serve",
+    "tailwind": "npx tailwindcss -i styles/input.css -o static/css/style.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2"
+  }
+}

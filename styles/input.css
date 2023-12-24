@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.radial-blue {
+  background: radial-gradient(lightyellow, skyblue);
+}
+
+@font-face {
+  font-family: "Jetbrains Mono";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/JetBrainsMono-Regular.ttf") format('truetype');
+}
+
+
+/* @font-face { */
+/*   font-family: "Jetbrains Mono"; */
+/*   src: url(fonts/Roboto-Regular.woff) format('woff'); */
+/*   font-style: normal; */
+/*   font-weight: 400; */
+/* } */
+
+@font-face {
+  font-family: "Jetbrains Mono";
+  src: url("../fonts/JetBrainsMono-SemiBold.ttf") format('truetype');
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Jetbrains Mono";
+  src: url("../fonts/JetBrainsMono-Italic.ttf") format('truetype');
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Jetbrains Mono";
+  src: url("../fonts/JetBrainsMono-Bold.ttf") format('truetype');
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Jetbrains Mono";
+  src: url("../fonts/JetBrainsMono-BoldItalic.ttf") format('truetype');
+  font-style: italic;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Space GrotesK";
+  src: url("../fonts/SpaceGrotesk-Regular.ttf");
+}
+
+@layer base {
+  html {
+    font-family: "Jetbrains Mono";
+    font-weight: normal;
+
+  }
+
+  h1 {
+    font-family: "Space Grotesk", "Helvetica", sans-serif;
+  }
+
+  article img {
+    @apply rounded-xl my-2 mx-auto;
+  }
+
+  article h1>a {
+    @apply sm:text-4xl font-bold dark:bg-inherit dark:text-teal-300 p-1;
+  }
+
+  article h2 {
+    @apply text-xl sm:text-4xl my-5
+    /*font-bold bg-yellow-100*/
+    dark:bg-inherit dark:text-teal-300 p-1;
+  }
+
+  article h3 {
+    @apply sm:text-3xl my-3
+    /*bg-yellow-100*/
+    dark:bg-inherit dark:text-teal-300 p-1;
+  }
+
+  article h4 {
+    @apply my-2 text-2xl
+    /*bg-yellow-100*/
+    dark:bg-inherit dark:text-teal-300 p-1;
+  }
+
+  article {
+    @apply text-slate-700;
+  }
+
+  article p {
+    @apply text-xl text-center sm:text-left dark:text-slate-200 pt-5 font-medium;
+
+  }
+
+  article a {
+    @apply text-teal-600 underline underline-offset-4 hover:text-white hover:bg-teal-600 hover:no-underline p-1;
+  }
+
+  article ul {
+    @apply list-disc my-4 text-xl;
+  }
+
+  article ol {
+    @apply list-decimal my-4 text-xl;
+  }
+
+  article li {
+    @apply ml-4 ml-10 text-xl dark:text-slate-200;
+  }
+
+  strong,
+  article strong {
+    @apply font-extrabold;
+  }
+
+  blockquote {
+    @apply px-2 pb-4 pt-0 my-4 border-s-4 border-gray-300 bg-slate-200 dark:border-slate-500 dark:bg-slate-800 italic font-medium;
+  }
+
+  .pagination a {
+    @apply text-xl text-teal-600 p-1 hover:text-white hover:bg-teal-600;
+  }
+
+  pre {
+    @apply p-4 mt-2;
+  }
+
+  :not(pre)>code {
+    @apply text-black bg-slate-200 text-xl p-1 font-mono;
+  }
+}
