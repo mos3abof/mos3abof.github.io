@@ -3,14 +3,18 @@
   {%- for page in pages %}
   <section class="list-item">
     <div class="post-header">
-      <li class="my-1 flex"><time class="text-slate-400 hidden sm:block pt-3">{{ page.date | date(format="%Y-%m-%d")
-          }}</time> <a href="{{ page.permalink }}"
-          class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1">{{page.title}}
+      <li class="my-1 flex">
+        {% if page.date %}
+        <time class="text-slate-400 hidden sm:block pt-3">{{ page.date | date(format="%Y-%m-%d")
+          }}</time>
+        {% endif %}
+        <a href="{{ page.permalink }}" class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1">{{page.title}}
 
           {% if page.draft %}
           <span class="draft-label">DRAFT</span>
           {% endif %}
-        </a></li>
+        </a>
+      </li>
       <div>
         <div class="meta">
           <div class="description">
