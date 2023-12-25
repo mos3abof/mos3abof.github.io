@@ -12,7 +12,7 @@ Regulatory Agency (EGYPTERA) and presents it in a more human friendly way. It
 also provides an API so other developers can build other web and mobile
 applications on top of it.
 
-[gridstatusnow.com](https://gridstatusnow.com/)
+[gridstatusnow.com](https://github.com/mos3abof/gridstatusnow)
 
 ## Toggle Target
 
@@ -52,4 +52,4 @@ An aggregator of all news related to the 2014 military operation launched on [Ga
 in a descending chronological timeline. Data is pulled from news feeds from
 [Google News](http://news.google.com/) and [akhbarak.net](http://www.akhbarak.net/).
 
-[Gaza - 2014](https://gaza.mos3abof.com/)
+[Gaza - 2014](/gaza/)
