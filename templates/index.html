@@ -8,19 +8,19 @@
     <h1 class="max-w-md text-2xl font-bold text-center sm:text-5xl sm:text-left text-slate-900
             dark:text-slate-300">Welcome to my online space<span
         class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h1>
-    <p class="max-w-md text-xl text-center sm:text-left text-slate-700 dark:text-slate-300 pt-5">
-      I am a <span class="text-teal-600 dark:test-slate-600">self-taught</span> software/systems engineer with a
-      passion for <span class="bg-green-100 dark:text-slate-600">database
+    <p class="max-w-md text-xl text-left text-slate-700 dark:text-slate-300 pt-5">
+      I am a <span class="text-teal-600 dark:test-slate-600">self-taught</span> software/systems
+      engineer passionate about <span class="bg-green-100 dark:text-slate-600">database
         systems</span>,
       <span class="bg-yellow-50 dark: text-slate-600 dark:text-slate-600">distributed systems</span>, <span
         class="bg-pink-100 dark:text-slate-600">systems
         programming</span>,
-      <span class="bg-orange-100 dark:text-slate-600">operating systems</span>, and <span class="bg-teal-100
+      <span class="bg-orange-100 dark:text-slate-600">linux operating system</span>, and <span class="bg-teal-100
               dark:text-slate-600">
         open source/free software</span>.
     </p>
 
-    <p class="max-w-md text-xl text-center sm:text-left text-slate-700 dark:text-slate-300 pt-5">
+    <p class="max-w-md text-xl text-left text-slate-700 dark:text-slate-300 pt-5">
       When I’m not
       working, you
       can find me spending time with my lovely family or indulging in my hobbies of <a
@@ -40,14 +40,14 @@
 </section>
 
 <section class="p-6 my-4 scroll-mt-40">
-  <h2 class="max-w-md text-2xl font-bold text-center sm:text-4xl sm:text-left text-slate-900 dark:text-slate-300">
+  <h2 class="max-w-md text-2xl font-bold sm:text-4xl text-left text-slate-900 dark:text-slate-300">
     Posts<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
   {% set blog_section = get_section(path="blog/_index.md") %}
   <ul class="list-none mx-auto my-4">
     {% for year, posts in blog_section.pages | group_by(attribute="year") %}
       {% for post in posts %}
       <li class="my-1 flex"><time class="text-slate-400 hidden sm:block pt-3">{{post.date | date(format="%Y-%m-%d")}}</time> <a href="{{ post.permalink }}"
-        class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1">{{ post.title }}</a></li>
+        class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1"><span class="sm:hidden text-slate-400 dark:text-slate-300">- </span>{{ post.title }}</a></li>
       {% endfor %}
     {% endfor %}
   </ul>

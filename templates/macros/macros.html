@@ -8,7 +8,8 @@
         <time class="text-slate-400 hidden sm:block pt-3">{{ page.date | date(format="%Y-%m-%d")
           }}</time>
         {% endif %}
-        <a href="{{ page.permalink }}" class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1">{{page.title}}
+        <a href="{{ page.permalink }}" class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1"><span
+            class="sm:hidden text-teal-600">- </span>{{page.title}}
 
           {% if page.draft %}
           <span class="draft-label">DRAFT</span>
@@ -37,6 +38,8 @@
 
   {% endfor -%}
 </ul>
+</article>
+</section>
 {% endmacro list_posts %}
 
 {% macro list_terms(terms) %}
@@ -71,18 +74,14 @@
 {% endmacro tags %}
 
 {% macro page_header(title) %}
-<h1 class="text-2xl text-center sm:text-5xl sm:text-left text-slate-900
-          dark:text-slate-300 mt-8 mb-4 bg-yellow-10">{{title}}<span
-    class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span>
-</h1>
-{% endmacro content %}
+<h1 class="text-3xl font-bold sm:text-4xl text-left text-slate-900 dark:text-slate-300">
+  {{title}}<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
+  {% endmacro content %}
 
-{% macro content(page) %}
-<!-- Main  part of the page -->
-<main class="max-w-6xl mx-auto my-4">
+  {% macro content(page) %}
   <!-- Intro Section -->
-  <section class="flex flex-col-reverse justify-center sm:flex-row p-6 items-center gap-8">
-    <article class="w-screen">
+  <section class="flex flex-col justify-center sm:flex-row p-6 items-center gap-8 ">
+    <article class="w-screen px-4 sm:px-0">
       {{ post_macros::page_header(title=page.title) }}
 
       {% if page.date %}
@@ -131,7 +130,7 @@
         {{ page.content | safe }}
 
         {% if page.taxonomies and page.taxonomies.tags %}
-        <aside class="text-sl text-center sm:text-left text-slate-700 dark:text-slate-300 mt-8
+        <aside class="text-sl text-left text-slate-700 dark:text-slate-300 mt-8
               font-mono">
           Tags:
           {% for tag in page.taxonomies.tags %}
@@ -144,47 +143,46 @@
       </div>
     </article>
   </section>
-</main>
-{% endmacro content %}
+  {% endmacro content %}
 
-{% macro cards_posts(pages) %}
-<div class="cards">
-  {%- for page in pages %}
-  <div class="card">
-    {% if page.extra.local_image %}
-    <img class="card-image" alt={{ page.extra.local_image }} src="{{ get_url(path=page.extra.local_image) }}" />
-    {% elif page.extra.remote_image %}
-    <img class="card-image" alt={{ page.extra.remote_image }} src="{{ page.extra.remote_image }}" />
-    {% else %}
-    <div class="card-image-placeholder"></div>
-    {% endif %}
+  {% macro cards_posts(pages) %}
+  <div class="cards">
+    {%- for page in pages %}
+    <div class="card">
+      {% if page.extra.local_image %}
+      <img class="card-image" alt={{ page.extra.local_image }} src="{{ get_url(path=page.extra.local_image) }}" />
+      {% elif page.extra.remote_image %}
+      <img class="card-image" alt={{ page.extra.remote_image }} src="{{ page.extra.remote_image }}" />
+      {% else %}
+      <div class="card-image-placeholder"></div>
+      {% endif %}
 
-    <div class="card-info">
-      <h1 class="card-title">
-        {% if page.extra.link_to %}
-        <a href={{ page.extra.link_to }}>{{page.title}}</a>
-        {% else %}
-        <a href={{ page.permalink }}>{{page.title}}</a>
-        {% endif %}
-      </h1>
+      <div class="card-info">
+        <h1 class="card-title">
+          {% if page.extra.link_to %}
+          <a href={{ page.extra.link_to }}>{{page.title}}</a>
+          {% else %}
+          <a href={{ page.permalink }}>{{page.title}}</a>
+          {% endif %}
+        </h1>
 
-      <div class="meta">
-        {%- if page.date %}
-        <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
-        {% endif -%}
-        {% if page.draft %}
-        <span class="draft-label">DRAFT</span>
-        {% endif %}
-      </div>
+        <div class="meta">
+          {%- if page.date %}
+          <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
+          {% endif -%}
+          {% if page.draft %}
+          <span class="draft-label">DRAFT</span>
+          {% endif %}
+        </div>
 
-      <div class="card-description">
-        {% if page.description %}
-        {{ page.description }}
-        {% endif %}
+        <div class="card-description">
+          {% if page.description %}
+          {{ page.description }}
+          {% endif %}
+        </div>
       </div>
     </div>
-  </div>
 
-  {% endfor -%}
-</div>
-{% endmacro cards_posts %}
+    {% endfor -%}
+  </div>
+  {% endmacro cards_posts %}

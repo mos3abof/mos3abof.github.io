@@ -34,6 +34,6 @@ Here are some of the videos I recorded while cycling
 
 {{youtube(id="kbq9XcBJdQk")}}
 
-{{youtube(id="outube O0s0MB4IKCw")}}
+{{youtube(id="O0s0MB4IKCw")}}
 
-{{youtube(id="outube U4LP-4IYHtg")}}
+{{youtube(id="U4LP-4IYHtg")}}

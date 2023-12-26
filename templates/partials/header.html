@@ -7,7 +7,7 @@
     </h1>
 
     <div>
-      <button id="mobile-open-button" class="text-3xl sm:hidden focus:outline-none">
+      <button id="hamburger-button" class="text-3xl sm:hidden cursor-pointer">
         &#9776;
       </button>
 
@@ -25,5 +25,20 @@
           href="{{get_url(path='/contact')}}">@</a>
       </nav>
     </div>
+  </section>
+  <section id="mobile-menu"
+    class="absolute top-0 z-10 bg-slate-200 dark:bg-black w-full text-teal-600 dark:text-white text-3xl flex-col justify-content-center origin-top animate-open-menu hidden">
+    <button class="text-6xl cursor-pointer self-end px-6">
+      &times;
+    </button>
+    <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
+      <a href="{{get_url(path='/')}}" class="w-full text-center py-6 hover:opacity-90">Home</a>
+      <a href="{{get_url(path='/blog')}}" class="w-full text-center py-6 hover:opacity-90">Blog</a>
+      <a href="{{get_url(path='/resources')}}" class="w-full text-center py-6 hover:opacity-90">Resources</a>
+      <a href="{{get_url(path='/resume')}}" class="w-full text-center py-6 hover:opacity-90">Resume</a>
+      <a href="{{get_url(path='/projects')}}" class="w-full text-center py-6 hover:opacity-90">Projects</a>
+      <a href="{{get_url(path='/hobbies')}}" class="w-full text-center py-6 hover:opacity-90">Hobbies</a>
+      <a href="{{get_url(path='/contact')}}" class="w-full text-center py-6 hover:opacity-90">Contact</a>
+    </nav>
   </section>
 </header>

@@ -96,7 +96,7 @@
   }
 
   article p {
-    @apply text-xl text-center sm:text-left dark:text-slate-200 pt-5 font-medium;
+    @apply text-xl text-left dark:text-slate-200 pt-5 font-medium;
 
   }
 

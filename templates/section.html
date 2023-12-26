@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block main_content %}
+  <!-- Intro Section -->
+  <section class="flex flex-col-reverse justify-center sm:flex-row p-6 items-center gap-8">
+    <article class="w-screen px-4 sm:px-0">
+
 {% if section.extra.section_path -%}
 {% set section = get_section(path=section.extra.section_path) %}
 {% endif -%}
@@ -34,4 +38,6 @@
   {% endif %}
 </ul>
 {% endif %}
+</article>
+</section>
 {% endblock main_content %}
