@@ -12,17 +12,15 @@
       </button>
 
       <nav class="hidden sm:block space-x-1 text-xl" aria-label="main">
-        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="{{get_url(path='/')}}">Home</a>
+        <a class="hover:opacity-90 hover:bg-teal-600 group group-hover:text-white p-0" href="{{get_url(path='/')}}"><i
+            class="mdi mdi-home text-slate-600 mdi-24px my-auto hover:text-white dark:text-slate-300"></i></a>
         <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="{{get_url(path='/blog')}}">Blog</a>
-        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1"
-          href="{{get_url(path='/resources')}}">Resources</a>
         <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="{{get_url(path='/resume')}}">Resume</a>
         <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1"
           href="{{get_url(path='/projects')}}">Projects</a>
-        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="{{get_url(path='/hobbies')}}">My
-          Hobbies</a>
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="{{get_url(path='/about')}}">About</a>
         <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" alt="contact" title="contact"
-          href="{{get_url(path='/contact')}}">@</a>
+          href="{{get_url(path='/contact')}}">Contact</a>
       </nav>
     </div>
   </section>
@@ -34,10 +32,9 @@
     <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
       <a href="{{get_url(path='/')}}" class="w-full text-center py-6 hover:opacity-90">Home</a>
       <a href="{{get_url(path='/blog')}}" class="w-full text-center py-6 hover:opacity-90">Blog</a>
-      <a href="{{get_url(path='/resources')}}" class="w-full text-center py-6 hover:opacity-90">Resources</a>
       <a href="{{get_url(path='/resume')}}" class="w-full text-center py-6 hover:opacity-90">Resume</a>
       <a href="{{get_url(path='/projects')}}" class="w-full text-center py-6 hover:opacity-90">Projects</a>
-      <a href="{{get_url(path='/hobbies')}}" class="w-full text-center py-6 hover:opacity-90">Hobbies</a>
+      <a href="{{get_url(path='/about')}}" class="w-full text-center py-6 hover:opacity-90">About</a>
       <a href="{{get_url(path='/contact')}}" class="w-full text-center py-6 hover:opacity-90">Contact</a>
     </nav>
   </section>

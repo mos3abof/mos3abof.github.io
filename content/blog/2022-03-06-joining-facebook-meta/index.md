@@ -14,6 +14,8 @@ champion the Reliability, Scalability, Performance, and Security posture of prod
 are hybrid software and systems engineers; they are the glue holding things together, whether that’s
 infrastructure and software or teams and processes.
 
+![FB London Infra logo on the wall](london-infra.png)
+
 The true power of Production Engineering comes from developing strong relationships with partner
 engineering teams and valuing collaboration and knowledge sharing to build technical expertise and
 community. PE’s write production code and solve hard problems in systems serving billions of people

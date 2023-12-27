@@ -1,0 +1,11 @@
+<div>
+  {% if page.assets %}
+  {% for asset in page.assets -%}
+  {%- if asset is matching("[.](jpg|png)$") -%}
+  <a href="{{ get_url(path=asset) }}" target="_blank">
+    <img src="{{ get_url(path=asset) }}" />
+  </a>
+  {%- endif %}
+  {%- endfor %}
+  {% endif %}
+</div>
