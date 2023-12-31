@@ -1,13 +1,12 @@
 +++
 title = "Joining Production Engineering at Facebook/Meta"
-date = "2022-03-06T00:00:00Z"
+date = "2022-03-07T00:00:00Z"
 +++
 
 ![Meta](meta-logo.png)
 
 Super excited and thrilled to share that I am joining the Production Engineering team at
-[Meta/Facebook](https://facebook.com) in London!  My first day is tomorrow, and I can not wait for
-it.
+[Meta/Facebook](https://facebook.com) in London! Today is my first day.
 
 Production Engineering was created at Facebook to work with engineering teams and partners to
 champion the Reliability, Scalability, Performance, and Security posture of production services. PEs
