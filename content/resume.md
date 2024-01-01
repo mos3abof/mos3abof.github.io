@@ -2,8 +2,7 @@
 title = "Resume"
 +++
 
-# [Download my resume](/files/MosabIbrahim.pdf)
-
+# [Download my resume <i class="mdi mdi-file-pdf-box text-slate-600 mdi-48px my-auto dark:text-slate-300 align-middle"></i>](/files/MosabIbrahim.pdf)
 
 **Below is a few recommendations I have received from colleagues on Linkedin.**
 

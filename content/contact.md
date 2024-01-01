@@ -14,5 +14,7 @@ Here are some other places that you can find me on the internet:
 - [Medium](https://medium.com/@mos3abof)
 - [Polywork](https://www.polywork.com/mos3abof)
 - [Soundcloud](https://www.soundcloud.com/mos3abof)
+- [nameem - نميم](https://nameem.com/mos3abof)
+- [Buy me a coffee](buymeacoffee.com/mos3abof)
 
 I did also maintain an [Arabic Blog](https://mos3abof.blogspot.com) for some time.
