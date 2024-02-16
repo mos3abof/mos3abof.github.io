@@ -2,5 +2,4 @@
 title = "DIY Projects"
 +++
 
-
-Coming Soon!
+Coming soon.
