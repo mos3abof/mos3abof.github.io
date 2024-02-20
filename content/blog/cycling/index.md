@@ -1,5 +1,8 @@
 +++
 title = "Cycling"
+[taxonomies]
+tags=["cycling"]
+categories=["hobbies"]
 +++
 
 I recently got into cycling, and will update this page with some interesting details soon. In the

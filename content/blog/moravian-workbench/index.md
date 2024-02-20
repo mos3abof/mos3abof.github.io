@@ -1,5 +1,8 @@
 +++
 title = "Moravian Workbench"
+[taxonomies]
+tags=["woodworking"]
+categories=["hobbies"]
 +++
 
 I picked up woodworking and it is such therapeutic hobby! For my first woodworking project ever, I
