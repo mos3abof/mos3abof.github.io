@@ -1,6 +1,9 @@
 +++
 title = "Joining Production Engineering at Facebook/Meta"
 date = "2022-03-07T00:00:00Z"
+
+[taxonomies]
+tags=["career"]
 +++
 
 ![Meta](meta-logo.png)

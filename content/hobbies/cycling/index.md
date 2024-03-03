@@ -1,8 +1,5 @@
 +++
 title = "Cycling"
-[taxonomies]
-tags=["cycling"]
-categories=["hobbies"]
 +++
 
 I recently got into cycling, and will update this page with some interesting details soon. In the
@@ -15,21 +12,30 @@ Also, let's connect on
 [Komoot](https://www.komoot.com/user/1565437931381), and
 [Strava](https://www.strava.com/athletes/60680051).
 
-![](/images/topstone.png)
-![](/images/topstone-2-1.jpeg)
-![](/images/topstone-2-2.jpeg)
-![](/images/topstone-2-3.jpeg)
-![](/images/topstone-2-4.jpeg)
+![Cannondale Topstone](topstone.png)
+![Cannondale Topstone](topstone-2-1.jpeg)
+![Cannondale Topstone](topstone-2-2.jpeg)
+![Cannondale Topstone](topstone-2-3.jpeg)
+![Cannondale Topstone](topstone-2-4.jpeg)
 
 ## Activities on Strava
 
-
-<iframe height='160' width='300' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/60680051/activity-summary/9b24178edb4091c708c0ab0685680dbedc141f7b'></iframe>
-
+<iframe
+  height='160'
+  width='300'
+  frameborder='0'
+  allowtransparency='true'
+  scrolling='no'
+  src='https://www.strava.com/athletes/60680051/activity-summary/9b24178edb4091c708c0ab0685680dbedc141f7b'></iframe>
 
 ## Routes
 
-<iframe src="https://www.komoot.com/tour/636080427/embed?profile=1" width="100%" height="680" frameborder="0" scrolling="no"></iframe>
+<iframe
+  src="https://www.komoot.com/tour/636080427/embed?profile=1"
+  width="100%"
+  height="680"
+  frameborder="0"
+  scrolling="no"></iframe>
 
 ## Videos
 

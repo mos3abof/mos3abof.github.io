@@ -1,100 +1,106 @@
 {% macro list_posts(pages) %}
 <ul class="list-none mx-auto mt-8">
   {%- for page in pages %}
-  <section class="list-item">
-    <div class="post-header">
-      <li class="my-1 flex">
-        {% if page.date %}
-        <time class="text-slate-400 hidden sm:block pt-3">{{ page.date | date(format="%Y-%m-%d")
-          }}</time>
-        {% endif %}
-        <a href="{{ page.permalink }}" class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1"><span
-            class="sm:hidden text-teal-600">- </span>{{page.title}}
-
-          {% if page.draft %}
-          <span class="draft-label">DRAFT</span>
+    <section class="list-item">
+      <div class="post-header">
+        <li class="my-1 flex">
+          {% if page.date %}
+            <time class="text-slate-400 hidden sm:block pt-3">{{ page.date | date(format="%Y-%m-%d")
+              }}</time>
           {% endif %}
-        </a>
-      </li>
-      <div>
-        <div class="meta">
-          <div class="description">
-            {% if page.description %}
-            {{ page.description }}
-            {% elif page.summary %}
-            {{ page.summary | safe }}&hellip;
-            {% else %}
-            {% set hide_read_more = true %}
+
+          <a href="{{ page.permalink }}" class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1"><span
+              class="sm:hidden text-teal-600">- </span>{{page.title}}
+
+            {% if page.draft %}
+              <span class="draft-label">DRAFT</span>
+            {% endif %}
+          </a>
+        </li>
+        <div>
+          <div class="meta">
+            <div class="description">
+              {% if page.description %}
+                {{ page.description }}
+              {% elif page.summary %}
+                {{ page.summary | safe }}&hellip;
+              {% else %}
+                {% set hide_read_more = true %}
+              {% endif %}
+            </div>
+
+            {% if not hide_read_more %}
+              <a class="readmore" href={{ page.permalink }}>Read more ⟶</a>
             {% endif %}
           </div>
-
-          {% if not hide_read_more %}
-          <a class="readmore" href={{ page.permalink }}>Read more ⟶</a>
-          {% endif %}
         </div>
       </div>
-    </div>
-  </section>
-
+    </section>
   {% endfor -%}
 </ul>
+
 </article>
 </section>
 {% endmacro list_posts %}
 
-{% macro list_terms(terms) %}
-<ul>
-  {%- for term in terms %}
-  <section class="list-item">
-    <h1 class="title">
-      <a href={{ term.permalink }}>{{term.name}}</a>
-    </h1>
-  </section>
-
-  {% endfor -%}
-</ul>
+{% macro list_taxonomy_terms(terms) %}
+  <ul class="list-none mx-auto mt-8">
+      {%- for term in terms %}
+        <section class="list-item">
+          <div class="post-header">
+            <li class="my-1 flex">
+                <h1 class="title">
+                  <a href={{ term.permalink }}>{{term.name}}</a>
+                </h1>
+            </li>
+          </section>
+        </div>
+      {% endfor -%}
+  </ul>
 {% endmacro list_terms %}
 
 {% macro tags(page, short=false) %}
-{%- if page.taxonomies and page.taxonomies.tags %}
-<span class="post-tags-inline">
-  {%- if short %}
-  ::
-  {%- set sep = "," -%}
-  {% else %}
-  :: tags:&nbsp;
-  {%- set sep = "&nbsp;" -%}
+  {%- if page.taxonomies and page.taxonomies.tags %}
+    <span class="post-tags-inline">
+      {%- if short %}
+        ::
+        {%- set sep = "," -%}
+      {% else %}
+        :: tags:&nbsp;
+        {%- set sep = "&nbsp;" -%}
+      {% endif -%}
+      {%- for tag in page.taxonomies.tags %}
+        <a class="post-tag" href="{{ get_taxonomy_url(kind='tag', name=tag) | safe }}">#{{ tag }}</a>
+        {%- if not loop.last %}{{ sep | safe }}{% endif -%}
+      {% endfor -%}
+    </span>
   {% endif -%}
-  {%- for tag in page.taxonomies.tags %}
-  <a class="post-tag" href="{{ get_taxonomy_url(kind='tags', name=tag) | safe }}">#{{ tag }}</a>
-  {%- if not loop.last %}{{ sep | safe }}{% endif -%}
-  {% endfor -%}
-</span>
-{% endif -%}
 {% endmacro tags %}
 
 {% macro page_header(title) %}
-<h1 class="text-3xl font-bold sm:text-4xl text-left text-slate-900 dark:text-slate-300">
-  {{title}}<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
-  {% endmacro content %}
+  <h1 class="text-3xl font-bold sm:text-4xl text-left text-slate-900 dark:text-slate-300">
+    {{title}}<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
+{% endmacro page_header %}
 
-  {% macro content(page) %}
-  <!-- Intro Section -->
-  <section class="flex flex-col justify-center sm:flex-row p-6 items-center gap-8 ">
-    <article class="w-screen px-4 sm:px-0">
-      {{ post_macros::page_header(title=page.title) }}
+{% macro content(page) %}
+<!-- Intro Section -->
+<section class="flex flex-col justify-center sm:flex-row p-6 items-center gap-8 ">
+  <article class="w-screen px-4 sm:px-0">
+    {{ post_macros::page_header(title=page.title) }}
 
-      {% if page.date %}
-      <span class="text-slate-400 sm:text-1/2xl text-sl font-mono">Posted on <time class="text-slate-500">{{ page.date |
+    {% if page.date %}
+      <span 
+        class="text-slate-400 sm:text-1/2xl text-sl font-mono">Posted on <time 
+          class="text-slate-500">{{ page.date |
           date(format="%Y-%m-%d") }}</time></span>
-      {% endif %}
+    {% endif %}
 
-      {% if page.draft %}
+    {% if page.draft %}
       <span class="draft-label">DRAFT</span>
-      {% endif %}
+    {% endif %}
 
-      {# Optional table of contents #}
-      {% if page.extra.toc | default(value=false) %}
+    {# Optional table of contents #}
+    {% if page.extra.toc | default(value=false) %}
       {% if page.toc %}
       <h1>Table of Contents</h1>
       <ul>
@@ -124,65 +130,66 @@
         {% endfor %}
       </ul>
       {% endif %}
-      {% endif %}
+    {% endif %}
 
-      <div class="my-4">
-        {{ page.content | safe }}
+    <div class="my-4">
+      {{ page.content | safe }}
 
-        {% if page.taxonomies and page.taxonomies.tags %}
+      {% if page.taxonomies and page.taxonomies.tags %}
         <aside class="text-sl text-left text-slate-700 dark:text-slate-300 mt-8
               font-mono">
           Tags:
           {% for tag in page.taxonomies.tags %}
-          <a href="{{ get_taxonomy_url(kind='tags' , name=tag) | safe }}"
-            class="text-teal-600 p-1 hover:text-white hover:bg-teal-600">{{ tag }}</a>
+            <a href="{{ get_taxonomy_url(kind='tags' , name=tag) | safe }}"
+              class="text-teal-600 p-1 hover:text-white hover:bg-teal-600">#{{ tag }}</a>
           {% endfor %}
         </aside>
-        {% endif %}
+      {% endif %}
 
-      </div>
-    </article>
-  </section>
-  {% endmacro content %}
+    </div>
+  </article>
+</section>
+{% endmacro content %}
 
-  {% macro cards_posts(pages) %}
-  <div class="cards">
-    {%- for page in pages %}
+
+{% macro cards_posts(pages) %}
+<div class="cards">
+  {%- for page in pages %}
     <div class="card">
       {% if page.extra.local_image %}
-      <img class="card-image" alt={{ page.extra.local_image }} src="{{ get_url(path=page.extra.local_image) }}" />
+        <img class="card-image" alt={{ page.extra.local_image }} src="{{ get_url(path=page.extra.local_image) }}" />
       {% elif page.extra.remote_image %}
-      <img class="card-image" alt={{ page.extra.remote_image }} src="{{ page.extra.remote_image }}" />
+        <img class="card-image" alt={{ page.extra.remote_image }} src="{{ page.extra.remote_image }}" />
       {% else %}
-      <div class="card-image-placeholder"></div>
+        <div class="card-image-placeholder"></div>
       {% endif %}
 
       <div class="card-info">
         <h1 class="card-title">
           {% if page.extra.link_to %}
-          <a href={{ page.extra.link_to }}>{{page.title}}</a>
+            <a href={{ page.extra.link_to }}>{{page.title}}</a>
           {% else %}
-          <a href={{ page.permalink }}>{{page.title}}</a>
+            <a href={{ page.permalink }}>{{page.title}}</a>
           {% endif %}
         </h1>
 
         <div class="meta">
           {%- if page.date %}
-          <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
+            <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
           {% endif -%}
+
           {% if page.draft %}
-          <span class="draft-label">DRAFT</span>
+            <span class="draft-label">DRAFT</span>
           {% endif %}
         </div>
 
         <div class="card-description">
           {% if page.description %}
-          {{ page.description }}
+            {{ page.description }}
           {% endif %}
         </div>
       </div>
     </div>
-
-    {% endfor -%}
-  </div>
-  {% endmacro cards_posts %}
+  {% endfor -%}
+</div>
+{% endmacro cards_posts %}

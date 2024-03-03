@@ -1,7 +1,5 @@
 +++
 title = "Reading"
-tags=["reading"]
-categories=["hobbies"]
 +++
 
 Have a look at my personal library using LibraryThing.

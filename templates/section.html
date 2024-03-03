@@ -4,40 +4,39 @@
   <!-- Intro Section -->
   <section class="flex flex-col-reverse justify-center sm:flex-row p-6 items-center gap-8">
     <article class="w-screen px-4 sm:px-0">
+      {% if section.extra.section_path -%}
+        {% set section = get_section(path=section.extra.section_path) %}
+      {% endif -%}
 
-{% if section.extra.section_path -%}
-{% set section = get_section(path=section.extra.section_path) %}
-{% endif -%}
+      {% block title %}
+        {{ post_macros::page_header(title=section.title) }}
+      {% endblock title %}
 
-{% block title %}
-{{ post_macros::page_header(title=section.title) }}
-{% endblock title %}
+      {% block post_list %}
+        {%- if paginator %}
+          {%- set show_pages = paginator.pages -%}
+        {% else %}
+          {%- set show_pages = section.pages -%}
+        {% endif -%}
 
-{% block post_list %}
-  {%- if paginator %}
-  {%- set show_pages = paginator.pages -%}
-  {% else %}
-  {%- set show_pages = section.pages -%}
-  {% endif -%}
+        {{ post_macros::list_posts(pages=show_pages) }}
+      {% endblock post_list %}
 
-  {{ post_macros::list_posts(pages=show_pages) }}
-{% endblock post_list %}
+      {% if paginator %}
+        <ul class="pagination text-center mt-8">
+          {% if paginator.previous %}
+          <span class="page-item page-prev">
+            <a href={{ paginator.previous }} class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
+          </span>
+          {% endif %}
 
-{% if paginator %}
-<ul class="pagination text-center mt-8">
-  {% if paginator.previous %}
-  <span class="page-item page-prev">
-    <a href={{ paginator.previous }} class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
-  </span>
-  {% endif %}
-
-  {% if paginator.next %}
-  <span class="page-item page-next">
-    <a href={{ paginator.next }} class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
-  </span>
-  {% endif %}
-</ul>
-{% endif %}
-</article>
-</section>
+          {% if paginator.next %}
+          <span class="page-item page-next">
+            <a href={{ paginator.next }} class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
+          </span>
+          {% endif %}
+        </ul>
+      {% endif %}
+    </article>
+  </section>
 {% endblock main_content %}

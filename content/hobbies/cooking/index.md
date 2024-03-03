@@ -1,8 +1,5 @@
 +++
 title = "Cooking"
-sort_by = "title"
-tags=["cooking"]
-categories=["hobbies"]
 +++
 
 I am not a good cook, but I am a decent hacker/researcher! I keep hunting for a good recipe with detailed
