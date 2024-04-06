@@ -1,9 +1,21 @@
 <!-- Header -->
-<!-- <header class="bg-teal-700 text-white sticky top-0 z-10"> -->
+{% if lang == config.default_language %}
+  {% set switch_to_title='<i class="mdi mdi-abjad-arabic"></i>' %}
+  {% set switch_to_url="/ar" %}
+{% else %}
+  {% set switch_to_title="EN" %}
+  {% set switch_to_url="/" %}
+{% endif %}
+
 <header class="text-black dark:text-slate-200 top-0 z-10">
   <section class="max-w-6xl mx-auto p-4 flex justify-between items-center">
     <h1 class="text-4xl font-medium">
-      <a href="{{get_url(path='/')}}">{{config.title}}</a>
+      {% if lang == config.default_language %}
+        {% set home_url = "/" %}
+      {%else %}
+        {% set home_url = lang %}
+      {% endif %}
+      <a href="{{get_url(path=home_url)}}">{{config.title}}</a>
     </h1>
 
     <div>
@@ -12,15 +24,22 @@
       </button>
 
       <nav class="hidden sm:block space-x-1 text-xl" aria-label="main">
-        <a class="hover:opacity-90 hover:bg-teal-600 group group-hover:text-white p-0" href="{{get_url(path='/')}}"><i
-            class="mdi mdi-home text-slate-600 mdi-24px my-auto hover:text-white dark:text-slate-300"></i></a>
-        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="{{get_url(path='/blog')}}">Blog</a>
-        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="{{get_url(path='/resume')}}">Resume</a>
-        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1"
-          href="{{get_url(path='/projects')}}">Projects</a>
-        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="{{get_url(path='/about')}}">About</a>
-        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" alt="contact" title="contact"
-          href="{{get_url(path='/contact')}}">Contact</a>
+        {% for menu_item in res.menu_pages %}
+          {% if lang == config.default_language %}
+            {% set item_url = menu_item.url %}
+          {%else %}
+            {% set item_url = lang ~ menu_item.url %}
+          {% endif %}
+          <a 
+            class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" 
+          href="{{get_url(path=item_url)}}">{% if menu_item.icon %} {{menu_item.icon | safe}} {%else%}{{menu_item.title}}{%endif%}</a>
+        {% endfor %}
+
+        <a 
+          href="{{get_url(path=switch_to_url)}}" 
+          class="w-full text-center py-6 hover:opacity-90">
+            <span class="border-solid">{{switch_to_title | safe}}</span>
+        </a>
       </nav>
     </div>
   </section>
@@ -30,12 +49,16 @@
       &times;
     </button>
     <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
-      <a href="{{get_url(path='/')}}" class="w-full text-center py-6 hover:opacity-90">Home</a>
-      <a href="{{get_url(path='/blog')}}" class="w-full text-center py-6 hover:opacity-90">Blog</a>
-      <a href="{{get_url(path='/resume')}}" class="w-full text-center py-6 hover:opacity-90">Resume</a>
-      <a href="{{get_url(path='/projects')}}" class="w-full text-center py-6 hover:opacity-90">Projects</a>
-      <a href="{{get_url(path='/about')}}" class="w-full text-center py-6 hover:opacity-90">About</a>
-      <a href="{{get_url(path='/contact')}}" class="w-full text-center py-6 hover:opacity-90">Contact</a>
+      {% for menu_item in res.menu_pages %}
+        {% if lang == config.default_language %}
+          {% set item_url = menu_item.url %}
+        {%else %}
+          {% set item_url = lang ~ menu_item.url %}
+        {% endif %}
+        <a href="{{get_url(path=item_url)}}" class="w-full text-center py-6 hover:opacity-90">{{menu_item.title}}</a>
+      {% endfor %}
+      
+      <a href="{{get_url(path=switch_to_url)}}" class="w-full text-center py-6 hover:opacity-90">{{switch_to_title}}</a>
     </nav>
   </section>
 </header>

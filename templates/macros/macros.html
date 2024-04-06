@@ -1,5 +1,6 @@
 {% macro list_posts(pages) %}
-<ul class="list-none mx-auto mt-8">
+{% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
+<ul class="list-none mx-auto mt-8 {{res.settings_font_family}} {{res.settings_body_style}}">
   {%- for page in pages %}
     <section class="list-item">
       <div class="post-header">
@@ -9,7 +10,9 @@
               }}</time>
           {% endif %}
 
-          <a href="{{ page.permalink }}" class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1"><span
+          <a 
+           href="{{ page.permalink }}" 
+          class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1 {{res.settings_font_family}} {{res.settings_body_style}}"><span
               class="sm:hidden text-teal-600">- </span>{{page.title}}
 
             {% if page.draft %}
@@ -18,19 +21,19 @@
           </a>
         </li>
         <div>
-          <div class="meta">
-            <div class="description">
-              {% if page.description %}
-                {{ page.description }}
-              {% elif page.summary %}
-                {{ page.summary | safe }}&hellip;
-              {% else %}
-                {% set hide_read_more = true %}
-              {% endif %}
-            </div>
+        <div class="meta {{res.settings_font_family}} {{res.settings_body_style}}">
+          <div class="description {{res.settings_font_family}} {{res.settings_body_style}}">
+            {% if page.description %}
+              {{ page.description }}
+            {% elif page.summary %}
+              {{ page.summary | safe }}&hellip;
+            {% else %}
+              {% set hide_read_more = true %}
+            {% endif %}
+          </div>
 
             {% if not hide_read_more %}
-              <a class="readmore" href={{ page.permalink }}>Read more ⟶</a>
+            <a class="readmore" href={{ page.permalink }}>{{res.read_more}} ⟶</a>
             {% endif %}
           </div>
         </div>
@@ -39,12 +42,13 @@
   {% endfor -%}
 </ul>
 
-</article>
-</section>
+<!-- </article> -->
+<!-- </section> -->
 {% endmacro list_posts %}
 
 {% macro list_taxonomy_terms(terms) %}
-  <ul class="list-none mx-auto mt-8">
+{% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
+  <ul class="list-none mx-auto mt-8 {{res.settings_font_family}} {{res.settings_body_style}}">
       {%- for term in terms %}
         <section class="list-item">
           <div class="post-header">
@@ -60,8 +64,9 @@
 {% endmacro list_terms %}
 
 {% macro tags(page, short=false) %}
+{% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
   {%- if page.taxonomies and page.taxonomies.tags %}
-    <span class="post-tags-inline">
+    <span class="post-tags-inline {{res.settings_font_family}} {{res.settings_body_style}}">
       {%- if short %}
         ::
         {%- set sep = "," -%}
@@ -78,19 +83,21 @@
 {% endmacro tags %}
 
 {% macro page_header(title) %}
-  <h1 class="text-3xl font-bold sm:text-4xl text-left text-slate-900 dark:text-slate-300">
+{% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
+  <h1 class="text-3xl font-bold sm:text-4xl text-slate-900 dark:text-slate-300 {{res.settings_font_family}} {{res.settings_body_style}}">
     {{title}}<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
 {% endmacro page_header %}
 
 {% macro content(page) %}
+{% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
 <!-- Intro Section -->
-<section class="flex flex-col justify-center sm:flex-row p-6 items-center gap-8 ">
-  <article class="w-screen px-4 sm:px-0">
+<section class="flex flex-col justify-center sm:flex-row p-6 items-center gap-8  {{res.settings_font_family}} {{res.settings_body_style}}">
+  <article class="w-screen px-4 sm:px-0 {{res.settings_font_family}} {{res.settings_body_style}}">
     {{ post_macros::page_header(title=page.title) }}
 
     {% if page.date %}
       <span 
-        class="text-slate-400 sm:text-1/2xl text-sl font-mono">Posted on <time 
+        class="text-slate-400 sm:text-1/2xl text-sl font-mono {{res.settings_font_family}} {{res.settings_body_style}}">{{res.posted_on}} <time 
           class="text-slate-500">{{ page.date |
           date(format="%Y-%m-%d") }}</time></span>
     {% endif %}
@@ -102,7 +109,7 @@
     {# Optional table of contents #}
     {% if page.extra.toc | default(value=false) %}
       {% if page.toc %}
-      <h1>Table of Contents</h1>
+      <h1>{{res.table_of_contents}}</h1>
       <ul>
         {% for h1 in page.toc %}
         <li>
@@ -132,12 +139,12 @@
       {% endif %}
     {% endif %}
 
-    <div class="my-4">
+    <div class="my-4 {{res.settings_font_family}} {{res.settings_body_style}}">
       {{ page.content | safe }}
 
       {% if page.taxonomies and page.taxonomies.tags %}
-        <aside class="text-sl text-left text-slate-700 dark:text-slate-300 mt-8
-              font-mono">
+        <aside class="text-sl text-slate-700 dark:text-slate-300 mt-8
+              font-mono {{res.settings_font_family}} {{res.settings_body_style}}">
           Tags:
           {% for tag in page.taxonomies.tags %}
             <a href="{{ get_taxonomy_url(kind='tags' , name=tag) | safe }}"
@@ -153,6 +160,7 @@
 
 
 {% macro cards_posts(pages) %}
+{% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
 <div class="cards">
   {%- for page in pages %}
     <div class="card">

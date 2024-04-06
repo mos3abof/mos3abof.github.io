@@ -137,3 +137,20 @@
     @apply text-black bg-slate-200 text-xl p-1 font-mono;
   }
 }
+
+.rtl-grid {
+  direction: rtl;
+}
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+// <width>: Use a value from 62.5 to 100
+
+.noto-sans arabic-<uniquifier> {
+  font-family: "Noto Sans Arabic", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" <width>;
+}

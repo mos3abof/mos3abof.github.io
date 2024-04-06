@@ -1396,6 +1396,14 @@ pre {
   src: url("../fonts/SpaceGrotesk-Regular.ttf");
 }
 
+.rtl-grid {
+  direction: rtl;
+}
+
+.amiri-quran-regular {
+  font-family: "Amiri Quran", serif;
+}
+
 .selection\:bg-blue-600 *::-moz-selection {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));

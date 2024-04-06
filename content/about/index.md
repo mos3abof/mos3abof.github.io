@@ -1,5 +1,5 @@
 +++
-title = "About Me"
+title = "عني"
 assets = ["mosab-child.png"]
 +++
 

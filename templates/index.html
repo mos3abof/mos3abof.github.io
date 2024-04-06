@@ -3,12 +3,24 @@
 {% block main_content %}
 <!-- Intro Section -->
 <section class="flex flex-col-reverse justify-center sm:flex-row p-6
-        items-center gap-8 scroll-mt-40">
-  <article class="sm:w-1/2">
-    <h1 class="max-w-md text-2xl font-bold text-center sm:text-5xl sm:text-left text-slate-900
-            dark:text-slate-300">Welcome to my online space<span
+        items-center gap-8 scroll-mt-40 {{res.settings_font_family}} {{res.settings_body_style}}">
+  <article class="sm:w-1/2 {{res.settings_font_family}} {{res.settings_body_style}}">
+    {%if lang == "ar" %}
+
+    <h1 class="max-w-md text-2xl font-bold sm:text-5xl text-slate-900
+            dark:text-slate-300 {{res.settings_font_family}} {{res.settings_body_style}}">
+        أهلا بكم في عالمي المتواضع<span
         class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h1>
-    <p class="max-w-md text-xl text-left text-slate-700 dark:text-slate-300 pt-5">
+
+    <span class="max-wd-md text-xl text-slate-700 dark:text-slate-300 pt-5 {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
+    اسمي مصعب، وأعمل مهندسا للبرمجيات والنظم.
+    </span>
+
+    {%else %}
+    <h1 class="max-w-md text-2xl font-bold sm:text-5xl text-slate-900
+            dark:text-slate-300 {{res.settings_font_family}} {{res.settings_body_style}}">Welcome to my online space<span
+        class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h1>
+    <span class="max-wd-md text-xl text-slate-700 dark:text-slate-300 pt-5 {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
       I am a <span class="text-teal-600 dark:test-slate-600">self-taught</span> software/systems
       engineer passionate about <span class="bg-green-100 dark:text-slate-600">database
         engineering</span>,
@@ -18,9 +30,9 @@
       <span class="bg-orange-100 dark:text-slate-600">linux operating system</span>, and <span class="bg-teal-100
               dark:text-slate-600">
         open source/free software</span>.
-    </p>
+    </span>
 
-    <p class="max-w-md text-xl text-left text-slate-700 dark:text-slate-300 pt-5">
+    <span class="max-w-md text-xl text-slate-700 dark:text-slate-300 pt-5 {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
       When I’m not
       working, you
       can find me spending time with my lovely family or indulging in my hobbies of <a
@@ -34,27 +46,28 @@
       and
       <a href="{{get_url(path='/hobbies/woodworking')}}"
         class="underline text-orange-600 p-1 hover:bg-orange-600 hover:text-white dark:text-orange-300">woodworking</a>.
-    </p>
+    </span>
+    {%endif%}
 
   </article>
   <img src="{{get_url(path='/images/mosab-cigar.png')}}" alt="A picture of me smoking a cigar"
     title="A picture of me smoking a cigar" class="w-1/2 rounded-xl drop-shadow-xl shadow-xl" />
 </section>
 
-<section class="p-6 my-4 scroll-mt-40">
-  <h2 class="max-w-md text-2xl font-bold sm:text-4xl text-left text-slate-900 dark:text-slate-300">
-    Posts<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
-  {% set blog_section = get_section(path="blog/_index.md") %}
-  <ul class="list-none mx-auto my-4">
-    {% for year, posts in blog_section.pages | group_by(attribute="year") %}
-      {% for post in posts %}
-      <li class="my-1 flex"><time class="text-slate-400 hidden sm:block pt-3">{{post.date | date(format="%Y-%m-%d")}}</time> <a href="{{ post.permalink }}"
-        class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1"><span class="sm:hidden text-slate-400 dark:text-slate-300">- </span>{{ post.title }}</a></li>
-      {% endfor %}
-    {% endfor %}
-  </ul>
+<section class="p-6 my-4 scroll-mt-40 {{res.settings_font_family}} {{res.settings_body_style}}">
+  <h2 class="max-w-md text-2xl font-bold sm:text-4xl text-slate-900 dark:text-slate-300 {{res.settings_font_family}} {{res.settings_body_style}}">
+    {{res.post_list}}<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
 
-  <a href="{{get_url(path='/blog')}}" class="text-xl hover:text-white hover:bg-teal-600 p-1">Read More</a>
+    {% if lang == "ar" %}
+      {% set blog_section = get_section(path="blog/_index.ar.md") %}
+    {%else%}
+      {% set blog_section = get_section(path="blog/_index.md") %}
+    {%endif%}
+    {%- set show_pages = blog_section.pages -%}
+
+    {{ post_macros::list_posts(pages=show_pages) }}
+
+    <a href="{{'/blog'}}" class="text-xl hover:text-white hover:bg-teal-600 p-1">{{res.read_more}}</a>
 </section>
 
 {% endblock main_content %}

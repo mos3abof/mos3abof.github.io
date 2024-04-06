@@ -1,0 +1,53 @@
+# Global settings
+settings_locale = "ar"
+settings_date_locale = "ar_EG"
+settings_date_format = "%B %d, %Y"
+settings_direction = "rtl"
+settings_font_family = "noto-sans"
+settings_body_style = "rtl-grid"
+
+# The main navigation menu
+menu_pages = [
+  { title = "الرئيسية", url = "/", icon = '<i class="mdi mdi-home text-slate-600 mdi-24px my-auto hover:text-white dark:text-slate-300"></i>' },
+  { title = "المدونة", url = "/blog/" },
+  { title = "السيرة الذاتية", url = "/resume/" },
+  { title = "مشاريعي", url = "/projects/" },
+  { title = "من أنا", url = "/about/" },
+  { title = "التواصل", url = "/contact/" },
+]
+
+# Footer
+copyright = "جميع الحقوق محفوظة - مصعب إبراهيم"
+
+# Simple language resources
+post_list = "التدوينات"
+empty_page_title = "بدون عنوان"
+empty_page_description = "بدون وصف"
+read_more = "المزيد"
+previous_posts = "→ السابق"
+next_posts = "التالي ←"
+reading_time = "وقت الرائة"
+aria_to_homepage = "الصفحة الرئيسية"
+aria_menu = "القائمة"
+with_tag = "وسوم"
+not_found_header = "الصفحة غير موجودة"
+not_found_text = "الصفحة غير موجودة"
+posted_on = "تم نشرها في "
+table_of_contents = "المواضيع"
+
+# Nouns with singular and plural
+[words]
+one = "كلمة"
+other = "كلمات"
+
+[minutes]
+one = "دقيقة"
+other = "دقائق"
+
+[posts]
+one = "تدونية"
+other = "تدوينات"
+
+[tags]
+one = "وسم"
+other = "وسوم"

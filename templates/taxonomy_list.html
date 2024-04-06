@@ -2,8 +2,8 @@
 
 {% block main_content %}
   <!-- Intro Section -->
-  <section class="flex flex-col-reverse justify-center sm:flex-row p-6 items-center gap-8">
-    <article class="w-screen px-4 sm:px-0">
+  <section class="flex flex-col-reverse justify-center sm:flex-row p-6 items-center gap-8 {{res.settings_font_family}} {{res.settings_body_style}}">
+    <article class="w-screen px-4 sm:px-0 {{res.settings_font_family}} {{res.settings_body_style}}">
       {% block title %}
         {{ post_macros::page_header(title=taxonomy.name) }}
       {% endblock title %}

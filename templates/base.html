@@ -1,7 +1,10 @@
 {% import "macros/macros.html" as post_macros %}
 
+{# Initialize language resources #}
+{% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
+
 <!DOCTYPE html>
-<html lang="en" class="sm:scroll-smooth">
+<html lang="{{lang}}" class="sm:scroll-smooth" dir="{{res.settings_direction}}">
 
 <head>
   <meta charset="UTF-8">
@@ -11,30 +14,30 @@
   <link rel="icon" type="image/x-icon" href="{{get_url(path='./images/favicon.ico')}}">
   <!-- MDI Icons -->
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css">
-
-  {% block rss %}
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
-  {% endblock %} <script src="{{get_url(path='js/main.js')}}" defer></script>
-
+  <script src="{{get_url(path='js/main.js')}}" defer></script>
   <title>
     {{config.title}}
     {% if page.title %}
     | {{page.title}}
     {% endif %}
   </title>
+
+  {%if lang == "ar" %}
+  <!-- load Arabic web fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wdth,wght@62.5..100,100..900&display=swap" rel="stylesheet">
+  {% endif %}
 </head>
 
-<body class="min-h-screen bg-slate-50 dark:bg-black dark:text-white selection:text-white
-    selection:bg-blue-600">
-
+<body class="min-h-screen bg-slate-50 dark:bg-black dark:text-white selection:text-white selection:bg-blue-600 {{res.settings_font_family}} {{res.settings_body_style}}">
   <!-- Header -->
   {% include "partials/header.html" %}
 
   <!-- Main  part of the page -->
-  <main class="max-w-6xl mx-auto my-4">
+  <main class="max-w-6xl mx-auto my-4 {{res.settings_font_family}} {{res.settings_body_style}}">
     {% block main_content %} {% endblock %}
   </main>
-
 
   <!-- Footer -->
   {% include "partials/footer.html" %}
