@@ -9,12 +9,33 @@
 
     <h1 class="max-w-md text-2xl font-bold sm:text-5xl text-slate-900
             dark:text-slate-300 {{res.settings_font_family}} {{res.settings_body_style}}">
-        أهلا بكم في عالمي المتواضع<span
+        أهلا بكم في موقعي المتواضع<span
         class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h1>
 
-    <span class="max-wd-md text-xl text-slate-700 dark:text-slate-300 pt-5 {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
-    اسمي مصعب، وأعمل مهندسا للبرمجيات والنظم.
+    <span class="max-wd-md text-xl text-slate-700 dark:text-slate-300 pt-5 leading-loose {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
+أنا مهندس برمجيات/أنظمة <span class="text-teal-600 dark:test-slate-600">علّمتُ نفسي بنفسي</span> وشغوف  <span class="bg-green-100 dark:text-slate-600"> بهندسة قواعد البيانات </span>، و<span class="bg-yellow-50 dark: text-slate-600 dark:text-slate-600">الأنظمة الموزعة</span>، و<span class="bg-pink-100 dark:text-slate-600">برمجة الأنظمة</span>، و<span class="bg-orange-100 dark:text-slate-600">نظام التشغيل لينكس</span>، و <span class="bg-teal-100 dark:text-slate-600">البرمجيات الحرة مفتوحة المصدر</span>.
     </span>
+
+
+
+    <span class="max-w-md text-xl text-slate-700 dark:text-slate-300 pt-5 leading-normal {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
+ أحب قضاء وقع فراغي مع أسرتي الحبيبة أو ممارسة إحدى هواياتي: 
+<a href="{{get_url(path='/hobbies/reading')}}" class="underline text-violet-500 hover:bg-violet-500 hover:text-white p-1 dark:text-violet-300">القراءة</a>
+، 
+ <a href="{{get_url(path='/ar/hobbies/cycling')}}"
+        class="underline text-cyan-500 hover:bg-cyan-500 hover:text-white p-1 dark:text-cyan-300">ركوب الدراجات الهوائية</a>
+، 
+<a
+        href="{{get_url(path='/ar/hobbies/diy')}}" class="underline text-teal-800 p-1 hover:bg-teal-500 hover:text-white dark:text-teal-300">المشاريع اليدوية</a>
+، 
+<a href="{{get_url(path='/ar/hobbies/cooking')}}"
+        class="underline text-pink-800 p-1 hover:bg-pink-500 hover:text-white dark:text-pink-300">الطبخ</a>
+، 
+و
+<a href="{{get_url(path='/ar/hobbies/woodworking')}}"
+        class="underline text-orange-600 p-1 hover:bg-orange-600 hover:text-white dark:text-orange-300">النجارة</a>
+.
+</span>
 
     {%else %}
     <h1 class="max-w-md text-2xl font-bold sm:text-5xl text-slate-900
@@ -67,7 +88,12 @@
 
     {{ post_macros::list_posts(pages=show_pages) }}
 
-    <a href="{{'/blog'}}" class="text-xl hover:text-white hover:bg-teal-600 p-1">{{res.read_more}}</a>
+    {% if lang == "ar" %}
+      {% set blog_url = get_url(path="@/blog/_index.ar.md") %}
+    {% else %}
+      {% set blog_url = get_url(path="@/blog/_index.md") %}
+    {% endif %}
+    <a href="{{blog_url}}" class="text-xl hover:text-white hover:bg-teal-600 p-1">{{res.read_more_posts}}</a>
 </section>
 
 {% endblock main_content %}

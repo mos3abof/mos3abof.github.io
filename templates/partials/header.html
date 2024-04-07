@@ -1,9 +1,10 @@
 <!-- Header -->
+
 {% if lang == config.default_language %}
-  {% set switch_to_title='<i class="mdi mdi-abjad-arabic"></i>' %}
+  {% set switch_to_title="العربية" %}
   {% set switch_to_url="/ar" %}
 {% else %}
-  {% set switch_to_title="EN" %}
+  {% set switch_to_title="English" %}
   {% set switch_to_url="/" %}
 {% endif %}
 
@@ -37,8 +38,8 @@
 
         <a 
           href="{{get_url(path=switch_to_url)}}" 
-          class="w-full text-center py-6 hover:opacity-90">
-            <span class="border-solid">{{switch_to_title | safe}}</span>
+            class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1 noto-sans">
+            <span class="border-solid">{{switch_to_title}}</span>
         </a>
       </nav>
     </div>
@@ -55,10 +56,10 @@
         {%else %}
           {% set item_url = lang ~ menu_item.url %}
         {% endif %}
-        <a href="{{get_url(path=item_url)}}" class="w-full text-center py-6 hover:opacity-90">{{menu_item.title}}</a>
+        <a href="{{get_url(path=item_url)}}" class="w-full text-center py-6 hover:opacity-90">{{menu_item.title | safe}}</a>
       {% endfor %}
       
-      <a href="{{get_url(path=switch_to_url)}}" class="w-full text-center py-6 hover:opacity-90">{{switch_to_title}}</a>
+      <a href="{{get_url(path=switch_to_url)}}" class="w-full text-center py-6 hover:opacity-90 noto-sans">{{switch_to_title | safe}}</a>
     </nav>
   </section>
 </header>

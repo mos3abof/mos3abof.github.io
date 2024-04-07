@@ -2,43 +2,41 @@
 {% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
 <ul class="list-none mx-auto mt-8 {{res.settings_font_family}} {{res.settings_body_style}}">
   {%- for page in pages %}
-    <section class="list-item">
-      <div class="post-header">
-        <li class="my-1 flex">
-          {% if page.date %}
-            <time class="text-slate-400 hidden sm:block pt-3">{{ page.date | date(format="%Y-%m-%d")
-              }}</time>
-          {% endif %}
-
-          <a 
-           href="{{ page.permalink }}" 
-          class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1 {{res.settings_font_family}} {{res.settings_body_style}}"><span
-              class="sm:hidden text-teal-600">- </span>{{page.title}}
-
-            {% if page.draft %}
-              <span class="draft-label">DRAFT</span>
+    {% if loop.index <= config.extra.home_posts_limit %}
+      <section class="list-item">
+        <div class="post-header">
+          <li class="my-1 flex">
+            {% if page.date %}
+              <time class="text-slate-400 hidden sm:block pt-3">{{ page.date | date(format="%Y-%m-%d")
+                }}</time>
             {% endif %}
-          </a>
-        </li>
-        <div>
-        <div class="meta {{res.settings_font_family}} {{res.settings_body_style}}">
-          <div class="description {{res.settings_font_family}} {{res.settings_body_style}}">
-            {% if page.description %}
-              {{ page.description }}
-            {% elif page.summary %}
-              {{ page.summary | safe }}&hellip;
-            {% else %}
-              {% set hide_read_more = true %}
-            {% endif %}
-          </div>
 
-            {% if not hide_read_more %}
-            <a class="readmore" href={{ page.permalink }}>{{res.read_more}} ⟶</a>
-            {% endif %}
+            <a 
+            href="{{ page.permalink }}" 
+            class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1 {{res.settings_font_family}} {{res.settings_body_style}}"><span
+                class="sm:hidden text-teal-600">- </span>{{page.title}}
+
+              {% if page.draft %}
+                <span class="draft-label">DRAFT</span>
+              {% endif %}
+            </a>
+          </li>
+          <div>
+          <div class="meta {{res.settings_font_family}} {{res.settings_body_style}}">
+            <div class="description {{res.settings_font_family}} {{res.settings_body_style}}">
+              {% if page.description %}
+                {{ page.description }}
+              {% elif page.summary %}
+                {{ page.summary | safe }}&hellip;
+              {% else %}
+                {% set hide_read_more = true %}
+              {% endif %}
+            </div>
+
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    {% endif %}
   {% endfor -%}
 </ul>
 

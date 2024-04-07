@@ -1,5 +1,5 @@
 +++
-title = "تواصل معي"
+title = "اتصل بي"
 +++
 
 يمكنكم التواصل معي عبر البريد الالكتروني: `root@mosab.co.uk`
@@ -17,4 +17,5 @@ title = "تواصل معي"
 - [nameem - نميم](https://nameem.com/mos3abof)
 - [Buy me a coffee](buymeacoffee.com/mos3abof)
 
-I did also maintain an [Arabic Blog](https://mos3abof.blogspot.com) for some time.
+
+لمطالعة كامل أرشيف تدويناتي بالعربية [تفضلوا هنا](https://mos3abof.blogspot.com).

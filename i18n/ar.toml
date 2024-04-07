@@ -13,7 +13,7 @@ menu_pages = [
   { title = "السيرة الذاتية", url = "/resume/" },
   { title = "مشاريعي", url = "/projects/" },
   { title = "من أنا", url = "/about/" },
-  { title = "التواصل", url = "/contact/" },
+  { title = "اتصل بي", url = "/contact/" },
 ]
 
 # Footer
@@ -24,6 +24,7 @@ post_list = "التدوينات"
 empty_page_title = "بدون عنوان"
 empty_page_description = "بدون وصف"
 read_more = "المزيد"
+read_more_posts = "المزيد"
 previous_posts = "→ السابق"
 next_posts = "التالي ←"
 reading_time = "وقت الرائة"

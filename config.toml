@@ -228,3 +228,4 @@ build_search_index = false
 [extra]
 # Path to the language resource files
 path_language_resources = "i18n/"
+home_posts_limit = 10

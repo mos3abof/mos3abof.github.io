@@ -142,15 +142,15 @@
   direction: rtl;
 }
 
-// <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 100 to 900
-// <width>: Use a value from 62.5 to 100
+.rtl-grid p {
+  text-align: right;
+}
 
-.noto-sans arabic-<uniquifier> {
+.rtl code {
+  text-align: right;
+}
+
+.noto-sans {
   font-family: "Noto Sans Arabic", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" <width>;
 }

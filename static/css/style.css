@@ -791,10 +791,6 @@ pre {
   position: absolute;
 }
 
-.sticky {
-  position: sticky;
-}
-
 .top-0 {
   top: 0px;
 }
@@ -1006,6 +1002,10 @@ pre {
   border-inline-start-width: 4px;
 }
 
+.border-solid {
+  border-style: solid;
+}
+
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
@@ -1039,11 +1039,6 @@ pre {
 .bg-teal-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(204 251 241 / var(--tw-bg-opacity));
-}
-
-.bg-teal-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(15 118 110 / var(--tw-bg-opacity));
 }
 
 .bg-yellow-50 {
@@ -1211,6 +1206,18 @@ pre {
   line-height: 0px;
 }
 
+.leading-6 {
+  line-height: 1.5rem;
+}
+
+.leading-loose {
+  line-height: 2;
+}
+
+.leading-normal {
+  line-height: 1.5;
+}
+
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -1279,11 +1286,6 @@ pre {
 .text-violet-500 {
   --tw-text-opacity: 1;
   color: rgb(139 92 246 / var(--tw-text-opacity));
-}
-
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -1400,8 +1402,17 @@ pre {
   direction: rtl;
 }
 
-.amiri-quran-regular {
-  font-family: "Amiri Quran", serif;
+.rtl-grid p {
+  text-align: right;
+}
+
+.rtl code {
+  text-align: right;
+}
+
+.noto-sans {
+  font-family: "Noto Sans Arabic", sans-serif;
+  font-optical-sizing: auto;
 }
 
 .selection\:bg-blue-600 *::-moz-selection {
@@ -1540,11 +1551,6 @@ pre {
   color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 
-.group:hover .group-hover\:text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
 @media (min-width: 640px) {
   .sm\:block {
     display: block;
@@ -1569,10 +1575,6 @@ pre {
   .sm\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
-  }
-
-  .sm\:text-left {
-    text-align: left;
   }
 
   .sm\:text-3xl {
