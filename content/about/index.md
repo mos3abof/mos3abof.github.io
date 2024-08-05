@@ -5,6 +5,7 @@ assets = ["mosab-child.png"]
 
 ![Mosab and hist first personal computer](mosab-first-computer.png)
 {% raw() %}
+
 <div class="text-center italic">The first ever personal computer that I owned, more than a couple decades ago!</center>
 {% end %}
 
@@ -14,11 +15,11 @@ various scales. My expertise spans multiple industries and domains, and I am par
 about Developing Large-scale Systems, Linux, Databases, Systems Programming, Distributed Systems,
 and Automation at Scale, as well as Free Software and Open-source Software.
 
-Currently, I am a Production Engineer at [Meta/Facebook](https://meta.com), where I focus on improving the
-availability, scalability, performance, and reliability of our production services. Prior to this
-role, I worked at [Twitter](https://twitter.com), where I was dedicated to giving everyone the power to create and share
-ideas and information instantly without barriers. I have also held positions at [GoCardless](https://gocardless.com),
-[Levelset](https://levelset.com), [Wuzzuf](https://wuzzuf.net/), [Inmobly](http://www.inmobly.com/), 20@, and other great companies.
+Throughout my career I have worked in the capcity of a Production Engineer at [Meta/Facebook](https://meta.com), 
+where I focused on improving the availability, scalability, performance, and reliability of our 
+production services. Prior to that, I worked at [Twitter](https://twitter.com), where I was dedicated to 
+giving everyone the power to create and share ideas and information instantly without barriers. 
+I have also held positions at [GoCardless](https://gocardless.com), [Levelset](https://levelset.com), [Wuzzuf](https://wuzzuf.net/), [Inmobly](http://www.inmobly.com/), 20@, and other great companies.
 
 ![Mosab standing on one of London's bridges](mosab-london-bridge.png)
 
@@ -41,21 +42,25 @@ Here are a couple pictures of the child me over the years!
 
 ![Young Mosab eating a sandwich and drinking a fizzy drink at the same time!](mosab-young.png)
 {% raw() %}
+
 <div class="text-center italic">Young me eating a sandwich and drinking a fizzy drink at the same time!</center>
 {% end %}
 
 ![Baraa, my life best friend, and I in our first documented protest](baraa-and-i-protest.png)
 {% raw() %}
+
 <div class="text-center italic">Baraa, my life best friend, and I in our first documented protest</center>
 {% end %}
 
 ![Baraa, my life best friend, and I in our favourite cafe](baraa-and-i-cafe.png)
 {% raw() %}
+
 <div class="text-center italic">Baraa and I in our favourite cafe (sorry for
 the fuzzy image, phones at the time didn't have good cameras!).</center>
 {% end %}
 
 ![Mosab waiting for burger](mosab-and-burger.png)
 {% raw() %}
+
 <div class="text-center italic">The first burger that I paid for with my first salary writing code.</center>
 {% end %}
