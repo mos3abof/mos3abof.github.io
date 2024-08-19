@@ -9,15 +9,15 @@ settings_body_style = "rtl-grid"
 # The main navigation menu
 menu_pages = [
   { title = "الرئيسية", url = "/", icon = '<i class="mdi mdi-home text-slate-600 mdi-24px my-auto hover:text-white dark:text-slate-300"></i>' },
-  { title = "المدونة", url = "/blog/" },
   { title = "السيرة الذاتية", url = "/resume/" },
   { title = "مشاريعي", url = "/projects/" },
   { title = "من أنا", url = "/about/" },
-  { title = "اتصل بي", url = "/contact/" },
+  { title = "تدوينات", url = "/blog/" },
+  { title = "تواصل معي", url = "/contact/" },
 ]
 
 # Footer
-copyright = "جميع الحقوق محفوظة - مصعب إبراهيم"
+copyright = "جميع الحقوق محفوظة © ٢٠٢٤- مصعب إبراهيم"
 
 # Simple language resources
 post_list = "التدوينات"

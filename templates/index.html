@@ -9,17 +9,17 @@
 
     <h1 class="max-w-md text-2xl font-bold sm:text-5xl text-slate-900
             dark:text-slate-300 {{res.settings_font_family}} {{res.settings_body_style}}">
-        أهلا بكم في موقعي المتواضع<span
+        مُصْعَب إِبْرَاهِيم<span
         class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h1>
 
     <span class="max-wd-md text-xl text-slate-700 dark:text-slate-300 pt-5 leading-loose {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
-أنا مهندس برمجيات/أنظمة <span class="text-teal-600 dark:test-slate-600">علّمتُ نفسي بنفسي</span> وشغوف  <span class="bg-green-100 dark:text-slate-600"> بهندسة قواعد البيانات </span>، و<span class="bg-yellow-50 dark: text-slate-600 dark:text-slate-600">الأنظمة الموزعة</span>، و<span class="bg-pink-100 dark:text-slate-600">برمجة الأنظمة</span>، و<span class="bg-orange-100 dark:text-slate-600">نظام التشغيل لينكس</span>، و <span class="bg-teal-100 dark:text-slate-600">البرمجيات الحرة مفتوحة المصدر</span>.
+مهندس برمجيات ونظم، <span class="text-teal-600 dark:test-slate-600">ذاتيّ التَّعلُّم،</span> وشغوف  <span class="bg-green-100 dark:text-slate-600"> بهندسة قواعد البيانات </span>، <span class="bg-yellow-50 dark: text-slate-600 dark:text-slate-600">الأنظمة الموزعة</span> ،<span class="bg-pink-100 dark:text-slate-600">برمجة النظم</span> ،<span class="bg-orange-100 dark:text-slate-600">نظام التشغيل لينوكس</span>، و<span class="bg-teal-100 dark:text-slate-600">البرمجيات الحرة/مفتوحة المصدر</span>.
     </span>
 
 
 
     <span class="max-w-md text-xl text-slate-700 dark:text-slate-300 pt-5 leading-normal {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
- أحب قضاء وقع فراغي مع أسرتي الحبيبة أو ممارسة إحدى هواياتي: 
+      أحب قضاء وقع فراغي مع أسرتي أو ممارسة إحدى هواياتي:
 <a href="{{get_url(path='/hobbies/reading')}}" class="underline text-violet-500 hover:bg-violet-500 hover:text-white p-1 dark:text-violet-300">القراءة</a>
 ، 
  <a href="{{get_url(path='/ar/hobbies/cycling')}}"
@@ -39,7 +39,7 @@
 
     {%else %}
     <h1 class="max-w-md text-2xl font-bold sm:text-5xl text-slate-900
-            dark:text-slate-300 {{res.settings_font_family}} {{res.settings_body_style}}">Welcome to my online space<span
+            dark:text-slate-300 {{res.settings_font_family}} {{res.settings_body_style}}">Mosab Ibrahim<span
         class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h1>
     <span class="max-wd-md text-xl text-slate-700 dark:text-slate-300 pt-5 {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
       I am a <span class="text-teal-600 dark:test-slate-600">self-taught</span> software/systems
@@ -47,16 +47,14 @@
         engineering</span>,
       <span class="bg-yellow-50 dark: text-slate-600 dark:text-slate-600">distributed systems</span>, <span
         class="bg-pink-100 dark:text-slate-600">systems
-        programming</span>, the 
+        programming</span>, the
       <span class="bg-orange-100 dark:text-slate-600">linux operating system</span>, and <span class="bg-teal-100
               dark:text-slate-600">
         open source/free software</span>.
     </span>
 
     <span class="max-w-md text-xl text-slate-700 dark:text-slate-300 pt-5 {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
-      When I’m not
-      working, you
-      can find me spending time with my lovely family or indulging in my hobbies of <a
+      When not working, I like spending time with my family or indulging in one of my hobbies including <a
                                                                                         href="{{get_url(path='/hobbies/reading')}}"
         class="underline text-violet-500 hover:bg-violet-500 hover:text-white p-1 dark:text-violet-300">reading</a>, <a
                                                                                         href="{{get_url(path='/hobbies/cycling')}}"
@@ -73,27 +71,6 @@
   </article>
   <img src="{{get_url(path='/images/mosab-cigar.png')}}" alt="A picture of me smoking a cigar"
     title="A picture of me smoking a cigar" class="w-1/2 rounded-xl drop-shadow-xl shadow-xl" />
-</section>
-
-<section class="p-6 my-4 scroll-mt-40 {{res.settings_font_family}} {{res.settings_body_style}}">
-  <h2 class="max-w-md text-2xl font-bold sm:text-4xl text-slate-900 dark:text-slate-300 {{res.settings_font_family}} {{res.settings_body_style}}">
-    {{res.post_list}}<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
-
-    {% if lang == "ar" %}
-      {% set blog_section = get_section(path="blog/_index.ar.md") %}
-    {%else%}
-      {% set blog_section = get_section(path="blog/_index.md") %}
-    {%endif%}
-    {%- set show_pages = blog_section.pages -%}
-
-    {{ post_macros::list_posts(pages=show_pages) }}
-
-    {% if lang == "ar" %}
-      {% set blog_url = get_url(path="@/blog/_index.ar.md") %}
-    {% else %}
-      {% set blog_url = get_url(path="@/blog/_index.md") %}
-    {% endif %}
-    <a href="{{blog_url}}" class="text-xl hover:text-white hover:bg-teal-600 p-1">{{res.read_more_posts}}</a>
 </section>
 
 {% endblock main_content %}
