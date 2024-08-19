@@ -1,5 +1,6 @@
 +++
 title = "Grid Status Now"
+weight = 3
 +++
 
 Egypt's Power Grid Load Status As A Web Service. A service parses the data in
@@ -8,4 +9,4 @@ Regulatory Agency (EGYPTERA) and presents it in a more human friendly way. It
 also provides an API so other developers can build other web and mobile
 applications on top of it. 
 
-> [gridstatusnow.com](https://github.com/mos3abof/gridstatusnow)
+> year: 2014, code: [gridstatusnow.com](https://github.com/mos3abof/gridstatusnow)

@@ -14,10 +14,11 @@ menu_pages = [
   { title = "من أنا", url = "/about/" },
   { title = "تدوينات", url = "/blog/" },
   { title = "تواصل معي", url = "/contact/" },
+  { title = "تلقيم", url = "/ar/rss" },
 ]
 
 # Footer
-copyright = "جميع الحقوق محفوظة © ٢٠٢٤- مصعب إبراهيم"
+copyright = "جميع الحقوق محفوظة © 2024 - مصعب إبراهيم"
 
 # Simple language resources
 post_list = "التدوينات"

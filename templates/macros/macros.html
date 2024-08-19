@@ -1,8 +1,7 @@
 {% macro list_posts(pages) %}
 {% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
 <ul class="list-none mx-auto mt-8 {{res.settings_font_family}} {{res.settings_body_style}}">
-  {%- for page in pages %}
-    {% if loop.index <= config.extra.home_posts_limit %}
+  {% for page in pages %}
       <section class="list-item">
         <div class="post-header">
           <li class="my-1 flex">
@@ -36,8 +35,7 @@
           </div>
         </div>
       </section>
-    {% endif %}
-  {% endfor -%}
+  {% endfor %}
 </ul>
 
 <!-- </article> -->

@@ -2,8 +2,8 @@
 base_url = "https://mosab.co.uk"
 
 # The site title and description; used in feeds by default.
-title = "Mosab | مُصْعَب"
-description = "Ramblings of Mosab!"
+title = "Mosab Ibrahim"
+description = "Blabs of an oddly wired brain!"
 
 # The default language; used in feeds.
 default_language = "en"
@@ -63,7 +63,7 @@ hard_link_static = false
 #       {name = "authors"}, # Basic definition: no feed or pagination
 #     ]
 #
-taxonomies = [{ name = "tags", feed = true, render = true, paginate_by = 10 }]
+taxonomies = [{ name = "tags", feed = true, render = true, paginate_by = 50 }]
 
 # When set to "true", a search index is built from the pages and section
 # content for `default_language`.
@@ -208,7 +208,7 @@ title = "مصـ( الخير )ـعب"
 description = " رب الكيبورد و الماوس"
 
 generate_feed = true
-taxonomies = [{ name = "tags", feed = true, render = true, paginate_by = 10 }]
+taxonomies = [{ name = "tags", feed = true, render = true, paginate_by = 50 }]
 build_search_index = false
 
 
@@ -228,4 +228,4 @@ build_search_index = false
 [extra]
 # Path to the language resource files
 path_language_resources = "i18n/"
-home_posts_limit = 10
+home_posts_limit = 50

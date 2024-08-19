@@ -852,6 +852,10 @@ pre {
   margin-bottom: 3rem;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .ml-10 {
   margin-left: 2.5rem;
 }
@@ -870,6 +874,10 @@ pre {
 
 .mt-5 {
   margin-top: 1.25rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
 }
 
 .mt-8 {
@@ -904,8 +912,8 @@ pre {
   min-height: 100vh;
 }
 
-.w-1\/2 {
-  width: 50%;
+.w-1\/3 {
+  width: 33.333333%;
 }
 
 .w-full {
@@ -1204,10 +1212,6 @@ pre {
 
 .leading-\[0px\] {
   line-height: 0px;
-}
-
-.leading-6 {
-  line-height: 1.5rem;
 }
 
 .leading-loose {
@@ -1560,8 +1564,8 @@ pre {
     display: none;
   }
 
-  .sm\:w-1\/2 {
-    width: 50%;
+  .sm\:w-2\/3 {
+    width: 66.666667%;
   }
 
   .sm\:flex-row {
