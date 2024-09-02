@@ -9,4 +9,11 @@ Regulatory Agency (EGYPTERA) and presents it in a more human friendly way. It
 also provides an API so other developers can build other web and mobile
 applications on top of it. 
 
-> year: 2014, code: [gridstatusnow.com](https://github.com/mos3abof/gridstatusnow)
+<br />
+
+---
+Web page: gridstatusnow.com
+
+Source code: [github](https://github.com/mos3abof/gridstatusnow)
+
+Year: 2014

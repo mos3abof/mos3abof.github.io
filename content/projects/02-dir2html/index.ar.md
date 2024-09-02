@@ -1,10 +1,20 @@
 +++
-title ="Dir2HTML"
+title ="صانع جاليري صور Dir2HTML"
 weight = 2
 +++
 
-Dir2Html is a python utility that generates an album html page out of a
-directory, using Bootstrap album example. You can check my bitmoji album
-generated using the tool.
+باستخدام لغة البرمجة Python، يقوم هذا المشروع (Dir2HTML) بصنع جاليري صور مستخدما الصور الموجودة في المسار المحدد. 
 
-> year: 2018, code: [github](https://github.com/mos3abof/dir2html)
+هذا [نموذج](bitmoji/) للنتيجة النهائية.
+
+
+<br />
+
+---
+
+صفحة الانترنت: [pypi.org/project/dir2hml](https://pypi.org/project/dir2html/)
+
+الشيفرة المصدرية: [github](https://github.com/mos3abof/dir2html)
+
+سنة المشروع: ٢٠١٨
+

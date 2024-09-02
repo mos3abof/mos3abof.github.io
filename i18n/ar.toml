@@ -14,7 +14,7 @@ menu_pages = [
   { title = "من أنا", url = "/about/" },
   { title = "تدوينات", url = "/blog/" },
   { title = "تواصل معي", url = "/contact/" },
-  { title = "تلقيم", url = "/ar/rss" },
+  { title = "تلقيم", url = "/rss" },
 ]
 
 # Footer

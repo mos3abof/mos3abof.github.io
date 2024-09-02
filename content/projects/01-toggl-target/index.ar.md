@@ -1,12 +1,14 @@
 +++
-title = "Toggl Target"
+title = "أداة تتبع ساعات العمل Toggl Target"
 weight = 1
 +++
 
+أداة تسهل تتبع عدد ساعات العمل المطلوبة في الشهر، باستخدام الواجهة البرمجية لمنصة [Toggl](www.toggl.com).
 
-At work, long time ago, we had to track our working hours on [Toggl](www.toggl.com),
-so I created this small project to calculate how many hours I should work to achieve
-my monthly goals. 
+<br />
 
-> year: 2013, code: [github](https://github.com/mos3abof/toggl_target)
+---
 
+الشيفرة المصدرية: [github](https://github.com/mos3abof/toggl_target)
+
+سنة المشروع: ٢٠١٣

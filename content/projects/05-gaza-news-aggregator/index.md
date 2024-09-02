@@ -7,4 +7,11 @@ An aggregator of all news related to the 2014 military operation launched on [Ga
 in a descending chronological timeline. Data is pulled from news feeds from
 [Google News](http://news.google.com/) and [akhbarak.net](http://www.akhbarak.net/). 
 
-> year: 2014, code:[Gaza News Aggregator - 2014](/gaza/)
+<br />
+
+---
+
+Web page: [Gaza News Aggregator](/gaza/)
+
+Year: 2014
+

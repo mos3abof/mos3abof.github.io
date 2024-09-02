@@ -1,10 +1,16 @@
 +++
-title = "Gaza News Aggregator (2014)"
+title = "مجمع أخبار غزة - ٢٠١٤"
 weight = 5
 +++
 
-An aggregator of all news related to the 2014 military operation launched on [Gaza Strip](https://en.wikipedia.org/wiki/Gaza_Strip)
-in a descending chronological timeline. Data is pulled from news feeds from
-[Google News](http://news.google.com/) and [akhbarak.net](http://www.akhbarak.net/). 
+منصة تقوم بتجميع الأخبار المتعلقة بـ[قطاع غزة](https://en.wikipedia.org/wiki/Gaza_Strip) في ضوء عدوان الاحتلال عام ٢٠١٤. 
 
-> year: 2014, code: [Gaza News Aggregator - 2014](/gaza/)
+تقوم المنصة بتجميع الأخبار من [Google News](https://news.google.com/) وموقع [أخبارك.نت](https://www.akhbarak.net/) وتقوم بترتبيها زمنيا في شكل timeline.
+
+<br />
+
+---
+
+صفحة الانترنت: [مجمع أخبار غزة](/gaza/)
+
+سنة المشروع: ٢٠١٤

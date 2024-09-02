@@ -1,12 +1,18 @@
 +++
-title = "Grid Status Now"
+title = "مرصد الأحمال على شبكة الكهرباء المصرية"
 weight = 3
 +++
 
-Egypt's Power Grid Load Status As A Web Service. A service parses the data in
-the Load Meter provided by The Egyptian Electric Utility and Consumer Protection
-Regulatory Agency (EGYPTERA) and presents it in a more human friendly way. It
-also provides an API so other developers can build other web and mobile
-applications on top of it. 
+منصة لاستخلاص بيانات الأحمال على شبكة الكهرباء المصرية من موقع "جهاز تنظيم مرفق الكهرباء وحماية المستهلك".
 
-> year: 2014, code: [gridstatusnow.com](https://github.com/mos3abof/gridstatusnow)
+تتيح هذه المنصة أيضا واجهة برمجية للتطبيقات.
+
+<br />
+
+---
+
+صفحة الانترنت: gridstatusnow.com
+
+الشيفرة المصدرية: [github](https://github.com/mos3abof/gridstatusnow)
+
+سنة المشروع: ٢٠١٤

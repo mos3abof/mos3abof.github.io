@@ -2,15 +2,12 @@
 title = "ركوب الدراجات الهوائية"
 +++
 
-I recently got into cycling, and will update this page with some interesting details soon. In the
-meantime though, will leave you with some pictures of my new bike, the [Cannondale Topstone 2](https://www.cannondale.com/en-gb/bikes/road/gravel/topstone-alloy/topstone-2) below.
+مؤخرا دخلت العالم السحري لرياضة ركوب الدراجات الهوائية. هذه بعض صور دراجتي من نوع Cannondale Topstoe 2.
 
-Check out my [first metric century ride](/blog/first-metric-century/)!
+يمكنكم مطالعة ملخص [الرحلة المئوية الأولى](/blog/first-metric-century/) التي قمت بها (١١٩ كم).
 
-Also, let's connect on
-[Garmin](https://connect.garmin.com/modern/profile/18583322-eb7e-4f3f-8179-705ed2de5438),
-[Komoot](https://www.komoot.com/user/1565437931381), and
-[Strava](https://www.strava.com/athletes/60680051).
+يمكنكم أيضا التواصل على منصات التواصل الخاصة بالرياضة مثل [Garmin](https://connect.garmin.com/modern/profile/18583322-eb7e-4f3f-8179-705ed2de5438)،[Komoot](https://www.komoot.com/user/1565437931381)، أو [Strava](https://www.strava.com/athletes/60680051).
+
 
 ![Cannondale Topstone](topstone.png)
 ![Cannondale Topstone](topstone-2-1.jpeg)
@@ -18,7 +15,7 @@ Also, let's connect on
 ![Cannondale Topstone](topstone-2-3.jpeg)
 ![Cannondale Topstone](topstone-2-4.jpeg)
 
-## Activities on Strava
+## أنشطتي على منصة Strava
 
 <iframe
   height='160'
@@ -28,7 +25,7 @@ Also, let's connect on
   scrolling='no'
   src='https://www.strava.com/athletes/60680051/activity-summary/9b24178edb4091c708c0ab0685680dbedc141f7b'></iframe>
 
-## Routes
+## بعض الطرق الظريفة
 
 <iframe
   src="https://www.komoot.com/tour/636080427/embed?profile=1"
@@ -37,9 +34,7 @@ Also, let's connect on
   frameborder="0"
   scrolling="no"></iframe>
 
-## Videos
-
-Here are some of the videos I recorded while cycling
+## بعض مقاطع الفيديو
 
 {{youtube(id="kbq9XcBJdQk")}}
 
