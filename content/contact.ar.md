@@ -8,6 +8,7 @@ title = "اتصل بي"
 يمكنكم أيضا أن تجدوني هنا:
 
 - [Threads](https://www.threads.net/@mos3abof)
+- [Fosstodon](https://fosstodon.org/@mos3abof)
 - [Quora](https://quora.com/Mosab-Ahmad)
 - [Goodreads](https://www.goodreads.com/user/show/5852646-mosab-ahmad)
 - [LibraryThing](https://www.librarything.com/profile/mos3abof)
