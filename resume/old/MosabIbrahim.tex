@@ -1,0 +1,185 @@
+%% The MIT License (MIT)
+%%
+%% Copyright (c) 2015 Daniil Belyakov
+%%
+%% Permission is hereby granted, free of charge, to any person obtaining a copy
+%% of this software and associated documentation files (the "Software"), to deal
+%% in the Software without restriction, including without limitation the rights
+%% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%% copies of the Software, and to permit persons to whom the Software is
+%% furnished to do so, subject to the following conditions:
+%%
+%% The above copyright notice and this permission notice shall be included in all
+%% copies or substantial portions of the Software.
+%%
+%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+%% SOFTWARE.
+
+% The font could be set to Windows-specific Calibri by using the 'calibri' option
+\documentclass[]{mosabcv}
+
+% For mathematical symbols
+\usepackage{amsmath}
+
+\usepackage[colorlinks = true,
+linkcolor = black,
+urlcolor = black,
+citecolor = black,
+anchorcolor = black]{hyperref}
+
+% Set applicant's personal data for header
+\name{Mosab A. Ibrahim}
+\address{London \linebreak United Kingdom}
+\contacts{+44 741 565 4481 \linebreak mosab.a.ibrahim@gmail.com}
+
+\begin{document}
+
+% Print the header
+\makeheader{}
+
+% Print the content
+%%%%%%%%%%%%%%%%%%% Employment
+\begin{cvsection}{Employment}
+  \begin{cvsubsection}{Senior Site Reliability
+    Engineer}{\href{https://twitter.com}{Twitter}}{May 2020 ---
+    Present}
+    \begin{itemize}
+      \item Improve the availability, scalability, performance and reliability
+        of Twitter’s production services.
+    \end{itemize}
+  \end{cvsubsection}
+
+  \begin{cvsubsection}{Site Reliability
+    Engineer}{\href{https://gocardless.com}{GoCardless}}{March 2019 ---
+    April 2020}
+    \begin{itemize}
+      \item Protect, provide for, and progress the software and systems that
+        make up the GoCardless product, supporting product teams in the
+        deployment of high quality services.
+    \end{itemize}
+
+  \end{cvsubsection}
+
+  \begin{cvsubsection}{Software Engineer}{WeQ Global Tech GmbH}{November 2017 ---
+    March 2019}    \begin{itemize}
+      \item Developed, deployed, \& maintained customer facing microservices
+        (Java/PHP) handling over a billion requests/day.
+      \item Created, and maintained infrastructure as code for new and legacy
+        systems/microservices.
+    \end{itemize}
+  \end{cvsubsection}
+
+  \begin{cvsubsection}{Sr. Software \& Platform Engineer}{zlabs
+    (levelset.com)}{March 2013 --- October 2017}
+    \begin{itemize}
+      \item Lead a team designing \& developing an internal platform for data
+        verification and research process.
+      \item Migrated the levelset.com platform to a microservices based
+        architecture.
+      \item Designed \& built the API that ingests 100K+ transactions
+        every week from enterprise customers' systems.
+      \item Optimised time to release by orders of magnitudes (2 days to 5
+        minutes), and improved uptime (99.9\% from several outages a week).
+    \end{itemize}
+  \end{cvsubsection}
+
+  \begin{cvsubsection}{Software Engineer}{Inmobly}{January 2012 --- May 2012}
+    \begin{itemize}
+      \item Designed, developed \& deployed Python backends for two mobile apps
+        that recorded and streamed videos.
+    \end{itemize}
+  \end{cvsubsection}
+
+  \begin{cvsubsection}{Lead Software Engineer}{Wuzzuf.net}{April 2010 --- April
+    2011}
+    \begin{itemize}
+      \item Designed, and lead the team implementing Egypt's leading hiring platform.
+    \end{itemize}
+  \end{cvsubsection}
+
+  \begin{cvsubsection}{Software Engineer}{Citex Software}{April 2010 --- April
+    2011}
+    \begin{itemize}
+      \item Integrated Drupal and with on-premise indurstrial printing system
+        to provide online ordering features.
+      \item Developed a PHP template engine reducing the amount of templating
+        development work to 20\%.
+    \end{itemize}
+  \end{cvsubsection}
+
+  \begin{cvsubsection}{PHP Developer}{Media International}{January 2007 ---
+    September 2008}
+    \begin{itemize}
+      \item Designed, developed, deployed and maintained PHP projects (linux
+        servers, load balancers, MySQL).
+    \end{itemize}
+  \end{cvsubsection}
+
+  \begin{cvsubsection}{PHP Developer}{20at.com}{January 2004 --- December 2006}
+    A rebellious first of a kind editorial platform by youth in the middle east
+    \begin{itemize}
+      \item Rebuilt the portal migrating from a legacy system, and built new
+        sites and platforms.
+    \end{itemize}
+  \end{cvsubsection}
+
+\end{cvsection}
+
+%%%%%%%%%%%%%%%%%%% Education
+\begin{cvsection}{Education}
+  \begin{cvsubsection}{Cairo, Egypt}{University of Cairo}{Fall 2003 --- Summer 2007}
+    \begin{itemize}
+      \item Moved between computer \& civil engineering, architecture,
+        and commerce, before dropping out for family reasons.
+    \end{itemize}
+  \end{cvsubsection}
+\end{cvsection}
+
+%%%%%%%%%%%%%%%%%%% Open Source Projects
+\begin{cvsection}{Open Source Projects}
+  \begin{cvsubsection}{}{}{}
+    \begin{itemize}
+      \item \textbf{\href{https://github.com/mos3abof/toggl_target}{Toggl
+        Target}} (2013). CLI working hours planning tool. Featured in Toggl API
+        documentation. Python, Requests.
+      \item \textbf{\href{https://www.gridstatusnow.com}{Grid Status Now}}
+        (2014). Egypt's power grid load status as an open source web service.
+        PHP, Symfony.
+      \item \textbf{\href{https://power-close.com/}{Power Close}} (2014). A
+        browser addon to close tabs based on domain or keyword. JavaScript,
+        Firefox, Chrome.
+    \end{itemize}
+  \end{cvsubsection}
+\end{cvsection}
+
+%%%%%%%%%%%%%%%%%%% Languages and Technologies
+\begin{cvsection}{Programming Languages \& Technologies}
+  \begin{cvsubsection}{}{}{}
+    \begin{itemize}
+      \item Python; PHP;\ Go; Bash; SQL;\ Java; C;\ Linux System Programming;
+      \item Linux; Linux Internals; TCP/IP;\ Apache; MySQL;\ Git; Docker;
+        Ansible; Amazon AWS;\ Google Cloud; Kubernetes; \ Terraform; Kafka;
+        Prometheus;
+    \end{itemize}
+  \end{cvsubsection}
+\end{cvsection}
+
+%%%%%%%%%%%%%%%%%%% Additional links
+\begin{cvsection}{Links}
+  \begin{cvsubsection}{}{}{}
+      Website:
+       \textbf{\href{https://mosab.co.uk}{mosab.co.uk}},
+      Github:
+       \textbf{\href{https://github.com/mos3abof}{github.com/mos3abof}},
+      Linkedin:
+        \textbf{\href{https://linkedin.com/in/mosab}{/in/mosab}},
+      Twitter:
+        \textbf{\href{https://twitter.com/mos3abof}{@mos3abof}}
+  \end{cvsubsection}
+\end{cvsection}
+\end{document}
