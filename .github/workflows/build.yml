@@ -25,8 +25,20 @@ jobs:
           wget -O - \
              "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
           | sudo tar xzf - -C /usr/local/bin
+      - name: install lualatex
+        run: |
+          set -x
+          sudo apt install -y texlive
+          sudo apt install -y texlive-full
+          |
       - name: Generate HTML
         run: zola build && echo "mosab.co.uk" > ./public/CNAME
+      - name: Build resume
+        run: |
+          set -x
+          cd resume && lualatex MosabIbrahim.tex
+          cp MosabIbrahim.pdf ../static/files/MosabIbrahim.pdf
+          |
       - name: Deploy to gh-pages
         if: ${{ github.event_name == 'push' && github.ref == format('refs/heads/{0}', env.SOURCE_BRANCH) }}
         uses: peaceiris/actions-gh-pages@v3
