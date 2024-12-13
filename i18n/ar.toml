@@ -13,6 +13,7 @@ menu_pages = [
   { title = "مشاريعي", url = "/projects/" },
   { title = "من أنا", url = "/about/" },
   { title = "تدوينات", url = "/blog/" },
+  { title = "كلام عن التكنولوجيا", url = "/talks/" },
   { title = "تواصل معي", url = "/contact/" },
   { title = "تلقيم", url = "/rss" },
 ]
