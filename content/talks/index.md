@@ -3,7 +3,7 @@ title = "Talks"
 +++
 
 
-### Arabic
+### Talks in Arabic
 
 * [About SRE with null++](https://nullplus.plus/episodes/episode41-sre-with-mosab-ibrahim). Null++ is one of my
 favourite podcasts

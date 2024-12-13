@@ -16,22 +16,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/mos3abof/ubuntu-lualatex:latest
     steps:
-      - name: Check out repo
-        uses: actions/checkout@v2
-      - name: Install zola
+      - name: Checkout the reposirtory code
+        uses: actions/checkout@v4
+      - name: Debugging info
         run: |
-          set -x
-          wget -O - \
-             "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
-          | sudo tar xzf - -C /usr/local/bin
-      - name: install lualatex
-        run: sudo apt install -y texlive texlive-full
-      - name: Make all
+          id
+          pwd
+          which make
+          which wget
+          which lualatex
+      - name: Build the website and resume
         run: make all
-      - name: Deploy to gh-pages
+      - name: Publish website to github pages
+        uses: peaceiris/actions-gh-pages@v4
         if: ${{ github.event_name == 'push' && github.ref == format('refs/heads/{0}', env.SOURCE_BRANCH) }}
-        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
