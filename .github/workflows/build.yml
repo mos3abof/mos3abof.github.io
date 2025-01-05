@@ -28,8 +28,10 @@ jobs:
           which make
           which wget
           which lualatex
-      - name: Build the website and resume
-        run: make all
+      # - name: Build the website and resume
+      #   run: make all
+      - name: Build the website
+        run: make zola-build
       - name: Publish website to github pages
         uses: peaceiris/actions-gh-pages@v4
         if: ${{ github.event_name == 'push' && github.ref == format('refs/heads/{0}', env.SOURCE_BRANCH) }}
