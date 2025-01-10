@@ -7,56 +7,55 @@
 }
 
 @font-face {
-  font-family: "Jetbrains Mono";
+  font-family: "Montserrat";
   font-weight: normal;
   font-style: normal;
-  src: url("../fonts/JetBrainsMono-Regular.ttf") format('truetype');
+  src: url("../fonts/Montserrat/Montserrat-Regular.ttf") format('truetype');
 }
 
-
-/* @font-face { */
-/*   font-family: "Jetbrains Mono"; */
-/*   src: url(fonts/Roboto-Regular.woff) format('woff'); */
-/*   font-style: normal; */
-/*   font-weight: 400; */
-/* } */
+@font-face {
+  font-family: "Robot";
+  src: url(../fonts/Roboto/Roboto-Regular.woff) format('woff');
+  font-style: normal;
+  font-weight: 400;
+}
 
 @font-face {
-  font-family: "Jetbrains Mono";
-  src: url("../fonts/JetBrainsMono-SemiBold.ttf") format('truetype');
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-SemiBoldItalic.ttf") format('truetype');
   font-style: normal;
   font-weight: 600;
 }
 
 @font-face {
-  font-family: "Jetbrains Mono";
-  src: url("../fonts/JetBrainsMono-Italic.ttf") format('truetype');
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-Italic.ttf") format('truetype');
   font-style: italic;
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "Jetbrains Mono";
-  src: url("../fonts/JetBrainsMono-Bold.ttf") format('truetype');
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-Bold.ttf") format('truetype');
   font-style: normal;
   font-weight: 700;
 }
 
 @font-face {
-  font-family: "Jetbrains Mono";
-  src: url("../fonts/JetBrainsMono-BoldItalic.ttf") format('truetype');
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-BlackItalic.ttf") format('truetype');
   font-style: italic;
   font-weight: 700;
 }
 
 @font-face {
   font-family: "Space GrotesK";
-  src: url("../fonts/SpaceGrotesk-Regular.ttf");
+  src: url("../fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf");
 }
 
 @layer base {
   html {
-    font-family: "Jetbrains Mono";
+    font-family: "Montserrat";
     font-weight: normal;
 
   }

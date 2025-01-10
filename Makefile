@@ -1,78 +1,34 @@
-# The default target
+# Default build mode is "local"
+# Allowed values are:
+# - local
+# - docker
+# - github
 all: build
 
-IMAGE=ghcr.io/mos3abof/ubuntu-lualatex
-TAG=latest
+# Determines which makefiles to include.
+# Can be provided/overriddent by either environment variables or via the cli invocation of `make`.
+BUILD_MODE ?= local
 
-#############################
-#   Commands using Docker
-#############################
+# Include files from ./Makefiles/
+# - common.mk
+# - $(BUILD_MODE).mk
+#
+#  The interface expected in every file is at least:
+#  - build-zola
+include makefiles/common.mk makefiles/$(BUILD_MODE).mk
 
-# Build website using dockerized zola
-docker-zola-build:
-	docker run \
-		--rm \
-		-v .:/app \
-		--workdir /app \
-		$(IMAGE):$(TAG) \
-		build
+# Build the world!
+build:
+	echo "Building the world. mode=${BUILD_MODE}"
 
-# Serve website from a dockerized zola
-docker-zola-serve:
-	docker run \
-		--rm \
-		-v .:/app \
-		--workdir /app \
-		$(IMAGE):$(TAG) \
-		serve \
-		--interface 0.0.0.0 \
-		--port 1111
+	# We always want to copy fonts.
+	$(MAKE) copy-fonts
 
-# Debugging docker
-docker-debug:
-	docker run \
-		--rm \
-		-t \
-		-v .:/app \
-		--workdir /app \
-		$(IMAGE):$(TAG) \
-		--version
+	# Run the build-zola step defined in the ${BUILD_MODE} file.
+	$(MAKE) build-zola 
 
-# Build docker image
-docker-image-build:
-	docker build . -t $(IMAGE):$(TAG)
+	# Comment out for now.
+	#$(MAKE) build-resume
 
-# Pull image
-docker-image-pull:
-	docker pull $(IMAGE):$(TAG)
 
-# Pull image
-docker-image-publish:
-	docker push $(IMAGE):$(TAG)
-
-#############################
-#   Baremetal Commands
-#############################
-
-# Build website using zola
-zola-build:
-	zola build
-	echo "mosab.co.uk" > ./public/CNAME
-
-# Zola serve
-zola-serve:
-	zola serve --interface 0.0.0.0 --port 1111
-	
-# Build resume using lualatex
-resume-build:
-	cd resume; lualatex MosabIbrahim.tex
-	cp ./resume/MosabIbrahim.pdf ./static/files/MosabIbrahim.pdf
-
-#############################
-#   General Commands
-#############################
-
-# Build the resume and the website
-build: zola-build resume-build
-
-.PHONY: all zola-build resume-build
+.PHONY: all build
