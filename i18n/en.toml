@@ -15,12 +15,11 @@ menu_pages = [
   { title = "Posts", url = "/blog/" },
   { title = "Talks", url = "/talks/" },
   { title = "Contact", url = "/contact/" },
-  { title = "RSS", url = "/rss" },
 ]
 
 
 # Footer
-copyright = "(c) 2025 - Mosab Ibrahim"
+copyright = "(c) 2025 - Mosab Ahmad Ibrahim"
 
 # Simple language resources
 post_list = "Posts"

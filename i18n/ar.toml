@@ -15,11 +15,10 @@ menu_pages = [
   { title = "تدوينات", url = "/blog/" },
   { title = "كلام عن التكنولوجيا", url = "/talks/" },
   { title = "تواصل معي", url = "/contact/" },
-  { title = "تلقيم", url = "/rss" },
 ]
 
 # Footer
-copyright = "جميع الحقوق محفوظة © 2025 - مصعب إبراهيم"
+copyright = "جميع الحقوق محفوظة © 2025 - مصعب أحمد إبراهيم"
 
 # Simple language resources
 post_list = "التدوينات"
