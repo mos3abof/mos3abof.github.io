@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Mosab Ahmad Ibrahim - woodworking</title>
+      <link>https://mosab.co.uk</link>
+      <description>an oddly wired brain!</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mosab.co.uk/tags/woodworking/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sun, 16 Apr 2023 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>My First Ever Woodworking Project: The Moravian Workbench</title>
+          <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/moravian-workbench/</link>
+          <guid>https://mosab.co.uk/blog/moravian-workbench/</guid>
+          <description xml:base="https://mosab.co.uk/blog/moravian-workbench/">&lt;p&gt;For my first ever woodworking project I wanted to make a bench. A bench is an essential tool for a
+woodworker, and it is also an amazing project to learn from. After a LOT of time spent researching
+the type of bench I wanted to make, the Moravian Workbench was my favourite, so I went with it!&lt;&#x2F;p&gt;
+&lt;p&gt;Started the project with a hand drawn sketch for the bench:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;mosab.co.uk&#x2F;blog&#x2F;moravian-workbench&#x2F;moravian-workbench-design.png&quot; alt=&quot;Moravian Workbench Design&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The design is a centuries old design called The Moravian Workbench that is portable. This can be
+knocked down moved and reassembled.&lt;&#x2F;p&gt;
+&lt;p&gt;Everything was made with hand tools, with very few exceptions. Here is how the project looks now:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;mosab.co.uk&#x2F;blog&#x2F;moravian-workbench&#x2F;moravian-workbench-1.png&quot; alt=&quot;Moravian Workbench&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;mosab.co.uk&#x2F;blog&#x2F;moravian-workbench&#x2F;moravian-workbench-2.png&quot; alt=&quot;Moravian Workbench&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;mosab.co.uk&#x2F;blog&#x2F;moravian-workbench&#x2F;moravian-workbench-3.png&quot; alt=&quot;Moravian Workbench&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;There is a room for improvement, but I am pretty glad with the output. Not too bad for a first
+timer.&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>
