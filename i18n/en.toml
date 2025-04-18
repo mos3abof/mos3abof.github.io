@@ -19,6 +19,7 @@ menu_pages = [
 
 
 # Footer
+role = "Infra engineering @ neon.tech"
 copyright = "(c) 2025 - Mosab Ahmad Ibrahim"
 
 # Simple language resources
