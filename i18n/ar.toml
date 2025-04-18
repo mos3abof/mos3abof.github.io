@@ -18,6 +18,7 @@ menu_pages = [
 ]
 
 # Footer
+role = ""
 copyright = "جميع الحقوق محفوظة © 2025 - مصعب أحمد إبراهيم"
 
 # Simple language resources
