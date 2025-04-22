@@ -13,8 +13,14 @@ My passion lies in solving intricate problems related to large-scale systems, Li
 distributed systems, and automation. I'm a strong advocate for free and open-source software, believing in the power of
 collaborative innovation.
 
-Most recently, at Meta, I served as a Production Engineer, playing a critical role in protecting the company's core
-online data infrastructure for Facebook, Messenger, Instagram, and WhatsApp. This involved ensuring the reliability and
+As an SRE on [Neon.tech](https://neon.tech)'s Infra Engineering team, I play a crucial role in ensuring the reliability, scalability, and
+performance of our cloud-native PostgreSQL platform. I collaborate with cross-functional engineering teams to manage our
+multi-region, multi-cloud deployments, focusing on automating operational tasks, optimizing infrastructure, and
+proactively identifying and mitigating potential issues. My work directly impacts Neon's ability to provide a seamless,
+serverless database experience for developers.
+
+Before that, at Meta, I served as a Production Engineer, playing a critical role in protecting the company's core online
+data infrastructure for Facebook, Messenger, Instagram, and WhatsApp. This involved ensuring the reliability and
 resilience of Datastores Backup and Restore systems, safeguarding against data loss and corruption. Prior to Meta, As a
 Senior SRE on the Database SRE team at Twitter, I managed the company's core database infrastructure. My experience also
 includes impactful SRE and Software Engineering roles at innovative startups like GoCardless, Levelset, and other
