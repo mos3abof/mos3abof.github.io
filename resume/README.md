@@ -1,4 +1,0 @@
-## Description
-
-My resume.
-
