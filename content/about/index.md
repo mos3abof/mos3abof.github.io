@@ -3,10 +3,11 @@ title = "About"
 assets = ["mosab-child.png"]
 +++
 
-![Mosab and hist first personal computer](mosab-first-computer.png)
+![My first personal computer](mosab-first-computer.png)
 {% raw() %}
-
-<div class="text-center italic">The first ever personal computer that I owned, more than a couple decades ago!</center>
+  <div class="text-center italic">
+    The first ever personal computer that I owned, more than a couple decades ago!
+  </div>
 {% end %}
 
 I am a resourceful and passionate Software & Systems Engineer with two decades of experience, I have honed my skills in
@@ -42,21 +43,28 @@ Here are a couple pictures of the child me over the years!
 
 ![Young Mosab eating a sandwich and drinking a fizzy drink at the same time!](mosab-young.png)
 {% raw() %}
-  <div class="text-center italic">Young me eating a sandwich and drinking a fizzy drink at the same time!</center>
+  <div class="text-center italic">
+    A young version of me eating a sandwich and drinking a fizzy drink at the same time!
+  </div>
 {% end %}
 
 ![Baraa, my life best friend, and I in our first documented protest](baraa-and-i-protest.png)
 {% raw() %}
-  <div class="text-center italic">Baraa, my life best friend, and I in our first documented protest</center>
+  <div class="text-center italic">
+    Baraa, my life best friend, and I in our first documented protest
+  </div>
 {% end %}
 
 ![Baraa, my life best friend, and I in our favourite cafe](baraa-and-i-cafe.png)
 {% raw() %}
-  <div class="text-center italic">Baraa and I in our favourite cafe (sorry for
-  the fuzzy image, phones at the time didn't have good cameras!).</center>
+  <div class="text-center italic">
+    Baraa and I in our favourite cafe (sorry for the fuzzy image, phones at the time didn't have good cameras!).
+  </div>
 {% end %}
 
 ![Mosab waiting for burger](mosab-and-burger.png)
 {% raw() %}
-  <div class="text-center italic">The first burger that I paid for with my first salary writing code.</center>
+  <div class="text-center italic">
+    The first burger that I paid for with my first salary writing code.
+  </div>
 {% end %}
