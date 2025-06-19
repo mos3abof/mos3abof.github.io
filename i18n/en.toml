@@ -19,7 +19,7 @@ menu_pages = [
 
 
 # Footer
-role = "infra @ neon.com (acquired by Databricks)"
+role = ""
 copyright = "(c) 2025 - Mosab Ibrahim"
 
 # Simple language resources
