@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Mosab Ahmad Ibrahim - career</title>
+      <link>https://mosab.co.uk</link>
+      <description>an oddly wired brain!</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mosab.co.uk/tags/career/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Mon, 07 Mar 2022 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Joining Production Engineering at Facebook&#x2F;Meta</title>
+          <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/joining-facebook-meta/</link>
+          <guid>https://mosab.co.uk/blog/joining-facebook-meta/</guid>
+          <description xml:base="https://mosab.co.uk/blog/joining-facebook-meta/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;mosab.co.uk&#x2F;blog&#x2F;joining-facebook-meta&#x2F;meta-logo.png&quot; alt=&quot;Meta&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Super excited and thrilled to share that I am joining the Production Engineering team at
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;facebook.com&quot;&gt;Meta&#x2F;Facebook&lt;&#x2F;a&gt; in London! Today is my first day.&lt;&#x2F;p&gt;
+&lt;p&gt;Production Engineering was created at Facebook to work with engineering teams and partners to
+champion the Reliability, Scalability, Performance, and Security posture of production services. PEs
+are hybrid software and systems engineers; they are the glue holding things together, whether that’s
+infrastructure and software or teams and processes.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;mosab.co.uk&#x2F;blog&#x2F;joining-facebook-meta&#x2F;london-infra.png&quot; alt=&quot;FB London Infra logo on the wall&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The true power of Production Engineering comes from developing strong relationships with partner
+engineering teams and valuing collaboration and knowledge sharing to build technical expertise and
+community. PE’s write production code and solve hard problems in systems serving billions of people
+across Facebook, services like Instagram, WhatsApp, and Oculus, and in diverse infrastructure areas
+like machine learning&#x2F;inference, storage, and networking.&lt;&#x2F;p&gt;
+&lt;p&gt;If you still are trying to figure out what a production engineer does, watch &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=TnCY6Apxibk&quot;&gt;this
+video&lt;&#x2F;a&gt;!&lt;&#x2F;p&gt;
+&lt;div class=&quot;aspect-w-16 aspect-h-9&quot;&gt;
+  &lt;iframe frameborder=&quot;0&quot;
+    src=&quot;https:&#x2F;&#x2F;www.youtube-nocookie.com&#x2F;embed&#x2F;TnCY6Apxibk?si=mXe6uLa_nD2WO8Bq&quot;
+    title=&quot;YouTube video player&quot; frameborder=&quot;0&quot;
+    allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen
+    allowfullscreen&gt;&lt;&#x2F;iframe&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Or you can watch this presentation at SRECon 2015 that talks about Production Engineering at
+Facebook and how it evolved:&lt;&#x2F;p&gt;
+&lt;div class=&quot;aspect-w-16 aspect-h-9&quot;&gt;
+  &lt;iframe frameborder=&quot;0&quot;
+    src=&quot;https:&#x2F;&#x2F;www.youtube-nocookie.com&#x2F;embed&#x2F;ugkkza3vKbc?si=mXe6uLa_nD2WO8Bq&quot;
+    title=&quot;YouTube video player&quot; frameborder=&quot;0&quot;
+    allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen
+    allowfullscreen&gt;&lt;&#x2F;iframe&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Can not wait to get starts on a journey of challenges, learnings and hyper growth!&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Joining Twitter SRE Team!</title>
+          <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/joining-twitter/</link>
+          <guid>https://mosab.co.uk/blog/joining-twitter/</guid>
+          <description xml:base="https://mosab.co.uk/blog/joining-twitter/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;mosab.co.uk&#x2F;blog&#x2F;joining-twitter&#x2F;twitter-logo.png&quot; alt=&quot;Twitter&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Last Friday was my last day at &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;gocardless.com&quot;&gt;GoCardless&lt;&#x2F;a&gt;. It has been
+a year -and change- full of knowing smart and great colleagues, and learning a
+lot from them. Special shout-out to the Core Infrastructure team!&lt;&#x2F;p&gt;
+&lt;p&gt;I am super excited that starting next Monday I will be joining
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;twitter.com&quot;&gt;Twitter&lt;&#x2F;a&gt;&#x27;s Site Reliability Engineering team
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;twitter.com&#x2F;TwitterSRE&quot;&gt;@TwitterSRE&lt;&#x2F;a&gt; in London! I have met some of the
+team already, and can&#x27;t wait to start working with them and meet the rest!&lt;&#x2F;p&gt;
+&lt;p&gt;This is a huge step for me, and I look forward to months and years of hard
+working, learning and making new friends while empowering everyone in the world
+to create and share ideas and information instantly without barriers!&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>
