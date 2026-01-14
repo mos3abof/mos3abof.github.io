@@ -1,0 +1,402 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="sm:scroll-smooth" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://mosab.co.uk/css/style.css">
+  <link rel="icon" type="image/x-icon" href="https://mosab.co.uk/./images/favicon.ico">
+  <!-- MDI Icons -->
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css">
+  <script src="https://mosab.co.uk/js/main.js" defer></script>
+  <title>
+    
+      Poor Man&#x27;s Guide: Monitoring a Website Using Python | Mosab Ahmad Ibrahim
+    
+  </title>
+
+  <!-- load Arabic web fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wdth,wght@62.5..100,100..900&display=swap" rel="stylesheet">
+  <style>
+    direction:rtl;
+    text-align:right;
+    article p {
+      direction:rtl;
+      text-align:right;
+    }
+  </style>
+
+  <script>
+    //// Persist user choice to localStorage
+    //if (localStorage.getItem('dark-mode') === 'true' || (!('dark-mode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    //  document.querySelector('html').classList.add('dark');
+    //} else {
+    //    document.querySelector('html').classList.remove('dark');
+    //}
+  </script>
+</head>
+
+<body class="min-h-screen bg-slate-50 dark:bg-black dark:text-white selection:text-white selection:bg-blue-600  ">
+  <!-- Header -->
+  <!-- Header -->
+
+
+
+
+
+
+<header class="text-black dark:text-slate-200 top-0 z-10">
+  <section class="max-w-6xl mx-auto p-4 flex justify-between items-center">
+    <div>
+      <button id="hamburger-button" class="text-3xl sm:hidden cursor-pointer">
+        &#9776;
+      </button>
+
+      <nav class="hidden sm:block space-x-1 text-xl" aria-label="main">
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk"> <i class="mdi mdi-home text-slate-600 mdi-24px my-auto hover:text-white dark:text-slate-300"></i> </a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/resume">Resume</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/projects">Projects</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/about">About</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/blog">Posts</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/talks">Talks</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/contact">Contact</a>
+        
+
+        <a href="https://mosab.co.uk/ar"
+          class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1 noto-sans">
+          <span class="border-solid">العربية</span>
+        </a>
+
+        <!-- Dark/Light theme toggle -->
+        <!-- <button class="cursor-pointer" id="theme-toggle"> -->
+        <!--   <i class="mdi mdi-brightness-6" /> -->
+        <!-- </button> -->
+      </nav>
+    </div>
+  </section>
+  <section id="mobile-menu"
+    class="absolute top-0 z-10 bg-slate-200 dark:bg-black w-full text-teal-600 dark:text-white text-3xl flex-col justify-content-center origin-top animate-open-menu hidden">
+    <button class="text-6xl cursor-pointer self-end px-6">
+      &times;
+    </button>
+    <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
+      
+      
+      
+      
+      <a href="https://mosab.co.uk" class="w-full text-center py-6 hover:opacity-90">Home</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/resume" class="w-full text-center py-6 hover:opacity-90">Resume</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/projects" class="w-full text-center py-6 hover:opacity-90">Projects</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/about" class="w-full text-center py-6 hover:opacity-90">About</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/blog" class="w-full text-center py-6 hover:opacity-90">Posts</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/talks" class="w-full text-center py-6 hover:opacity-90">Talks</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/contact" class="w-full text-center py-6 hover:opacity-90">Contact</a>
+      
+
+      <a href="https://mosab.co.uk/ar"
+        class="w-full text-center py-6 hover:opacity-90 noto-sans">العربية</a>
+    </nav>
+  </section>
+</header>
+
+
+  <!-- Main  part of the page -->
+  <main class="max-w-6xl mx-auto my-4  ">
+    
+  
+
+<!-- Intro Section -->
+<section class="flex flex-col justify-center sm:flex-row p-6 items-center gap-8   ">
+  <article class="w-screen px-4 sm:px-0  ">
+    
+
+  <h1 class="text-3xl font-bold sm:text-4xl text-slate-900 dark:text-slate-300  ">
+    Poor Man&#x27;s Guide: Monitoring a Website Using Python<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
+
+
+    
+      <span 
+        class="text-slate-400 sm:text-1/2xl text-sl font-mono  ">Posted on <time 
+          class="text-slate-500">2013-02-11</time></span>
+    
+
+    
+
+    
+    
+
+    <div class="my-4  ">
+      <p>In one of the projects I am working on there was a problem with Apache server.
+It went down almost on a daily basis, and we were reading the logs to get the
+bottom of the root cause. But until we got our solution we needed to monitor the
+server's accessibility through the web, and get alerted if it went down, and
+ultimately restart it when this happened.</p>
+<p>So I fired up my console and text editor and started hacking a little script to
+do the above mentioned side goals.</p>
+<ol>
+<li>Monitoring the Apache server's accessibility from a different server.</li>
+<li>SSH the linux box running the server and restarting Apache.</li>
+<li>Alerting the DevOps team about the issue.</li>
+<li>Putting it all together</li>
+<li>Setting up a cron job to run the script</li>
+</ol>
+<p>I am assuming you are running an Ubuntu machine.</p>
+<h2 id="monitoring-the-apache-server">Monitoring the Apache Server</h2>
+<p>I was confused between two <code>Python 2.x</code> libraries (note that they are
+dramatically changed in <code>Python 3.x</code> and choosing between them is subject to
+different criteria).</p>
+<p>The first library was <code>python-httplib</code> and the second was <code>urllib</code>. After a
+quick reading through both library's manual and a quick reading on StackOverflow
+I have decided to go for urllib.</p>
+<p>Basically what I had in mind was to send a GET request to the website served by
+Apache and check the HTTP response code I got.</p>
+<p>If it is <em>200</em> -which is the SUCCESS response code according to HTTP standards-
+then everything is fine.</p>
+<p>You can try this in a python interactive shell :</p>
+<pre data-lang="python" style="background-color:#2e3440;color:#d8dee9;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#81a1c1;">&gt;&gt;&gt; import </span><span>urllib response_code </span><span style="color:#81a1c1;">=
+</span><span style="color:#81a1c1;">&gt;&gt;&gt; </span><span>urllib</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">urlopen</span><span>(</span><span style="color:#a3be8c;">&quot;http://www.example.com&quot;</span><span>)</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">getcode</span><span>() </span><span style="color:#81a1c1;">print </span><span>response_code
+</span><span style="color:#b48ead;">200
+</span></code></pre>
+<p>If the printed value is 200 then the website is up and running, if it has a
+different value or raises an Exception then the site is likely down (Assuming
+you have internet connectivity, no firewalls blocking your way, etc).</p>
+<p>Time to put it together in a script :</p>
+<pre data-linenos data-lang="python" style="background-color:#2e3440;color:#d8dee9;" class="language-python "><code class="language-python" data-lang="python"><table><tbody><tr><td>1</td><td><span style="color:#81a1c1;">import </span><span>urllib
+</span></td></tr><tr><td>2</td><td><span>
+</span></td></tr><tr><td>3</td><td><span style="color:#81a1c1;">try</span><span>:
+</span></td></tr><tr><td>4</td><td><span>  response_code </span><span style="color:#81a1c1;">= </span><span>urllib</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">urlopen</span><span>(</span><span style="color:#a3be8c;">&quot;http://www.example.com&quot;</span><span>)</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">getcode</span><span>()
+</span></td></tr><tr><td>5</td><td><span>  </span><span style="color:#81a1c1;">if </span><span>response_code </span><span style="color:#81a1c1;">!= </span><span style="color:#b48ead;">200</span><span>:
+</span></td></tr><tr><td>6</td><td><span>    </span><span style="color:#81a1c1;">raise </span><span style="color:#8fbcbb;">ValueError
+</span></td></tr><tr><td>7</td><td><span style="color:#81a1c1;">except</span><span>:
+</span></td></tr><tr><td>8</td><td><span>  </span><span style="color:#81a1c1;">pass </span><span style="color:#616e88;"># Here write code to do whatever you want to do when the website is down.
+</span></td></tr></tbody></table></code></pre>
+<h2 id="restart-the-apache-server-remotely">Restart the Apache server remotely</h2>
+<p>There is a wonderful Python library and a command-line tool called <em><a rel="noopener" target="_blank" href="http://docs.fabfile.org/en/1.5/">Fabric</a></em>
+that helps you streamlining the use of SSH for application deployment or systems
+administration tasks. It is ideally used to automate tedious error prone tasks
+in an easy way.</p>
+<p>You can read about more about it in their documentation.</p>
+<p>Install it by running the following command:</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">sudo</span><span> apt-get install fabric
+</span></code></pre>
+<p>We now need to create a new python file that I will name <code>fabfile.py</code>, you can
+name it anything, but let's just follow the common name you will see in Fabric's
+documentation.</p>
+<pre data-linenos data-lang="python" style="background-color:#2e3440;color:#d8dee9;" class="language-python "><code class="language-python" data-lang="python"><table><tbody><tr><td>1</td><td><span style="color:#81a1c1;">from </span><span>fabric</span><span style="color:#81a1c1;">.</span><span>api </span><span style="color:#81a1c1;">import </span><span>env</span><span style="color:#eceff4;">, </span><span>sudo
+</span></td></tr><tr><td>2</td><td><span>
+</span></td></tr><tr><td>3</td><td><span>env</span><span style="color:#81a1c1;">.</span><span>hosts </span><span style="color:#81a1c1;">= </span><span>[</span><span style="color:#a3be8c;">&#39;user@server&#39;</span><span>] env</span><span style="color:#81a1c1;">.</span><span>passwords </span><span style="color:#81a1c1;">= </span><span>{</span><span style="color:#a3be8c;">&#39;user@server&#39; </span><span style="color:#eceff4;">: </span><span style="color:#a3be8c;">&#39;password&#39;</span><span>}
+</span></td></tr><tr><td>4</td><td><span>
+</span></td></tr><tr><td>5</td><td><span style="color:#81a1c1;">def </span><span style="color:#88c0d0;">restart_apache</span><span>():
+</span></td></tr><tr><td>6</td><td><span>  </span><span style="color:#88c0d0;">sudo</span><span>(</span><span style="color:#a3be8c;">&quot;apache2ctl restart&quot;</span><span>)
+</span></td></tr></tbody></table></code></pre>
+<p>We start by importing what we need from Fabric. Then we tell it some information
+about the server we want to restart Apache on by setting the <code>env.hosts</code> and
+<code>env.passwords</code> variables.</p>
+<p>Then we define a <code>restart_apache</code> function that we will call later to do the
+actual restart.</p>
+<p>There are three main functions that are used the most, <code>local()</code> that runs local
+commands, <code>run()</code> that runs commands on the remote server and <code>sudo()</code> that runs
+commands on the remote server using <code>sudo</code>. Since Apache restart requires a root
+user or sudo privileges we used the <code>sudo()</code> function.</p>
+<p>To run a Fabric script open up your terminal and run the following command:</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">fabric</span><span> fabfile.py restart_apache
+</span></code></pre>
+<p>If you want to run it from a different directory than the <code>fabfile.py</code> then you
+need to use the <code>-f</code> option like this :</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">fabric</span><span> -f /path/to/your/fabfile.py function_name
+</span></code></pre>
+<h2 id="alerting-the-devops-team-about-the-issue">Alerting the DevOps team about the issue.</h2>
+<p>We can re-use the email function from the previous post on this blog <a rel="noopener" target="_blank" href="https://mosab.co.uk/installing-gdata-python-client-on-dreamhost.html">Installing
+Gdata Python Client on Dreamhost</a>:</p>
+<pre data-lang="python" style="background-color:#2e3440;color:#d8dee9;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#81a1c1;">import </span><span>smtplib
+</span><span style="color:#81a1c1;">from </span><span>email</span><span style="color:#81a1c1;">.</span><span>MIMEMultipart </span><span style="color:#81a1c1;">import </span><span>MIMEMultipart
+</span><span style="color:#81a1c1;">from </span><span>email</span><span style="color:#81a1c1;">.</span><span>MIMEBase </span><span style="color:#81a1c1;">import </span><span>MIMEBase
+</span><span style="color:#81a1c1;">from </span><span>email</span><span style="color:#81a1c1;">.</span><span>MIMEText </span><span style="color:#81a1c1;">import </span><span>MIMEText
+</span><span style="color:#81a1c1;">from </span><span>email </span><span style="color:#81a1c1;">import </span><span>Encoders
+</span><span>
+</span><span>subject </span><span style="color:#81a1c1;">= </span><span style="color:#a3be8c;">&#39;Your website is down&#39; </span><span>email_body </span><span style="color:#81a1c1;">= </span><span style="color:#a3be8c;">&#39;Your website is down&#39;
+</span><span>gmail_user </span><span style="color:#81a1c1;">= </span><span style="color:#a3be8c;">&#39;YOUR-GMAIL-ADDRESS&#39; </span><span>gmail_pwd </span><span style="color:#81a1c1;">= </span><span style="color:#a3be8c;">&#39;YOUR-GMAIL-PASSWORD&#39;
+</span><span>recipient </span><span style="color:#81a1c1;">= </span><span style="color:#a3be8c;">&#39;DEVOPS-EMAIL&#39;
+</span><span>
+</span><span style="color:#81a1c1;">def </span><span style="color:#88c0d0;">mail</span><span>(to</span><span style="color:#eceff4;">, </span><span>subject</span><span style="color:#eceff4;">, </span><span>text</span><span style="color:#eceff4;">, </span><span>gmail_user</span><span style="color:#eceff4;">, </span><span>gmail_pwd):
+</span><span>    </span><span style="color:#616e88;">&#39;&#39;&#39;Sends mail using gmail&#39;&#39;&#39;
+</span><span>    msg </span><span style="color:#81a1c1;">= </span><span style="color:#88c0d0;">MIMEMultipart</span><span>()
+</span><span>
+</span><span>    </span><span style="color:#616e88;"># Setting up message data
+</span><span>    msg[</span><span style="color:#a3be8c;">&#39;From&#39;</span><span>] </span><span style="color:#81a1c1;">= </span><span style="color:#a3be8c;">&#39;DEVOPS-EMAIL&#39;
+</span><span>    msg[</span><span style="color:#a3be8c;">&#39;To&#39;</span><span>] </span><span style="color:#81a1c1;">= </span><span>to
+</span><span>    msg[</span><span style="color:#a3be8c;">&#39;Subject&#39;</span><span>] </span><span style="color:#81a1c1;">= </span><span>subject msg</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">attach</span><span>(</span><span style="color:#88c0d0;">MIMEText</span><span>(text))
+</span><span>
+</span><span>    </span><span style="color:#616e88;"># Opening the connection with Gmail SMTP server
+</span><span>    mailServer </span><span style="color:#81a1c1;">= </span><span>smtplib</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">SMTP</span><span>(</span><span style="color:#a3be8c;">&quot;smtp.gmail.com&quot;</span><span style="color:#eceff4;">, </span><span style="color:#b48ead;">587</span><span>)
+</span><span>    mailServer</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">ehlo</span><span>()
+</span><span>    mailServer</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">starttls</span><span>()
+</span><span>    mailServer</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">ehlo</span><span>()
+</span><span>    mailServer</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">login</span><span>(gmail_user</span><span style="color:#eceff4;">, </span><span>gmail_pwd)
+</span><span>
+</span><span>    </span><span style="color:#616e88;"># Actual sending of the email
+</span><span>    mailServer</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">sendmail</span><span>(gmail_user</span><span style="color:#eceff4;">, </span><span>to</span><span style="color:#eceff4;">, </span><span>msg</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">as_string</span><span>())
+</span><span>
+</span><span>    </span><span style="color:#616e88;"># Closing the connection # Should be mailServer.quit(), but that crashes
+</span><span>    mailServer</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">close</span><span>()
+</span></code></pre>
+<h2 id="putting-it-all-together">Putting it all together</h2>
+<p>I have combined all the snippets mentioned above, modified them and added some
+logging functionality to it.</p>
+<p>I have it installed on <code>/opt/fabfile.py</code> and I have created a <code>/opt/fab_logs</code>
+folder to hold the log files.</p>
+<p>Here is a gist with the complete script:</p>
+<script src="https://gist.github.com/mos3abof/4771874.js"></script>
+<h2 id="setting-up-a-cron-job-to-run-the-script">Setting up a cron job to run the script</h2>
+<p>Now we have a great script, and we know how to run it manually. But it would be
+inconvenient to run it manually all the time. We need to setup a cron job to do
+it periodically for us.</p>
+<p>Run the following command in the terminal to edit your crontab file:</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">crontab</span><span> -e
+</span></code></pre>
+<p>Then add the following line to the file to run the script every hour:</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">0 </span><span style="color:#81a1c1;">* * * *</span><span> /usr/bin/fab -f /path/to/your/fabfile.py restart_apache
+</span></code></pre>
+<p>Happy website monitoring.</p>
+
+
+      
+
+    </div>
+  </article>
+</section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="max-w-6xl mx-auto">
+  <section class="flex flex-col justify-center sm:flex-row items-center gap-8 mt-6">
+    <div class="flex px-0 mx-0">
+      <a href="https://twitter.com/mos3abof" class="px-1">
+        <i class="mdi mdi-twitter text-slate-600 mdi-24px my-auto hover:text-blue-400 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.github.com/mos3abof" class="px-1">
+        <i
+          class="mdi mdi-github text-slate-600 mdi-24px my-auto hover:text-black dark:text-slate-300 dark:hover:text-slate-500"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/mosab" class="px-1">
+        <i class="mdi mdi-linkedin text-slate-600 mdi-24px my-auto hover:text-blue-500 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.facebook.com/mos3abof" class="px-1">
+        <i class="mdi mdi-facebook text-slate-600 mdi-24px my-auto hover:text-blue-700 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.instagram.com/mos3abof" class="px-1">
+        <i class="mdi mdi-instagram text-slate-600 mdi-24px my-auto hover:text-pink-500 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.youtube.com/@mos3abof13" class="px-1">
+        <i class="mdi mdi-youtube text-slate-600 mdi-24px my-auto hover:text-red-500 dark:text-slate-300"></i>
+      </a>
+      <a rel="me" href="https://fosstodon.org/@mos3abof" class="px-1">
+        <i class="mdi mdi-mastodon text-slate-600 mdi-24px my-auto hover:text-violet-600 dark:text-slate-300"></i>
+      </a>
+      <a href="/rss" class="px-1">
+        <i class="mdi mdi-rss text-slate-600 mdi-24px my-auto hover:text-orange-400 dark:text-slate-300"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="flex flex-col justify-center sm:flex-row items-center gap-8 mt-5 mb-4">
+    <div class="px-0 mx-0">
+      <p class="max-w-md text-sl text-center sm:text-sl text-slate-600
+            dark:text-slate-300">
+        
+      <p>
+      <p class="max-w-md text-sl text-center sm:text-sl text-slate-600
+            dark:text-slate-300">
+        (c) 2026 - Mosab Ibrahim
+      <p>
+    </div>
+  </section>
+
+  <!-- <section class="flex flex-col-reverse justify-center sm:flex-row  items-center mt-5"> -->
+  <!--   <a href="https://decolonizepalestine.com/"><img src="/images/decolonize-palestine.png.webp" target="_blank" -->
+  <!--       alt="Decolonize Palestine" title="Decolonize Palestine" class="text-center drop-shadow" /></a> -->
+  <!-- </section> -->
+
+  <section class="flex flex-col-reverse justify-center sm:flex-row items-center mt-10 mb-12">
+    <a href="http://www.catb.org/hacker-emblem/"><img src="https://mosab.co.uk/images/glider.png" target="_blank"
+        alt="Hacker Emblem Logo" title="Hacker Emblem Logo" class="text-center drop-shadow" /></a>
+  </section>
+</footer>
+
+</body>
+<script>
+  var themeToggleBtn = document.getElementById('theme-toggle');
+
+  themeToggleBtn.addEventListener('click', function() {
+      if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+      } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+      }
+  });
+</script>
+</html>

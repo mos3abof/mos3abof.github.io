@@ -1,0 +1,356 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ar" class="sm:scroll-smooth" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://mosab.co.uk/css/style.css">
+  <link rel="icon" type="image/x-icon" href="https://mosab.co.uk/./images/favicon.ico">
+  <!-- MDI Icons -->
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css">
+  <script src="https://mosab.co.uk/js/main.js" defer></script>
+  <title>
+    
+       تاجات.. تاجات .. أحب عمري وأعشق الحاجات! | مصـ( الخير )ـعب
+    
+  </title>
+
+  <!-- load Arabic web fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wdth,wght@62.5..100,100..900&display=swap" rel="stylesheet">
+  <style>
+    direction:rtl;
+    text-align:right;
+    article p {
+      direction:rtl;
+      text-align:right;
+    }
+  </style>
+
+  <script>
+    //// Persist user choice to localStorage
+    //if (localStorage.getItem('dark-mode') === 'true' || (!('dark-mode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    //  document.querySelector('html').classList.add('dark');
+    //} else {
+    //    document.querySelector('html').classList.remove('dark');
+    //}
+  </script>
+</head>
+
+<body class="min-h-screen bg-slate-50 dark:bg-black dark:text-white selection:text-white selection:bg-blue-600 noto-sans rtl-grid">
+  <!-- Header -->
+  <!-- Header -->
+
+
+
+
+
+
+<header class="text-black dark:text-slate-200 top-0 z-10">
+  <section class="max-w-6xl mx-auto p-4 flex justify-between items-center">
+    <div>
+      <button id="hamburger-button" class="text-3xl sm:hidden cursor-pointer">
+        &#9776;
+      </button>
+
+      <nav class="hidden sm:block space-x-1 text-xl" aria-label="main">
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar"> <i class="mdi mdi-home text-slate-600 mdi-24px my-auto hover:text-white dark:text-slate-300"></i> </a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/resume">السيرة الذاتية</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/projects">مشاريعي</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/about">من أنا</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/blog">تدوينات</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/talks">كلام عن التكنولوجيا</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/contact">تواصل معي</a>
+        
+
+        <a href="https://mosab.co.uk"
+          class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1 noto-sans">
+          <span class="border-solid">English</span>
+        </a>
+
+        <!-- Dark/Light theme toggle -->
+        <!-- <button class="cursor-pointer" id="theme-toggle"> -->
+        <!--   <i class="mdi mdi-brightness-6" /> -->
+        <!-- </button> -->
+      </nav>
+    </div>
+  </section>
+  <section id="mobile-menu"
+    class="absolute top-0 z-10 bg-slate-200 dark:bg-black w-full text-teal-600 dark:text-white text-3xl flex-col justify-content-center origin-top animate-open-menu hidden">
+    <button class="text-6xl cursor-pointer self-end px-6">
+      &times;
+    </button>
+    <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar" class="w-full text-center py-6 hover:opacity-90">الرئيسية</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/resume" class="w-full text-center py-6 hover:opacity-90">السيرة الذاتية</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/projects" class="w-full text-center py-6 hover:opacity-90">مشاريعي</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/about" class="w-full text-center py-6 hover:opacity-90">من أنا</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/blog" class="w-full text-center py-6 hover:opacity-90">تدوينات</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/talks" class="w-full text-center py-6 hover:opacity-90">كلام عن التكنولوجيا</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/contact" class="w-full text-center py-6 hover:opacity-90">تواصل معي</a>
+      
+
+      <a href="https://mosab.co.uk"
+        class="w-full text-center py-6 hover:opacity-90 noto-sans">English</a>
+    </nav>
+  </section>
+</header>
+
+
+  <!-- Main  part of the page -->
+  <main class="max-w-6xl mx-auto my-4 noto-sans rtl-grid">
+    
+  
+
+<!-- Intro Section -->
+<section class="flex flex-col justify-center sm:flex-row p-6 items-center gap-8  noto-sans rtl-grid">
+  <article class="w-screen px-4 sm:px-0 noto-sans rtl-grid">
+    
+
+  <h1 class="text-3xl font-bold sm:text-4xl text-slate-900 dark:text-slate-300 noto-sans rtl-grid">
+     تاجات.. تاجات .. أحب عمري وأعشق الحاجات!<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
+
+
+    
+      <span 
+        class="text-slate-400 sm:text-1/2xl text-sl font-mono noto-sans rtl-grid">تم نشرها في  <time 
+          class="text-slate-500">2007-02-11</time></span>
+    
+
+    
+
+    
+    
+
+    <div class="my-4 noto-sans rtl-grid">
+      <p><a rel="noopener" target="_blank" href="http://www.flickr.com/photos/mos3ab/293033676/"><img src="https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_twUU8lJK8tRAbIRcuRLxlZSeNoEW0cCJ8u7DTaspmLbGjiJshC-ua45tuFDYgZehBYxpcA13_cjf7DWEGaAn2r-u51_Lxn5vSE7bV6k1yYBLJizfD6Aw401Fq5CyYP-qEhFw=s0-d" alt="" /></a></p>
+<p>`أنا اتبعتلي تلات تاجات.. واحد من  <a rel="noopener" target="_blank" href="http://kprogramer.wordpress.com/2007/01/28/%25d9%2583%25d8%25b1%25d8%25b3%25d9%2589-%25d8%25a5%25d8%25b9%25d8%25aa%25d8%25b1%25d8%25a7%25d9%2581-%25d8%25b5%25d8%25a8%25d8%25a7%25d8%25ad%25d9%2589-%25d9%2585%25d9%2586-%25d8%25a3%25d8%25ad%25d9%2585%25d8%25af-%25d9%2585%25d8%25a8%25d8%25b1%25d9%2585%25d8%25ac-%25d8%25ad%25d8%25b1/">كريم</a>  والتاني من  <a rel="noopener" target="_blank" href="http://3alamy.blogspot.com/2007/02/blog-post_1608.html">دينا</a>  والتالت من عند  <a rel="noopener" target="_blank" href="http://we2am.blogspot.com/">وئام</a></p>
+<p>أنا آسف يا كريم ويا دينا إني اتأخرت أوي في الرد عليهم بس ظروف والله</p>
+<h2 id="nbd-btj-krym-dh-trtyb-ltjt-hsb-lzhwr">نبدأ بتاج كريم "ده ترتيب التاجات حسب الظهور"..</h2>
+<p>خمس حاجات ما حدش يعرفهم عني...<br />
+إممم .. سؤال صعب أوي أوي<br />
+بس يللا ..</p>
+<p>أول حاجة:<br />
+وأنا صغير واحنا في باكستان كانوا مجموعة من المصريين هناك بيصوروا إعلان عن شاي اسمه "شاي الخليل".. وكنت من ضمن الأطفال اللي هم كلموا أبوهم علشان يتصوروا في الإعلان..</p>
+<p>المهم رحت وكانوا بيخلونا نشرب رشفة (حلوة رشفة دي) ونقول "شاي الخليل مالوش مثيل" ونشاور بالإبهام "علامة الأوكيه"..<br />
+آخر اليوم أخدت علبة ساندويتشات مش فاكر منها غير ساندويتش الهامبرجر بس كنت فرحان أوي.. وعرفت بعديها إن الشاي ده ما نزلش السوق خالص وإن الشركة خسرت... تفتكروا ليه؟!!</p>
+<p>تاني حاجة:<br />
+واحنا في باكستان برضه كنا بنمتحن في السفارة المصرية.. وكان في فاكهة اسمها هناك "لقاط" ما أعرفش بالعربي اسمها ايه.. كنا بنحبها أوي.. وبنشتريها كل يوم.. وفجأة اكتشفنا إن جنينة السفير اللي بيته جو السفارة فيها شجرتين منها.. فبقينا بنتسلل من ورا الحراس بتوع بيته والأربع كاميرات اللي على أركان البيت الأربعة وندخل نجيب على قد ما نقدر ونطلع تاني.. واكتشفنا قد ايه الأمن بتاعنا جبار!!!<br />
+ملحوظة: ده كان بعد سنة ونص من انفجار السفارة المصرية في باكستان وبعد زيادة التحصينات الأمنية! بس لغاية دلوقتي مش عارف هم كانوا سايبننا ومطنشين وللا ما كانوش واخدين بالهم أصلا..</p>
+<p>تالت حاجة:<br />
+قبل ما أكبر.. وأعرف حاجات كتير ما كنتش أعرفها .. عمري ما رحت لماما أو بابا وسألتهم السؤال البرئ بتاع "بابا هو انتوا جبتونا ازاي؟".. والسبب بسيط.. عقليتي العلمية المعملية العبقرية الفذة توصلت لنظرية كانت تمثل نموذجا كاملا يفسر كل الظواهر الموجودة في ضوء معطيات المرحلة .. كان تفسيري الطفولي للي بيحصل إن هناك بعض المواد البيوكيميائية تنتقل من الأب للأم عن طريق اللمس.. وإن المواد دي علشان تنطلق لازم يكونوا الاتنين متجوزين فعلا مش تمثيل.. لأن المواد دي بتنطلق في حالة واحدة بس وهي اقتناع الطرفين إنهم متجوزين علشان ده بيخليهم في حالة نفسية وسيكولوجية معينة بتيؤدي لإفراز هرمون معين بيخلي المواد دي تطلع!!<br />
+ما حدش يسألني جبت التفسير ده ازاي.. بس والله ده اللي كان حاصل.</p>
+<p>رابع حاجة:<br />
+حاجة كان نفسي أقولها أوي لكل الناس وأطير بيها من الفرحة.. بس هي سر بيني وبين بابا الله يرحمه، وهو مش هنا دلوقتي علشان أستأذنه أقولها.. بس كفاية تعرفوا إن كان نفسي تعرفوها أوي..</p>
+<p>خامس حاجة:<br />
+المرة الوحيدة في حياتها الله يرحمها اللي رفعت ايدها وضربتني بالألم.. أصل أنا كنت قليت أدبي أوي أوي.. بس ايدك يا أمي ساعتها والله نزلت على خدي زي النسيم.. كنت عاوز أبوسها.. بس ما كانش ينفع.. فعملت نفسي بأعيط أوي لغاية أما أخدتني في حضنها فسكتت على طول.. راحت بصالي وضاحكة وقالت لي أحلى "يا سلام" سمعتها في حياتي.. وفضلت قاعد على الأرض جنب السرير اللي هي قاعدة عليه وراسي على حجرها لغاية أما رحت في النوم..</p>
+<p>رب ارحمهما كما ربياني صغيرا</p>
+<hr />
+<p>آدي يا عم كريم التاج الأول بتاعك..</p>
+<p>التاج التاني وبفصيح العربي كده جايلي من دينا</p>
+<p>س : ايه اللي هيحصل لايميلك لما تموت؟!<br />
+ج: مش عارف!! بس أكيد براء هيحافظ عليه، وكمان فيه بيانات كتير مهمة أوي أوي لأكتر من حد.. فعلى الأقل هيفضل شغال شوية</p>
+<p>س: اديت الباسوورد لحد قبل كده؟<br />
+ج: أيوة.. براء، ... وحد تاني، بس الحد التاني كان حظه وحش، لأني غيرت الباسوورد قبل ما نفترق وما لحقتش أقول له</p>
+<p>س: لو أيوة طبيعة علاقتك بيه ايه؟<br />
+ج: براء.. أقل كلمة توصفه .. هو كل عيلتي بجد.. وأخويا وصاحبي وتوأم روحي..<br />
+الحد التاني .. كان اسمه حبيب</p>
+<p>س: اسمك؟<br />
+ج : مصعب.. يعني لما دورت عليها في المعجم "السيد في قومه".. وبأحب بابا أوي علشان اختارلي الاسم ده لأني بأعشقه مش علشان اسمي والله بس بأحبه أوي</p>
+<p>س: اسم الدلع المشهور بيه وسط أصحابك؟<br />
+ج : براء مطلع علي كام اسم حلوين "مصعب مصاعيبو أبو الأصعاب" يشاركه في هذا الوصف علي، أحمد الهواري بيقولي لي "مصاعيبوز" أو "مصعبز"، أحمد فؤاد مسميني مصعبيسكي، بين المدونين مشهور بـ"مصعبوف"، واحد قريبنا من زمان كان مسميني "مطوبس"!!</p>
+<p>س: برجك ايه؟<br />
+ج :  <a rel="noopener" target="_blank" href="http://mos3abof.blogspot.com/2006/02/blog-post.html">الحوت</a></p>
+<p>س :شخصيتي نوعها ايه؟!<br />
+ج : تقريبا آخر مرة وزنتها كانت x large!<br />
+ايه السؤال العجيب ده؟!</p>
+<p>س : السفر بالنسبة لك؟<br />
+ج : كمية من المشاعر المتناقضة الصعبة الحلوة.. السفر يعني تكوين شخصية وناس جديدة وعادات جديدة وثقافات تانية وأنا بأحب أتفرج وأتعلم أوي.. وفي نفس الوقت يعني زيادة غربة أكتر ما أنا حاسس بيها.. بعد عن ناس بأحبها.. وبلد بأعشقها..<br />
+وباقي اللي جوايا ما يتقالش.. يتحس بس، يكفي إنه متناقض أوي.. وإنه بيولد جوايا صراع عجيب.. حلو ووحش أوي أوي..</p>
+<p>س : وقت فراغك بتعمل فيه ايه؟<br />
+ج : مش لما ألاقي وقت فراغ أصلا! :) .. بس لو توافر بأتصرف حسب الظروف لو في حد معايا .. لو لوحدي يا إما بأنزل أتمشى كتير أوي وأسرح مع نفسي، يا إما بأقعد أشتغل على اللابتوب وأتسكع في طرقات الانترنت بحثا عني</p>
+<p>س : الأكلة المفضلة؟<br />
+ج : مش عارف.. بس بأحب الأكل البسيط اللذيذ.. اليومين دول أنا مش عارف أظبط نفسي في الأكل علشان شباب عزاب أنا وإخواتي وانتوا عارفين.. لكن لما بيبقى في أكل لذيذ بسيط بأبقى مبسوط جدا.. أهم حاجة العيش.. لأني ما بأعرفش أشبع من غير عيش.. واخدها عن أبويا الله يرحمه اللي واخدها عن أبوه.. واحنا التلاتة الوحيدين في العيلة اللي كده :)</p>
+<p>س : الصفات اللي أخدتها من بابا؟<br />
+ج : أنا وماما اتعلمنا منه كل صفة حلوة مرتبط بالعقلانية.</p>
+<p>س : الصفات اللي أخدتها من ماما؟<br />
+ج : أنا وبابا اتعلمنا منها يعني ايه قلب كبير، ويعني ايه مشاعر حلوة لكل اللي حوالينا حتى لو ما بيحبناش أو بيكرهنا</p>
+<p>س: أكتنر 6 حاجات بتكرهها؟<br />
+ج :</p>
+<ul>
+<li>النوم الكتير</li>
+<li>الحاجات اللي بتتفرض علي من غير اقتناع</li>
+<li>التناقض.. يكون مثلا حد بيقول لك إنه بيحترم رأي الآخر وفي نفس النقاش يشتمك ويسفه رأيك</li>
+<li>التعقيد</li>
+<li>“إنا وجدنا آبائنا كذلك يفعلون"</li>
+<li>حد يعمل نفسه وصي علي أو يعيش دور الناصح الأمين دون مراعاة أن "هنااااااااااااااااك فرررررررررررق" بيني وبينه، بين قناعاتي وقناعاته، تجربتي وتجربته، حياتي وحياته!</li>
+</ul>
+<p>س : أكتر 6 حاجات بأحبها؟</p>
+<ul>
+<li>أقعد أعمل لنفسي تحدي أتعلم مثلا حاجة جديدة وأقعد لغاية أما أوصل مركز مهما أخدت من وقت حتى لو ما نمتش لمدة أسبوع أو نسيت آكل أو أي أعراض جانبية تانية</li>
+<li>جوجل بكل ما يمثل من رموز "بساطة-شباب- إبداع- قوة- ثقة- عبقرية-الخ"</li>
+<li>كل الناس</li>
+<li>اللون الأخضر</li>
+<li>اللابتوب بتاعي</li>
+<li>نظارتي</li>
+</ul>
+<p>بس اشمعنى 6 حاجات يعني؟!!</p>
+<p>س : الشغل بالنسبة لك؟<br />
+ج : حاليا.. مدرسة فاتحالي بابها على الآخر.. مصدر متعتي الأول وفرصة لتحدي حقيقي مع نفسي.. موقع عشرينات اللي أنا شغال المبرمج بتاعه اللي هو شغلي .. بأحس إنه ابني.. وكل سطر كود أو database ER diagram أو UML chart لي معاه ذكريات كتييييييييييييييييييير<br />
+ابني بجد</p>
+<p>س : الكمبيوتر والانترنت بالنسبة لك؟<br />
+ج : لو كان السؤال ده من تلات سنين كنت قلت حياتي التانية أو حياتي الموازية، لكن دلوقتي هو حياتي الأولى.. أنا بأتحول لكائن افتراضي.. يمكن ده السبب اللي مخليني عامل مدونة تانية مهتمة بالنموذج التقني من نواحي اجتماعية وسياسية واقتصادية وإعلامية وبالطبع تقنية، بس لسة المدونة بث تجريبي.. هتطلع بشكل كامل إن شاء الله يوم 13 مارس- يوم عيد ميلادي.. بالمناسبة أنا أخرت صدور بيان مرور سنة على بداية مدونتي (26 يناير 2006) علشان تطلع في 13 مارس :)</p>
+<hr />
+<p>التاج التالت من عند وئام</p>
+<p>افتح الكتاب اللي بتقراه دلوقتي على صفحة 123 وعد خمس سطور واكتب أول تلاتة بعدهم..<br />
+ما بلاش!! بس ما علينا انتوا أحرار..</p>
+<blockquote>
+<p>Software Engineering observation 11.2<br />
+whenever possible, specify the size of a container at compile time (possibly throught a non-type template size parameter).This avoids the the possibility of a potentially fatal executoin-time error if  new is unable to obtain the needed memory.</p>
+</blockquote>
+<p>بأمرر التاج دلوقتي ل<a rel="noopener" target="_blank" href="http://wanamaly.blogspot.com/">براء</a>  و<a rel="noopener" target="_blank" href="http://bintbalad.blogspot.com/">دعاء</a>  و<a rel="noopener" target="_blank" href="http://fromgrave.blogspot.com/">أحمد الهواري</a>  و<a rel="noopener" target="_blank" href="http://lamiaamahmoad4810.blogspot.com/">لميا</a>، دول الـcouples اللي في الليلة.. و<a rel="noopener" target="_blank" href="http://cerebrosus.blogspot.com/">أحمد عبدالله</a>  الشاب الفرداني :)</p>
+
+
+      
+
+    </div>
+  </article>
+</section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="max-w-6xl mx-auto">
+  <section class="flex flex-col justify-center sm:flex-row items-center gap-8 mt-6">
+    <div class="flex px-0 mx-0">
+      <a href="https://twitter.com/mos3abof" class="px-1">
+        <i class="mdi mdi-twitter text-slate-600 mdi-24px my-auto hover:text-blue-400 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.github.com/mos3abof" class="px-1">
+        <i
+          class="mdi mdi-github text-slate-600 mdi-24px my-auto hover:text-black dark:text-slate-300 dark:hover:text-slate-500"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/mosab" class="px-1">
+        <i class="mdi mdi-linkedin text-slate-600 mdi-24px my-auto hover:text-blue-500 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.facebook.com/mos3abof" class="px-1">
+        <i class="mdi mdi-facebook text-slate-600 mdi-24px my-auto hover:text-blue-700 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.instagram.com/mos3abof" class="px-1">
+        <i class="mdi mdi-instagram text-slate-600 mdi-24px my-auto hover:text-pink-500 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.youtube.com/@mos3abof13" class="px-1">
+        <i class="mdi mdi-youtube text-slate-600 mdi-24px my-auto hover:text-red-500 dark:text-slate-300"></i>
+      </a>
+      <a rel="me" href="https://fosstodon.org/@mos3abof" class="px-1">
+        <i class="mdi mdi-mastodon text-slate-600 mdi-24px my-auto hover:text-violet-600 dark:text-slate-300"></i>
+      </a>
+      <a href="/rss" class="px-1">
+        <i class="mdi mdi-rss text-slate-600 mdi-24px my-auto hover:text-orange-400 dark:text-slate-300"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="flex flex-col justify-center sm:flex-row items-center gap-8 mt-5 mb-4">
+    <div class="px-0 mx-0">
+      <p class="max-w-md text-sl text-center sm:text-sl text-slate-600
+            dark:text-slate-300">
+        
+      <p>
+      <p class="max-w-md text-sl text-center sm:text-sl text-slate-600
+            dark:text-slate-300">
+        جميع الحقوق محفوظة © 2026 - مصعب أحمد إبراهيم
+      <p>
+    </div>
+  </section>
+
+  <!-- <section class="flex flex-col-reverse justify-center sm:flex-row  items-center mt-5"> -->
+  <!--   <a href="https://decolonizepalestine.com/"><img src="/images/decolonize-palestine.png.webp" target="_blank" -->
+  <!--       alt="Decolonize Palestine" title="Decolonize Palestine" class="text-center drop-shadow" /></a> -->
+  <!-- </section> -->
+
+  <section class="flex flex-col-reverse justify-center sm:flex-row items-center mt-10 mb-12">
+    <a href="http://www.catb.org/hacker-emblem/"><img src="https://mosab.co.uk/images/glider.png" target="_blank"
+        alt="Hacker Emblem Logo" title="Hacker Emblem Logo" class="text-center drop-shadow" /></a>
+  </section>
+</footer>
+
+</body>
+<script>
+  var themeToggleBtn = document.getElementById('theme-toggle');
+
+  themeToggleBtn.addEventListener('click', function() {
+      if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+      } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+      }
+  });
+</script>
+</html>

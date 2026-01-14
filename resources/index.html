@@ -1,0 +1,383 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="sm:scroll-smooth" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://mosab.co.uk/css/style.css">
+  <link rel="icon" type="image/x-icon" href="https://mosab.co.uk/./images/favicon.ico">
+  <!-- MDI Icons -->
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css">
+  <script src="https://mosab.co.uk/js/main.js" defer></script>
+  <title>
+    
+      Resources | Mosab Ahmad Ibrahim
+    
+  </title>
+
+  <!-- load Arabic web fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wdth,wght@62.5..100,100..900&display=swap" rel="stylesheet">
+  <style>
+    direction:rtl;
+    text-align:right;
+    article p {
+      direction:rtl;
+      text-align:right;
+    }
+  </style>
+
+  <script>
+    //// Persist user choice to localStorage
+    //if (localStorage.getItem('dark-mode') === 'true' || (!('dark-mode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    //  document.querySelector('html').classList.add('dark');
+    //} else {
+    //    document.querySelector('html').classList.remove('dark');
+    //}
+  </script>
+</head>
+
+<body class="min-h-screen bg-slate-50 dark:bg-black dark:text-white selection:text-white selection:bg-blue-600  ">
+  <!-- Header -->
+  <!-- Header -->
+
+
+
+
+
+
+<header class="text-black dark:text-slate-200 top-0 z-10">
+  <section class="max-w-6xl mx-auto p-4 flex justify-between items-center">
+    <div>
+      <button id="hamburger-button" class="text-3xl sm:hidden cursor-pointer">
+        &#9776;
+      </button>
+
+      <nav class="hidden sm:block space-x-1 text-xl" aria-label="main">
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk"> <i class="mdi mdi-home text-slate-600 mdi-24px my-auto hover:text-white dark:text-slate-300"></i> </a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/resume">Resume</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/projects">Projects</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/about">About</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/blog">Posts</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/talks">Talks</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/contact">Contact</a>
+        
+
+        <a href="https://mosab.co.uk/ar"
+          class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1 noto-sans">
+          <span class="border-solid">العربية</span>
+        </a>
+
+        <!-- Dark/Light theme toggle -->
+        <!-- <button class="cursor-pointer" id="theme-toggle"> -->
+        <!--   <i class="mdi mdi-brightness-6" /> -->
+        <!-- </button> -->
+      </nav>
+    </div>
+  </section>
+  <section id="mobile-menu"
+    class="absolute top-0 z-10 bg-slate-200 dark:bg-black w-full text-teal-600 dark:text-white text-3xl flex-col justify-content-center origin-top animate-open-menu hidden">
+    <button class="text-6xl cursor-pointer self-end px-6">
+      &times;
+    </button>
+    <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
+      
+      
+      
+      
+      <a href="https://mosab.co.uk" class="w-full text-center py-6 hover:opacity-90">Home</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/resume" class="w-full text-center py-6 hover:opacity-90">Resume</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/projects" class="w-full text-center py-6 hover:opacity-90">Projects</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/about" class="w-full text-center py-6 hover:opacity-90">About</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/blog" class="w-full text-center py-6 hover:opacity-90">Posts</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/talks" class="w-full text-center py-6 hover:opacity-90">Talks</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/contact" class="w-full text-center py-6 hover:opacity-90">Contact</a>
+      
+
+      <a href="https://mosab.co.uk/ar"
+        class="w-full text-center py-6 hover:opacity-90 noto-sans">العربية</a>
+    </nav>
+  </section>
+</header>
+
+
+  <!-- Main  part of the page -->
+  <main class="max-w-6xl mx-auto my-4  ">
+    
+  
+
+<!-- Intro Section -->
+<section class="flex flex-col justify-center sm:flex-row p-6 items-center gap-8   ">
+  <article class="w-screen px-4 sm:px-0  ">
+    
+
+  <h1 class="text-3xl font-bold sm:text-4xl text-slate-900 dark:text-slate-300  ">
+    Resources<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
+
+
+    
+
+    
+
+    
+    
+
+    <div class="my-4  ">
+      <p>Over time, I have compiled and distilled a list of lists of useful resources.</p>
+<p>If you have any feedback please don't hesitate to <a href="/contact/">send it my way</a>.</p>
+<p>If you want to buy me a gift, a book from my <a rel="noopener" target="_blank" href="https://www.amazon.co.uk/hz/wishlist/ls/1ZVYP207HZR6H?type=wishlist&amp;filter=unpurchased&amp;sort=priority">technical book
+wishlist</a>
+would be awesome! There is also my <a rel="noopener" target="_blank" href="https://www.amazon.co.uk/hz/wishlist/ls/314HICF494KE3?type=wishlist&amp;filter=unpurchased&amp;sort=priority">non-technical book
+wishlist</a>.</p>
+<h2 id="database-systems-and-reliability-engineering">Database Systems and Reliability Engineering</h2>
+<ul>
+<li>High Performance MySQL, by Baron Schwartz, Peter Zaitsev &amp; Vadim Tkachenko.</li>
+<li><a rel="noopener" target="_blank" href="https://online.stanford.edu/courses/soe-ydatabases-databases">Introduction to Databases</a>, by Stanford.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/playlist?list=PLSE8ODhjZXja7K1hjZ01UTVDnGQdx5v5U">CMU 15-721 Advanced Database Systems</a>, by Carnegie Mellon University.</li>
+</ul>
+<h2 id="linux-internals-and-systems-programming">Linux Internals and Systems Programming</h2>
+<ul>
+<li>Understanding the Linux Kernel, 3rd Edition, by Daniel P. Bovet, and Marco Cesati.</li>
+<li>Advanced Linux Programming, by Mark Mitchell.</li>
+<li>Linux Kernel Development, by Robert Love.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=WVTWCPoUt8w">The Origins of Linux</a> by Linus Torvalds at the Computer History Museum.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=FJW8nGV4jxY&amp;list=PLuIKgvdnYfKAj3uLKtNgu69VkAn023WOX">Linux Performance Tools</a> by Brendan Gregg at Velocity.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=PorfLSr3DDI">Give me 15 minutes &amp; I'll change your view of GDB</a> by Greg Law at CppCon 2015.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=vU2HDf5ZhO4">An Introduction to Linux IPC Facilities</a> by Michael Kerrisk at Linux Conference Australia 2013.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=YsYzMPptB-k">Beginners Guide to Containers Technology</a> and how it actually works, by James Bottomley.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/playlist?list=PL--jIyXjDXf6Q4XA6q8RYnyChYzJ0K0F2">CS162: Operating Systems</a>, by Berkley.</li>
+<li><a rel="noopener" target="_blank" href="https://lwn.net/Articles/531114/">Namespaces in Operation (LWN Series)</a></li>
+<li><a rel="noopener" target="_blank" href="https://lwn.net/Articles/603762/">Control Groups (LWN Series)</a></li>
+</ul>
+<h2 id="distributed-systems">Distributed Systems</h2>
+<ul>
+<li>Designing Data-Intensive Applications, by Martin Kleppmann.</li>
+<li>Cloud Computing Concepts <a rel="noopener" target="_blank" href="https://www.coursera.org/learn/cloud-computing">Part 1</a>, and <a rel="noopener" target="_blank" href="https://www.coursera.org/learn/cloud-computing-2">Part 2</a>, part of the <a rel="noopener" target="_blank" href="https://www.coursera.org/specializations/cloud-computing">Cloud Computing Scpecialization</a>, on Coursera, Illinois. <em>* Probably should be called Introduction to Distributed Programming</em></li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/playlist?list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB">6.824: Distributed Systems</a>, by MIT.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/playlist?list=PLeKd45zvjcDFUEv_ohr_HdUFe97RItdiB">Distributed Systems Lecture
+Series</a>, by Martin
+Kleppmann.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/playlist?list=PLawkBQ15NDEkDJ5IyLIJUTZ1rRM9YQq6N">CS436: Distributed Computer Systems</a>, by University of Waterloo.</li>
+<li><a rel="noopener" target="_blank" href="http://lamport.azurewebsites.net/video/videos.html">The TLA+ Video Course</a>, by Leslie Lamport.</li>
+<li><a rel="noopener" target="_blank" href="http://dsrg.pdos.csail.mit.edu/papers/">Distributed Systems Reading Group</a></li>
+</ul>
+<h2 id="programming">Programming</h2>
+<ul>
+<li>Data Structures and Algorithms in Python, by Michael T. Goodrich, Roberto Tamassia, and Michael H. Goldwasser.</li>
+<li>The Go Programming Language, by Alan A. A. Donovan, and Brian Kernighan.</li>
+<li><a rel="noopener" target="_blank" href="https://see.stanford.edu/Course/CS107">CS107: Programming Paradigms</a>, by Stanford Center for Professional Development.</li>
+<li><a rel="noopener" target="_blank" href="https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-11">6.00.1x: Introduction to Computer Science and Programming Using Python</a>, by MIT, on edx.org.</li>
+<li><a rel="noopener" target="_blank" href="https://www.udemy.com/basics-of-software-architecture-design-in-java/">Basics of Software Architecture &amp; Design Patterns in Java</a> [Not free], By Holczer Balazs, on Udemy.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/playlist?list=PLMmkIYwZrM0XDxELmwRluWcoqZ--dHk_D">6.004: Computation Structures</a>, by Chris Terman from MIT.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/playlist?list=PL5PHm2jkkXmi5CxxI7b3JCL1TWybTDtKq">Computer Architecture</a>, by Carnegie Mellon.</li>
+<li><a rel="noopener" target="_blank" href="https://www.pluralsight.com/paths/python">Python Path</a> [Not free], from PluralSight.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=S0CU0VqcYhI">You Look at it till a Solution Occurs</a> by Brandon Rhodes at PyCon 2017.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=Pi9NpxAvYSs">Python Epiphanies</a> by Stuart Williams.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=p33CVV29OG8">Modern Dictionaries</a> by Raymond Hettinger.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=OSGv2VnC0go">Transforming Code into Beautiful, Idiomatic Python</a> by Raymond Hettinger at Next Day Video.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=7BqJ8dzygtU">Go development with vim-go</a> by Fatih Arslan at DigitalOcean NYC Meetup.</li>
+</ul>
+<h2 id="production-engineering-and-sre">Production Engineering and SRE</h2>
+<ul>
+<li>Systems Performance: Enterprise and the Cloud, by Brendann Gregg.</li>
+<li>Site Reliability Engineering, edited by Betsy Beyer, Chris Jones, Jennifer Petoff, and Niall Richard Murphy.</li>
+<li><a rel="noopener" target="_blank" href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2010/index.htm">6.172: Performance Engineering of Software Systems</a>, from MIT.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=ugkkza3vKbc">Notes from Production Engineering</a> by Pedro Canahuati at SREcon15.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=DeWkPsFq3cc">Production Engineering at Facebook [Arabic]</a> by Ahmed Soliman at FB Developer Circles &amp; Egyptian Geeks Meetup.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=c-w_GYvi0eA">Getting Started with SRE</a> by Stephen Thorne at DevOps Enterprise Summit.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=YkOY7DgXKyw">Building a Bank with Kubernetes</a> by Oliver Beattie at Kubecon.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=MDQ0uEUmLOo">Cloud Capacity Planning</a> by Andrew Park at SouthBay SRE.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=c-w_GYvi0eA&amp;feature=youtu.be">Getting Started with SRE</a> by Stephen Thorne, from Google.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=hnpzNAPiC0E&amp;feature=youtu.be">Scaling Instagram Infrastructure</a> by Lisa Guo at QCon 2017.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=VQpQ0YHSfqM">A/B Testing</a> by Stuart Frisby, principal designer at Booking.com</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=TJLpYXbnfQ4">The RED Method How To Instrument Your Services</a> by Tom Wilkie.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=03EC8uA30Pw">Cloud Performance Root Cause Analysis at Netflix</a> by Brendan Gregg.</li>
+</ul>
+<h2 id="computer-networking">Computer Networking</h2>
+<ul>
+<li><a rel="noopener" target="_blank" href="http://gaia.cs.umass.edu/kurose_ross/online_lectures.htm">Computer Networking: A Top-Down Approach</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi">CMU 15-445/645 Intro to Database Systems</a>, by Carnegie Mellon University.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=gfYYggNkM20">TCP Tuning for the Web</a> by Jason Cook at Linux Conference Australia 2014.</li>
+</ul>
+<h2 id="misc-computer-science">Misc Computer Science</h2>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/playlist?list=PLB7540DEDD482705B">6.042J: Mathematics for Computer Science</a>, by Tom Leighton from MIT.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/playlist?list=PLUl4u3cNGP62K2DjQLRxDNRi0z2IRWnNh">6.858 Computer Systems Security</a>, from MIT.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=ZTC_RxWN_xo">Secret History of Silicon Valley</a> by Steve Blank.</li>
+</ul>
+<h2 id="interview-prep">Interview Prep</h2>
+<ul>
+<li>Cracking The Coding Interview, by Gayle Laakman.</li>
+<li><a rel="noopener" target="_blank" href="https://www.educative.io/collection/5668639101419520/5649050225344512">Grokking the System Design Interview</a> [Not free], by Educative.</li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=ZgdS0EUmn70">Intro to Architecture and Systems Design Interviews</a> by Jackson Gabbard.</li>
+</ul>
+<h2 id="other-books-i-like">Other Books I Like</h2>
+<ul>
+<li>The Art of Strategy, by Avinash K. Dixit, and Barry J. Nalebuff.</li>
+<li>The Tipping Point, by Malcolm Gladwell.</li>
+<li>Outliers, by Malcolm Gladwell.</li>
+<li>The Everything Store, by Brad Stone.</li>
+<li>The Pixar Touch, by David A. Price.</li>
+<li>The Start-up of You, by Reid Hoffman, and Ben Casnocha.</li>
+<li>The Hacker's Diet, by John Walker.</li>
+<li>Marathon: The Ultimate Training Guide, by Hal Higdon.</li>
+</ul>
+<h2 id="cycling-resources">Cycling Resources</h2>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/watch?v=ipENw5mjjSg">Hills Are NOT Harder Than Cycling On The Flat (Says Science)</a></li>
+<li><a rel="noopener" target="_blank" href="https://youtu.be/HlglnUNnAnY">Hill Climb Science: How to Correctly Pace Long Hill Climbs using a Power Meter</a></li>
+</ul>
+<h2 id="misc">Misc</h2>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://www.geeksforgeeks.org">Geeks for Geeks</a></li>
+<li><a rel="noopener" target="_blank" href="https://teachyourselfcs.com/">Teach Yourself Computer Science</a></li>
+<li><a rel="noopener" target="_blank" href="http://www.wu.ece.ufl.edu/links/dataRate/DataMeasurementChart.html">Data Measurement Chart</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/playlist?list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf">Rice Up Your i3wm</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.levels.fyi">Levels: Compare Career Levels across Companies</a></li>
+<li><a rel="noopener" target="_blank" href="https://martin.kleppmann.com/archive.html">Martin Kleppmann's Blog Posts</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/user/briantwill/featured">Brian Will's Youtube Channel</a></li>
+<li><a rel="noopener" target="_blank" href="https://explainshell.com">Explain Shell</a></li>
+<li><a rel="noopener" target="_blank" href="https://regex101.com">Regular Expressions 101</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.youtube.com/channel/UCXPHFM88IlFn68OmLwtPmZA">Greg Hurrell's Youtube Channel about vim and neovim</a></li>
+</ul>
+
+
+      
+
+    </div>
+  </article>
+</section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="max-w-6xl mx-auto">
+  <section class="flex flex-col justify-center sm:flex-row items-center gap-8 mt-6">
+    <div class="flex px-0 mx-0">
+      <a href="https://twitter.com/mos3abof" class="px-1">
+        <i class="mdi mdi-twitter text-slate-600 mdi-24px my-auto hover:text-blue-400 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.github.com/mos3abof" class="px-1">
+        <i
+          class="mdi mdi-github text-slate-600 mdi-24px my-auto hover:text-black dark:text-slate-300 dark:hover:text-slate-500"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/mosab" class="px-1">
+        <i class="mdi mdi-linkedin text-slate-600 mdi-24px my-auto hover:text-blue-500 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.facebook.com/mos3abof" class="px-1">
+        <i class="mdi mdi-facebook text-slate-600 mdi-24px my-auto hover:text-blue-700 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.instagram.com/mos3abof" class="px-1">
+        <i class="mdi mdi-instagram text-slate-600 mdi-24px my-auto hover:text-pink-500 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.youtube.com/@mos3abof13" class="px-1">
+        <i class="mdi mdi-youtube text-slate-600 mdi-24px my-auto hover:text-red-500 dark:text-slate-300"></i>
+      </a>
+      <a rel="me" href="https://fosstodon.org/@mos3abof" class="px-1">
+        <i class="mdi mdi-mastodon text-slate-600 mdi-24px my-auto hover:text-violet-600 dark:text-slate-300"></i>
+      </a>
+      <a href="/rss" class="px-1">
+        <i class="mdi mdi-rss text-slate-600 mdi-24px my-auto hover:text-orange-400 dark:text-slate-300"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="flex flex-col justify-center sm:flex-row items-center gap-8 mt-5 mb-4">
+    <div class="px-0 mx-0">
+      <p class="max-w-md text-sl text-center sm:text-sl text-slate-600
+            dark:text-slate-300">
+        
+      <p>
+      <p class="max-w-md text-sl text-center sm:text-sl text-slate-600
+            dark:text-slate-300">
+        (c) 2026 - Mosab Ibrahim
+      <p>
+    </div>
+  </section>
+
+  <!-- <section class="flex flex-col-reverse justify-center sm:flex-row  items-center mt-5"> -->
+  <!--   <a href="https://decolonizepalestine.com/"><img src="/images/decolonize-palestine.png.webp" target="_blank" -->
+  <!--       alt="Decolonize Palestine" title="Decolonize Palestine" class="text-center drop-shadow" /></a> -->
+  <!-- </section> -->
+
+  <section class="flex flex-col-reverse justify-center sm:flex-row items-center mt-10 mb-12">
+    <a href="http://www.catb.org/hacker-emblem/"><img src="https://mosab.co.uk/images/glider.png" target="_blank"
+        alt="Hacker Emblem Logo" title="Hacker Emblem Logo" class="text-center drop-shadow" /></a>
+  </section>
+</footer>
+
+</body>
+<script>
+  var themeToggleBtn = document.getElementById('theme-toggle');
+
+  themeToggleBtn.addEventListener('click', function() {
+      if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+      } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+      }
+  });
+</script>
+</html>

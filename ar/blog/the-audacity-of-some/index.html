@@ -1,0 +1,414 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ar" class="sm:scroll-smooth" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://mosab.co.uk/css/style.css">
+  <link rel="icon" type="image/x-icon" href="https://mosab.co.uk/./images/favicon.ico">
+  <!-- MDI Icons -->
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css">
+  <script src="https://mosab.co.uk/js/main.js" defer></script>
+  <title>
+    
+      عن البجاحة، والنَّطَاعة، وانحطاط النفس! | مصـ( الخير )ـعب
+    
+  </title>
+
+  <!-- load Arabic web fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wdth,wght@62.5..100,100..900&display=swap" rel="stylesheet">
+  <style>
+    direction:rtl;
+    text-align:right;
+    article p {
+      direction:rtl;
+      text-align:right;
+    }
+  </style>
+
+  <script>
+    //// Persist user choice to localStorage
+    //if (localStorage.getItem('dark-mode') === 'true' || (!('dark-mode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    //  document.querySelector('html').classList.add('dark');
+    //} else {
+    //    document.querySelector('html').classList.remove('dark');
+    //}
+  </script>
+</head>
+
+<body class="min-h-screen bg-slate-50 dark:bg-black dark:text-white selection:text-white selection:bg-blue-600 noto-sans rtl-grid">
+  <!-- Header -->
+  <!-- Header -->
+
+
+
+
+
+
+<header class="text-black dark:text-slate-200 top-0 z-10">
+  <section class="max-w-6xl mx-auto p-4 flex justify-between items-center">
+    <div>
+      <button id="hamburger-button" class="text-3xl sm:hidden cursor-pointer">
+        &#9776;
+      </button>
+
+      <nav class="hidden sm:block space-x-1 text-xl" aria-label="main">
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar"> <i class="mdi mdi-home text-slate-600 mdi-24px my-auto hover:text-white dark:text-slate-300"></i> </a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/resume">السيرة الذاتية</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/projects">مشاريعي</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/about">من أنا</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/blog">تدوينات</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/talks">كلام عن التكنولوجيا</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/contact">تواصل معي</a>
+        
+
+        <a href="https://mosab.co.uk"
+          class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1 noto-sans">
+          <span class="border-solid">English</span>
+        </a>
+
+        <!-- Dark/Light theme toggle -->
+        <!-- <button class="cursor-pointer" id="theme-toggle"> -->
+        <!--   <i class="mdi mdi-brightness-6" /> -->
+        <!-- </button> -->
+      </nav>
+    </div>
+  </section>
+  <section id="mobile-menu"
+    class="absolute top-0 z-10 bg-slate-200 dark:bg-black w-full text-teal-600 dark:text-white text-3xl flex-col justify-content-center origin-top animate-open-menu hidden">
+    <button class="text-6xl cursor-pointer self-end px-6">
+      &times;
+    </button>
+    <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar" class="w-full text-center py-6 hover:opacity-90">الرئيسية</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/resume" class="w-full text-center py-6 hover:opacity-90">السيرة الذاتية</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/projects" class="w-full text-center py-6 hover:opacity-90">مشاريعي</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/about" class="w-full text-center py-6 hover:opacity-90">من أنا</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/blog" class="w-full text-center py-6 hover:opacity-90">تدوينات</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/talks" class="w-full text-center py-6 hover:opacity-90">كلام عن التكنولوجيا</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/contact" class="w-full text-center py-6 hover:opacity-90">تواصل معي</a>
+      
+
+      <a href="https://mosab.co.uk"
+        class="w-full text-center py-6 hover:opacity-90 noto-sans">English</a>
+    </nav>
+  </section>
+</header>
+
+
+  <!-- Main  part of the page -->
+  <main class="max-w-6xl mx-auto my-4 noto-sans rtl-grid">
+    
+  
+
+<!-- Intro Section -->
+<section class="flex flex-col justify-center sm:flex-row p-6 items-center gap-8  noto-sans rtl-grid">
+  <article class="w-screen px-4 sm:px-0 noto-sans rtl-grid">
+    
+
+  <h1 class="text-3xl font-bold sm:text-4xl text-slate-900 dark:text-slate-300 noto-sans rtl-grid">
+    عن البجاحة، والنَّطَاعة، وانحطاط النفس!<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
+
+
+    
+      <span 
+        class="text-slate-400 sm:text-1/2xl text-sl font-mono noto-sans rtl-grid">تم نشرها في  <time 
+          class="text-slate-500">2025-11-28</time></span>
+    
+
+    
+
+    
+    
+
+    <div class="my-4 noto-sans rtl-grid">
+      <p><img src="https://mosab.co.uk/ar/blog/the-audacity-of-some/the-arshole-post.jpg" alt="بوست البيه" /></p>
+<blockquote>
+<p>أي تشابه بين شخصيات هذا العمل وشخصيات على أرض الواقع هو محض صدفة لعينة جارت
+علينا، ومن قبيل غدر الزمان بنا، ونوازل الدهر، وابتلاء الله لنا !</p>
+</blockquote>
+<div class="aspect-w-16 aspect-h-9">
+  <iframe frameborder="0"
+    src="https://www.youtube-nocookie.com/embed/QDhSgyPJFus?si=mXe6uLa_nD2WO8Bq"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+    allowfullscreen></iframe>
+</div>
+<p>الواحد يبقى قاعد في أمان الله، ويلاقي منشور على الانترنت على صفحة حد من أنطع
+وأنذل خلق الله اللي عاشرهم في حياته. البيه كتب بوست ضحل زي دماغه، على خلفية
+خرائية زي معرفته الهباب بيقول فيه:</p>
+<blockquote>
+<p>"عندما تسترجع أحداث حياتك ستكتشف أن أكثر شخص أنت مدين له بالاعتذار هو نفسك".</p>
+</blockquote>
+<p><img src="https://mosab.co.uk/ar/blog/the-audacity-of-some/the-arshole-post.jpg" alt="بوست البيه" /></p>
+<p>ايه؟! (بصوت شفيق)</p>
+<p>ده أنا من ساعة ما وعيت على حقيقة ن -للأسف الشديد- ليّ قريب، هنسميه شوكت لدواعي
+الدراما، وعلشان من ناحية مش قادر أشوف اسمه كتير، ومن ناحية تانية هو شوكت في حلق
+الكوكب! من ساعتها وأنا ما شفتش منه حاجة واحدة بس عِدلة! أقسم بالله عصرت ذهني
+مرات ومرات، ومفيش!</p>
+<p>الموسيقى التصويرية التي كان لازم تشتغل أول ما البوست بتاعه ده يفتح، هي ضحكات
+رقيعة، مرتفعة، مستمرة، وعدد لا بأس به من الشخرات الإسكندراني! يا حبذا لو صاحبها
+كذلك عدد كبير من البعابيص الطائرة في الهواء!</p>
+<p>أحه يا شوكت! أنت مدين لنفسك باعتذار؟!  هَزُلَتْ والله! اعذرني عزيزي القارئ، بس
+الفقرة اللي فاتت مهمة جدا، ومرة واحدة ما كانتش كفاية، محتاجين نكررها تاني!</p>
+<blockquote>
+<p>الموسيقى التصويرية التي كان لازم تشتغل أول ما البوست ده يفتح، هي ضحكات رقيعة،
+مرتفعة، مستمرة، وعدد لا بأس به من الشخرات الإسكندراني! يا حبذا لو صاحبها كذلك عدد
+كبير من البعابيص الطائرة في الهواء!</p>
+</blockquote>
+<p>عدد محدود جدا من الأشخاص اللي شاء حظي العثر أقابلهم في رحلتي اللي ينفع الواحد
+يشاور عليهم لو حد سأل عن البجاحة، والنطاعة، والحقارة، ويبقى الواحد مطمئن ومتأكد
+إن الناس هتفهم المعنى بدقة شديدة. عدد الناس دي ما يكملش عدد صوابع الإيد الواحدة!
+وأنت يا شوكت على رأس هذه القائمة بلا منازع ولا جدال! بل، ده أنت الوحيد في هذه
+القائمة اللي فيك كل الصفات، الباقيين فيهم صفتين أو تلاتة بالكتير! ده الشجر لو
+عرفك هيستخسر فيك الأكسجين!</p>
+<p>طبعا رديت على المنشور، وحاولت أكون مؤدب، ومنصف، على قدر استطاعتي، فكتبت له:</p>
+<blockquote>
+<p>"يا سلاااام!!</p>
+<p>يعني أنت سِبْت كل الناس اللي أنت مدين لهم باعتذارات (مش اعتذار واحد) بجد، و جاي
+"تكتشف" إنك عاوز تعتذر لنفسك؟!!</p>
+<p>هو أنت امتى في يوم جيت على نفسك أو سبتها محرومة من حاجة أنت عاوزها؟ ولا فرق معاك
+في أي مرة ايه الصح من الغلط، ولا مسئولياتك ايه، ولا حتى ايه حلال وحرام! قال مدين
+بالاعتذار لنفسه قال!</p>
+<p>كله هيتحل يوم القيامة، وكل حق اتهضم واعتذار واجب هيوصل لأصحابه إن شاء الله."</p>
+</blockquote>
+<p>الكلام طبعا ما عجبوش، وكعادته لما يتهزأ، بيحاول يقلب الكلام هزار، ولكن أنا فضلت
+ماسك الخط كما هو موضح بالشكل:</p>
+<p><img src="https://mosab.co.uk/ar/blog/the-audacity-of-some/my-response.png" alt="تعليقي، وردوده" /></p>
+<p>اللي يعرفني يقدر بوضوح شديد يشوف قد ايه أنا ماسك لساني، وضابط أعصابي في الرد.</p>
+<p>الموضوع كبر، ودخل أشخاص آخرين، ما عنديش ناحيتهم أي مشاعر سلبية الحقيقة، ولا
+آذوني قبل كده، يردوا ويدافعوا عن البيه! ردود من هذا النوع:</p>
+<p><img src="https://mosab.co.uk/ar/blog/the-audacity-of-some/comment-1.png" alt="التعليق الأول" /></p>
+<p><img src="https://mosab.co.uk/ar/blog/the-audacity-of-some/comment-2.png" alt="التعليق الثاني" /></p>
+<p>ولإني زي ما قلت فوق، مفيش من ناحيتي مشاكل معاهم، أخفيت أسمائهم، وما رديتش عليهم،
+واكتفيت بالتفاعل مع تعليقاتهم بالضحك وخلاص. لكن المضحك المبكي بجد في هذا
+الموضوع، إن اللي داخلين يردوا دول لم يسلموا من أذاه لحظة واحدة من ساعة ما وعيت
+على الدنيا.</p>
+<p>لفتة لطيفة هنا فيما يتعلق بالتعليق الثاني: التعليق منشور ردا على البوست الأصلي،
+مش ردا على تعليقي. أظن إن صاحب أو صاحبة التعليق يقصد الرد عليّ، وإن دي زلة تقنية
+بتحصل عادي. لكن، سيكون مضحكا جدا لو كان القصد من التعليق الرد على صاحب البوست،
+بس كاتب أو كاتبة التعليق قرروا يمثلوا إنه رد موجه ليّ! :D</p>
+<hr />
+<h2 id="gyd-mn-fyd-lathr-l-atin-llmdhkwr">غيض من فيض الآثار العَطِنة للمذكور</h2>
+<p>بس تمام، يا صاحب التعليق الأول، أنت فاكر إني بأتبلّى على المذكور؟! تعالى أحكيلك
+فيض من غيض آثاره العفنة، وسيرته العطنة!</p>
+<h2 id="1">(١)</h2>
+<p>هل تعلم أن المذكور سرق عفش أمي الله يرحمها؟! لما شوكت اتجوز أول مرة، أبويا
+-الله يرحمه- عرض عليه يقعد في شقتنا لأنه كان محتاس مش لاقي شقة، واحنا كنا مسافرين
+بحكم شغل بابا. كنا بنسافر معظم السنة، ونرجع في أجازة الصيف.</p>
+<p>قبل ما نرجع من السفر، أبويا بلّغه علشان يلحق يدبّر حاله، وكفاية برطعة الشهور دي
+كلها، شوكت طبعا ساب لنا الشقة، بس ما سابش فيها عفش! جهاز أمي الله يرحمها شفطه،
+ونقله لشقته الجديدة، وفضل معاه سنين طويلة بعدها (إن ما كانش لسة عنده حاجات
+منه).</p>
+<h2 id="2">(٢)</h2>
+<p>هل تعلم إن شوكت بعد وفاة أبونا كان عاوز يطردنا من شقة أبونا، ويقعدنا عند عمي
+الكبير -الله يرحمه- ، ويقعد هو في شقتنا؟! في محاولته لتحقيق ده فضل يوقع بيننا
+وبين عمي الكبير واحنا في بيت عمي الكبير، لدرجة إن عمي الكبير انفعل جدا، وضربني
+على وشي بالقلم بسبب هذا الشخص؟</p>
+<p>في وسط هذا اليوم المشهود شوكت قال كلام محفور في دماغي حتى هذه اللحظة من كتر ما
+كان الكلام ده منحط، وحقير، وخسيس، ودنيئ. تخيّل عمّك بيقول لولاد أخوه بعد ما فقدوا
+أبوهم (وقبلها بسنتين أمهم)، تخيل إنه بيقول لهم الآتي</p>
+<blockquote>
+<p>"دول أكلوا أكلات، عمري في حياتي ما أحلم آكلها!
+دول لبسوا هدوم، عمري في حياتي ما أقدر ألبسها!
+واتفسحوا فُسح مستحيل أعمل عُشرها!
+عاوزين ايه تاني؟!".</p>
+</blockquote>
+<p>متخيّل؟!</p>
+<p>كان بيقول الكلام ده وهو بيقول لنا نسلمّه مفاتيح شقتنا، علشان "محتاجين نقعد عند
+عمي الكبير نتربّى"، على ايه؟ والله ما عارف! ودي كانت أول مرة بعد وفاة أبويا الله
+يرحمه أقول لحد كبير "لا" بصوت عالي من كتر بشاعة الموقف!</p>
+<h2 id="3">(٣)</h2>
+<p>هل تعلم إن بعد وفاة أبويا، لما كان البيه يحب يغيّر جو، ينزل من الفيّوم وييجي يقعد
+عندنا في البيت اللي قاعد فيه أنا وإخواتي لوحدنا، قال ايه "بيتطمن على ولاد أخوه".
+في هذه الزيارات اللي جاي يتطمن علينا فيها، البيه كان ما بيصرفش ملّيم من جيبه!
+كان بياخد من مصروف بيتنا أنا وإخواتي كل حاجة:</p>
+<ul>
+<li>فلوس المواصلات رايح جاي</li>
+<li>فلوس أكله وشربه</li>
+<li>فلوس سجايره</li>
+<li>وطبعا كان بيضرب أي باقي عند الدفع علشان يكمل ورد النتانة اليومي!</li>
+</ul>
+<p>وصل بيه الفجر إنه كان بيبعتنا نشتري فاكهة "للبيت" بـ"فلوسنا"، ويقعد يطفحها
+لوحده على الكنبة في صالة بيتنا وهو بيتفرج على التليفزيون في صالة بيتنا وسايبنا!</p>
+<p><strong>أكرر:كان بيبعتنا نشتري فاكهة "للبيت" بـ"فلوسنا"، ويقعد يطفحها لوحده على الكنبة
+في صالة بيتنا وهو بيتفرج على التليفزيون وسايبنا!</strong></p>
+<h2 id="4">(٤)</h2>
+<p>لما جدي -الله يرحمه- مات، بعد ما اتدفن مباشرة، ورجع على البيت هو عمي وعمّاتي،
+قال لهم كده في وشهم، قبل حتى ما تربة جدي تبرد، إن جدو "سايب له المحل"، وإنه
+"هياخد شقة جدو الإيجار القديم" كده بالدراع، ويطرد مرات جدي منها، والكام مليم
+اللي فضلوا بعد مصاريف علاج جدي الله يرحمه، البيه قال لك "آخد بدل مصاريف ما أعرفش
+ايه" -زي ما عمل معانا بالضبط لما كان بييجي "يتطمن علينا"- ، والفلوس اللي فاضلة
+بعد المصاريف قال لك "أنا هأخدها علشان ده نصيبي".</p>
+<h2 id="5">(٥)</h2>
+<p>الموقف اللي فات مهم، لأن ما حدش سمع من جدي أي حاجة من هذه الإدعاءات إطلاقا!</p>
+<p>على النقيض، وبحكم إن أبويا مات قبل جدي: جدي قال مرارا وتكرارا وهو عايش، وبشكل
+واضح لا يحتمل اللبس، قدام كل الناس، إنه متنازل عن نصيبه في ورثه من أبويا. جدي
+قال الكلام ده في القعدات الخاصة، والعامة. قاله على الملأ وعلى التليفون، وعلى
+ترابيزة الغدا قدام العيلة كلها في تجمعات العيد. قاله وعاده وزاده صباحا ومساء.</p>
+<p>بس طبعا لما جدي توفاه الله، شوكت قال لك "مفيش الكلام ده، أنا هآخد فلوسي".</p>
+<h2 id="6">(٦)</h2>
+<p>ده أنت يا جاحد كانت عينك هتطلع من جمجمتك وكان ناقص بس لعابك يسيل في عزاء أبويا
+وأنت عمال تُحرك وتُفرك وما شلتش عينيك لحظة من على مرات أخوك! ده أنت في عزاء أخوك
+يا بهيم! وولاد أخوك الدنيا اتطربقت فوق دماغهم، علشان أبونا سابنا لوحدنا،. بس أنت
+طبعا مش فارق معاك، ومش فاضي لنا!</p>
+<h2 id="7">(٧)</h2>
+<p>ده أنت يا عرّة العِرَر كان لازم العيلة كلها تتحايل عليك علشان تتكرم وتهزها وتعمل
+"صينة البسبوسة" اللي بتعرف تعملها، وتقعد بعدها سنين من الذل والمن لغاية أما تحن
+وتعملها تاني بعدها بتلات أربع سنين! وأذكر مرة وللا اتنين طلبت من الناس فلوس
+المكونات كمان!</p>
+<h2 id="8">(٨)</h2>
+<p>أنا مش هأتكلم عن المصايب اللي عملتها وبتعملها وهتعملها في أهلك وبقية عيلتك،
+والله أعلم مين من معارفك سلم أو لم يسلم.</p>
+<hr />
+<h2 id="lkhls">الخلاصة</h2>
+<blockquote>
+<p><strong>قال تعتذر لنفسك قال! يا أخي ده "أحه" واقفة مذهولة من الصدمة!</strong></p>
+</blockquote>
+<p>مع خالص الشخر/ خصيمك يوم القيامة، وأقسم بالله مش مسامح في حبة تراب واحدة.</p>
+
+
+      
+
+    </div>
+  </article>
+</section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="max-w-6xl mx-auto">
+  <section class="flex flex-col justify-center sm:flex-row items-center gap-8 mt-6">
+    <div class="flex px-0 mx-0">
+      <a href="https://twitter.com/mos3abof" class="px-1">
+        <i class="mdi mdi-twitter text-slate-600 mdi-24px my-auto hover:text-blue-400 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.github.com/mos3abof" class="px-1">
+        <i
+          class="mdi mdi-github text-slate-600 mdi-24px my-auto hover:text-black dark:text-slate-300 dark:hover:text-slate-500"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/mosab" class="px-1">
+        <i class="mdi mdi-linkedin text-slate-600 mdi-24px my-auto hover:text-blue-500 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.facebook.com/mos3abof" class="px-1">
+        <i class="mdi mdi-facebook text-slate-600 mdi-24px my-auto hover:text-blue-700 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.instagram.com/mos3abof" class="px-1">
+        <i class="mdi mdi-instagram text-slate-600 mdi-24px my-auto hover:text-pink-500 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.youtube.com/@mos3abof13" class="px-1">
+        <i class="mdi mdi-youtube text-slate-600 mdi-24px my-auto hover:text-red-500 dark:text-slate-300"></i>
+      </a>
+      <a rel="me" href="https://fosstodon.org/@mos3abof" class="px-1">
+        <i class="mdi mdi-mastodon text-slate-600 mdi-24px my-auto hover:text-violet-600 dark:text-slate-300"></i>
+      </a>
+      <a href="/rss" class="px-1">
+        <i class="mdi mdi-rss text-slate-600 mdi-24px my-auto hover:text-orange-400 dark:text-slate-300"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="flex flex-col justify-center sm:flex-row items-center gap-8 mt-5 mb-4">
+    <div class="px-0 mx-0">
+      <p class="max-w-md text-sl text-center sm:text-sl text-slate-600
+            dark:text-slate-300">
+        
+      <p>
+      <p class="max-w-md text-sl text-center sm:text-sl text-slate-600
+            dark:text-slate-300">
+        جميع الحقوق محفوظة © 2026 - مصعب أحمد إبراهيم
+      <p>
+    </div>
+  </section>
+
+  <!-- <section class="flex flex-col-reverse justify-center sm:flex-row  items-center mt-5"> -->
+  <!--   <a href="https://decolonizepalestine.com/"><img src="/images/decolonize-palestine.png.webp" target="_blank" -->
+  <!--       alt="Decolonize Palestine" title="Decolonize Palestine" class="text-center drop-shadow" /></a> -->
+  <!-- </section> -->
+
+  <section class="flex flex-col-reverse justify-center sm:flex-row items-center mt-10 mb-12">
+    <a href="http://www.catb.org/hacker-emblem/"><img src="https://mosab.co.uk/images/glider.png" target="_blank"
+        alt="Hacker Emblem Logo" title="Hacker Emblem Logo" class="text-center drop-shadow" /></a>
+  </section>
+</footer>
+
+</body>
+<script>
+  var themeToggleBtn = document.getElementById('theme-toggle');
+
+  themeToggleBtn.addEventListener('click', function() {
+      if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+      } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+      }
+  });
+</script>
+</html>

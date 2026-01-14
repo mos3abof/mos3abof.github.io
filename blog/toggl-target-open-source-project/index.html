@@ -1,0 +1,358 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="sm:scroll-smooth" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://mosab.co.uk/css/style.css">
+  <link rel="icon" type="image/x-icon" href="https://mosab.co.uk/./images/favicon.ico">
+  <!-- MDI Icons -->
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css">
+  <script src="https://mosab.co.uk/js/main.js" defer></script>
+  <title>
+    
+      Toggl Target: An Open Source Project of My Own | Mosab Ahmad Ibrahim
+    
+  </title>
+
+  <!-- load Arabic web fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wdth,wght@62.5..100,100..900&display=swap" rel="stylesheet">
+  <style>
+    direction:rtl;
+    text-align:right;
+    article p {
+      direction:rtl;
+      text-align:right;
+    }
+  </style>
+
+  <script>
+    //// Persist user choice to localStorage
+    //if (localStorage.getItem('dark-mode') === 'true' || (!('dark-mode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    //  document.querySelector('html').classList.add('dark');
+    //} else {
+    //    document.querySelector('html').classList.remove('dark');
+    //}
+  </script>
+</head>
+
+<body class="min-h-screen bg-slate-50 dark:bg-black dark:text-white selection:text-white selection:bg-blue-600  ">
+  <!-- Header -->
+  <!-- Header -->
+
+
+
+
+
+
+<header class="text-black dark:text-slate-200 top-0 z-10">
+  <section class="max-w-6xl mx-auto p-4 flex justify-between items-center">
+    <div>
+      <button id="hamburger-button" class="text-3xl sm:hidden cursor-pointer">
+        &#9776;
+      </button>
+
+      <nav class="hidden sm:block space-x-1 text-xl" aria-label="main">
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk"> <i class="mdi mdi-home text-slate-600 mdi-24px my-auto hover:text-white dark:text-slate-300"></i> </a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/resume">Resume</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/projects">Projects</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/about">About</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/blog">Posts</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/talks">Talks</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/contact">Contact</a>
+        
+
+        <a href="https://mosab.co.uk/ar"
+          class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1 noto-sans">
+          <span class="border-solid">العربية</span>
+        </a>
+
+        <!-- Dark/Light theme toggle -->
+        <!-- <button class="cursor-pointer" id="theme-toggle"> -->
+        <!--   <i class="mdi mdi-brightness-6" /> -->
+        <!-- </button> -->
+      </nav>
+    </div>
+  </section>
+  <section id="mobile-menu"
+    class="absolute top-0 z-10 bg-slate-200 dark:bg-black w-full text-teal-600 dark:text-white text-3xl flex-col justify-content-center origin-top animate-open-menu hidden">
+    <button class="text-6xl cursor-pointer self-end px-6">
+      &times;
+    </button>
+    <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
+      
+      
+      
+      
+      <a href="https://mosab.co.uk" class="w-full text-center py-6 hover:opacity-90">Home</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/resume" class="w-full text-center py-6 hover:opacity-90">Resume</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/projects" class="w-full text-center py-6 hover:opacity-90">Projects</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/about" class="w-full text-center py-6 hover:opacity-90">About</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/blog" class="w-full text-center py-6 hover:opacity-90">Posts</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/talks" class="w-full text-center py-6 hover:opacity-90">Talks</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/contact" class="w-full text-center py-6 hover:opacity-90">Contact</a>
+      
+
+      <a href="https://mosab.co.uk/ar"
+        class="w-full text-center py-6 hover:opacity-90 noto-sans">العربية</a>
+    </nav>
+  </section>
+</header>
+
+
+  <!-- Main  part of the page -->
+  <main class="max-w-6xl mx-auto my-4  ">
+    
+  
+
+<!-- Intro Section -->
+<section class="flex flex-col justify-center sm:flex-row p-6 items-center gap-8   ">
+  <article class="w-screen px-4 sm:px-0  ">
+    
+
+  <h1 class="text-3xl font-bold sm:text-4xl text-slate-900 dark:text-slate-300  ">
+    Toggl Target: An Open Source Project of My Own<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
+
+
+    
+      <span 
+        class="text-slate-400 sm:text-1/2xl text-sl font-mono  ">Posted on <time 
+          class="text-slate-500">2013-06-17</time></span>
+    
+
+    
+
+    
+    
+
+    <div class="my-4  ">
+      <p>At our company, <a rel="noopener" target="_blank" href="http://www.yubb-software.com">Yubb Software</a>, we track our
+working hours using the great time tracker created by the folks at
+<a rel="noopener" target="_blank" href="http://www.toggl.com">Toggl</a>, and we have monthly goals that we need to
+achieve. I have always had a problem with time management, and this time I
+decided I should start working on them.</p>
+<p>So I created this small project to calculate how many more hours I should work
+to achieve my monthly goals.</p>
+<p>This is how the output of this script looks like :</p>
+<pre data-lang="plaintext" style="background-color:#2e3440;color:#d8dee9;" class="language-plaintext "><code class="language-plaintext" data-lang="plaintext"><span>Hi Checking Internet connectivity... Internet seems fine!
+</span><span>
+</span><span>Trying to connect to Toggl, hang on!
+</span><span>
+</span><span>So far you have tracked 120.00 hours
+</span><span>
+</span><span>Business days left till deadline : 7 Total days left till deadline : 10
+</span><span>
+</span><span>Required working hours for this month : 170
+</span><span>
+</span><span>To achieve the minimum : you should log 4.00 hours every business day or log
+</span><span>3.00 hours every day
+</span><span>
+</span><span>To achieve the required : you should log 7.00 hours every business day or log
+</span><span>5.0 hours every day
+</span><span>
+</span><span>So far you have achieved:
+</span><span>
+</span><span>70.59% [=================================================--------------|------]
+</span></code></pre>
+<p>This information has provided me with a whole new level of awareness of how
+productive I am! It is scary, but at the same time it gives you a great
+indicator of how good -or bad- you are sticking to your goals and if you need to
+have some crunch time or just relax the next weekend.</p>
+<p>I then published the script under GPL license V2 on
+<a rel="noopener" target="_blank" href="https://github.com/mos3abof/toggl_target">Github</a>.</p>
+<p>I got great deal of help from one of my role model software engineers in Egypt,
+<a rel="noopener" target="_blank" href="http://www.mtayseer.net/">Mohammed Tayseer</a>, making the code more Pythonic. He
+also added installation instructions for Windows users, as I don't use windows
+anymore, and he is now a contributor to the repository on Github.</p>
+<p>Today, Monday June 17th, Toggl added a link to my script on their new
+documentation in the <a rel="noopener" target="_blank" href="https://github.com/toggl/toggl_api_docs">Code Examples</a>
+section.</p>
+<p>My little open source script that uses is the first -and so far the only-
+mentioned project in their new API Documentation. Check it on their <a rel="noopener" target="_blank" href="https://github.com/toggl/toggl_api_docs#code-examples">API
+Documentation</a> on Github,
+or check the following screenshot :</p>
+<p><a rel="noopener" target="_blank" href="http://farm8.staticflickr.com/7432/9069807810_0084073717_b.jpg">My little open source script that uses is the first -and so far the only-
+mentioned in Toggl's API new
+Documentation.</a></p>
+<p>This really made my day. Thank you Toggl :)</p>
+<h3 id="update-1-friday-june-21st-3-50-pm">Update 1 : Friday June 21st, 3:50 PM</h3>
+<p>I received an email today from someone with the following content :</p>
+<blockquote>
+<p>Hi Mosab,</p>
+<p>I’m currently making a small Python app that interacts with the toggl API, and
+your toggl target script has been helpful in getting me started. I’m using a
+modified version of your api.py file, and I’d like to credit you in my project
+when I put it on GitHub, but I’m not sure how (I’m rather new to all of this).
+Is it sufficient to mention that in the readme or should I leave the line
+"#@author Mosab Ahmad [mosab.ahmad@gmail.com][]" at the beginning of the
+file?</p>
+<p>If you’re interested, it’s an implementation of
+<a rel="noopener" target="_blank" href="http://blog.sethroberts.net/2011/05/01/percentile-feedback-and-productivity/">this</a>
+(percentile feedback)</p>
+<p>Best</p>
+</blockquote>
+<p>I am really glad my code helped someone :)</p>
+<h3 id="update-2-wednesday-jul-10th-11-43-pm">Update 2 : Wednesday Jul 10th, 11:43 PM</h3>
+<p>Seems that my little Toggl Target script is picking up some momentum.</p>
+<p>I got this email 45 minutes ago :</p>
+<blockquote>
+<p>hi,</p>
+<p>you probably have already seen it, but i forked your toggl_target repo.</p>
+<p>i just wanted to see how fast i could add reports api support and what data
+comes out of there... while doing that i replaced the way the config is loaded
+to something similar like django works and loading a config file directly from
+a user's home dir... and added a setup.py to install everything.</p>
+<p>so now there is a separate script to get some reports and an api wrapper for
+reports subclassing yours. i also did a little refactoring in your code.</p>
+<p>since you seem to plan on writing a separate pytoggle lib i thought some of
+that is useful for you... so i wanted to give you an overview of what i
+changed and let you know, i probably won't do anything more with that.</p>
+<p>here is the sauce:</p>
+<p><a rel="noopener" target="_blank" href="https://github.com/fdemmer/toggl_target">https://github.com/fdemmer/toggl_target</a></p>
+<p>regards,</p>
+<p>Florian</p>
+</blockquote>
+<p>I am really surprised and humbled by all your contributions, thank you.</p>
+<p><img src="http://farm4.staticflickr.com/3832/9067864209_17b3b8d1c8_o.png" alt="My little open source script Toggl Target in action." /></p>
+
+
+      
+
+    </div>
+  </article>
+</section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="max-w-6xl mx-auto">
+  <section class="flex flex-col justify-center sm:flex-row items-center gap-8 mt-6">
+    <div class="flex px-0 mx-0">
+      <a href="https://twitter.com/mos3abof" class="px-1">
+        <i class="mdi mdi-twitter text-slate-600 mdi-24px my-auto hover:text-blue-400 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.github.com/mos3abof" class="px-1">
+        <i
+          class="mdi mdi-github text-slate-600 mdi-24px my-auto hover:text-black dark:text-slate-300 dark:hover:text-slate-500"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/mosab" class="px-1">
+        <i class="mdi mdi-linkedin text-slate-600 mdi-24px my-auto hover:text-blue-500 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.facebook.com/mos3abof" class="px-1">
+        <i class="mdi mdi-facebook text-slate-600 mdi-24px my-auto hover:text-blue-700 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.instagram.com/mos3abof" class="px-1">
+        <i class="mdi mdi-instagram text-slate-600 mdi-24px my-auto hover:text-pink-500 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.youtube.com/@mos3abof13" class="px-1">
+        <i class="mdi mdi-youtube text-slate-600 mdi-24px my-auto hover:text-red-500 dark:text-slate-300"></i>
+      </a>
+      <a rel="me" href="https://fosstodon.org/@mos3abof" class="px-1">
+        <i class="mdi mdi-mastodon text-slate-600 mdi-24px my-auto hover:text-violet-600 dark:text-slate-300"></i>
+      </a>
+      <a href="/rss" class="px-1">
+        <i class="mdi mdi-rss text-slate-600 mdi-24px my-auto hover:text-orange-400 dark:text-slate-300"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="flex flex-col justify-center sm:flex-row items-center gap-8 mt-5 mb-4">
+    <div class="px-0 mx-0">
+      <p class="max-w-md text-sl text-center sm:text-sl text-slate-600
+            dark:text-slate-300">
+        
+      <p>
+      <p class="max-w-md text-sl text-center sm:text-sl text-slate-600
+            dark:text-slate-300">
+        (c) 2026 - Mosab Ibrahim
+      <p>
+    </div>
+  </section>
+
+  <!-- <section class="flex flex-col-reverse justify-center sm:flex-row  items-center mt-5"> -->
+  <!--   <a href="https://decolonizepalestine.com/"><img src="/images/decolonize-palestine.png.webp" target="_blank" -->
+  <!--       alt="Decolonize Palestine" title="Decolonize Palestine" class="text-center drop-shadow" /></a> -->
+  <!-- </section> -->
+
+  <section class="flex flex-col-reverse justify-center sm:flex-row items-center mt-10 mb-12">
+    <a href="http://www.catb.org/hacker-emblem/"><img src="https://mosab.co.uk/images/glider.png" target="_blank"
+        alt="Hacker Emblem Logo" title="Hacker Emblem Logo" class="text-center drop-shadow" /></a>
+  </section>
+</footer>
+
+</body>
+<script>
+  var themeToggleBtn = document.getElementById('theme-toggle');
+
+  themeToggleBtn.addEventListener('click', function() {
+      if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+      } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+      }
+  });
+</script>
+</html>

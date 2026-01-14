@@ -1,0 +1,357 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="sm:scroll-smooth" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://mosab.co.uk/css/style.css">
+  <link rel="icon" type="image/x-icon" href="https://mosab.co.uk/./images/favicon.ico">
+  <!-- MDI Icons -->
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css">
+  <script src="https://mosab.co.uk/js/main.js" defer></script>
+  <title>
+    
+      Reading Data from Excel Sheets in Python | Mosab Ahmad Ibrahim
+    
+  </title>
+
+  <!-- load Arabic web fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wdth,wght@62.5..100,100..900&display=swap" rel="stylesheet">
+  <style>
+    direction:rtl;
+    text-align:right;
+    article p {
+      direction:rtl;
+      text-align:right;
+    }
+  </style>
+
+  <script>
+    //// Persist user choice to localStorage
+    //if (localStorage.getItem('dark-mode') === 'true' || (!('dark-mode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    //  document.querySelector('html').classList.add('dark');
+    //} else {
+    //    document.querySelector('html').classList.remove('dark');
+    //}
+  </script>
+</head>
+
+<body class="min-h-screen bg-slate-50 dark:bg-black dark:text-white selection:text-white selection:bg-blue-600  ">
+  <!-- Header -->
+  <!-- Header -->
+
+
+
+
+
+
+<header class="text-black dark:text-slate-200 top-0 z-10">
+  <section class="max-w-6xl mx-auto p-4 flex justify-between items-center">
+    <div>
+      <button id="hamburger-button" class="text-3xl sm:hidden cursor-pointer">
+        &#9776;
+      </button>
+
+      <nav class="hidden sm:block space-x-1 text-xl" aria-label="main">
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk"> <i class="mdi mdi-home text-slate-600 mdi-24px my-auto hover:text-white dark:text-slate-300"></i> </a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/resume">Resume</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/projects">Projects</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/about">About</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/blog">Posts</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/talks">Talks</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/contact">Contact</a>
+        
+
+        <a href="https://mosab.co.uk/ar"
+          class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1 noto-sans">
+          <span class="border-solid">العربية</span>
+        </a>
+
+        <!-- Dark/Light theme toggle -->
+        <!-- <button class="cursor-pointer" id="theme-toggle"> -->
+        <!--   <i class="mdi mdi-brightness-6" /> -->
+        <!-- </button> -->
+      </nav>
+    </div>
+  </section>
+  <section id="mobile-menu"
+    class="absolute top-0 z-10 bg-slate-200 dark:bg-black w-full text-teal-600 dark:text-white text-3xl flex-col justify-content-center origin-top animate-open-menu hidden">
+    <button class="text-6xl cursor-pointer self-end px-6">
+      &times;
+    </button>
+    <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
+      
+      
+      
+      
+      <a href="https://mosab.co.uk" class="w-full text-center py-6 hover:opacity-90">Home</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/resume" class="w-full text-center py-6 hover:opacity-90">Resume</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/projects" class="w-full text-center py-6 hover:opacity-90">Projects</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/about" class="w-full text-center py-6 hover:opacity-90">About</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/blog" class="w-full text-center py-6 hover:opacity-90">Posts</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/talks" class="w-full text-center py-6 hover:opacity-90">Talks</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/contact" class="w-full text-center py-6 hover:opacity-90">Contact</a>
+      
+
+      <a href="https://mosab.co.uk/ar"
+        class="w-full text-center py-6 hover:opacity-90 noto-sans">العربية</a>
+    </nav>
+  </section>
+</header>
+
+
+  <!-- Main  part of the page -->
+  <main class="max-w-6xl mx-auto my-4  ">
+    
+  
+
+<!-- Intro Section -->
+<section class="flex flex-col justify-center sm:flex-row p-6 items-center gap-8   ">
+  <article class="w-screen px-4 sm:px-0  ">
+    
+
+  <h1 class="text-3xl font-bold sm:text-4xl text-slate-900 dark:text-slate-300  ">
+    Reading Data from Excel Sheets in Python<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
+
+
+    
+      <span 
+        class="text-slate-400 sm:text-1/2xl text-sl font-mono  ">Posted on <time 
+          class="text-slate-500">2013-02-19</time></span>
+    
+
+    
+
+    
+    
+
+    <div class="my-4  ">
+      <p>On <em>May 22nd 2012</em> I was approached by the official campaign of the presidential
+candidate "<a rel="noopener" target="_blank" href="http://www.abolfotoh.net/">Abolfotoh</a>".</p>
+<p>They needed help setting up a Google App Engine application.</p>
+<p>It was an interactive map that uses Google Maps to plot data about voters and
+polling stations.</p>
+<p>What they wanted further was to create another application to collect data from
+their official representatives on the ground and use this tool to feed the
+Google App Engine application with data.</p>
+<p>The application was originally created by "<a rel="noopener" target="_blank" href="http://www.espace.com.eg">Espace</a>" <em>-an awesome Egyptian
+company-</em> and published on <a rel="noopener" target="_blank" href="https://code.google.com/p/egypt-election-2012-demo/">Google Code</a>.</p>
+<p>I helped the official campaign with the setup on Google App Engine, but that is
+another story.</p>
+<p>Before running the project in production, we needed to import a lot of data
+about the polling stations and the voters, like the Governorate it belonged to,
+the city, the number of voters per every station, the police station it belongs
+to, address, etc.</p>
+<p>This data was only available in an excel sheet so I had to find a quick
+programmatic way to import it.</p>
+<p>For the sake of simplicity, lets assume the data in the excel sheet was
+formatted like this :</p>
+<pre data-lang="plaintext" style="background-color:#2e3440;color:#d8dee9;" class="language-plaintext "><code class="language-plaintext" data-lang="plaintext"><span>+-------------------+------------+------------------------+
+</span><span>| Polling Station   | City       | Total Number of Voters |
+</span><span>+-------------------+------------+------------------------+
+</span><span>| polling_station_1 | Cairo      | 7734                   |
+</span><span>+-------------------+------------+------------------------+
+</span><span>| polling_station_2 | Giza       | 13332                  |
+</span><span>+-------------------+------------+------------------------+
+</span><span>| polling_station_3 | Alexandria | 10901                  |
+</span><span>+-------------------+------------+------------------------+
+</span></code></pre>
+<p>As in most spreadsheets, the first row is the header row that describes the
+data, and the actual data is in the rows to follow.</p>
+<p>I did a quick search and found several libraries that deal with excel in Python,
+there is even a website dedicated to listing them <a rel="noopener" target="_blank" href="http://www.python-excel.org">http://www.python-excel.org</a>.
+I chose to go with <a rel="noopener" target="_blank" href="http://pypi.python.org/pypi/xlrd">XLRD</a>, and you can find it in <a rel="noopener" target="_blank" href="http://www.lexicon.net/sjmachin/xlrd.htm">PyPi</a> as well.</p>
+<p>We need to install it first by running this command :</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">pip</span><span> install xlrd
+</span></code></pre>
+<p>Or</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">easy_install</span><span> xlrd
+</span></code></pre>
+<p>Let's start coding.</p>
+<p>XLRD calls the whole excel document a "Workbook", to open it we can do the
+following in an interactive python shell from the same path as the file:</p>
+<pre data-lang="python" style="background-color:#2e3440;color:#d8dee9;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#81a1c1;">&gt;&gt;&gt; from </span><span>xlrd </span><span style="color:#81a1c1;">import </span><span>open_workbook 
+</span><span>book </span><span style="color:#81a1c1;">= </span><span style="color:#88c0d0;">open_workbook</span><span>(</span><span style="color:#a3be8c;">&#39;data.xls&#39;</span><span>)
+</span></code></pre>
+<p>Now we can manipulate the excel document using this "book" object we created.
+Remember the book has all the document.</p>
+<p>An excel document can have one or multiple sheets inside it that hold the data.</p>
+<p>The first sheet has an index of 0, the second has an index of 1 and so on.</p>
+<p>To open the first sheet which holds the sample data above we do this:</p>
+<pre data-lang="python" style="background-color:#2e3440;color:#d8dee9;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#81a1c1;">&gt;&gt;&gt; </span><span>first_sheet </span><span style="color:#81a1c1;">= </span><span>book</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">sheet_by_index</span><span>(</span><span style="color:#b48ead;">0</span><span>)
+</span></code></pre>
+<p>Now we are ready to manipulate the sheet, get information about it and extract
+data from it.</p>
+<p>For example to know the number of "effective columns" in the sheet we can print
+the <code>ncols</code> attribute of the sheet, or to know the number of "effective rows",
+the rows that contain data, we can use the <code>nrows</code> attribute.</p>
+<pre data-lang="python" style="background-color:#2e3440;color:#d8dee9;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#81a1c1;">&gt;&gt;&gt; print </span><span>first_sheet</span><span style="color:#81a1c1;">.</span><span>ncols
+</span><span style="color:#b48ead;">3
+</span><span style="color:#81a1c1;">&gt;&gt;&gt; print </span><span>first_sheet</span><span style="color:#81a1c1;">.</span><span>nrows
+</span><span style="color:#b48ead;">4
+</span></code></pre>
+<p>We now know how many rows contain actual data in the first sheet of our excel
+document. Time to loop over the rows and extract data.</p>
+<pre data-lang="python" style="background-color:#2e3440;color:#d8dee9;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#81a1c1;">&gt;&gt;&gt; for </span><span>i </span><span style="color:#81a1c1;">in </span><span style="font-style:italic;color:#88c0d0;">range</span><span>(</span><span style="color:#b48ead;">1</span><span style="color:#eceff4;">, </span><span>first_sheet</span><span style="color:#81a1c1;">.</span><span>nrows):
+</span><span>      row </span><span style="color:#81a1c1;">= </span><span>first_sheet</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">row_slice</span><span>(i)
+</span><span>      station </span><span style="color:#81a1c1;">= </span><span>row[</span><span style="color:#b48ead;">0</span><span>]</span><span style="color:#81a1c1;">.</span><span>value        </span><span style="color:#81a1c1;">\
+</span><span>      city </span><span style="color:#81a1c1;">= </span><span>row[</span><span style="color:#b48ead;">1</span><span>]</span><span style="color:#81a1c1;">.</span><span>value
+</span><span>      voters </span><span style="color:#81a1c1;">= </span><span>row[</span><span style="color:#b48ead;">2</span><span>]</span><span style="color:#81a1c1;">.</span><span>value
+</span><span>      </span><span style="color:#81a1c1;">print </span><span style="color:#a3be8c;">&quot;Polling Station :</span><span style="color:#ebcb8b;">{}</span><span style="color:#a3be8c;"> in </span><span style="color:#ebcb8b;">{}</span><span style="color:#a3be8c;"> has </span><span style="color:#ebcb8b;">{}</span><span style="color:#a3be8c;"> voter&quot;</span><span style="color:#81a1c1;">.</span><span style="color:#88c0d0;">format</span><span>(station</span><span style="color:#eceff4;">, </span><span>city</span><span style="color:#eceff4;">, </span><span>voters)
+</span><span>Polling station polling_station_1 </span><span style="color:#81a1c1;">in </span><span>Cairo has </span><span style="color:#b48ead;">7734</span><span style="color:#eceff4;">.</span><span style="color:#b48ead;">0 </span><span>voters
+</span><span>Polling station polling_station_2 </span><span style="color:#81a1c1;">in </span><span>Giza has </span><span style="color:#b48ead;">13332</span><span style="color:#eceff4;">.</span><span style="color:#b48ead;">0 </span><span>voters
+</span><span>Polling station polling_station_3 </span><span style="color:#81a1c1;">in </span><span>Alexandria has </span><span style="color:#b48ead;">10901</span><span style="color:#eceff4;">.</span><span style="color:#b48ead;">0 </span><span>voters
+</span></code></pre>
+<p>In the previous snippet of code we started to loop over the rows skipping the
+first row <code>range(1, first_sheet.nrows)</code></p>
+<p>Then we sliced every row out of the sheet with <code>row_slice()</code> and then accessed
+it by column index to extract data from columns <code>row[]</code>, and then we accessed
+the value of the cell by calling the <code>row[].value</code>.</p>
+<p>This is a very simple usage of the library, I suggest you read its
+documentation, you will find many great stuff :</p>
+<pre data-lang="python" style="background-color:#2e3440;color:#d8dee9;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#81a1c1;">&gt;&gt;&gt; import </span><span>xlrd </span><span style="font-style:italic;color:#88c0d0;">help</span><span>(xlrd) </span><span style="font-style:italic;color:#88c0d0;">help</span><span>(xlrd</span><span style="color:#81a1c1;">.</span><span>sheet)
+</span></code></pre>
+<p>Finally check my answer on a question about the issue on <a rel="noopener" target="_blank" href="http://stackoverflow.com/questions/13805274/have-no-idea-with-python-excel-read-data-file/13805734#13805734">StackOverflow</a>.</p>
+<p>That's it for now!</p>
+
+
+      
+
+    </div>
+  </article>
+</section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="max-w-6xl mx-auto">
+  <section class="flex flex-col justify-center sm:flex-row items-center gap-8 mt-6">
+    <div class="flex px-0 mx-0">
+      <a href="https://twitter.com/mos3abof" class="px-1">
+        <i class="mdi mdi-twitter text-slate-600 mdi-24px my-auto hover:text-blue-400 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.github.com/mos3abof" class="px-1">
+        <i
+          class="mdi mdi-github text-slate-600 mdi-24px my-auto hover:text-black dark:text-slate-300 dark:hover:text-slate-500"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/mosab" class="px-1">
+        <i class="mdi mdi-linkedin text-slate-600 mdi-24px my-auto hover:text-blue-500 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.facebook.com/mos3abof" class="px-1">
+        <i class="mdi mdi-facebook text-slate-600 mdi-24px my-auto hover:text-blue-700 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.instagram.com/mos3abof" class="px-1">
+        <i class="mdi mdi-instagram text-slate-600 mdi-24px my-auto hover:text-pink-500 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.youtube.com/@mos3abof13" class="px-1">
+        <i class="mdi mdi-youtube text-slate-600 mdi-24px my-auto hover:text-red-500 dark:text-slate-300"></i>
+      </a>
+      <a rel="me" href="https://fosstodon.org/@mos3abof" class="px-1">
+        <i class="mdi mdi-mastodon text-slate-600 mdi-24px my-auto hover:text-violet-600 dark:text-slate-300"></i>
+      </a>
+      <a href="/rss" class="px-1">
+        <i class="mdi mdi-rss text-slate-600 mdi-24px my-auto hover:text-orange-400 dark:text-slate-300"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="flex flex-col justify-center sm:flex-row items-center gap-8 mt-5 mb-4">
+    <div class="px-0 mx-0">
+      <p class="max-w-md text-sl text-center sm:text-sl text-slate-600
+            dark:text-slate-300">
+        
+      <p>
+      <p class="max-w-md text-sl text-center sm:text-sl text-slate-600
+            dark:text-slate-300">
+        (c) 2026 - Mosab Ibrahim
+      <p>
+    </div>
+  </section>
+
+  <!-- <section class="flex flex-col-reverse justify-center sm:flex-row  items-center mt-5"> -->
+  <!--   <a href="https://decolonizepalestine.com/"><img src="/images/decolonize-palestine.png.webp" target="_blank" -->
+  <!--       alt="Decolonize Palestine" title="Decolonize Palestine" class="text-center drop-shadow" /></a> -->
+  <!-- </section> -->
+
+  <section class="flex flex-col-reverse justify-center sm:flex-row items-center mt-10 mb-12">
+    <a href="http://www.catb.org/hacker-emblem/"><img src="https://mosab.co.uk/images/glider.png" target="_blank"
+        alt="Hacker Emblem Logo" title="Hacker Emblem Logo" class="text-center drop-shadow" /></a>
+  </section>
+</footer>
+
+</body>
+<script>
+  var themeToggleBtn = document.getElementById('theme-toggle');
+
+  themeToggleBtn.addEventListener('click', function() {
+      if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+      } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+      }
+  });
+</script>
+</html>

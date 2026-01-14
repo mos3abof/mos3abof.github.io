@@ -1,0 +1,339 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ar" class="sm:scroll-smooth" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://mosab.co.uk/css/style.css">
+  <link rel="icon" type="image/x-icon" href="https://mosab.co.uk/./images/favicon.ico">
+  <!-- MDI Icons -->
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css">
+  <script src="https://mosab.co.uk/js/main.js" defer></script>
+  <title>
+    
+      مرصد الأحمال على شبكة الكهرباء المصرية | مصـ( الخير )ـعب
+    
+  </title>
+
+  <!-- load Arabic web fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wdth,wght@62.5..100,100..900&display=swap" rel="stylesheet">
+  <style>
+    direction:rtl;
+    text-align:right;
+    article p {
+      direction:rtl;
+      text-align:right;
+    }
+  </style>
+
+  <script>
+    //// Persist user choice to localStorage
+    //if (localStorage.getItem('dark-mode') === 'true' || (!('dark-mode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    //  document.querySelector('html').classList.add('dark');
+    //} else {
+    //    document.querySelector('html').classList.remove('dark');
+    //}
+  </script>
+</head>
+
+<body class="min-h-screen bg-slate-50 dark:bg-black dark:text-white selection:text-white selection:bg-blue-600 noto-sans rtl-grid">
+  <!-- Header -->
+  <!-- Header -->
+
+
+
+
+
+
+<header class="text-black dark:text-slate-200 top-0 z-10">
+  <section class="max-w-6xl mx-auto p-4 flex justify-between items-center">
+    <div>
+      <button id="hamburger-button" class="text-3xl sm:hidden cursor-pointer">
+        &#9776;
+      </button>
+
+      <nav class="hidden sm:block space-x-1 text-xl" aria-label="main">
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar"> <i class="mdi mdi-home text-slate-600 mdi-24px my-auto hover:text-white dark:text-slate-300"></i> </a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/resume">السيرة الذاتية</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/projects">مشاريعي</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/about">من أنا</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/blog">تدوينات</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/talks">كلام عن التكنولوجيا</a>
+        
+        
+        
+        
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="https://mosab.co.uk/ar/contact">تواصل معي</a>
+        
+
+        <a href="https://mosab.co.uk"
+          class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1 noto-sans">
+          <span class="border-solid">English</span>
+        </a>
+
+        <!-- Dark/Light theme toggle -->
+        <!-- <button class="cursor-pointer" id="theme-toggle"> -->
+        <!--   <i class="mdi mdi-brightness-6" /> -->
+        <!-- </button> -->
+      </nav>
+    </div>
+  </section>
+  <section id="mobile-menu"
+    class="absolute top-0 z-10 bg-slate-200 dark:bg-black w-full text-teal-600 dark:text-white text-3xl flex-col justify-content-center origin-top animate-open-menu hidden">
+    <button class="text-6xl cursor-pointer self-end px-6">
+      &times;
+    </button>
+    <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar" class="w-full text-center py-6 hover:opacity-90">الرئيسية</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/resume" class="w-full text-center py-6 hover:opacity-90">السيرة الذاتية</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/projects" class="w-full text-center py-6 hover:opacity-90">مشاريعي</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/about" class="w-full text-center py-6 hover:opacity-90">من أنا</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/blog" class="w-full text-center py-6 hover:opacity-90">تدوينات</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/talks" class="w-full text-center py-6 hover:opacity-90">كلام عن التكنولوجيا</a>
+      
+      
+      
+      
+      <a href="https://mosab.co.uk/ar/contact" class="w-full text-center py-6 hover:opacity-90">تواصل معي</a>
+      
+
+      <a href="https://mosab.co.uk"
+        class="w-full text-center py-6 hover:opacity-90 noto-sans">English</a>
+    </nav>
+  </section>
+</header>
+
+
+  <!-- Main  part of the page -->
+  <main class="max-w-6xl mx-auto my-4 noto-sans rtl-grid">
+    
+  
+
+<!-- Intro Section -->
+<section class="flex flex-col justify-center sm:flex-row p-6 items-center gap-8  noto-sans rtl-grid">
+  <article class="w-screen px-4 sm:px-0 noto-sans rtl-grid">
+    
+
+  <h1 class="text-3xl font-bold sm:text-4xl text-slate-900 dark:text-slate-300 noto-sans rtl-grid">
+    مرصد الأحمال على شبكة الكهرباء المصرية<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h2>
+
+
+    
+      <span 
+        class="text-slate-400 sm:text-1/2xl text-sl font-mono noto-sans rtl-grid">تم نشرها في  <time 
+          class="text-slate-500">2016-05-03</time></span>
+    
+
+    
+
+    
+    
+
+    <div class="my-4 noto-sans rtl-grid">
+      <h3 id="lbdy">البداية</h3>
+<p>في بداية شهر أغسطس من العام الماضي، لفتت تدوينة نشرها صديقي "طارق عمرو" على موقع "منظمة المعرفة المفتوحة" تتحدث عن تطبيق نشره "جهاز تنظيم مرفق الكهرباء وحماية المستهلك" على الانترنت لنشر حالة الأحمال على الشبكة الكهربائية في مصر.</p>
+<p>نوه "طارق" في تدوينته إلى حقيقة أن التطبيق:</p>
+<blockquote>
+<p>لا يوفر البيانات بصيغة يفهمها الحاسب، كمثال أن تكون في صورة ملف جيسون أو أر إس إس توفره واجهة إستخدام المبرمج، ومن ثم، أطرح عليكم المشكلة وإن كان بإمكان أحدكم عمل كاشط – سكرابر – لإستخراج البيانات من التطبيق وتوفيرها في صورة مناسبة للحاسب"</p>
+</blockquote>
+<p>أثارت التدوينة فضولي، فقمت بالتحقق من الـHTML code المكون للتطبيق، وأمضيت بعض الوقت أتفحصه لأجد أي نمط يمكن الاعتماد عليه لمعرفة الحالة الحالية للحمل. بعدما توصلت لهذا النمط قمت بكتابة برنامج لاستخلاص هذه البيانات بتقنيات الـweb scraping. في البدء كتبت التطبيق بلغة البرمجة Python.</p>
+<p>انتبهت بعد ذلك إلى مشكلة أخرى في التطبيق الخاص بجهاز تنظيم مرفق الكهرباء. التطبيق يظهر فقط البيانات الخاصة باليوم الحالي. بمعنى أنه يظهر تطور حالة الحمل خلال اليوم، لكن بمجرد انقضاء اليوم فإن هذه البيانات تختفي ولا يعود بإمكاننا مطالعتها مرة أخرى.</p>
+<p>كانت هذه هي اللحظة التي قررت فيها البناء على البرنامج الذي كتبته ليحل المشكلتين المذكورتين:</p>
+<ol>
+<li>ليقوم بتخزين هذه البيانات حتى يمكنني الرجوع إليها عند الحاجة.</li>
+<li>ليوفر هذه البيانات في صيغة يمكن استخدامها عن طريق الحاسوب.</li>
+</ol>
+<p>قمت بإعادة تطوير البرنامج الذي كتبته بلغة PHP التي يدعمها مزود خدمة الاستضافة الذي أستخدمه، ثم قمت في اليوم التالي بوضعه على دومين فرعي من موقعي الشخصي: power-grid-status.mos3abof.com</p>
+<p>قام طارق بالإشارة إلى تطبيقي في تدوينة لاحقة. في نفس التدوينة أشار أيضا إلى تطبيق بلغة Javascript يظهر الحالة الحالية للحمل قام "كريم قشوع" بتطويره خصيصا لتضمينه في مواقع الانترنت.</p>
+<p>وكانت تلك بداية الرحلة.</p>
+<p>قمت بعدها بشراء اسم النطاق -Domain name- الخاص بالموقع في 15 سبتمبر عام 2014، ليصبح عنوان الموقع: www.gridstatusnow.com</p>
+<p>تسعة أشهر مرت الآن منذ أطلقت "مرصد حالة الأحمال على شبكة الكهرباء المصرية". حدث فيها الكثير. سأقوم بذكر أمور متفرقة هنا دون ترتيب زمني محدد.</p>
+<h3 id="lzhwr-l-lmy-l-wl-wl-khyr-ht-lan">الظهور الإعلامي الأول، والأخير حتى الآن!</h3>
+<p>عندما علم صديقي "أحمد الدريني" بأمر التطبيق الذي نشرته على صفحات التواصل الاجتماعي طلب مني أن أقوم بمداخلة هاتفية مع برنامج "الصحافة اليوم" الذي يذاع على قناة "النهار اليوم" و يشارك أحمد في إعداده. وافقت بتردد لأنني لست مقتنعا أنه برنامج قيم بعد.</p>
+<p>عندما حان موعد المداخلة الهاتفية كنت في شارع القصر العيني، واضطررت لأدخل إلى شارع هادئ من شوارع "جاردن سيتي" واستخدام الـheadset الخاصة بي حتى أستطيع أن أسمع بوضوح أكثر ما تقوله المذيعة. الحمدلله، مرت على خير!</p>
+<p>يمكنكم مشاهدة المداخلة-من الدقيقةالسابعة عشر إلى الدقيقة السابعة والعشرين- بالضغط هنا.</p>
+<p>تطبيقات تستخدم واجهة التطبيقات البرمجية الخاصة بالمشروع</p>
+<p>مر المشروع بعد ذلك بعدة مراحل تطور. من تحسين في واجهة الاستخدام -شكرا "عمرو صبحي" و"عاصم إمام" على مداخلاتكما المفيدة- إلى توفير توثيق أفضل لواجهة التطبيق البرمجية API التي تتيح للمطورين حالة الحمل الحالية.</p>
+<p>للأسف فإن البيانات التي يتيحها موقع الجهاز هي حالة الحمل على كل الشبكة الكهربائية، وليست موزعة جغرافيا حسب المحافظة مثلا، وإنما هي كل جمهورية مصر العربية. كذلك فإن البيانات المتاحة تعبر عن مستوى الحمل بحالة من ثلاث:</p>
+<ul>
+<li>خطر</li>
+<li>إنذار</li>
+<li>آمن</li>
+</ul>
+<p>ولا توجد معلومات أكثر من ذلك. ولكنني قمت بتسجيلها على أية حال، فما لا يدرك كله، لا يترك جله.</p>
+<p>قمت كذلك بصنع أرشيف تأريخي يعرض حالة الحمل حسب الشهر بدءا من أغسطس 2014. هذا الأرشيف متاح للجميع على شكل Visualization لحالة الحمل في ساعات اليوم، كل يوم في الشهر.</p>
+<p>كما ترى في الصورة أعلاه، كل سطر يمثل يوما من أيام الشهر. كل مربع في اليوم يمثل ساعة. ويبدأ اليوم من يسار السطر، عند منتصف الليل، إلى يمينه، عند منتصف ليل اليوم التالي.</p>
+<p>راسلني عدة أشخاص ليخبروني عن تطوير تطبيقات تستخدم واجهة التطبيقات الخاصة بي، وهو أحد الأهداف الرئيسية للمشروع. أن يقوم بتوفير البيانات في صيغة يفهمها الحاسوب لتسهل على المطورين إدماجها في تطبيقاتهم المختلفة.</p>
+<p>أذكر من هذه التطبيقات تطبيقا يدعى "يا لهوي"، وهو عبارة عن تطبيق لأجهزة الحاسوب، يقوم بإخطار المستخدم دوريا -حسب مدة يستطيع المستخدم أن يحددها بنفسه- بحالة الحمل الآن على الشبكة الكهربائية.</p>
+<p>أيضا راسلني أحد أصحاب الشركات ليخبرني أنه قام بتطوير "روبوت" يقوم بنشر معلومات حول حالة الحمل بالتغريد على شبكة تويتر والنشر على شبكة التواصل الاجتماعي فيسبوك.</p>
+<p>قمت اليوم كذلك بصنع إنفوجرافيك يقوم بعمل visualization لحالة الحمل على مدار العام 2014 كاملا من واقع البيانات التي قمت بحفظها. يمكنك تحميل الإنفوجرافيك من هنا. طبعا يظهر أكثر من منتصف العام "رماديا" وذلك نظرا لأنني بدأت في تسجيل البيانات في منتصف شهر أغسطس. إن شاء الله سيكون إصدار العام القادم أفضل حالا.</p>
+<h3 id="lshyfr-lmsdry">الشيفرة المصدرية</h3>
+<p>قمت بنشر الشيفرة المصدرية -الكود- على منصة Github تحت رخصة البرامج الحرة GNU GPL version 2.0. منذ نشر الكود وحتى اليوم هناك 80 تحديثا (commit) للفرع الرئيسي من الكود (master branch). تلقيت تحديثات من بعض الأشخاص، قمت بإدراج بعضها، ولازلت أراجع البقية للتأكد من صلاحيتها وموائمتها للمشروع.</p>
+<p>إذا كنت مطورا، يمكنك زيارة الـrepository الخاصة بالمشروع من هنا. يمكنك أن تشارك في تطويره، أو أن تستفيد بالكود كما تريد طالما التزمت بشروط الرخصة GNU GPL v2.0.</p>
+<p>جدير بالذكر أن أحد المطورين الذين يعملون في جهاز تنظيم المرفق قام بالتواصل معنا ليخبرنا أنه يستطيع أن يوفر بعض البيانات لنا، إلا أنه اختفى بعد ذلك ولم يعد هناك تواصل بيننا.</p>
+<h3 id="msdqy-lbynt">مصداقية البيانات</h3>
+<p>وصلتني العديد من الأسئلة حول المشروع منذ بدأته فقمت بوضع صفحة على الموقع للأسئلة المتكررة لتجيب عن هذه الأسئلة. لسوء الحظ فإن اللغة المستخدمة في الموقع هي اللغة الإنجليزية -وإن كنت أعمل على ترجمة الواجهة للعربية-، لكن أهم سؤال وصلني هو</p>
+<blockquote>
+<p>هل يمكن الوثوق في البيانات المنشورة على الموقع؟</p>
+</blockquote>
+<p>على الأرجح نعم. ولكن على أسوأ الفروض، وإذا كانت هذه البيانات غير دقيقة، فإنها تظل بيانات "رسمية" أتاحتها الدولة من المهم الاحتفاظ بها.</p>
+<h3 id="lmdh-f-lh">لماذا أفعلها؟!</h3>
+<p>قديما قال لي أبي -رحمه الله-:</p>
+<blockquote>
+<p>إذا كانت زكاة المال جزءا من المال، فزكاة العلم العلم كله"</p>
+</blockquote>
+<p>لا أدري هل هي مقولته هو، أم أنه اقتبسها من مكتبته العملاقة، ولكنها شكلت جزءا ليس باليسير من وجداني وأنا أكبر. وعندما تعرفت للمرة الأولى على حركة البرمجيات الحرة والمصادر المفتوحة أدركت أنني وجدت كنزا. وكلما تعمقت أكثر، عشقت هذا العالم أكثر.</p>
+<p>لذلك، فإن أي مشروع لإتاحة البيانات، أو لإتاحة المصادر وتحريرها، هو مشروع يستهويني بشكل شخصي. هذا ما لفت نظري أول الأمر في تدوينة "طارق" التي ذكرتها في البداية. السبب الأول أنني أحب ذلك وأستمتع به.</p>
+<p>هناك أسباب أخرى بالطبع، مثل أن ذلك يتيح لي فرصة التعلم من أقراني. أكثر ما يسعدني هو ملاحظات ومشاركات المطورين الآخرين، الذين أعرفهم والذي لا أعرفهم. كما يقول الوغد المفضل عندي "لينوس تورفالدس"، مطور نواة نظام التشغيل linux:</p>
+<blockquote>
+<p>With many eyeballs, all bugs are shallow</p>
+</blockquote>
+<p>لا أجد ترجمة مناسبة لها، ولكن دعونا نقول:</p>
+<blockquote>
+<p>كلما زادت الأعين المدققة، كلما كان حل المشكلة أكثر سهولة</p>
+</blockquote>
+<p>لهذه المقولة قصة ربما تهتمون بمطالعتها.</p>
+<p>كذلك، حدث أن قال لي صديقان لا يعرفان بعضهما البعض أنهما لا يركبان المصعد إلا بعد التحقق من حالة الحمل من صفحة المشروع. ﻷن نسبة احتمال انقطاع التيار الكهرباء تتناسب طرديا مع حالة الحمل على الشبكة. كان ذلك من بواعث البهجة الحقيقية.</p>
+<p>هناك مكاسب أخرى لذلك أيضا، مثل أنني قمت بالتقدم للحصول على رخصة PHPStorm للبرمجيات الحرة والمفتوحة المصدر وحصلت عليها بالفعل لمدة عام كامل قابلة للتجديد إذا بقي المشروع نشيطا. لمن لا يعرف، PHPStorm هي أفصل منصة لتطوير البرمجيات -IDE- بلغة البرمجة PHP رأيتها في حياتي!</p>
+<p>منذ عدة سنوات، سألني أحد زملاء العمل في إحدى الشركات التي كان السائد فيها أن يحتفظ كل شخص بما عنده من معلومات لنفسه حتى يكون ذا حظوة عند مديره، سألني جادا عن سبب مشاركتي للمعلومات مع زملائي. قمت لحظتها بإخباره ما كتبت أعلاه، ولكن لم يقتنع. هو صاحب عقل مادي بحت. فكرت قليلا ثم قلت له:</p>
+<p>حسنٌ، لنفترض أننا عشرة أشخاص مجتمعين على مائدة وقام كل واحد بمشاركة معلومة مع الآخرين. إذا فكرنا بشكل براجماتي بحت، فإن كل فرد قام بمشاركة معلومة واحدة فقط، وحصل ف المقابل على 9 معلومات، بالإضافة إلى ارتقاء العقل الجمعي للمجموعة، والذي حتما سينعكس أثره على كل فرد فيها."</p>
+<p>أرحب بجميع المشاركات والملاحظات والنقد البناء والهدام على حد سواء! هذه التدوينة قد تخضع لعمليات تعديل كثيرة على أية حال.</p>
+<p>لزيارة موقع المرصد اتبع الرابط التالي: www.gridstatusnow.com</p>
+
+
+      
+
+    </div>
+  </article>
+</section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="max-w-6xl mx-auto">
+  <section class="flex flex-col justify-center sm:flex-row items-center gap-8 mt-6">
+    <div class="flex px-0 mx-0">
+      <a href="https://twitter.com/mos3abof" class="px-1">
+        <i class="mdi mdi-twitter text-slate-600 mdi-24px my-auto hover:text-blue-400 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.github.com/mos3abof" class="px-1">
+        <i
+          class="mdi mdi-github text-slate-600 mdi-24px my-auto hover:text-black dark:text-slate-300 dark:hover:text-slate-500"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/mosab" class="px-1">
+        <i class="mdi mdi-linkedin text-slate-600 mdi-24px my-auto hover:text-blue-500 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.facebook.com/mos3abof" class="px-1">
+        <i class="mdi mdi-facebook text-slate-600 mdi-24px my-auto hover:text-blue-700 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.instagram.com/mos3abof" class="px-1">
+        <i class="mdi mdi-instagram text-slate-600 mdi-24px my-auto hover:text-pink-500 dark:text-slate-300"></i>
+      </a>
+      <a href="https://www.youtube.com/@mos3abof13" class="px-1">
+        <i class="mdi mdi-youtube text-slate-600 mdi-24px my-auto hover:text-red-500 dark:text-slate-300"></i>
+      </a>
+      <a rel="me" href="https://fosstodon.org/@mos3abof" class="px-1">
+        <i class="mdi mdi-mastodon text-slate-600 mdi-24px my-auto hover:text-violet-600 dark:text-slate-300"></i>
+      </a>
+      <a href="/rss" class="px-1">
+        <i class="mdi mdi-rss text-slate-600 mdi-24px my-auto hover:text-orange-400 dark:text-slate-300"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="flex flex-col justify-center sm:flex-row items-center gap-8 mt-5 mb-4">
+    <div class="px-0 mx-0">
+      <p class="max-w-md text-sl text-center sm:text-sl text-slate-600
+            dark:text-slate-300">
+        
+      <p>
+      <p class="max-w-md text-sl text-center sm:text-sl text-slate-600
+            dark:text-slate-300">
+        جميع الحقوق محفوظة © 2026 - مصعب أحمد إبراهيم
+      <p>
+    </div>
+  </section>
+
+  <!-- <section class="flex flex-col-reverse justify-center sm:flex-row  items-center mt-5"> -->
+  <!--   <a href="https://decolonizepalestine.com/"><img src="/images/decolonize-palestine.png.webp" target="_blank" -->
+  <!--       alt="Decolonize Palestine" title="Decolonize Palestine" class="text-center drop-shadow" /></a> -->
+  <!-- </section> -->
+
+  <section class="flex flex-col-reverse justify-center sm:flex-row items-center mt-10 mb-12">
+    <a href="http://www.catb.org/hacker-emblem/"><img src="https://mosab.co.uk/images/glider.png" target="_blank"
+        alt="Hacker Emblem Logo" title="Hacker Emblem Logo" class="text-center drop-shadow" /></a>
+  </section>
+</footer>
+
+</body>
+<script>
+  var themeToggleBtn = document.getElementById('theme-toggle');
+
+  themeToggleBtn.addEventListener('click', function() {
+      if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+      } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+      }
+  });
+</script>
+</html>
