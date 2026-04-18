@@ -5,7 +5,6 @@ date = "2008-01-01"
 
 [![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuCdzm4FrDJ8FSvfpJ-fClaXHl9Lw2YFV3dp2h8a21L9kBNoiDElyrVAm6Qrr6J29W2zO_mUdRP2lXTBGjd9u3HPnMddF03QBQqGrA9K2XDoJ-Q-tNkMensexJulDwy0G601zzJQ/s400/sunRise.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuCdzm4FrDJ8FSvfpJ-fClaXHl9Lw2YFV3dp2h8a21L9kBNoiDElyrVAm6Qrr6J29W2zO_mUdRP2lXTBGjd9u3HPnMddF03QBQqGrA9K2XDoJ-Q-tNkMensexJulDwy0G601zzJQ/s1600-h/sunRise.jpg)  
 
-  
 خير اللهم اجعله خير 2008 بدأ !..  
 ----  
   

@@ -3,7 +3,6 @@ title = "أنا جنبه بس.."
 date = "2007-12-12"
 +++
 
-
 [![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFkXBiICMOYoFN4dNzSYn6pBosWErvG5-vpEkSqkVgN_rskYG5oBNr1sLfL3PNFY8tqYDbb5K_dyEXZ7MOBJXNMKtOPyrQT5EpMtQx_ZFjdqCB6yH9rMJ0UuMqSjlDdnfU3hDfBQ/s400/i+still+love+him+but+i+forgot.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFkXBiICMOYoFN4dNzSYn6pBosWErvG5-vpEkSqkVgN_rskYG5oBNr1sLfL3PNFY8tqYDbb5K_dyEXZ7MOBJXNMKtOPyrQT5EpMtQx_ZFjdqCB6yH9rMJ0UuMqSjlDdnfU3hDfBQ/s1600-h/i+still+love+him+but+i+forgot.jpg)  
 اتقابلوا مرة  
   
@@ -20,7 +19,8 @@ date = "2007-12-12"
 بعد سنة في نفس المكان،  
   
 - ...  
-- مالك؟! مهموم حزين.. مش أنت اللي قلت لي إن اللي يقرب من ربنا عمره ما يجيله هم؟!  
+- مالك؟! مهموم حزين.. مش أنت اللي قلت لي إن اللي يقرب من ربنا عمره ما يجيله
+هم؟!  
 - ...  
 - هو أنت ... بعدت؟!  
 - لا والله.. أنا لسة هناك بس ... (ويسكت منه الكلام)  

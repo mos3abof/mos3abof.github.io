@@ -15,6 +15,7 @@ build-resume:
 copy-fonts:
 	mkdir -p ./static/fonts
 	cp -r ./fonts/* ./static/fonts/
+	cp ./fonts/arabic/font-faces.css ./static/css/font-faces.css
 
 # Create a CNAME file needed for domain owbership verification.
 create-cname-file:

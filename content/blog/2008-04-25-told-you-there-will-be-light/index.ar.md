@@ -9,9 +9,10 @@ date = "2008-04-25"
 
 لقد وصل منذ قليل*..  
   
-كنت أظن  [موسم المطر](http://mos3abof.blogspot.com/2008/01/blog-post_21.html)  الثاني قد انتهي دون أن يرفع صاحبنا رأسه،  
-لكن الضي وفى بوعده صانعا مليون قوس من قزح..  
-فقد "[وجدتها](http://mos3abof.blogspot.com/2007/10/beatiful-mine.html)"..  
+كنت أظن  [موسم المطر](http://mos3abof.blogspot.com/2008/01/blog-post_21.html)
+الثاني قد انتهي دون أن يرفع صاحبنا رأسه،  لكن الضي وفى بوعده صانعا مليون قوس من
+قزح..  فقد
+"[وجدتها](http://mos3abof.blogspot.com/2007/10/beatiful-mine.html)"..  
   
 منذ الآن لم يعد هناك مجال لـ"[لحظة ضعف](http://mos3abof.blogspot.com/2007/09/blog-post_27.html)"..  
   
