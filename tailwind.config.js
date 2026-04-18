@@ -11,27 +11,17 @@ module.exports = {
     },
     keyframes: {
       'open-menu': {
-        '0%': {
-          transform: 'scaleY(0)',
-        },
-      },
-      'open-menu': {
-        '80%': {
-          transform: 'scaleY(1.2)',
-        },
-      },
-      'open-menu': {
-        '100%': {
-          transform: 'scaleY(1)',
-        },
+        '0%':   { transform: 'scaleY(0)' },
+        '80%':  { transform: 'scaleY(1.2)' },
+        '100%': { transform: 'scaleY(1)' },
       },
     },
-    anumation: {
+    animation: {
       'open-menu': 'open-menu 0.5s ease-in-out forwards',
     },
   },
   variants: {},
-  corPlugins: {
+  corePlugins: {
     aspectRatio: false,
   },
   plugins: [

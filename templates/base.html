@@ -26,49 +26,25 @@
   <!-- Arabic & extended web fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Noto+Kufi+Arabic:wght@100..900&family=Noto+Sans+Arabic:wdth,wght@62.5..100,100..900&family=Scheherazade+New:wght@400;700&family=Kufam:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&family=Cairo:wght@200..900&family=Reem+Kufi:wght@400..700&family=Reem+Kufi+Fun:wght@400..700&family=Reem+Kufi+Ink&family=Aref+Ruqaa+Ink:wght@400;700&family=Cairo+Play:ital,opsz,wght@0,9..40,200..1000;1,9..40,200..1000&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-  <style>
-    direction:rtl;
-    text-align:right;
-    article p {
-      direction:rtl;
-      text-align:right;
-    }
-  </style>
-
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Amiri+Quran&family=Kufam:wght@400;700&family=Noto+Sans+Arabic:wght@400&display=swap" rel="stylesheet">
   <script>
-    //// Persist user choice to localStorage
-    //if (localStorage.getItem('dark-mode') === 'true' || (!('dark-mode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    //  document.querySelector('html').classList.add('dark');
-    //} else {
-    //    document.querySelector('html').classList.remove('dark');
-    //}
+    const t = localStorage.getItem('color-theme');
+    if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
   </script>
 </head>
 
-<body class="min-h-screen bg-slate-50 dark:bg-black dark:text-white selection:text-white selection:bg-blue-600 {{res.settings_font_family}} {{res.settings_body_style}}">
+<body class="min-h-screen bg-slate-50 dark:bg-black dark:text-white selection:text-white selection:bg-blue-600 {% if lang == 'ar' %}rtl-grid{% endif %}">
   <!-- Header -->
   {% include "partials/header.html" %}
 
   <!-- Main  part of the page -->
-  <main class="max-w-6xl mx-auto my-4 {{res.settings_font_family}} {{res.settings_body_style}}">
+  <main class="max-w-6xl mx-auto my-4 {% if lang == 'ar' %}rtl-grid{% endif %}">
     {% block main_content %} {% endblock %}
   </main>
 
   <!-- Footer -->
   {% include "partials/footer.html" %}
 </body>
-<script>
-  var themeToggleBtn = document.getElementById('theme-toggle');
-
-  themeToggleBtn.addEventListener('click', function() {
-      if (document.documentElement.classList.contains('dark')) {
-          document.documentElement.classList.remove('dark');
-          localStorage.setItem('color-theme', 'light');
-      } else {
-          document.documentElement.classList.add('dark');
-          localStorage.setItem('color-theme', 'dark');
-      }
-  });
-</script>
 </html>
