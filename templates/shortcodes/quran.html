@@ -1,14 +1,17 @@
-<div class="quran-verse my-8 mx-auto max-w-2xl rounded-lg border border-teal-600/40 bg-teal-50/30 dark:bg-teal-950/20 px-8 py-6 shadow-sm" dir="rtl">
-  <p class="quran-text text-center leading-loose text-slate-800 dark:text-slate-100" style="font-family: 'Amiri Quran', serif; font-size: 1.6rem;">
+<div
+  class="py-6 px-8 my-8 mx-auto max-w-2xl rounded-lg border shadow-sm quran-verse border-teal-600/40 bg-teal-50/30 dark:bg-teal-950/20"
+  dir="rtl">
+  <p class="leading-loose text-center quran-text text-slate-800 dark:text-slate-100"
+    style="font-family: 'Amiri Quran', serif; font-size: 1.6rem;">
     {{ text | safe }}
   </p>
   {% if surah and ayah %}
-  <p class="mt-4 text-center font-mono text-sm text-teal-700 dark:text-teal-400" dir="ltr">
-    &#x5B; {{ surah }}:{{ ayah }} &#x5D;
+  <p class="mt-4 font-mono text-sm text-center text-teal-700 dark:text-teal-400" dir="ltr">
+    &#x5B; {{ surah }} : {{ ayah }} &#x5D;
   </p>
   {% endif %}
   {% if translation %}
-  <p class="mt-3 text-center text-sm italic text-slate-500 dark:text-slate-400" dir="ltr">
+  <p class="mt-3 text-sm italic text-center text-slate-500 dark:text-slate-400" dir="ltr">
     {{ translation | safe }}
   </p>
   {% endif %}
