@@ -2,8 +2,8 @@
 
 {% block main_content %}
   <!-- Intro Section -->
-  <section class="flex flex-col-reverse justify-center sm:flex-row p-6 items-center gap-8 {{res.settings_font_family}} {{res.settings_body_style}}">
-    <article class="w-screen px-4 sm:px-0 {{res.settings_font_family}} {{res.settings_body_style}}">
+  <section class="flex flex-col-reverse justify-center sm:flex-row p-6 items-center gap-8">
+    <article class="w-screen px-4 sm:px-0">
       {% if section.extra.section_path %}
         {% set section = get_section(path=section.extra.section_path) %}
       {% endif %}
@@ -23,7 +23,7 @@
       {% endblock post_list %}
 
       {% if paginator %}
-        <ul class="pagination text-center mt-8 {{res.settings_font_family}} {{res.settings_body_style}}">
+        <ul class="pagination text-center mt-8">
           {% if paginator.previous %}
           <span class="page-item page-prev">
             <a href={{ paginator.previous }} class="page-link" aria-label="Previous"><span aria-hidden="true">{{res.previous_posts}}</span></a>

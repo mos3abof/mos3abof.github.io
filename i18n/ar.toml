@@ -3,8 +3,6 @@ settings_locale = "ar"
 settings_date_locale = "ar_EG"
 settings_date_format = "%B %d, %Y"
 settings_direction = "rtl"
-settings_font_family = "scheherazade-new"
-settings_body_style = "rtl-grid"
 
 # The main navigation menu
 menu_pages = [

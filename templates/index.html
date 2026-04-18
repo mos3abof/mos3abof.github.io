@@ -3,16 +3,16 @@
 {% block main_content %}
 <!-- Intro Section -->
 <section class="flex flex-col-reverse justify-center sm:flex-row p-6
-        items-center gap-8 scroll-mt-40 {{res.settings_font_family}} {{res.settings_body_style}}">
-  <article class="sm:w-2/3 {{res.settings_font_family}} {{res.settings_body_style}}">
+        items-center gap-8 scroll-mt-40">
+  <article class="sm:w-2/3">
     {%if lang == "ar" %}
 
     <h1 class="max-w-md text-2xl font-bold sm:text-5xl text-slate-900
-            dark:text-slate-300 {{res.settings_font_family}} {{res.settings_body_style}}">
+            dark:text-slate-300">
         مُصْعَب أَحْمَد إِبْرَاهِيم<span
         class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h1>
 
-    <span class="max-wd-md text-xl text-slate-700 dark:text-slate-300 pt-5 leading-loose {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
+    <span class="max-wd-md text-xl text-slate-700 dark:text-slate-300 pt-5 leading-loose" style="display: block;">
       مهندس برمجيات ونظم، <span class="text-teal-600 dark:test-slate-600">ذاتيّ التَّعلُّم،</span> شغوف  <span class="bg-green-100 dark:text-slate-600"> بهندسة قواعد البيانات </span>،
       <span class="bg-yellow-50 dark: text-slate-600 dark:text-slate-600">الأنظمة الموزعة</span>،
       <span class="bg-pink-100 dark:text-slate-600">برمجة النظم</span>،
@@ -22,7 +22,7 @@
 
 
 
-    <span class="max-w-md text-xl text-slate-700 dark:text-slate-300 pt-5 leading-normal {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
+    <span class="max-w-md text-xl text-slate-700 dark:text-slate-300 pt-5 leading-normal" style="display: block;">
     أحب قضاء وقع فراغي مع أسرتي أو في ممارسة إحدى هواياتي التي تتضمن:
     <a href="{{get_url(path='/ar/hobbies/reading')}}" class="underline text-violet-500 hover:bg-violet-500 hover:text-white p-1 dark:text-violet-300">القراءة</a>،
     <a href="{{get_url(path='/ar/hobbies/cycling')}}"
@@ -35,15 +35,15 @@
             class="underline text-orange-600 p-1 hover:bg-orange-600 hover:text-white dark:text-orange-300">النجارة</a>.
     </span> 
 
-    <span class="max-wd-md text-xl text-slate-700 dark:text-slate-300 pt-5 {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
+    <span class="max-wd-md text-xl text-slate-700 dark:text-slate-300 pt-5" style="display: block;">
       يكنكم مطالعة <a href="/ar/resume" class="underline bg-teal-100 text-teal-600 dark:test-slate-600">سيرتي الذاتية</a>، أو تصفح بعض <a href="/ar/projects" class="text-yellow-600 bg-yellow-100 hover:bg-yellow-600 hover:text-white dark:text-slate-600">مشاريعي </a>.
     </span>
 
     {%else %}
     <h1 class="max-w-md text-2xl font-bold sm:text-5xl text-slate-900
-            dark:text-slate-300 {{res.settings_font_family}} {{res.settings_body_style}}">Hi, I am Mosab<span
+            dark:text-slate-300">Hi, I am Mosab<span
         class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span></h1>
-    <span class="max-wd-md text-xl text-slate-700 dark:text-slate-300 pt-5 {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
+    <span class="max-wd-md text-xl text-slate-700 dark:text-slate-300 pt-5" style="display: block;">
       A <span class="text-teal-600 dark:test-slate-600">self-taught</span> software/systems
       engineer passionate about <span class="bg-green-100 dark:text-slate-600">database
         engineering</span>,
@@ -56,7 +56,7 @@
     </span>
 
 
-    <span class="max-w-md text-xl text-slate-700 dark:text-slate-300 pt-5 {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
+    <span class="max-w-md text-xl text-slate-700 dark:text-slate-300 pt-5" style="display: block;">
       When not working, I like spending time with my family or indulging in one of my hobbies including <a
                                                                                         href="{{get_url(path='/hobbies/reading')}}"
         class="underline text-violet-500 hover:bg-violet-500 hover:text-white p-1 dark:text-violet-300">reading</a>, <a
@@ -70,7 +70,7 @@
         class="underline text-orange-600 p-1 hover:bg-orange-600 hover:text-white dark:text-orange-300">woodworking</a>.
     </span>
 
-    <span class="max-wd-md text-xl text-slate-700 dark:text-slate-300 pt-5 {{res.settings_font_family}} {{res.settings_body_style}}" style="display: block;">
+    <span class="max-wd-md text-xl text-slate-700 dark:text-slate-300 pt-5" style="display: block;">
       Check out <a href="/resume" class="underline bg-teal-100 text-teal-600 dark:test-slate-600">my resume</a>, or go through some of <a href="/projects" class="text-yellow-600 bg-yellow-100 hover:bg-yellow-600 hover:text-white dark:text-slate-600">my projects</a>.
     </span>
     {%endif%}

@@ -6,7 +6,7 @@
       aria-hidden="true">{% if lang == 'ar' %}«{% else %}"{% endif %}</span>
     <p class="not-italic leading-loose text-slate-700 dark:text-slate-200 font-medium
              text-{% if size %}{{ size }}{% else %}2xl{% endif %}
-             {% if font %}{{ font }}{% elif lang == 'ar' %}scheherazade-new{% endif %}">
+             {% if font %}{{ font }}{% endif %}">
       {{ text | safe }}
     </p>
   </blockquote>

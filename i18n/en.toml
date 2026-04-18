@@ -3,8 +3,6 @@ settings_locale = "en"
 settings_date_locale = "en_US"
 settings_date_format = "%B %d, %Y"
 settings_direction = "ltr"
-settings_font_family = ""
-settings_body_style = ""
 
 # The main navigation menu
 menu_pages = [
