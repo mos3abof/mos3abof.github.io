@@ -958,10 +958,6 @@ pre {
   width: 100vw;
 }
 
-.max-w-2xl {
-  max-width: 42rem;
-}
-
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -1058,6 +1054,12 @@ pre {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.25rem * var(--tw-space-x-reverse));
   margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
 .self-end {
@@ -1247,6 +1249,10 @@ pre {
 
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .font-mono {
@@ -1565,6 +1571,46 @@ pre {
 
 .kufam             {
   font-family: "Kufam", sans-serif;
+}
+
+.scheherazade-new  {
+  font-family: "Scheherazade New", serif;
+}
+
+.noto-kufi         {
+  font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+.cairo             {
+  font-family: "Cairo", sans-serif;
+}
+
+.reem-kufi         {
+  font-family: "Reem Kufi", sans-serif;
+}
+
+.reem-kufi-fun     {
+  font-family: "Reem Kufi Fun", sans-serif;
+}
+
+.reem-kufi-ink     {
+  font-family: "Reem Kufi Ink", sans-serif;
+}
+
+.aref-ruqaa-ink    {
+  font-family: "Aref Ruqaa Ink", serif;
+}
+
+.cairo-play        {
+  font-family: "Cairo Play", sans-serif;
+}
+
+.ibm-plex-arabic   {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+
+.rubik             {
+  font-family: "Rubik", sans-serif;
 }
 
 /* ── Arabic typography system ─────────────────── */

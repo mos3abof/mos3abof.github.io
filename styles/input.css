@@ -158,6 +158,16 @@
 .amiri             { font-family: "Amiri", serif; }
 .amiri-quran       { font-family: "Amiri Quran", serif; }
 .kufam             { font-family: "Kufam", sans-serif; }
+.scheherazade-new  { font-family: "Scheherazade New", serif; }
+.noto-kufi         { font-family: "Noto Kufi Arabic", sans-serif; }
+.cairo             { font-family: "Cairo", sans-serif; }
+.reem-kufi         { font-family: "Reem Kufi", sans-serif; }
+.reem-kufi-fun     { font-family: "Reem Kufi Fun", sans-serif; }
+.reem-kufi-ink     { font-family: "Reem Kufi Ink", sans-serif; }
+.aref-ruqaa-ink    { font-family: "Aref Ruqaa Ink", serif; }
+.cairo-play        { font-family: "Cairo Play", sans-serif; }
+.ibm-plex-arabic   { font-family: "IBM Plex Sans Arabic", sans-serif; }
+.rubik             { font-family: "Rubik", sans-serif; }
 
 /* ── Arabic typography system ─────────────────── */
 /* Kufam for all headings in RTL (Arabic) pages */
