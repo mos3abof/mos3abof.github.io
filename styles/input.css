@@ -153,3 +153,34 @@
   font-family: "Noto Sans Arabic", sans-serif;
   font-optical-sizing: auto;
 }
+
+/* ── Arabic font classes ───────────────────────── */
+.scheherazade-new  { font-family: "Scheherazade New", serif; }
+.kufam             { font-family: "Kufam", sans-serif; }
+.cairo             { font-family: "Cairo", sans-serif; }
+.reem-kufi         { font-family: "Reem Kufi", sans-serif; }
+.reem-kufi-fun     { font-family: "Reem Kufi Fun", sans-serif; }
+.reem-kufi-ink     { font-family: "Reem Kufi Ink", sans-serif; }
+.aref-ruqaa-ink    { font-family: "Aref Ruqaa Ink", serif; }
+.cairo-play        { font-family: "Cairo Play", sans-serif; }
+.ibm-plex-arabic   { font-family: "IBM Plex Sans Arabic", sans-serif; }
+.rubik             { font-family: "Rubik", sans-serif; }
+.amiri-quran       { font-family: "Amiri Quran", serif; }
+
+/* ── Arabic typography system ─────────────────── */
+/* Kufam for all headings in RTL (Arabic) pages */
+.rtl-grid article h1,
+.rtl-grid article h2,
+.rtl-grid article h3,
+.rtl-grid article h4 {
+  font-family: "Kufam", sans-serif;
+  font-weight: 700;
+}
+
+/* Scheherazade New for Arabic article body text */
+.rtl-grid article p {
+  font-family: "Scheherazade New", serif;
+  font-size: 1.4rem;
+  line-height: 2.2;
+  text-align: right;
+}
