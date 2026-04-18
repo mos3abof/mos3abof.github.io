@@ -26,7 +26,9 @@ date = "2007-10-13"
 
 وهتلاقيني بأقول :  
 
-> “It's only in the mysterious equation of love that any logical reasons can be found. I'm only here tonight because of you. You are the only reason I am... you are all my reasons.”  
+> “It's only in the mysterious equation of love that any logical reasons can be
+> found. I'm only here tonight because of you. You are the only reason I am...
+> you are all my reasons.”  
   
 يا اللي لسة ما ظهرتيش  
 مشتاقلك .. بس خايف عليكي مني..
