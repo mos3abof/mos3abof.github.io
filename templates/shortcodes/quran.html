@@ -1,10 +1,8 @@
-<div
-  class="py-6 px-8 my-8 mx-auto max-w-2xl rounded-lg border shadow-sm quran-verse border-teal-600/40 bg-teal-50/30 dark:bg-teal-950/20"
-  dir="rtl">
-  <p class="leading-loose text-center quran-text text-slate-800 dark:text-slate-100"
-    style="font-family: 'Amiri Quran', serif; font-size: 1.6rem;">
-    {{ text | safe }}
-  </p>
+<div class="py-6 px-8 my-8 rounded-lg border shadow-sm quran-verse border-teal-600/40 bg-teal-50/30 dark:bg-teal-950/20"
+  dir="rtl" style="font-family: 'Amiri Quran', serif; font-size: 1.6rem;">
+  <div class="leading-loose text-right quran-text text-slate-800 dark:text-slate-100">
+    ﴿{{ body }}﴾
+  </div>
   {% if surah and ayah %}
   <p class="mt-4 font-mono text-sm text-center text-teal-700 dark:text-teal-400" dir="ltr">
     &#x5B; {{ surah }} : {{ ayah }} &#x5D;

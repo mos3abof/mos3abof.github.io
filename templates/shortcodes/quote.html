@@ -1,19 +1,20 @@
-<figure class="my-8 mx-auto max-w-2xl" dir="{% if lang == 'ar' %}rtl{% else %}ltr{% endif %}">
+<figure class="my-8" dir="{% if lang == 'ar' %}rtl{% else %}ltr{% endif %}">
   <blockquote
     class="relative py-6 px-8 not-italic rounded-lg border-teal-600 border-s-4 bg-slate-100 dark:bg-slate-900">
     <span
       class="absolute top-2 {% if lang == 'ar' %}right-3{% else %}left-3{% endif %} text-teal-600/20 text-8xl font-serif leading-none select-none"
       aria-hidden="true">{% if lang == 'ar' %}«{% else %}"{% endif %}</span>
-    <p class="not-italic leading-loose text-slate-700 dark:text-slate-200 font-medium
-             text-{% if size %}{{ size }}{% else %}2xl{% endif %}
+    <div class="not-italic leading-loose text-slate-700 dark:text-slate-200 font-medium space-y-4
+             text-{% if size %}{{ size }}{% else %}xl{% endif %}
              {% if font %}{{ font }}{% endif %}">
-      {{ text | safe }}
-    </p>
+      {{ body }}
+    </div>
+    {% if author %}
+    <br />
+    <figcaption class="px-8 mt-2 text-xl italic text-slate-500 dark:text-slate-400"
+      dir="{% if lang == 'ar' %}rtl{% else %}ltr{% endif %}">
+      &#8212; {{ author | safe }}
+    </figcaption>
+    {% endif %}
   </blockquote>
-  {% if author %}
-  <figcaption class="px-8 mt-2 text-sm italic text-slate-500 dark:text-slate-400"
-    dir="{% if lang == 'ar' %}rtl{% else %}ltr{% endif %}">
-    &#8212; {{ author | safe }}
-  </figcaption>
-  {% endif %}
 </figure>

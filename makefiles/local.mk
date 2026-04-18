@@ -1,4 +1,4 @@
-BASE_URL ?= https://we.mosab.me
+BASE_URL ?= https://web.mosab.me
 INTERFACE ?= 0.0.0.0
 PORT ?= 1111
 
@@ -12,7 +12,7 @@ build-zola:
 	$(MAKE) compile-css
 
 	# Build site
-	zola build --base-url=https://web.mosab.me
+	zola build --base-url=$(BASE_URL)
 
 	# Copy generated site to nginx directory
 	$(MAKE) copy-to-nginx
