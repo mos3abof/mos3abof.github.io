@@ -70,7 +70,7 @@
             </span>
 
             <div class="flex gap-2 items-center shrink-0">
-              <time datetime="{{ comment.date }}" class="text-xs text-slate-400 ibm-plex-mono dark:text-slate-500">{{
+              <time datetime="{{ comment.date }}" class="text-sm text-slate-400 ibm-plex-mono dark:text-slate-500">{{
                 formatted_date }}</time>
 
               {# Link to original comment on Blogger #}
@@ -91,12 +91,11 @@
         </header>
 
         {# Comment body #}
-        <div class="px-4 pt-1 pb-3 leading-relaxed cairo text-sm text-slate-600 dark:text-slate-400">{{ comment.text
+        <div class="px-4 pt-1 pb-3 text-lg leading-relaxed ibm-plex-arabic text-slate-600 dark:text-slate-400">{{
+          comment.text
           | replace(from="&", to="&amp;")
-          | replace(from="<", to="&lt;")
-          | replace(from=">", to="&gt;")
-          | replace(from="||", to="<br>")
-          | safe }}</div>
+          | replace(from="<", to="&lt;" ) | replace(from=">" , to="&gt;" ) | replace(from="||" , to="<br>" ) | safe
+            }}</div>
 
       </article>
     </li>
