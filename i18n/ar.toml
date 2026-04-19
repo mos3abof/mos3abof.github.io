@@ -38,6 +38,10 @@ posted_on = "نُشِرَت في"
 table_of_contents = "المواضيع"
 prev_post = "التدوينة السابقة"
 next_post = "التدوينة التالية"
+comments_title = "تعليقات"
+comments_blogger_note = "تعليقات تاريخية مستوردة من مدوّنة Blogger"
+comments_post_author = "صاحب التدوينة"
+comments_view_original = "عرض التعليق الأصلي على Blogger"
 
 # Nouns with singular and plural
 [words]

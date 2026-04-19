@@ -1,10 +1,17 @@
 +++
 title = " ساعات عصيبة!"
 date = "2007-03-08"
+
+[extra]
+comments = true
 +++
 
-[!أنا في المستشفى](http://farm1.static.flickr.com/149/413465123_41e0fb27fb.jpg?v=0) [وهنا أيضا](https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tLwW2gxPXI4Z2wcMCuVeY8SLzDi08JyTRsIk71mObZJWTRShGSV6T1jwjLtGSQ0Jwhq8XVTLDPtclnKD0e2zDcoQEoa-mHdDitMfhRuKkzwTn0eOXuVmsep6dDAcLf3ya-Rg=s0-d)
-
+{{
+  image(
+    src="at-the-hospital-1.jpg",
+    size="2xl"
+  )
+}}
 
 حسن لنحكي، ولكن قبل أن نبدأ أود أن أوضح بعض المعلومات الهامة عن العمل الذي
 سينشر بعد قليل..  
@@ -18,6 +25,8 @@ date = "2007-03-08"
 هينت صغير :  فاكرين Mr Facts والعيال الصغيرة اللي كان بيبهدلها بالحقائق في
 رواية hard times .. كنت حاسس إنهم حاسين بالألم لحاجتين، الأسلوب ، والحقائق نفسها
 مؤلمة...  
+
+{{ sep(style="arabic", gap="lg") }}
   
 ### الفصل الأول : أوقات عصيبة  
   
