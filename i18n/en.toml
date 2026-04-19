@@ -34,6 +34,7 @@ aria_menu = "Menu"
 with_tag = "with tag"
 not_found_header = "The page you requested could not be found."
 not_found_text = "Oops! Seems like this page vanished into the internet abyss. Maybe it's on vacation? Please check the URL or ping me, and I'll see if I can locate it, or at least send out a search party."
+not_found_home_hint = "Head back to safety"
 posted_on = "Posted on"
 table_of_contents = "Table of Contents"
 
