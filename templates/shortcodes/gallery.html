@@ -1,3 +1,22 @@
+{#
+  gallery — auto-gallery that renders all jpg/png assets of the current page
+            as a row of clickable thumbnail links.
+
+  Usage (inline shortcode, no parameters):
+    {{ gallery() }}
+
+  Parameters:
+    None. The shortcode reads page.assets automatically.
+
+  Behaviour:
+    - Iterates over all files attached to the current page (co-located assets).
+    - Includes only files whose name ends in .jpg or .png.
+    - Each image is wrapped in an <a> that opens the full asset URL in a new tab.
+
+  Note:
+    To use this shortcode a page must have co-located assets (i.e. the post is
+    a directory with index.md and image files alongside it).
+#}
 <div>
   {% if page.assets %}
   {% for asset in page.assets -%}

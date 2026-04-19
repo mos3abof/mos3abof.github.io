@@ -6,7 +6,7 @@ date = "2022-03-07T00:00:00Z"
 tags=["career"]
 +++
 
-![Meta](meta-logo.png)
+{{ image(src="meta-logo.png", alt="Meta Logo", size="2xl") }}
 
 Super excited and thrilled to share that I am joining the Production Engineering team at
 [Meta/Facebook](https://facebook.com) in London! Today is my first day.
@@ -17,7 +17,7 @@ Security posture of production services. PEs are hybrid software and systems
 engineers; they are the glue holding things together, whether that’s
 infrastructure and software or teams and processes.
 
-![FB London Infra logo on the wall](london-infra.png)
+{{ image(src="london-infra.png", text="FB London Infra logo on the wall", size="2xl") }}
 
 The true power of Production Engineering comes from developing strong
 relationships with partner engineering teams and valuing collaboration and

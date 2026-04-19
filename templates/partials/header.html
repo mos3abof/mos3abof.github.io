@@ -16,24 +16,24 @@
         &#9776;
       </button>
 
-      <nav class="hidden sm:block space-x-1 text-xl" aria-label="main">
+      <nav class="hidden sm:flex items-center gap-1 text-xl" aria-label="main">
         {% for menu_item in res.menu_pages %}
         {% if lang == config.default_language %}
         {% set item_url = menu_item.url %}
         {%else %}
         {% set item_url = lang ~ menu_item.url %}
         {% endif %}
-        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1" href="{{get_url(path=item_url)}}">{% if
+        <a class="hover:opacity-90 hover:bg-teal-600 hover:text-white py-1 px-2" href="{{get_url(path=item_url)}}">{% if
           menu_item.icon %} {{menu_item.icon | safe}} {%else%}{{menu_item.title}}{%endif%}</a>
         {% endfor %}
 
         <a href="{{get_url(path=switch_to_url)}}"
-          class="hover:opacity-90 hover:bg-teal-600 hover:text-white p-1 noto-sans">
+          class="hover:opacity-90 hover:bg-teal-600 hover:text-white py-1 px-2 noto-sans">
           <span class="border-solid">{{switch_to_title}}</span>
         </a>
 
         <!-- Dark/Light theme toggle -->
-        <button class="cursor-pointer" id="theme-toggle" aria-label="Toggle dark mode">
+        <button class="cursor-pointer hidden" id="theme-toggle" aria-label="Toggle dark mode">
           <i class="mdi mdi-brightness-6"></i>
         </button>
       </nav>

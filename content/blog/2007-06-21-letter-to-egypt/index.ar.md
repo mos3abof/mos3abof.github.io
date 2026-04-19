@@ -2,7 +2,7 @@
 title = "عزيزتي مصر..."
 date = "2007-06-21"
 +++
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhe7uxKK7G17IFQ3OCn-KJkpua1LFfxpcUX-n5NalMmjcMqYYrEOzLWkgG15LcQA2otO-C82HNvfeFewiUYb5xE-4P3tUcCyAoODNXSp6yFrHSiqkDM6FvJ-bySZrI4D-byaaXZhg/s320/436649726_4dc4b1d00a.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhe7uxKK7G17IFQ3OCn-KJkpua1LFfxpcUX-n5NalMmjcMqYYrEOzLWkgG15LcQA2otO-C82HNvfeFewiUYb5xE-4P3tUcCyAoODNXSp6yFrHSiqkDM6FvJ-bySZrI4D-byaaXZhg/s1600-h/436649726_4dc4b1d00a.jpg)  
+{{ image(src="436649726_4dc4b1d00a.jpg") }}  
 
 عزيزتي مصر.. تحية طيبة وبعد،  
   

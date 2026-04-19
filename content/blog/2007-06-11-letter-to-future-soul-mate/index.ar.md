@@ -3,7 +3,7 @@ title = "من القلب لرفيقة الدرب.."
 date = "2007-06-11"
 +++
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_xtFy2N5HtRZzZ4QbJqlEy_GnKpllxo5jVOysTDv73iRFdLJxyvtks5rXRNxo4H96u9qA4RIeJfL64Lv_XJ5K32CPCPl8TsLVPgfWAGcZu0iGfAFxU2fFkRHTVwKO2SagYHhgBg/s400/confused.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_xtFy2N5HtRZzZ4QbJqlEy_GnKpllxo5jVOysTDv73iRFdLJxyvtks5rXRNxo4H96u9qA4RIeJfL64Lv_XJ5K32CPCPl8TsLVPgfWAGcZu0iGfAFxU2fFkRHTVwKO2SagYHhgBg/s1600-h/confused.jpg)  
+{{ image(src="confused.jpg") }}  
 
 رفيقة دربي  
 وملكة قلبي التي لم أرها بعد  

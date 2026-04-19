@@ -3,7 +3,7 @@ title = " أنا والتعليم وهناك!"
 date = "2006-12-22"
 +++
 
-[![تلميذ حيران](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgODbofLzQBxSjil1OqVunwFYutYN8W8u2wgB_oz8oqZ_jGWH3MW2F6HJm4t8rqx9bPypHsG_DYImzHleUi-SQGA3520vXp1dJELX-1Sk_U0o_E_ysk4nzQKifleuStPekh9vLkuw/s320/42-16934618.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgODbofLzQBxSjil1OqVunwFYutYN8W8u2wgB_oz8oqZ_jGWH3MW2F6HJm4t8rqx9bPypHsG_DYImzHleUi-SQGA3520vXp1dJELX-1Sk_U0o_E_ysk4nzQKifleuStPekh9vLkuw/s1600-h/42-16934618.jpg)  
+{{ image(src="./confused-student.jpg", size="2xl") }}
 
 "يحكى أنه قبل سبعة عشر قرنا من الزمان (إلا 1685 سنة تقريبا!) كان هناك طفل يدعى
 مصعب في بلاد تدعى مصر يدرس بالصف الثاني من الحضانة المعروف بالكود الحركي (KG 2)

@@ -1,0 +1,98 @@
+{#
+  image — embed one or more images with an optional caption.
+
+  Usage (inline shortcode):
+    {{ image(src="photo.jpg") }}
+    {{ image(src="photo.jpg", alt="A photo", text="Cairo at dusk, 2008.") }}
+    {{ image(srcs=["a.jpg", "b.jpg"], text="Front and back views.", size="xl") }}
+
+  Parameters:
+    src    (string)          Path to a single image.
+    srcs   (array, optional) Paths to multiple images displayed in a flex row,
+                             sharing the same caption. Can be combined with src.
+    alt    (string, optional) HTML alt attribute. Defaults to text if provided,
+                             otherwise empty.
+    text   (string, optional) Caption text rendered below the image(s).
+    dir    (string, optional) Caption text direction: "ltr" or "rtl".
+                             Defaults to the current page language.
+    align  (string, optional) Figure alignment: "left" | "center" | "right"
+                             (aliases: "start" | "end"). Defaults to "center".
+                             Uses logical CSS properties, so start/end are
+                             RTL-aware.
+    size   (string, optional) Max-width of the figure: "sm" | "md" | "lg" |
+                             "xl" | "2xl" | "full". Defaults to "md".
+    link   (string, optional) Wraps the image(s) in an anchor pointing to this
+                             URL. Opens in a new tab.
+#}
+{%- set align = align | default(value="center") -%}
+{%- set size  = size  | default(value="md") -%}
+
+{# Build image list: src (single) and/or srcs (array) #}
+{%- set images = [] -%}
+{%- if src  %}{% set images = images | concat(with=[src])  %}{% endif -%}
+{%- if srcs %}{% set images = images | concat(with=srcs)   %}{% endif -%}
+
+{# Alt: explicit alt → text → empty #}
+{%- set resolved_alt = alt | default(value=text | default(value="")) -%}
+
+{# Caption direction: explicit dir param → page language #}
+{%- if dir -%}
+  {%- set caption_dir = dir -%}
+{%- elif lang == 'ar' -%}
+  {%- set caption_dir = "rtl" -%}
+{%- else -%}
+  {%- set caption_dir = "ltr" -%}
+{%- endif -%}
+
+{# Alignment — logical properties so left/right work in RTL too #}
+{%- if align == "left" or align == "start" -%}
+  {%- set align_class = "me-auto" -%}
+{%- elif align == "right" or align == "end" -%}
+  {%- set align_class = "ms-auto" -%}
+{%- else -%}
+  {%- set align_class = "mx-auto" -%}
+{%- endif -%}
+
+{# Max-width of the figure #}
+{%- if size == "sm"  %}{% set size_class = "max-w-sm"  %}
+{%- elif size == "md"  %}{% set size_class = "max-w-md"  %}
+{%- elif size == "lg"  %}{% set size_class = "max-w-lg"  %}
+{%- elif size == "xl"  %}{% set size_class = "max-w-xl"  %}
+{%- elif size == "2xl" %}{% set size_class = "max-w-2xl" %}
+{%- else %}{% set size_class = "w-full" %}
+{%- endif -%}
+
+{% if images %}
+<figure class="my-6 {{ size_class }} {{ align_class }}">
+
+  {% if images | length > 1 %}
+  <div class="flex flex-wrap gap-2 justify-center">
+    {%- for s in images %}
+    {%- if link %}<a href="{{ link }}" target="_blank" rel="noopener">{% endif %}
+    <img src="{{ s }}"
+         alt="{{ resolved_alt }}"
+         loading="lazy"
+         decoding="async"
+         class="rounded-xl flex-1 min-w-0 object-cover">
+    {%- if link %}</a>{% endif %}
+    {%- endfor %}
+  </div>
+  {% else %}
+  {%- if link %}<a href="{{ link }}" target="_blank" rel="noopener">{% endif %}
+  <img src="{{ images[0] }}"
+       alt="{{ resolved_alt }}"
+       loading="lazy"
+       decoding="async"
+       class="rounded-xl w-full">
+  {%- if link %}</a>{% endif %}
+  {% endif %}
+
+  {%- if text %}
+  <figcaption class="mt-2 text-sm text-center italic text-slate-500 dark:text-slate-400"
+              dir="{{ caption_dir }}">
+    {{- text -}}
+  </figcaption>
+  {%- endif %}
+
+</figure>
+{% endif %}

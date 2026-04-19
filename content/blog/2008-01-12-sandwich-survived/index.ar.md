@@ -3,7 +3,7 @@ title = "والساندويتش كويس؟!"
 date = "2008-01-12"
 +++
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHpO_DJmtMTrNoRk6LCNOsLerjUqs1zxzL3kAEDvI6MkkaQ8aBkavsrPuxAQBtHJXhVxzVxqHrGybEaaIIJu8_HKiDgqNlIW8ZuqL9PwTHIMtuSxL4WLDx3a1VwWqJBFpte44NKw/s400/HU059498.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHpO_DJmtMTrNoRk6LCNOsLerjUqs1zxzL3kAEDvI6MkkaQ8aBkavsrPuxAQBtHJXhVxzVxqHrGybEaaIIJu8_HKiDgqNlIW8ZuqL9PwTHIMtuSxL4WLDx3a1VwWqJBFpte44NKw/s1600-h/HU059498.jpg)  
+{{ image(src="HU059498.jpg") }}  
 
 أحمد حلمي نازل من العيادة النفسية بتاعت خالد الصاوي في فيلم "كده رضا" ويادوب
 بيعدي الشارع راحت منة شلبي خبطته بالعربية..  
@@ -18,7 +18,8 @@ date = "2008-01-12"
 - أصلي كنت بأعدل الساندويتش فالكاتشب بظ على الفستان.  
 - و الساندويتش كويس؟!  
   
-***  
+{{ sep(style="bullets", gap="lg") }}
+ 
 رايح أركب المترو كأي مواطن صالح من محطة الجيزة اللي في شارع الهرم، وماشي في
 الشارع بأمد علشان عاوز أوصل بسرعة و.. وفجأة لقيت حاجة بتلمس رجلي من ورا!  
 التفتت لقيتهم اتنين بنات راكبين عربية وواحدة فيهم سايقة، لسة هأقول لها أو أشاور

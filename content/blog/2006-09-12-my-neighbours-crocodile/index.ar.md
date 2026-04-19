@@ -3,7 +3,7 @@ title = "جاري عنده تمساح!"
 date = "2006-09-12"
 +++
 
-[![crocodile](https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sWtG21f5Mu2J15tD0Y6XMLRa_xhwwbWPPBcBIjCbIZIYJ879NIt2BvdAqFGX7l8hOTOHJoEt5vp-FyCo9E-X_0YTFtBuk=s0-d)](http://www.20at.com/mosab/bogy.jpg)  
+{{ image(src="https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sWtG21f5Mu2J15tD0Y6XMLRa_xhwwbWPPBcBIjCbIZIYJ879NIt2BvdAqFGX7l8hOTOHJoEt5vp-FyCo9E-X_0YTFtBuk=s0-d", alt="crocodile", link="http://www.20at.com/mosab/bogy.jpg") }}  
 
 ### (1) عناصر الرواية
   
@@ -19,7 +19,7 @@ date = "2006-09-12"
 الحدود، ولكن هذا ما تريده هذه التدوينة، حيث أني أكتبها وأنا نائم تماما –تقريبا-
 و هو كل ما تحتاجه أنت يا قارئي العزيز-أو قارئتي العزيزة- الآن!  
   
-[![crocodile](https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_ue7WkHOL06YtwxwxMDt8j5rKzduIajw9q1UAPjNUL-OVoOHX9iuQAjmCbi6gAOfIVjhSZR4F4zmIBSlUkdQtyRRc2bhHlt=s0-d)](http://www.20at.com/mosab/temsa7.jpg)  
+{{ image(src="https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_ue7WkHOL06YtwxwxMDt8j5rKzduIajw9q1UAPjNUL-OVoOHX9iuQAjmCbi6gAOfIVjhSZR4F4zmIBSlUkdQtyRRc2bhHlt=s0-d", alt="crocodile", link="http://www.20at.com/mosab/temsa7.jpg") }}  
 
 * هو2 : تمساح صغير، لا يتعدى طوله الثلاثين سنتيمترا، يجري بسرعة كبيرة مقارنة
 بحجمه، و عندما فتح فمه الذي لا يجرح بعد و لكنه يؤلم أصابني الذهول من شراسته،بقى
@@ -44,6 +44,8 @@ date = "2006-09-12"
   
 لما أعرفه عن بوجي، و لأن لا شيء يجعلني أتعجب بسهولة قلت له أصدقك، و كن كل ما أردت
 أن أعرفه لحظتها رد فعل أبيه و أمه و أخته عند سماعهم الخبر...  
+
+{{ sep(style="arabic", gap="lg") }}
   
 #### الفصل الثاني : فلاش باك
 
@@ -53,6 +55,8 @@ date = "2006-09-12"
   
 رقيقة لأنها صغيرة جدا  
 و مفترسة لأنها ... أنتم تعرفون!  
+
+{{ sep(style="arabic", gap="lg") }}
   
 #### الفصل الثالث : اللقاء
   
@@ -62,6 +66,8 @@ date = "2006-09-12"
 و إذا ببوجي يحكي لي عن الموقف الذي جعله يبدأ القلق! عندما دخل يطعمه قطعة من
 الكبد كان يهزها أمامه فإذا بسمسم –كما تسميه أخته- يقفز ملتهما إياها بشراسة
 منقطعة النظير كاد يقتلع فيها إصبعه!  
+
+{{ sep(style="arabic", gap="lg") }}
   
 #### الفصل الأخير : الدروس المستفادة من الوحدة
   
@@ -73,4 +79,6 @@ date = "2006-09-12"
 يأكلك سمسم من باب الدعابة، حتما سيقتلك أبوك أو تغتالك أمك أو تقضي عليك أختك أو
 يبلغ عنك الجيران!
   
+{{ sep(style="arabic", gap="lg") }}
+
 سلام يا بشر.. حرصوا على صوابع رجليكم!

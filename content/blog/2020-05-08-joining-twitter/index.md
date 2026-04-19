@@ -6,7 +6,7 @@ date = "2020-05-08T00:00:00Z"
 tags=["career"]
 +++
 
-![Twitter](twitter-logo.png)
+{{ image(src="twitter-logo.png", alt="Twitter") }}
 
 Last Friday was my last day at [GoCardless](https://gocardless.com). It has been
 a year -and change- full of knowing smart and great colleagues, and learning a

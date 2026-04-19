@@ -1,0 +1,115 @@
+{#
+  sep — decorative section/scene break separator between paragraphs.
+
+  Usage (inline shortcode):
+    {{ sep() }}
+    {{ sep(style="dots", gap="lg") }}
+    {{ sep(style="gradient", width="1/2", color="#a0aec0") }}
+    {{ sep(style="image", src="ornament.png", alt="ornament") }}
+
+  Parameters:
+    style  (string, optional) The visual style of the separator. Defaults to "asterisks".
+
+      Text-based (centered glyphs):
+        "asterisks"  →  * * *           Classic novel scene break.
+        "dots"       →  · · ·           Middle dots (U+00B7).
+        "bullets"    →  • • •           Filled bullet points.
+        "dashes"     →  — — —           Em dashes.
+        "dingbats"   →  ✦ ✦ ✦          Four-pointed stars (U+2726).
+        "diamonds"   →  ◆ ◆ ◆          Solid diamonds (U+25C6).
+        "fleurons"   →  ❧ ❧ ❧          Rotated floral heart bullets (U+2767).
+        "asterism"   →  ⁂               Single Unicode asterism character (U+2042).
+        "ornament"   →  ❦               Single floral heart (U+2766).
+        "arabic"     →  ٭ ٭ ٭          Arabic five-pointed star (U+066D).
+
+      Line-based:
+        "rule"       →  ─────           Plain horizontal rule.
+        "gradient"   →  ░▒▓▒░           Line that fades at both edges.
+
+      Other:
+        "space"      →  (blank)         Vertical whitespace only, no visible mark.
+        "image"      →  <img>           Custom image. Requires src parameter.
+
+    gap    (string, optional) Vertical spacing around the separator.
+                             "sm" | "md" (default) | "lg" | "xl"
+
+    size   (string, optional) Tailwind text-size suffix for glyph-based styles.
+                             e.g. "xl" (default), "2xl", "3xl", "lg".
+
+    color  (string, optional) CSS color value applied to glyphs or the rule line.
+                             Accepts any CSS color: "#888", "teal", "oklch(…)", etc.
+                             Defaults to a muted slate tone.
+
+    width  (string, optional) Tailwind width fraction for rule/gradient styles.
+                             e.g. "1/4", "1/3", "1/2" (default), "3/4", "full".
+
+    src    (string, optional) Image path for style="image".
+    alt    (string, optional) Alt text for style="image". Defaults to empty.
+#}
+{%- set style = style | default(value="asterisks") -%}
+{%- set size  = size  | default(value="xl") -%}
+{%- set width = width | default(value="1/2") -%}
+
+{%- if gap == "sm" -%}{%- set gap_class = "my-6"  -%}
+{%- elif gap == "lg" -%}{%- set gap_class = "my-16" -%}
+{%- elif gap == "xl" -%}{%- set gap_class = "my-24" -%}
+{%- else -%}{%- set gap_class = "my-10" -%}
+{%- endif -%}
+
+{%- if color -%}
+  {%- set color_style = 'style="color:' ~ color ~ '"' -%}
+  {%- set line_style  = 'style="border-color:' ~ color ~ '; background-color:' ~ color ~ '"' -%}
+{%- else -%}
+  {%- set color_style = 'class="text-slate-400 dark:text-slate-600"' -%}
+  {%- set line_style  = 'class="border-slate-300 dark:border-slate-600"' -%}
+{%- endif -%}
+
+<div class="flex items-center justify-center {{ gap_class }} select-none" aria-hidden="true" role="separator">
+
+{%- if style == "asterisks" %}
+  <span {{ color_style | safe }} class="text-{{ size }} tracking-[0.5em]">* * *</span>
+
+{%- elif style == "dots" %}
+  <span {{ color_style | safe }} class="text-{{ size }} tracking-[0.5em]">· · ·</span>
+
+{%- elif style == "bullets" %}
+  <span {{ color_style | safe }} class="text-{{ size }} tracking-[0.5em]">• • •</span>
+
+{%- elif style == "dashes" %}
+  <span {{ color_style | safe }} class="text-{{ size }} tracking-[0.5em]">— — —</span>
+
+{%- elif style == "dingbats" %}
+  <span {{ color_style | safe }} class="text-{{ size }} tracking-[0.5em]">✦ ✦ ✦</span>
+
+{%- elif style == "diamonds" %}
+  <span {{ color_style | safe }} class="text-{{ size }} tracking-[0.5em]">◆ ◆ ◆</span>
+
+{%- elif style == "fleurons" %}
+  <span {{ color_style | safe }} class="text-{{ size }} tracking-[0.5em]">❧ ❧ ❧</span>
+
+{%- elif style == "asterism" %}
+  <span {{ color_style | safe }} class="text-{{ size }}">⁂</span>
+
+{%- elif style == "ornament" %}
+  <span {{ color_style | safe }} class="text-{{ size }}">❦</span>
+
+{%- elif style == "arabic" %}
+  <span {{ color_style | safe }} class="text-{{ size }} tracking-[0.5em]">٭ ٭ ٭</span>
+
+{%- elif style == "rule" %}
+  <hr {{ line_style | safe }} class="w-{{ width }} border-t">
+
+{%- elif style == "gradient" %}
+  <div class="w-{{ width }} h-px"
+    style="background: linear-gradient(to right, transparent, {% if color %}{{ color }}{% else %}#94a3b8{% endif %}, transparent);">
+  </div>
+
+{%- elif style == "image" %}
+  {%- if src %}
+  <img src="{{ src }}" alt="{{ alt | default(value='') }}" loading="lazy" class="max-h-16 object-contain opacity-70">
+  {%- endif %}
+
+{%- endif %}
+{# style == "space": gap_class on the outer div is enough #}
+
+</div>

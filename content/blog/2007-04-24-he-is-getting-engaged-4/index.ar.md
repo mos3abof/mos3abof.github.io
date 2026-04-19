@@ -3,7 +3,7 @@ title = "بسلامته بيخطب (4)"
 date = "2007-04-24"
 +++
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZa3T5hRolHNwSTGd_pdae2poqUJJkS60XoPXGs-pHI-n-5U4sMblEkQelNSHooiQA6jFvMjagvfzSrKhXJLusYP26OZ6Ri9bw_KTJQlp67RQNpNoAJebMWleL7li_tyWOPt2YfQ/s400/IMG_2429.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZa3T5hRolHNwSTGd_pdae2poqUJJkS60XoPXGs-pHI-n-5U4sMblEkQelNSHooiQA6jFvMjagvfzSrKhXJLusYP26OZ6Ri9bw_KTJQlp67RQNpNoAJebMWleL7li_tyWOPt2YfQ/s1600-h/IMG_2429.jpg)  
+{{ image(src="IMG_2429.jpg") }}  
   
 قبل ما أكتب وأعترف،  
 بيرو حبيبي..  

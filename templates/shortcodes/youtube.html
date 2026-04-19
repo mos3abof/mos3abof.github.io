@@ -1,6 +1,19 @@
+{#
+  youtube — responsive 16:9 YouTube embed using the privacy-friendly nocookie domain.
+
+  Usage (inline shortcode):
+    {{ youtube(id="dQw4w9WgXcQ") }}
+    {{ youtube(playlist="PLxxxxxxxx") }}
+    {{ youtube(id="dQw4w9WgXcQ", playlist="PLxxxxxxxx") }}
+
+  Parameters:
+    id       (string, optional) YouTube video ID.
+    playlist (string, optional) YouTube playlist ID. Prepended to the embed URL
+                               as `list=<playlist>`. Can be combined with id.
+#}
 <div class="aspect-w-16 aspect-h-9">
   <iframe frameborder="0"
-    src="https://www.youtube-nocookie.com/embed/{%if id %}{{id}}{% endif %}?{%if playlist %}list={{playlist}}&{% endif %}si=mXe6uLa_nD2WO8Bq"
+    src="https://www.youtube-nocookie.com/embed/{% if id %}{{id}}{% endif %}?{% if playlist %}list={{playlist}}&{% endif %}si=mXe6uLa_nD2WO8Bq"
     title="YouTube video player" frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
     allowfullscreen></iframe>

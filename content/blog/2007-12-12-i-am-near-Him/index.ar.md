@@ -3,7 +3,7 @@ title = "أنا جنبه بس.."
 date = "2007-12-12"
 +++
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFkXBiICMOYoFN4dNzSYn6pBosWErvG5-vpEkSqkVgN_rskYG5oBNr1sLfL3PNFY8tqYDbb5K_dyEXZ7MOBJXNMKtOPyrQT5EpMtQx_ZFjdqCB6yH9rMJ0UuMqSjlDdnfU3hDfBQ/s400/i+still+love+him+but+i+forgot.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFkXBiICMOYoFN4dNzSYn6pBosWErvG5-vpEkSqkVgN_rskYG5oBNr1sLfL3PNFY8tqYDbb5K_dyEXZ7MOBJXNMKtOPyrQT5EpMtQx_ZFjdqCB6yH9rMJ0UuMqSjlDdnfU3hDfBQ/s1600-h/i+still+love+him+but+i+forgot.jpg)  
+{{ image(src="i_still_love_him_but_i_forgot.jpg") }}  
 اتقابلوا مرة  
   
 - مالك؟! شكلك مهموم حزين..  
@@ -11,11 +11,13 @@ date = "2007-12-12"
   
 ابتسم له وخده في حضنه  
   
-- صدقني يا ابني، طول ما أنت قريب من ربنا ما هتحس باللي أنت بتقوله ده.. قرب منه ده بيحبك وهيمدلك ايديه ويحتويك..  
+- صدقني يا ابني، طول ما أنت قريب من ربنا ما هتحس باللي أنت بتقوله ده.. قرب منه
+ده بيحبك وهيمدلك ايديه ويحتويك..  
   
 وسابه ومشي، وساب معاه بداية فرج..  
   
-***  
+{{ sep(style="bullets", gap="lg") }}
+  
 بعد سنة في نفس المكان،  
   
 - ...  

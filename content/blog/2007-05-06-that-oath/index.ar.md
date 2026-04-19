@@ -2,7 +2,7 @@
 title = " ذاك القَسَم..."
 date = "2007-05-06"
 +++
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuoRGdZBN2FxTOSsjaimjErizuKFWPoCC9MONsqkOwvU4w4yiq-QScOVh48Y7FFIdVL_cQI5BHswOqYESqMFWr0dxJT3cDyHqvZFqHarjjE2Kv7b2D9I-t44kMbJDANQ3DYZxf3w/s400/swear.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuoRGdZBN2FxTOSsjaimjErizuKFWPoCC9MONsqkOwvU4w4yiq-QScOVh48Y7FFIdVL_cQI5BHswOqYESqMFWr0dxJT3cDyHqvZFqHarjjE2Kv7b2D9I-t44kMbJDANQ3DYZxf3w/s1600-h/swear.jpg)  
+{{ image(src="swear.jpg") }}  
 
 اليومين دول عمر أخويا بيوضب المكتبة بتاعت البيت..  
 النهاردة وأنا داخل البيت لقيته بيقول لي هو أنت اللي حاطط الورقة دي هنا؟  

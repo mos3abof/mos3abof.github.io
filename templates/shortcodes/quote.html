@@ -1,15 +1,36 @@
-<figure class="my-8" dir="{% if lang == 'ar' %}rtl{% else %}ltr{% endif %}">
+{#
+  quote — styled block quote with an optional attribution line.
+
+  Usage (body shortcode):
+    {% quote() %}Quote text.{% end %}
+    {% quote(author="Ibn Khaldun", dir="rtl") %}النص.{% end %}
+
+  Parameters:
+    author (string, optional) Attribution shown below the quote after an em dash.
+    dir    (string, optional) Text direction: "ltr" or "rtl".
+                             Defaults to the current page language.
+                             Use dir="ltr" to force LTR inside an Arabic page,
+                             e.g. for English quotes embedded in Arabic posts.
+    size   (string, optional) Tailwind text-size suffix for the quote body,
+                             e.g. "xl" (default), "2xl", "lg".
+    font   (string, optional) Additional CSS class applied to the quote body,
+                             e.g. a font utility class like "amiri" or "scheherazade-new".
+
+  Body:
+    The quoted text. Blank lines become paragraph breaks.
+#}
+<figure class="my-8" dir="{% if dir %}{{ dir }}{% elif lang == 'ar' %}rtl{% else %}ltr{% endif %}">
   <blockquote
     class="relative py-6 px-8 not-italic rounded-lg border-teal-600 border-s-4 bg-slate-100 dark:bg-slate-900">
-    <span class="absolute top-2 
-      {% if lang == 'ar' %}right-3{% else %}left-3{% endif %} 
-      text-teal-600/20 
-      text-8xl 
-      font-serif 
-      leading-none select-none" aria-hidden="true">{% if lang == 'ar' %}«{% else %}"{% endif %}
+    <span class="absolute top-2
+      {% if lang == 'ar' and not dir %}right-3{% else %}left-3{% endif %}
+      text-teal-600/20
+      text-8xl
+      font-serif
+      leading-none select-none" aria-hidden="true">{% if lang == 'ar' and not dir %}«{% else %}"{% endif %}
     </span>
-    <div class="not-italic leading-loose 
-            text-slate-700 dark:text-slate-200 
+    <div class="not-italic leading-loose
+            text-slate-700 dark:text-slate-200
             font-medium space-y-4
             text-{% if size %}{{ size }}{% else %}xl{% endif %}
             {% if font %}{{ font }}{% endif %}">
@@ -18,7 +39,7 @@
 
     {% if author %}
     <figcaption class="px-8 mt-2 text-xl italic text-slate-500 dark:text-slate-400"
-      dir="{% if lang == 'ar' %}rtl{% else %}ltr{% endif %}">
+      dir="{% if dir %}{{ dir }}{% elif lang == 'ar' %}rtl{% else %}ltr{% endif %}">
       <br />
       &#8212; {{ author | safe }}
     </figcaption>

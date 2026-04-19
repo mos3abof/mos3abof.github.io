@@ -4,7 +4,7 @@ date = "2008-06-19"
 +++
 
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghXGMuA1MH345NIcfEpc_FXvil7OdHZt0hHzDztaWpT8YphMJgoDOnIzmRlqxea0nm8ojqy4RwqSlNjbfWToHt73amXhGAF6dAans2wSSGPgRIyQkHB_aINmJDVAWK-ApwjDgcyA/s400/42-15440216.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghXGMuA1MH345NIcfEpc_FXvil7OdHZt0hHzDztaWpT8YphMJgoDOnIzmRlqxea0nm8ojqy4RwqSlNjbfWToHt73amXhGAF6dAans2wSSGPgRIyQkHB_aINmJDVAWK-ApwjDgcyA/s1600-h/42-15440216.jpg)  
+{{ image(src="42-15440216.jpg") }}  
 
 (1)  
   

@@ -1,136 +1,201 @@
 {% macro list_posts(pages) %}
-<ul class="list-none mx-auto mt-8">
+{% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
+<ul class="mx-auto mt-8 list-none">
   {% for page in pages %}
-    <section class="list-item">
-      <div class="post-header">
-        <li class="my-1 flex">
-          {% if page.date %}
-            <time class="text-slate-400 hidden sm:block pt-3">{{ page.date | date(format="%Y-%m-%d") }}</time>
+  <section class="list-item">
+    <div class="post-header">
+      <li class="flex my-1">
+        {% if page.date %}
+        <time
+          class="hidden pt-3 sm:block shrink-0 text-slate-400 ibm-plex-mono {% if lang == 'ar' %}w-56{% else %}w-36{% endif %}">{{
+          post_macros::format_date(date=page.date, res=res) }}</time>
+        {% endif %}
+        <a href="{{ page.permalink }}" class="p-1 mx-2 text-2xl hover:text-white hover:bg-teal-600">
+          <span class="text-teal-600 sm:hidden">- </span>{{ page.title }}
+          {% if page.draft %}
+          <span class="draft-label">DRAFT</span>
           {% endif %}
-          <a href="{{ page.permalink }}"
-            class="text-2xl mx-2 hover:text-white hover:bg-teal-600 p-1">
-            <span class="sm:hidden text-teal-600">- </span>{{ page.title }}
-            {% if page.draft %}
-              <span class="draft-label">DRAFT</span>
+        </a>
+      </li>
+      <div>
+        <div class="meta">
+          <div class="description">
+            {% if page.description %}
+            {{ page.description }}
+            {% elif page.summary %}
+            {{ page.summary | safe }}&hellip;
             {% endif %}
-          </a>
-        </li>
-        <div>
-          <div class="meta">
-            <div class="description">
-              {% if page.description %}
-                {{ page.description }}
-              {% elif page.summary %}
-                {{ page.summary | safe }}&hellip;
-              {% endif %}
-            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
   {% endfor %}
 </ul>
 {% endmacro list_posts %}
 
 {% macro list_taxonomy_terms(terms) %}
-<ul class="list-none mx-auto mt-8">
+<ul class="mx-auto mt-8 list-none">
   {%- for term in terms %}
-    <section class="list-item">
-      <div class="post-header">
-        <li class="my-1 flex">
-          <h1 class="title">
-            <a href={{ term.permalink }}>{{ term.name }}</a>
-          </h1>
-        </li>
-      </div>
-    </section>
+  <section class="list-item">
+    <div class="post-header">
+      <li class="flex my-1">
+        <h1 class="title">
+          <a href={{ term.permalink }}>{{ term.name }}</a>
+        </h1>
+      </li>
+    </div>
+  </section>
   {% endfor -%}
 </ul>
 {% endmacro list_taxonomy_terms %}
 
 {% macro tags(page, short=false) %}
 {%- if page.taxonomies and page.taxonomies.tags %}
-  <span class="post-tags-inline">
-    {%- if short %}
-      ::
-      {%- set sep = "," -%}
-    {% else %}
-      :: tags:&nbsp;
-      {%- set sep = "&nbsp;" -%}
-    {% endif -%}
-    {%- for tag in page.taxonomies.tags %}
-      <a class="post-tag" href="{{ get_taxonomy_url(kind='tag', name=tag) | safe }}">#{{ tag }}</a>
-      {%- if not loop.last %}{{ sep | safe }}{% endif -%}
-    {% endfor -%}
-  </span>
+<span class="post-tags-inline">
+  {%- if short %}
+  ::
+  {%- set sep = "," -%}
+  {% else %}
+  :: tags:&nbsp;
+  {%- set sep = "&nbsp;" -%}
+  {% endif -%}
+  {%- for tag in page.taxonomies.tags %}
+  <a class="post-tag" href="{{ get_taxonomy_url(kind='tag', name=tag) | safe }}">#{{ tag }}</a>
+  {%- if not loop.last %}{{ sep | safe }}{% endif -%}
+  {% endfor -%}
+</span>
 {% endif -%}
 {% endmacro tags %}
 
+{% macro format_date(date, res) -%}
+{%- set d = date | date(format=res.settings_date_format, locale=res.settings_date_locale) -%}
+{%- if res.settings_locale == 'ar' -%}
+{{ d | replace(from="0", to="٠") | replace(from="1", to="١") | replace(from="2", to="٢") | replace(from="3", to="٣") |
+replace(from="4", to="٤") | replace(from="5", to="٥") | replace(from="6", to="٦") | replace(from="7", to="٧") |
+replace(from="8", to="٨") | replace(from="9", to="٩") }}
+{%- else -%}
+{{ d }}
+{%- endif -%}
+{%- endmacro format_date %}
+
 {% macro page_header(title) %}
-<h1 class="text-3xl font-bold sm:text-4xl text-slate-900 dark:text-slate-300">
-  {{ title }}<span class="text-teal-600 text-7xl m-0 p-0 leading-[0px]">.</span>
+<h1 class="text-4xl font-bold sm:text-5xl text-slate-900 dark:text-slate-300">
+  {{ title }}<span class="p-0 m-0 text-7xl text-teal-600 leading-[0px]">.</span>
 </h1>
 {% endmacro page_header %}
 
 {% macro content(page) %}
 {% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
-<section class="flex flex-col justify-center sm:flex-row p-6 items-center gap-8">
-  <article class="w-screen px-4 sm:px-0">
+<section class="flex flex-col gap-8 justify-center items-center p-6 sm:flex-row">
+  <article class="px-4 w-screen sm:px-0">
     {{ post_macros::page_header(title=page.title) }}
 
     {% if page.date %}
-      <span class="text-slate-400 sm:text-1/2xl text-sl font-mono">
-        {{ res.posted_on }}
-        <time class="text-slate-500">{{ page.date | date(format="%Y-%m-%d") }}</time>
-      </span>
+    <span class="mt-4 block text-base sm:text-lg text-slate-400">
+      {{ res.posted_on }}
+      <time class="text-slate-500 ibm-plex-mono">{{ post_macros::format_date(date=page.date, res=res) }}</time>
+    </span>
     {% endif %}
 
     {% if page.draft %}
-      <span class="draft-label">DRAFT</span>
+    <span class="draft-label">DRAFT</span>
     {% endif %}
 
     {% if page.extra.toc | default(value=false) %}
-      {% if page.toc %}
-        <h1>{{ res.table_of_contents }}</h1>
+    {% if page.toc %}
+    <h1>{{ res.table_of_contents }}</h1>
+    <ul>
+      {% for h1 in page.toc %}
+      <li>
+        <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+        {% if h1.children %}
         <ul>
-          {% for h1 in page.toc %}
+          {% for h2 in h1.children %}
           <li>
-            <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
-            {% if h1.children %}
-            <ul>
-              {% for h2 in h1.children %}
-              <li>
-                <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
-              </li>
-              {% if h2.children %}
-              <ul>
-                {% for h3 in h2.children %}
-                <li><a href="{{ h3.permalink | safe }}">{{ h3.title }}</a></li>
-                {% endfor %}
-              </ul>
-              {% endif %}
-              {% endfor %}
-            </ul>
-            {% endif %}
+            <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
           </li>
+          {% if h2.children %}
+          <ul>
+            {% for h3 in h2.children %}
+            <li><a href="{{ h3.permalink | safe }}">{{ h3.title }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
           {% endfor %}
         </ul>
-      {% endif %}
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
     {% endif %}
 
     <div class="my-4">
       {{ page.content | safe }}
 
       {% if page.taxonomies and page.taxonomies.tags %}
-        <aside class="text-sl text-slate-700 dark:text-slate-300 mt-8 font-mono">
-          Tags:
-          {% for tag in page.taxonomies.tags %}
-            <a href="{{ get_taxonomy_url(kind='tags', name=tag) | safe }}"
-              class="text-teal-600 p-1 hover:text-white hover:bg-teal-600">#{{ tag }}</a>
-          {% endfor %}
-        </aside>
+      <aside class="mt-8 font-mono text-sl text-slate-700 dark:text-slate-300">
+        Tags:
+        {% for tag in page.taxonomies.tags %}
+        <a href="{{ get_taxonomy_url(kind='tags', name=tag) | safe }}"
+          class="p-1 text-teal-600 hover:text-white hover:bg-teal-600">#{{ tag }}</a>
+        {% endfor %}
+      </aside>
       {% endif %}
     </div>
+
+    {% if (page.lower or page.higher) and ("blog/_index.md" in page.ancestors or "blog/_index.ar.md" in page.ancestors)
+    %}
+    <nav class="flex gap-4 justify-between pt-6 mt-10 border-t border-slate-200 dark:border-slate-700">
+      <div class="flex-1">
+        {% if page.lower %}
+        <a href="{{ page.lower.permalink }}" class="flex flex-col gap-1 no-underline hover:text-white group">
+          <span class="text-xs tracking-wide uppercase group-hover:text-white text-slate-400 dark:text-slate-500">
+            {% if res.settings_direction == 'rtl' %}
+            {{ res.prev_post }} →
+            {% else %}
+            ← {{ res.prev_post }}
+            {% endif %}
+          </span>
+          <span
+            class="text-sm text-teal-600 sm:text-base group-hover:text-white group-hover:underline underline-offset-4 line-clamp-2">
+            {{ page.lower.title }}
+          </span>
+        </a>
+        {% endif %}
+      </div>
+      <div class="flex flex-col flex-none justify-center items-center">
+        {% if lang != config.default_language %}
+        {% set archive_url = "/" ~ lang ~ "/blog/" %}
+        {% else %}
+        {% set archive_url = "/blog/" %}
+        {% endif %}
+        <a href="{{ archive_url }}" class="flex flex-col gap-1 items-center no-underline group">
+          <span class="text-xs tracking-wide uppercase group-hover:text-white text-slate-400 dark:text-slate-500">
+            {{ res.post_list }}
+          </span>
+        </a>
+      </div>
+      <div class="flex-1 text-end">
+        {% if page.higher %}
+        <a href="{{ page.higher.permalink }}" class="flex flex-col gap-1 items-end no-underline hover:text-white group">
+          <span class="text-xs tracking-wide uppercase group-hover:text-white text-slate-400 dark:text-slate-500">
+            {% if res.settings_direction == 'rtl' %}
+            ← {{ res.next_post }}
+            {% else %}
+            {{ res.next_post }} →
+            {% endif %}
+          </span>
+          <span
+            class="text-sm text-right text-teal-600 sm:text-base group-hover:text-white group-hover:underline underline-offset-4 line-clamp-2">
+            {{ page.higher.title }}
+          </span>
+        </a>
+        {% endif %}
+      </div>
+    </nav>
+    {% endif %}
   </article>
 </section>
 {% endmacro content %}
