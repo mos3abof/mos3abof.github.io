@@ -39,6 +39,10 @@ posted_on = "Posted on"
 table_of_contents = "Table of Contents"
 prev_post = "Previous post"
 next_post = "Next post"
+comments_title = "Comments"
+comments_blogger_note = "Historical comments imported from Blogger"
+comments_post_author = "post author"
+comments_view_original = "View original comment on Blogger"
 
 # Nouns with singular and plural
 [words]

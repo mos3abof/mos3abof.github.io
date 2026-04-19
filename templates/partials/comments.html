@@ -1,0 +1,109 @@
+{% if page.extra.comments | default(value=false) %}
+{% set path_parts = page.relative_path | split(pat="/") %}
+{% set dir_parts = path_parts | slice(end=-1) %}
+{% set dir_path = dir_parts | join(sep="/") %}
+{% set comments_data = load_data(path="content/" ~ dir_path ~ "/comments.toml") %}
+{% if comments_data and comments_data.comments %}
+
+<section class="pt-10 mt-12 border-t border-slate-200 dark:border-slate-700" dir="{{ res.settings_direction }}"
+  aria-label="{{ res.comments_title }}">
+  <h2 class="mb-1 text-2xl font-bold text-slate-900 dark:text-slate-200">
+    {{ res.comments_title }}<span class="text-3xl leading-none text-teal-600">.</span>
+  </h2>
+
+  <p class="flex gap-1.5 items-center mb-8 text-xs text-slate-400 dark:text-slate-500">
+    <svg xmlns="http://www.w3.org/2000/svg" class="inline w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+    </svg>
+    {{ res.comments_blogger_note }}
+  </p>
+
+  <ol class="flex flex-col gap-3 p-0 m-0 list-none">
+    {% for comment in comments_data.comments | sort(attribute="date") %}
+
+    {%- set is_author = comment.is_author | default(value=false) -%}
+
+    {%- if lang == "ar" -%}
+    {%- set formatted_date = comment.date | date(format="%-d %B، %Y · %-I:%M %p", locale="ar_EG") -%}
+    {%- set formatted_date = formatted_date | replace(from="0", to="٠") | replace(from="1", to="١") | replace(from="2",
+    to="٢") | replace(from="3", to="٣") | replace(from="4", to="٤") | replace(from="5", to="٥") | replace(from="6",
+    to="٦") | replace(from="7", to="٧") | replace(from="8", to="٨") | replace(from="9", to="٩") | replace(from="AM",
+    to="ص") | replace(from="PM", to="م") -%}
+    {%- else -%}
+    {%- set formatted_date = comment.date | date(format="%b %-d, %Y · %-I:%M %p") -%}
+    {%- endif -%}
+
+    <li>
+      <article
+        class="rounded-lg overflow-hidden {% if is_author %}border-s-2 border-teal-500 dark:border-teal-600 bg-teal-50/60 dark:bg-teal-950/20 border border-teal-200 dark:border-teal-900{% else %}border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900/50{% endif %}">
+
+        {# ── Header ── #}
+        <header class="flex gap-3 items-center px-4 pt-3 pb-2">
+
+          {# Avatar #}
+          {% if comment.avatar_url %}
+          <img src="{{ comment.avatar_url }}" alt="{{ comment.author }}"
+            class="object-cover w-9 h-9 rounded-full border shrink-0 bg-slate-200 border-slate-300 dark:bg-slate-700 dark:border-slate-600"
+            loading="lazy" width="36" height="36" />
+          {% else %}
+          <div
+            class="w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-sm font-bold select-none border {% if is_author %}bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 border-teal-300 dark:border-teal-700{% else %}bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400 border-slate-300 dark:border-slate-600{% endif %}"
+            aria-hidden="true">{{ comment.author | truncate(length=1, end="") }}</div>
+          {% endif %}
+
+          {# Author + date row #}
+          <div class="flex flex-wrap flex-1 gap-y-0.5 gap-x-3 justify-between items-baseline min-w-0">
+            <span
+              class="font-bold text-base leading-snug {% if is_author %}text-teal-700 dark:text-teal-400{% else %}text-slate-800 dark:text-slate-100{% endif %}">
+              {% if comment.profile_url %}
+              <a href="{{ comment.profile_url }}" class="hover:underline underline-offset-2" target="_blank"
+                rel="noopener noreferrer">{{ comment.author }}</a>
+              {% else %}
+              {{ comment.author }}
+              {% endif %}
+              {% if is_author %}
+              <span class="text-xs font-normal text-teal-600 opacity-80 dark:text-teal-500 ms-1.5">
+                — {{ res.comments_post_author }}
+              </span>
+              {% endif %}
+            </span>
+
+            <div class="flex gap-2 items-center shrink-0">
+              <time datetime="{{ comment.date }}" class="text-xs text-slate-400 ibm-plex-mono dark:text-slate-500">{{
+                formatted_date }}</time>
+
+              {# Link to original comment on Blogger #}
+              <a href="{{ comment.comment_url }}"
+                class="transition-colors hover:text-teal-500 text-slate-300 dark:text-slate-600 dark:hover:text-teal-400"
+                target="_blank" rel="noopener noreferrer" title="{{ res.comments_view_original }}"
+                aria-label="{{ res.comments_view_original }}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </header>
+
+        {# Comment body #}
+        <div class="px-4 pt-1 pb-3 leading-relaxed cairo text-sm text-slate-600 dark:text-slate-400">{{ comment.text
+          | replace(from="&", to="&amp;")
+          | replace(from="<", to="&lt;")
+          | replace(from=">", to="&gt;")
+          | replace(from="||", to="<br>")
+          | safe }}</div>
+
+      </article>
+    </li>
+
+    {% endfor %}
+  </ol>
+</section>
+
+{% endif %}
+{% endif %}
