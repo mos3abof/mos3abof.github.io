@@ -5,14 +5,14 @@ date = "2022-05-21T23:00:00Z"
 tags=["cycling"]
 +++
 
-![Audax Tour De Ricky](audax-brevet.png)
+{{ image(src="audax-brevet.png", text="Audax Tour De Ricky", size="full") }}
 
 Today I finished my first _**metric century**_ (a ride that is 100km or more)!
 Was riding in _**Tour De Ricky**_ audax, and it was a challenging route for me.
 Took me 7 hours and 22 minutes of riding (10 hours if you include the cafe and
 rest stops) but I did it!
 
-### Stats
+## Stats
 
 Here are the basic stats from the ride:
 
@@ -24,21 +24,21 @@ Here are the basic stats from the ride:
 
 And here is the ride on a map:
 
-![Metric Century Stats](metric-century-strava.jpg)
+{{ image(src="metric-century-strava.jpg", text="Metric Century Stats", size="2xl") }}
 
 
-### Lessons Learned
+## Lessons Learned
 
 Some lessons I learned from this ride are (in a very raw format, will iterate
 on them later):
 
 1. I needed specific recommendations in regards to what to wear, and most
    resources talk guidelines,
-which is something you don't want for the first few rides. In order to be able
-to take a guideline,
-you need to have tried a few rides in different conditions first. I wanted
-specifics (like wear a
-bibshort if it 10 degrees celsius or above, etc).
+   which is something you don't want for the first few rides. In order to be able
+   to take a guideline,
+   you need to have tried a few rides in different conditions first. I wanted
+   specifics (like wear a
+   bibshort if it 10 degrees celsius or above, etc).
 
 2. I definitely need more gears for those hills
 
@@ -84,7 +84,7 @@ bibshort if it 10 degrees celsius or above, etc).
     whole route alone instead of doing it with a bunch of fellow colleagues, but
     that's ok.
 
-![Me at the finish line](metric-century-finish-line.jpg)
+{{ image(src="metric-century-finish-line.jpg", text="At the finish line", size="2xl") }}
 
 Here is a video about the ride:
 

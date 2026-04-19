@@ -1,1 +1,11 @@
+{#
+  gist — embeds a GitHub Gist via its script tag.
+
+  Usage (inline shortcode):
+    {{ gist(user="mos3abof", gist="abc123def456") }}
+
+  Parameters:
+    user  (string) GitHub username who owns the gist.
+    gist  (string) Gist ID (the hex string in the gist URL).
+#}
 <script src="https://gist.github.com/{{user}}/{{gist}}.js"></script>

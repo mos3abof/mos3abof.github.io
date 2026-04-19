@@ -3,7 +3,12 @@ title = "Artie و كنبورة.."
 date = "2007-04-02"
 +++
 
-[![](https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_twUU8lJK8tRAbIRcuRLxlZSeNoEW0cCJ8u7DTaspmLbGjiJshC-ua45tuFDYgZehBYxpcA13_cjf7DWEGaAn2r-u51_Lxn5vSE7bV6k1yYBLJizfD6Aw401Fq5CyYP-qEhFw=s0-d)](http://farm1.static.flickr.com/106/293033676_07c2730bfc.jpg?v=0)  
+{{
+  image(
+    src="293033676_07c2730bfc.jpg",
+    size="2xl"
+    )
+}}  
 
 لقد اتخذت قرارا .. وأريدكم جميعا أن تساعدونني عليه..  
 لقد مررنا (أنا ولابتوبي) بفترة عصيبة.. بحثنا خلالها كل سبل الحرب والسلام..  

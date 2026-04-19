@@ -1,1 +1,16 @@
+{#
+  raw — passes body content through as raw HTML, bypassing Zola's Markdown renderer.
+
+  Usage (body shortcode):
+    {% raw() %}
+    <div class="custom-html">...</div>
+    {% end %}
+
+  Parameters:
+    None.
+
+  Body:
+    Any HTML. Rendered with the `safe` filter — no escaping, no Markdown processing.
+    Use with care: content is injected directly into the page.
+#}
 {{body | safe}}

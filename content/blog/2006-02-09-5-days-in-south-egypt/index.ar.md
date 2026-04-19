@@ -3,7 +3,7 @@ title = "خمسة أيام في قعر مصر!"
 date = "2006-02-09"
 +++
 
-[![Days in Qena](https://photos1.blogger.com/blogger/3753/2078/320/qa3r-masr.jpg)](https://photos1.blogger.com/blogger/3753/2078/1600/qa3r-masr.jpg)  
+{{ image(src="./qa3r-masr.jpg") }}
 
 مش عارف ايه اللي خلاني أكتب عنها دلوقتي!  
 

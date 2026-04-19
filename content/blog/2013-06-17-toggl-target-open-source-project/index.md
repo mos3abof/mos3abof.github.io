@@ -118,4 +118,10 @@ I got this email 45 minutes ago :
 
 I am really surprised and humbled by all your contributions, thank you.
 
-![My little open source script Toggl Target in action.](http://farm4.staticflickr.com/3832/9067864209_17b3b8d1c8_o.png)
+{{
+  image(
+    src="9067864209_17b3b8d1c8_o.png",
+    size="2xl",
+    text="My little open source script Toggl Target in action."
+  )
+}}

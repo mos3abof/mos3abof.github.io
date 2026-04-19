@@ -1,5 +1,5 @@
 +++
-paginate_by = 10
+paginate_by = 20
 title = "التدوينات"
 sort_by = "date"
 +++

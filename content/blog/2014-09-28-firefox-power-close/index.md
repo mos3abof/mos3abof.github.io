@@ -20,14 +20,18 @@ that the addon has undergone full review :)
 
 ## How to use it
 
-After installation, this icon will appear as a button in your browser:
-
-![Firefox Power Close Addon Button](icon.png)
+After installation, this icon will appear as a button in your browser.
 
 Press on it, and an input field will appear. Write the keyword or domain name in
 it and press enter, and voila!
 
-![Screenshot](https://d262ilb51hltx0.cloudfront.net/max/899/1*IRXZxyKWj1vd4DpaT1Fl8g.png)
+{{
+  image(
+    srcs=["icon.png", "1_IRXZxyKWj1vd4DpaT1Fl8g.png"], 
+    size="2xl",
+    text="Click on the icon, then use the plugin!"
+  )
+}}
 
 ## What’s next for "Power Close"
 

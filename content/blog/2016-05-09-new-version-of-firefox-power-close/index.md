@@ -5,7 +5,7 @@ date = "2016-05-09T12:00:00Z"
 
 New website, new icon, and improvements for the tab addict Firefox add-on
 
-![firefox-header](firefox-mosaic.jpg)
+{{ image(src="firefox-mosaic.jpg", alt="firefox-header", size="full") }}
 
 ## A Brief History
 
@@ -19,30 +19,36 @@ The first version published version, 0.2.1, was officially released on September
 A few bug fixes and little improvements were released since that date, and then
 I got busy with my life and work.
 
-![download and usage stats](stats.png)
+{{ image(src="stats.png", text="download and usage stats", size="2xl") }}
 
 ## What’s New
 
 Earlier this month, a new version 0.5.2 of the add-on was released. Here is a
 quick overview of the changes that took place.
 
-### New Icon
+### 1. New Icon
 
 In older versions of the add-on, the logo used to be one of the icons designed
 by [Freepik](http://www.freepik.com/) from [Flat
 Icon](http://www.flaticon.com/), that was licensed under [CC-BY
 License](http://creativecommons.org/licenses/by/3.0/).
 
-![Old version of the icon](old-logo.png)
+<!-- {{ image(src="old-logo.png", alt="Old version of the icon") }} -->
 
-In this release, the icon used for the logo and the toolbar button is a mash of
+The new logo (used for the icon, and the toolbar button) is a mash of
 two icons from Google’s [Material Design
 Icons](https://design.google.com/icons/) that are published as an open source
 project under the [CC-By License](https://creativecommons.org/licenses/by/4.0/).
 
-![The new icon used](new-logo.png)
+{{ 
+  image(
+    srcs=["old-logo.png", "new-logo.png"],
+    size="2xl",
+    text="Old logo to the left, new logo to the right."
+  )
+}}
 
-### Selection Context Menu Option
+### 2. Selection Context Menu Option
 
 In previous versions of the add-on, the user had to click in a non-interactive
 part of the page to see the _"close all tabs from this domain"_ context menu
@@ -53,20 +59,26 @@ Now the same option is added to the “Selection Context Menu”, so now the use
 can still find this option in the context menu even if they have previously
 selected some text.
 
-### Switched to The New Firefox Add-on SDK
+### 3. Switched to The New Firefox Add-on SDK
 
 The previous versions of the add-on were developed using the now deprecated
 “cfx” sdk provided by Mozilla for Firefox add-on developers.
 
 This new version is updated to make use of the new SDK named “jpm”.
 
-### New website
+### 4. New website
 
 I have also registered a domain name for the add-on, and moved it from the
 sub-domain under my personal website power-close.mos3abof.com, where it used to
 live, to [power-close.com](https://power-close.com).
 
-![website face lift](website-facelift.png)
+{{
+  image(
+    src="website-facelift.png",
+    size="2xl",
+    text="website face lift"
+  )
+}}
 
 The website was given a face lift to make it more usable, but this is an early
 release with new enhancements and features in the backlog. The website is
@@ -74,7 +86,7 @@ hosted on [Dreamhost](https://www.dreamhost.com/r.cgi?1017456), and is HTTPs
 enabled using a certificate issued from [Let’s
 Encrypt](https://letsencrypt.org/).
 
-### Newsletter
+### 5. Newsletter
 
 I am also starting a newsletter for a better channel of communication with the
 users, where I consider it a matter of principal not to spam the subscribers
@@ -83,7 +95,7 @@ with unnecessary emails.
 You can sign up for the newsletter on the website:
 [power-close.com](https://power-close.com).
 
-### Social Media Presence
+### 6. Social Media Presence
 
 I have also started a [Facebook page](http://facebook.com/power.close.addon) and
 created a [Twitter account](http://twitter.com/powercloseaddon) for the add-on.
@@ -104,5 +116,10 @@ any tips, hints, or advice I would love to hear/read it.
 Or you can click on the button below and add Power Close to your firefox browser
 now!
 
-[![Get the
-power](add-to-firefox.png)](https://power-close.com)
+{{
+  image(
+    src="add-to-firefox.png", 
+    alt="Get the power", 
+    size="sm",
+    link="https://power-close.com") }}
+

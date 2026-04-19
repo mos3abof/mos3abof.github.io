@@ -1,7 +1,7 @@
 # Global settings
 settings_locale = "en"
 settings_date_locale = "en_US"
-settings_date_format = "%B %d, %Y"
+settings_date_format = "%b %d, %Y"
 settings_direction = "ltr"
 
 # The main navigation menu
@@ -21,7 +21,7 @@ role = ""
 copyright = "(c) 2026 - Mosab Ibrahim"
 
 # Simple language resources
-post_list = "Posts"
+post_list = "Archive"
 empty_page_title = "Empty title"
 empty_page_description = "Empty description"
 read_more = "Read more"
@@ -37,6 +37,8 @@ not_found_text = "Oops! Seems like this page vanished into the internet abyss. M
 not_found_home_hint = "Head back to safety"
 posted_on = "Posted on"
 table_of_contents = "Table of Contents"
+prev_post = "Previous post"
+next_post = "Next post"
 
 # Nouns with singular and plural
 [words]

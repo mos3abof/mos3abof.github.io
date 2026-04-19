@@ -3,7 +3,7 @@ title = " تاجات.. تاجات .. أحب عمري وأعشق الحاجات!"
 date = "2007-02-11"
 +++
 
-[![تاجلت](https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_twUU8lJK8tRAbIRcuRLxlZSeNoEW0cCJ8u7DTaspmLbGjiJshC-ua45tuFDYgZehBYxpcA13_cjf7DWEGaAn2r-u51_Lxn5vSE7bV6k1yYBLJizfD6Aw401Fq5CyYP-qEhFw=s0-d)](http://www.flickr.com/photos/mos3ab/293033676/)
+{{ image(src="https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_twUU8lJK8tRAbIRcuRLxlZSeNoEW0cCJ8u7DTaspmLbGjiJshC-ua45tuFDYgZehBYxpcA13_cjf7DWEGaAn2r-u51_Lxn5vSE7bV6k1yYBLJizfD6Aw401Fq5CyYP-qEhFw=s0-d", alt="تاجلت", link="http://www.flickr.com/photos/mos3ab/293033676/") }}
 
 `أنا اتبعتلي تلات تاجات.. واحد من
 [كريم](http://kprogramer.wordpress.com/2007/01/28/%25d9%2583%25d8%25b1%25d8%25b3%25d9%2589-%25d8%25a5%25d8%25b9%25d8%25aa%25d8%25b1%25d8%25a7%25d9%2581-%25d8%25b5%25d8%25a8%25d8%25a7%25d8%25ad%25d9%2589-%25d9%2585%25d9%2586-%25d8%25a3%25d8%25ad%25d9%2585%25d8%25af-%25d9%2585%25d8%25a8%25d8%25b1%25d9%2585%25d8%25ac-%25d8%25ad%25d8%25b1/)
@@ -11,6 +11,8 @@ date = "2007-02-11"
 والتالت من عند  [وئام](http://we2am.blogspot.com/)  
   
 أنا آسف يا كريم ويا دينا إني اتأخرت أوي في الرد عليهم بس ظروف والله.
+
+{{ sep(style="arabic", gap="lg") }}
   
 ### التاج الأول: خمس حاجات ما حدش يعرفهم عني
 
@@ -76,6 +78,8 @@ date = "2007-02-11"
 رب ارحمهما كما ربياني صغيرا  
 
 آدي يا عم كريم التاج الأول بتاعك..  
+
+{{ sep(style="arabic", gap="lg") }}
   
 ## التاج التاني
 
@@ -185,6 +189,8 @@ date = "2007-02-11"
 وإعلامية وبالطبع تقنية، بس لسة المدونة بث تجريبي.. هتطلع بشكل كامل إن شاء الله
 يوم 13 مارس- يوم عيد ميلادي.. بالمناسبة أنا أخرت صدور بيان مرور سنة على بداية
 مدونتي (26 يناير 2006) علشان تطلع في 13 مارس :)  
+
+{{ sep(style="arabic", gap="lg") }}
   
 ## التاج التالت من عند وئام  
   

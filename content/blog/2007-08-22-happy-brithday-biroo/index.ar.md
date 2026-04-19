@@ -3,7 +3,7 @@ title = "كل سنة وأنت .."
 date = "2007-08-22"
 +++
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVN05hUJ7ib2S5FYhlrnuWBfq1LjmpvLDFNqx5BBoc8CVU8sWgexZb8Cuj9fEUZPy-dIC2YZ1wfKoSJouHw-CnEU-F3dWnYJUYu14TIHlTKPc91EdMnbRJq0KA2eBd-9vRvixqbA/s400/biroooWaAna.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVN05hUJ7ib2S5FYhlrnuWBfq1LjmpvLDFNqx5BBoc8CVU8sWgexZb8Cuj9fEUZPy-dIC2YZ1wfKoSJouHw-CnEU-F3dWnYJUYu14TIHlTKPc91EdMnbRJq0KA2eBd-9vRvixqbA/s1600-h/biroooWaAna.jpg)  
+{{ image(src="biroooWaAna.jpg") }}  
 
 "كل سنة وأنت  
 يا راجل يا أنت"  

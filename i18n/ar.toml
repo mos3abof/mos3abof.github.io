@@ -1,7 +1,7 @@
 # Global settings
 settings_locale = "ar"
 settings_date_locale = "ar_EG"
-settings_date_format = "%B %d, %Y"
+settings_date_format = "%-d %B، %Y"
 settings_direction = "rtl"
 
 # The main navigation menu
@@ -20,7 +20,7 @@ role = ""
 copyright = "جميع الحقوق محفوظة © 2026 - مصعب أحمد إبراهيم"
 
 # Simple language resources
-post_list = "التدوينات"
+post_list = "الأرشيف"
 empty_page_title = "بدون عنوان"
 empty_page_description = "بدون وصف"
 read_more = "المزيد"
@@ -34,8 +34,10 @@ with_tag = "وسوم"
 not_found_header = "الصفحة التي تبحث عنها غير موجودة"
 not_found_text = "يبدو أن هذه الصفحة قد اختفت في متاهة الإنترنت! تحقق من الرابط، أو عُد إلى الصفحة الرئيسية."
 not_found_home_hint = "عُد إلى بر الأمان"
-posted_on = "تم نشرها في "
+posted_on = "نُشِرَت في"
 table_of_contents = "المواضيع"
+prev_post = "التدوينة السابقة"
+next_post = "التدوينة التالية"
 
 # Nouns with singular and plural
 [words]

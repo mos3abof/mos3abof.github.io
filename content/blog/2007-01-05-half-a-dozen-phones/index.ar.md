@@ -3,7 +3,7 @@ title = "نصف دستة محمول!"
 date = "2007-01-05"
 +++
 
-[![نصف دستة محمول](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNIIxTj78rKXx2gCm25w2XziP_Kz9LFl0vR9sF7KccZ9VEQftPR7XCs1uetsjGVPeQTy9EF43JQIz9W6Ixb4YjPE7vmn_z2qKUEINGRiLhtmZMFYrcSK6YwsbZzeTZU7mOYj6y5A/s320/mahmool.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNIIxTj78rKXx2gCm25w2XziP_Kz9LFl0vR9sF7KccZ9VEQftPR7XCs1uetsjGVPeQTy9EF43JQIz9W6Ixb4YjPE7vmn_z2qKUEINGRiLhtmZMFYrcSK6YwsbZzeTZU7mOYj6y5A/s1600-h/mahmool.jpg)  
+{{ image(src="mahmool.jpg", text="نصف دستة محمول") }}  
 
 دونما فائدة أحاول إيقاظ هاتفي المحمول (نوكيا  **3510i**) من سبات بطاريته العميق
 وأنا أشير لأحد سيارات الأجرة المتجهة إلى التحرير لأستقلها ذاهبا إلى المكتب حيث
@@ -127,10 +127,9 @@ date = "2007-01-05"
 
 الأخطاء الإملائية مقصودة... هكذا نطقتها.. وأنا الآن متأكد..
 
-  
 أستأذنكم حتى أشحن هاتفي، فلدي الكثير من المكالمات المهمة، فاليوم لا يزال حافلا..
-  
------  
+
+{{ sep(style="arabic", gap="lg") }}
 
 * أحداث هذه التدوينة حقيقية، وكل هذا حدث قبل يومين من عيد الأضحى المبارك (الليلة
 التي قبل وقفة العيد مباشرة)...  

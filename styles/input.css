@@ -111,7 +111,7 @@
   }
 
   article li {
-    @apply ml-4 ml-10 text-xl dark:text-slate-200;
+    @apply ms-10 text-xl dark:text-slate-200;
   }
 
   strong,
@@ -129,10 +129,14 @@
 
   pre {
     @apply p-4 mt-2;
+    direction: ltr;
+    unicode-bidi: isolate;
   }
 
   :not(pre)>code {
     @apply text-black bg-slate-200 text-xl p-1 font-mono;
+    direction: ltr;
+    unicode-bidi: isolate;
   }
 }
 
@@ -147,6 +151,14 @@
 
 .rtl code {
   text-align: right;
+}
+
+pre,
+pre code,
+:not(pre) > code {
+  direction: ltr !important;
+  unicode-bidi: embed !important;
+  text-align: left !important;
 }
 
 .noto-sans {
@@ -201,6 +213,10 @@
 
 .ibm-plex-arabic {
   font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+
+.ibm-plex-mono {
+  font-family: "IBM Plex Mono", monospace;
 }
 
 .rubik {

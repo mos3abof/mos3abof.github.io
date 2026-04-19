@@ -3,7 +3,7 @@ title = "امبارح كان عمري .. سطرين!"
 date = "2006-12-21"
 +++
 
-[![امبارح كان عمري سطرين](https://photos1.blogger.com/x/blogger/338/2268/1600/883069/kalmeny.jpg)](http://wanamaly.blogspot.com/2006/11/blog-post_30.html)
+{{ image(src="kalmeny.jpg", alt="امبارح كان عمري سطرين", link="http://wanamaly.blogspot.com/2006/11/blog-post_30.html") }}
 
 العدد بتاع امبارح (الأربعاء الموافق العشرين من ديسمبر لعام 2006 م) من جرنان
 الدستور نزل لي فيه أول "نصف مقال صغير متواضع" في صفحة "كلمني شكرا" ...  

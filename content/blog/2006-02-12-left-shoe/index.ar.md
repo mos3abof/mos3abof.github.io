@@ -3,7 +3,7 @@ title = "فردة الكوتشي الشمال!"
 date = "2006-02-12"
 +++
 
-[![shoe](https://photos1.blogger.com/blogger/3753/2078/320/Phil_Shoe.jpg)](https://photos1.blogger.com/blogger/3753/2078/1600/Phil_Shoe.jpg)  
+{{ image(src="./Phil_Shoe.jpg", size="md") }}
 
 من صغري و قبل ما أعرف إن ده من السنة ، كنت بأحب آكل بايدي اليمين ..  
 

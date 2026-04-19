@@ -3,7 +3,7 @@ title = " واحشني جدا.. بأحبك"
 date = "2006-12-25"
 +++
 
-[![واحشني حضنك](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1-FajLaA4Ti5yFGce-_pqkzh2_vls2sDr9iA-4riccN907eXLxpvrqH4t1Z2eyfxRAYQUOgbrzTMpd1Ujd7Wv75Gtad6zJJEWNXTlCxiRclkNEHLUGP5ISrLVgIu0-rzijsHCgg/s320/Corbis-CB052484.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1-FajLaA4Ti5yFGce-_pqkzh2_vls2sDr9iA-4riccN907eXLxpvrqH4t1Z2eyfxRAYQUOgbrzTMpd1Ujd7Wv75Gtad6zJJEWNXTlCxiRclkNEHLUGP5ISrLVgIu0-rzijsHCgg/s1600/Corbis-CB052484.jpg)
+{{ image(src="Corbis-CB052484.jpg", alt="واحشني حضنك") }}
 
 [نُشر على موقع عشرينات](http://www.20at.com/mosab/forYouFather.jpg)
 

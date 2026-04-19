@@ -3,7 +3,7 @@ title = "جيزة مترو جامعة.."
 date = "2008-01-08"
 +++
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVXbt4QNIQFdj1gIeQK2mTkVI2VaCcVLldOmuhGxQbZhO5N-xi6gmihM4AitFRUElpp34wbIoYTgPuXLrfCjtH_XJ7vDclRvBj6zOfRU0Ed-GICnStX-vTb6PU6G1SGEU9qqhcgw/s400/metro.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVXbt4QNIQFdj1gIeQK2mTkVI2VaCcVLldOmuhGxQbZhO5N-xi6gmihM4AitFRUElpp34wbIoYTgPuXLrfCjtH_XJ7vDclRvBj6zOfRU0Ed-GICnStX-vTb6PU6G1SGEU9qqhcgw/s1600-h/metro.jpg)  
+{{ image(src="metro.jpg") }}  
 
 (1)  
   

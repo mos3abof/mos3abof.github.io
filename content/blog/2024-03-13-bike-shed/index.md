@@ -10,5 +10,5 @@ tags=["woodworking"]
 
 This is pretty much Work in Progress. Still in design phase.
 
-![Bike Shed Hand Drawn Sketch 1](bike-shed-sketch-1.jpg)
-![Bike Shed Hand Drawn Sketch 2](bike-shed-sketch-2.jpg)
+{{ image(src="bike-shed-sketch-1.jpg", alt="Bike Shed Hand Drawn Sketch 1") }}
+{{ image(src="bike-shed-sketch-2.jpg", alt="Bike Shed Hand Drawn Sketch 2") }}

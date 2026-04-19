@@ -4,7 +4,7 @@ date = "2008-04-25"
 +++
 
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFS-7ruXuUytA86Lx3k6IW54VUhtC6jaiki3grCt5mvEpvCyvZb-AMYVaeyNQ6p7GTf8wd23AfDP18FZxtOTrfdg3CSuJ5y644rAXK3NfvrsUuUzkzulOsmuyWxF9dDwaTfwg_aQ/s400/engaged.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFS-7ruXuUytA86Lx3k6IW54VUhtC6jaiki3grCt5mvEpvCyvZb-AMYVaeyNQ6p7GTf8wd23AfDP18FZxtOTrfdg3CSuJ5y644rAXK3NfvrsUuUzkzulOsmuyWxF9dDwaTfwg_aQ/s1600-h/engaged.jpg)  
+{{ image(src="engaged.jpg") }}  
 مش قلت لكم [جاي "ضي"](http://mos3abof.blogspot.com/2008/01/blog-post.html)..  
 
 لقد وصل منذ قليل*..  
