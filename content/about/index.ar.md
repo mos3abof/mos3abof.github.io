@@ -7,7 +7,7 @@ assets = ["mosab-child.png"]
   src="mosab-first-computer.png",
   text="أول حاسوب شخصي أمتلكه، منذ أكثر من عقدين من الزمان!",
   lang="ar",
-  size="full"
+  size="2xl"
 ) }}
 
 اسمي مصعب، وأعمل مهندسا للبرمجيات والنظم. ذاتيّ التَّعلُّم، شغوف بهندسة قواعد
@@ -20,8 +20,17 @@ assets = ["mosab-child.png"]
           "mosab-reading.png",
           "mosab-child.png",
           "mosab-young.png",
+    ],
+    size = "full"
+  )
+}}
+
+{{
+  image(
+    srcs = [
           "mosab-and-burger.png",
-          "mosab-london-bridge.png"
+          "mosab-london-bridge.png",
+          "mosab-01.jpg"
     ],
     size = "full",
     lang="ar",
@@ -36,7 +45,7 @@ assets = ["mosab-child.png"]
 {{
   image(
     srcs = ["baraa-and-i-protest.png", "baraa-and-i-cafe.png"],
-    size = "full",
+    size = "2xl",
     lang="ar",
     text = "أول صورة تجمعني مع صديق عمري وطفولتي، البراء أشرف. الصورة من مظاهرة
             أمام أحد الوزارات، وصورة أخرى في مقهانا المفضل آنذاك."
