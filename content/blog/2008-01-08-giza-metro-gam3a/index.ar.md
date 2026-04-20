@@ -2,6 +2,9 @@
 title = "جيزة مترو جامعة.."
 date = "2008-01-08"
 
+[taxonomies]
+tags = ["نعناع الجنينة", "دايرة الرحلة"]
+
 [extra]
 comments = true
 +++

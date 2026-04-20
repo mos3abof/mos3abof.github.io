@@ -2,6 +2,9 @@
 title = "Artie و كنبورة.."
 date = "2007-04-02"
 
+[taxonomies]
+tags = ["نعناع الجنينة"]
+
 [extra]
 comments = true
 +++

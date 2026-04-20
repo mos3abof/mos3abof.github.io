@@ -1,0 +1,86 @@
+{#
+  opengraph.html — OpenGraph + Twitter Card meta tags.
+
+  Resolves, in order:
+    og:image  → page.extra.og_image (explicit)
+              → first image in page.assets (auto)
+              → site-wide fallback (mosab-cigar.png)
+#}
+
+{# ── URL ── #}
+{% if page is defined %}
+  {% set og_url  = page.permalink %}
+  {% set og_type = "article" %}
+{% elif section is defined %}
+  {% set og_url  = section.permalink %}
+  {% set og_type = "website" %}
+{% else %}
+  {% set og_url  = config.base_url %}
+  {% set og_type = "website" %}
+{% endif %}
+
+{# ── Title ── #}
+{% if page is defined and page.title %}
+  {% set og_title = page.title ~ " | " ~ config.title %}
+{% elif section is defined and section.title %}
+  {% set og_title = section.title ~ " | " ~ config.title %}
+{% else %}
+  {% set og_title = config.title ~ " — " ~ config.description %}
+{% endif %}
+
+{# ── Description ── #}
+{% if page is defined and page.description %}
+  {% set og_description = page.description %}
+{% elif section is defined and section.description %}
+  {% set og_description = section.description %}
+{% else %}
+  {% set og_description = config.description %}
+{% endif %}
+
+{# ── Image: explicit extra.og_image → first asset image → fallback ── #}
+{% set_global og_image = get_url(path="images/mosab-cigar.png") %}
+{% set_global og_image_found = false %}
+{% if page is defined %}
+  {% if page.extra.og_image is defined %}
+    {% set_global og_image = get_url(path=page.colocated_path ~ page.extra.og_image) %}
+    {% set_global og_image_found = true %}
+  {% else %}
+    {% for asset in page.assets %}
+      {% if not og_image_found %}
+        {% set ext = asset | split(pat=".") | last | lower %}
+        {% if ext == "jpg" or ext == "jpeg" or ext == "png" or ext == "webp" or ext == "gif" %}
+          {% set_global og_image = get_url(path=asset) %}
+          {% set_global og_image_found = true %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endif %}
+
+{# ── Locale: map lang code to OG locale ── #}
+{% if lang == "ar" %}
+  {% set og_locale = "ar_EG" %}
+{% else %}
+  {% set og_locale = "en_GB" %}
+{% endif %}
+
+{# ── Emit tags ── #}
+<meta property="og:type"        content="{{ og_type }}">
+<meta property="og:url"         content="{{ og_url }}">
+<meta property="og:title"       content="{{ og_title | striptags | truncate(length=90) }}">
+<meta property="og:description" content="{{ og_description | striptags | truncate(length=200) }}">
+<meta property="og:image"       content="{{ og_image }}">
+<meta property="og:site_name"   content="{{ config.title }}">
+<meta property="og:locale"      content="{{ og_locale }}">
+
+{% if page is defined and page.date %}
+<meta property="article:published_time" content="{{ page.date | date(format='%+') }}">
+{% endif %}
+{% if page is defined and page.updated %}
+<meta property="article:modified_time"  content="{{ page.updated | date(format='%+') }}">
+{% endif %}
+
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="{{ og_title | striptags | truncate(length=90) }}">
+<meta name="twitter:description" content="{{ og_description | striptags | truncate(length=200) }}">
+<meta name="twitter:image"       content="{{ og_image }}">

@@ -2,6 +2,9 @@
 title = "والساندويتش كويس؟!"
 date = "2008-01-12"
 
+[taxonomies]
+tags = ["بحر الحياة"]
+
 [extra]
 comments = true
 +++

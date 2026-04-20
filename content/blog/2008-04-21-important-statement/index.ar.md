@@ -2,6 +2,9 @@
 title = "بيان هام.."
 date = "2008-04-21"
 
+[taxonomies]
+tags = ["نعناع الجنينة"]
+
 [extra]
 comments = true
 +++

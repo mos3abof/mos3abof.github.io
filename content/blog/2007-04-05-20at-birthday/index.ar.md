@@ -2,6 +2,9 @@
 title = "كل سنة وأنت طيب يا عشرينات"
 date = "2007-04-05"
 
+[taxonomies]
+tags = ["دايرة الرحلة", "الجيرة والعشرة"]
+
 [extra]
 comments = true
 +++

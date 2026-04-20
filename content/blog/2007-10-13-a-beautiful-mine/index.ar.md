@@ -2,6 +2,9 @@
 title = "a beautiful mine!"
 date = "2007-10-13"
 
+[taxonomies]
+tags = ["يا بنت يا اللي"]
+
 [extra]
 comments = true
 +++

@@ -2,6 +2,9 @@
 title = "خمسة أيام في قعر مصر!"
 date = "2006-02-09"
 
+[taxonomies]
+tags = ["دايرة الرحلة"]
+
 [extra]
 comments = true
 +++

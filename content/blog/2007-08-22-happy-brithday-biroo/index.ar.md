@@ -2,11 +2,20 @@
 title = "كل سنة وأنت .."
 date = "2007-08-22"
 
+[taxonomies]
+tags = ["الجيرة والعشرة", "بيبان القلب"]
+
 [extra]
 comments = true
 +++
 
-{{ image(src="biroooWaAna.jpg", size="full", text="براء وأنا على جانب طريق العين السخنة") }}  
+{{
+  image(
+    src="biroooWaAna.jpg",
+    size="full",
+    text="براء وأنا على جانب طريق العين السخنة"
+  )
+}}  
 
 "كل سنة وأنت  
 يا راجل يا أنت"  

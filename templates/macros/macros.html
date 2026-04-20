@@ -61,7 +61,7 @@
   {%- set sep = "&nbsp;" -%}
   {% endif -%}
   {%- for tag in page.taxonomies.tags %}
-  <a class="post-tag" href="{{ get_taxonomy_url(kind='tag', name=tag) | safe }}">#{{ tag }}</a>
+  <a class="post-tag" href="{{ get_taxonomy_url(kind='tag', name=tag, lang=lang) | safe }}">#{{ tag }}</a>
   {%- if not loop.last %}{{ sep | safe }}{% endif -%}
   {% endfor -%}
 </span>
@@ -135,10 +135,10 @@ replace(from="8", to="٨") | replace(from="9", to="٩") }}
       {{ page.content | safe }}
 
       {% if page.taxonomies and page.taxonomies.tags %}
-      <aside class="mt-8 font-mono text-sl text-slate-700 dark:text-slate-300">
-        Tags:
+      <aside class="mt-8 ibm-plex-arabic {% if lang == 'ar' %}text-lg{% else %}text-sl{% endif %} text-slate-700 dark:text-slate-300">
+        {{ res.tags.other }}:
         {% for tag in page.taxonomies.tags %}
-        <a href="{{ get_taxonomy_url(kind='tags', name=tag) | safe }}"
+        <a href="{{ get_taxonomy_url(kind='tags', name=tag, lang=lang) | safe }}"
           class="p-1 text-teal-600 hover:text-white hover:bg-teal-600">#{{ tag }}</a>
         {% endfor %}
       </aside>

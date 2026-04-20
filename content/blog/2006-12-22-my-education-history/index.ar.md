@@ -2,6 +2,9 @@
 title = " أنا والتعليم وهناك!"
 date = "2006-12-22"
 
+[taxonomies]
+tags = ["يرحم أيام زمان"]
+
 [extra]
 comments = true
 +++

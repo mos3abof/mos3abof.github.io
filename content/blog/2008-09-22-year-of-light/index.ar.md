@@ -2,6 +2,9 @@
 title = "عام وضَّاء.."
 date = "2008-09-22"
 
+[taxonomies]
+tags = ["يا بنت يا اللي"]
+
 [extra]
 comments = true
 +++

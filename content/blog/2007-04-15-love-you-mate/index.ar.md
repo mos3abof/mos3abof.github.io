@@ -1,6 +1,9 @@
 +++
 title = "بحبك يا صاحبي"
 date = "2007-04-15"
+
+[taxonomies]
+tags = ["الجيرة والعشرة", "بيبان القلب"]
 +++
 
 {{ image(src="me_and_baraa.jpg", size="full") }}  

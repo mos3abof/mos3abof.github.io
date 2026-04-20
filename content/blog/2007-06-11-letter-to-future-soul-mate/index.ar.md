@@ -2,6 +2,9 @@
 title = "من القلب لرفيقة الدرب.."
 date = "2007-06-11"
 
+[taxonomies]
+tags=["نعناع الجنينة"]
+
 [extra]
 comments = true
 +++

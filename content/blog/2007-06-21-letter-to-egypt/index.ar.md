@@ -2,6 +2,9 @@
 title = "عزيزتي مصر..."
 date = "2007-06-21"
 
+[taxonomies]
+tags = ["أتحدى لياليك", "بحر الحياة"]
+
 [extra]
 comments = true
 +++

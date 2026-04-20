@@ -24,6 +24,8 @@
     {% endif %}
   </title>
 
+  {% include "partials/opengraph.html" %}
+
   <script>
     const t = localStorage.getItem('color-theme');
     if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
