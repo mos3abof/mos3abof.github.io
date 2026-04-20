@@ -136,7 +136,6 @@ replace(from="8", to="٨") | replace(from="9", to="٩") }}
 
       {% if page.taxonomies and page.taxonomies.tags %}
       <aside class="mt-8 ibm-plex-arabic {% if lang == 'ar' %}text-lg{% else %}text-sl{% endif %} text-slate-700 dark:text-slate-300">
-        {{ res.tags.other }}:
         {% for tag in page.taxonomies.tags %}
         <a href="{{ get_taxonomy_url(kind='tags', name=tag, lang=lang) | safe }}"
           class="p-1 text-teal-600 hover:text-white hover:bg-teal-600">#{{ tag }}</a>

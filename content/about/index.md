@@ -6,7 +6,6 @@ assets = ["mosab-child.png"]
 {{ image(
   src="mosab-first-computer.png",
   text="The first ever personal computer I owned, more than a couple decades ago!",
-  alt="My first personal computer",
   size="2xl"
 ) }}
 
@@ -32,8 +31,17 @@ held positions at [GoCardless][3], [Levelset][4], [Wuzzuf][5], [Inmobly][6],
           "mosab-reading.png",
           "mosab-child.png",
           "mosab-young.png",
+    ],
+    size = "full"
+  )
+}}
+
+{{
+  image(
+    srcs = [
           "mosab-and-burger.png",
-          "mosab-london-bridge.png"
+          "mosab-london-bridge.png",
+          "mosab-01.jpg"
     ],
     size = "full",
     text = "Here are some pictures of me over time.
