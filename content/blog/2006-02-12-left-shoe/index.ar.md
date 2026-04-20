@@ -1,6 +1,9 @@
 +++
 title = "فردة الكوتشي الشمال!"
 date = "2006-02-12"
+
+[extra]
+comments = true
 +++
 
 {{ image(src="./Phil_Shoe.jpg", size="md") }}

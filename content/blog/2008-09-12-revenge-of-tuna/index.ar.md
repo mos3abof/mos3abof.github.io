@@ -1,9 +1,12 @@
 +++
 title = "انتقام التونة"
 date = "2008-09-12"
+
+[extra]
+comments = true
 +++
 
-{{ image(src="chilli_tuna.jpg") }}  
+{{ image(src="chilli_tuna.jpg", size="xl") }}  
 
 جريمة لا تغتفر..  
   

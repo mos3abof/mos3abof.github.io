@@ -1,9 +1,12 @@
 +++
 title = "كل سنة وأنت طيب يا عشرينات"
 date = "2007-04-05"
+
+[extra]
+comments = true
 +++
 
-{{ image(src="20atBirthDay.jpg") }}  
+{{ image(src="20atBirthDay.jpg", size="full") }}  
 
 [عشرينات](http://www.20at.com/newArticle.php?sid=6967)  حبي الكبير  
 

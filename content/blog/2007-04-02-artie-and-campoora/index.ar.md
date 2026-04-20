@@ -1,6 +1,9 @@
 +++
 title = "Artie و كنبورة.."
 date = "2007-04-02"
+
+[extra]
+comments = true
 +++
 
 {{

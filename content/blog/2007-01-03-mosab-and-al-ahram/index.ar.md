@@ -1,9 +1,12 @@
 +++
 title = " مصعب والأهرام!"
 date = "2007-01-03"
+
+[extra]
+comments = true
 +++
 
-{{ image(src="ahram.JPG", alt="مقال في الأهرام") }}  
+{{ image(src="./ahram.jpg", text="مقال في الأهرام") }}  
 
 جريدة الأهرام جابت سيرتي كمدون في  [المقال
 ده](http://216.239.59.104/search?q=cache:kiBTRHheqiMJ:www.ahram.org.eg/Index.asp%3FCurFN%3Dwind2.htm%26DID%3D9083+%D9%85%D8%B5%D8%B9%D8%A8+%D8%A3%D8%AD%D9%85%D8%AF&hl=en&gl=eg&ct=clnk&cd=12)

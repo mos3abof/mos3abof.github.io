@@ -1,10 +1,13 @@
 +++
 title = "مش قلت لكم جاي ضي .."
 date = "2008-04-25"
+
+[extra]
+comments = true
 +++
 
+{{ image(src="engaged.jpg", size="full") }}  
 
-{{ image(src="engaged.jpg") }}  
 مش قلت لكم [جاي "ضي"](http://mos3abof.blogspot.com/2008/01/blog-post.html)..  
 
 لقد وصل منذ قليل*..  

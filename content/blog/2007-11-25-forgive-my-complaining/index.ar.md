@@ -1,6 +1,9 @@
 +++
 title = "أيها الراحل عذرا في شكاتي.."
 date = "2007-11-25"
+
+[extra]
+comments = true
 +++
 
 {{ image(src="i_miss_u_dad.jpg") }}  

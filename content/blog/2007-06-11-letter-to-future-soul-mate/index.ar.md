@@ -1,6 +1,9 @@
 +++
 title = "من القلب لرفيقة الدرب.."
 date = "2007-06-11"
+
+[extra]
+comments = true
 +++
 
 {{ image(src="confused.jpg") }}  
