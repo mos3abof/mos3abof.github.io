@@ -1,9 +1,12 @@
 +++
 title = " تاجات.. تاجات .. أحب عمري وأعشق الحاجات!"
 date = "2007-02-11"
+
+[extra]
+comments = true
 +++
 
-{{ image(src="https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_twUU8lJK8tRAbIRcuRLxlZSeNoEW0cCJ8u7DTaspmLbGjiJshC-ua45tuFDYgZehBYxpcA13_cjf7DWEGaAn2r-u51_Lxn5vSE7bV6k1yYBLJizfD6Aw401Fq5CyYP-qEhFw=s0-d", alt="تاجلت", link="http://www.flickr.com/photos/mos3ab/293033676/") }}
+{{ image(src="293033676_07c2730bfc.jpg", alt="تاجلت", link="https://www.flickr.com/photos/mos3ab/293033676/") }}
 
 `أنا اتبعتلي تلات تاجات.. واحد من
 [كريم](http://kprogramer.wordpress.com/2007/01/28/%25d9%2583%25d8%25b1%25d8%25b3%25d9%2589-%25d8%25a5%25d8%25b9%25d8%25aa%25d8%25b1%25d8%25a7%25d9%2581-%25d8%25b5%25d8%25a8%25d8%25a7%25d8%25ad%25d9%2589-%25d9%2585%25d9%2586-%25d8%25a3%25d8%25ad%25d9%2585%25d8%25af-%25d9%2585%25d8%25a8%25d8%25b1%25d9%2585%25d8%25ac-%25d8%25ad%25d8%25b1/)
@@ -148,7 +151,8 @@ date = "2007-02-11"
   
 #### س: الصفات اللي أخدتها من ماما؟  
 
-ج: أنا وبابا اتعلمنا منها يعني ايه قلب كبير، ويعني ايه مشاعر حلوة لكل اللي حوالينا حتى لو ما بيحبناش أو بيكرهنا  
+ج: أنا وبابا اتعلمنا منها يعني ايه قلب كبير، ويعني ايه مشاعر حلوة لكل اللي
+حوالينا حتى لو ما بيحبناش أو بيكرهنا  
   
 #### س: أكتنر 6 حاجات بتكرهها؟  
 

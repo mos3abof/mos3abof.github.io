@@ -1,9 +1,12 @@
 +++
 title = "a beautiful mine!"
 date = "2007-10-13"
+
+[extra]
+comments = true
 +++
 
-{{ image(src="beautifullmine.jpg") }}  
+{{ image(src="beautifullmine.jpg", size="2xl") }}  
 
 قبل ما تيجي أنا عاوزك تعرفي حاجة مهمة أوي..  
   

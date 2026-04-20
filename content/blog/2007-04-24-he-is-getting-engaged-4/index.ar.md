@@ -1,9 +1,12 @@
 +++
 title = "بسلامته بيخطب (4)"
 date = "2007-04-24"
+
+[extra]
+comments = true
 +++
 
-{{ image(src="IMG_2429.jpg") }}  
+{{ image(src="IMG_2429.jpg", size="fule") }}  
   
 قبل ما أكتب وأعترف،  
 بيرو حبيبي..  

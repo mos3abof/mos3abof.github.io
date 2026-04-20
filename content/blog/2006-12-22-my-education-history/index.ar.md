@@ -1,6 +1,9 @@
 +++
 title = " أنا والتعليم وهناك!"
 date = "2006-12-22"
+
+[extra]
+comments = true
 +++
 
 {{ image(src="./confused-student.jpg", size="2xl") }}

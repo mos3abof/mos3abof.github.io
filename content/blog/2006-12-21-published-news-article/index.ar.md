@@ -1,6 +1,9 @@
 +++
 title = "امبارح كان عمري .. سطرين!"
 date = "2006-12-21"
+
+[extra]
+comments = true
 +++
 
 {{ image(src="kalmeny.jpg", alt="امبارح كان عمري سطرين", link="http://wanamaly.blogspot.com/2006/11/blog-post_30.html") }}

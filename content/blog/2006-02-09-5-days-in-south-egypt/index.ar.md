@@ -1,6 +1,9 @@
 +++
 title = "خمسة أيام في قعر مصر!"
 date = "2006-02-09"
+
+[extra]
+comments = true
 +++
 
 {{ image(src="./qa3r-masr.jpg") }}

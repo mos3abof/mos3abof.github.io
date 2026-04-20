@@ -93,8 +93,11 @@
         {# Comment body #}
         <div class="px-4 pt-1 pb-3 text-lg leading-relaxed ibm-plex-arabic text-slate-600 dark:text-slate-400">{{
           comment.text
+          | replace(from="<br />", to="|||BR|||")
           | replace(from="&", to="&amp;")
-          | replace(from="<", to="&lt;" ) | replace(from=">" , to="&gt;" ) | replace(from="||" , to="<br>" ) | safe
+          | replace(from="<", to="&lt;") | replace(from=">", to="&gt;")
+          | replace(from="|||BR|||", to="<br />")
+          | safe
             }}</div>
 
       </article>

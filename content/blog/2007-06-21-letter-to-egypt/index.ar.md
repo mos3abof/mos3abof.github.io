@@ -1,8 +1,11 @@
 +++
 title = "عزيزتي مصر..."
 date = "2007-06-21"
+
+[extra]
+comments = true
 +++
-{{ image(src="436649726_4dc4b1d00a.jpg") }}  
+{{ image(src="436649726_4dc4b1d00a.jpg", size="full") }}  
 
 عزيزتي مصر.. تحية طيبة وبعد،  
   

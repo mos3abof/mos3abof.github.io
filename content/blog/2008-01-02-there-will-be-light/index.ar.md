@@ -1,13 +1,17 @@
 +++
 title = 'جاي "ضيّ"..'
 date = "2008-01-01"
+
+[extra]
+comments = true
 +++
 
-{{ image(src="sunRise.jpg") }}  
+{{ image(src="sunRise.jpg", size="full") }}  
 
 خير اللهم اجعله خير 2008 بدأ !..  
-----  
   
+{{ sep(style="arabic", gap="lg") }}
+
 من بين غصون كتيرة مشبكة.. جاي "ضي”..  
 صدقوني جاي "ضي”..  
 هو قال لي إنه جاي..  

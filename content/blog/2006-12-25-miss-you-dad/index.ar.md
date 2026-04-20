@@ -1,9 +1,12 @@
 +++
 title = " واحشني جدا.. بأحبك"
 date = "2006-12-25"
+
+[extra]
+comments = true
 +++
 
-{{ image(src="Corbis-CB052484.jpg", alt="واحشني حضنك") }}
+{{ image(src="Corbis-CB052484.jpg") }}
 
 [نُشر على موقع عشرينات](http://www.20at.com/mosab/forYouFather.jpg)
 

@@ -1,9 +1,12 @@
 +++
 title = "كل سنة وأنت .."
 date = "2007-08-22"
+
+[extra]
+comments = true
 +++
 
-{{ image(src="biroooWaAna.jpg") }}  
+{{ image(src="biroooWaAna.jpg", size="full", text="براء وأنا على جانب طريق العين السخنة") }}  
 
 "كل سنة وأنت  
 يا راجل يا أنت"  

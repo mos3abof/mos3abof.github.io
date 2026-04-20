@@ -1,9 +1,13 @@
 +++
 title = "أنا جنبه بس.."
 date = "2007-12-12"
+
+[extra]
+comments = true
 +++
 
 {{ image(src="i_still_love_him_but_i_forgot.jpg") }}  
+
 اتقابلوا مرة  
   
 - مالك؟! شكلك مهموم حزين..  

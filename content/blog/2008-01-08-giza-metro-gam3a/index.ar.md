@@ -1,9 +1,12 @@
 +++
 title = "جيزة مترو جامعة.."
 date = "2008-01-08"
+
+[extra]
+comments = true
 +++
 
-{{ image(src="metro.jpg") }}  
+{{ image(src="metro.jpg", size="full") }}  
 
 (1)  
   
