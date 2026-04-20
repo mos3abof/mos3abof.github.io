@@ -2,6 +2,9 @@
 title = " واحشني جدا.. بأحبك"
 date = "2006-12-25"
 
+[taxonomies]
+tags = ["بيبان القلب"]
+
 [extra]
 comments = true
 +++

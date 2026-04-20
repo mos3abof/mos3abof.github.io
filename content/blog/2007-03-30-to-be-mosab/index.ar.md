@@ -2,6 +2,9 @@
 title = "كم تشتكي وتقول إنك مصعب.."
 date = "2007-03-30"
 
+[taxonomies]
+tags = ["بيبان القلب", "دايرة الرحلة"]
+
 [extra]
 comments = true
 +++

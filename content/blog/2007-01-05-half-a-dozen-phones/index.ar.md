@@ -2,6 +2,9 @@
 title = "نصف دستة محمول!"
 date = "2007-01-05"
 
+[taxonomies]
+tags = ["دايرة الرحلة"]
+
 [extra]
 comments = true
 +++

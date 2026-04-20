@@ -2,11 +2,20 @@
 title = "امبارح كان عمري .. سطرين!"
 date = "2006-12-21"
 
+[taxonomies]
+tags = ["دايرة الرحلة"]
+
 [extra]
 comments = true
 +++
 
-{{ image(src="kalmeny.jpg", alt="امبارح كان عمري سطرين", link="http://wanamaly.blogspot.com/2006/11/blog-post_30.html") }}
+{{
+  image(
+    src="kalmeny.jpg",
+    text="امبارح كان عمري سطرين",
+    link="https://wanamaly.blogspot.com/2006/11/blog-post_30.html"
+  )
+}}
 
 العدد بتاع امبارح (الأربعاء الموافق العشرين من ديسمبر لعام 2006 م) من جرنان
 الدستور نزل لي فيه أول "نصف مقال صغير متواضع" في صفحة "كلمني شكرا" ...  

@@ -2,6 +2,9 @@
 title = "انتقام التونة"
 date = "2008-09-12"
 
+[taxonomies]
+tags = ["بحر الحياة", "نعناع الجنينة"]
+
 [extra]
 comments = true
 +++

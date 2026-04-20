@@ -2,6 +2,9 @@
 title = "23"
 date = "2009-03-13T00:00:00Z"
 
+[taxonomies]
+tags = ["يا بنت يا اللي"]
+
 [extra]
 comments = true
 +++

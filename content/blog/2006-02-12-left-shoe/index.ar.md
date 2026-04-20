@@ -2,6 +2,9 @@
 title = "فردة الكوتشي الشمال!"
 date = "2006-02-12"
 
+[taxonomies]
+tags = ["نعناع الجنينة"]
+
 [extra]
 comments = true
 +++

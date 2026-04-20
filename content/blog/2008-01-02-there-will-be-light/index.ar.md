@@ -2,6 +2,9 @@
 title = 'جاي "ضيّ"..'
 date = "2008-01-01"
 
+[taxonomies]
+tags = ["يا بنت يا اللي", "بحر الحياة"]
+
 [extra]
 comments = true
 +++

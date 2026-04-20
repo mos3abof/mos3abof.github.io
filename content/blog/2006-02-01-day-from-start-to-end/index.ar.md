@@ -2,6 +2,9 @@
 title = "يوم من أوله!"
 date = "2006-02-01"
 
+[taxonomies]
+tags = ["دايرة الرحلة"]
+
 [extra]
 comments = true
 +++

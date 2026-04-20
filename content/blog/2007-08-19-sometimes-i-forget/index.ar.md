@@ -2,6 +2,9 @@
 title = "والله ساعات بأنسى!"
 date = "2007-08-19"
 
+[taxonomies]
+tags = ["بحر الحياة"]
+
 [extra]
 comments = true
 +++

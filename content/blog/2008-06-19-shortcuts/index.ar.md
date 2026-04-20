@@ -2,6 +2,9 @@
 title = "shortcuts"
 date = "2008-06-19"
 
+[taxonomies]
+tags = ["بحر الحياة", "يا بنت يا اللي"]
+
 [extra]
 comments = true
 +++

@@ -134,7 +134,7 @@ external_level = "error"
 # Defaults to everything being a slug
 [slugify]
 paths = "on"
-taxonomies = "on"
+taxonomies = "safe"
 anchors = "on"
 # Whether to remove date prefixes for page path slugs.
 # For example, content/posts/2016-10-08_a-post-with-dates.md => posts/a-post-with-dates

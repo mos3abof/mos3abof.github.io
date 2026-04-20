@@ -1,14 +1,17 @@
 +++
-title = "Bike Shed"
+title = "Bike Shed Sketches"
 date = "2024-03-13T00:00:00Z"
 
-draft= true
-
 [taxonomies]
-tags=["woodworking"]
+tags=["woodworking", "sketching"]
 +++
 
-This is pretty much Work in Progress. Still in design phase.
+Here is a random sketch of a bike shed I am building!
 
-{{ image(src="bike-shed-sketch-1.jpg", alt="Bike Shed Hand Drawn Sketch 1") }}
-{{ image(src="bike-shed-sketch-2.jpg", alt="Bike Shed Hand Drawn Sketch 2") }}
+{{
+  image(
+    srcs=["bike-shed-sketch-1.jpg","bike-shed-sketch-2.jpg"],
+    size="full",
+    text="Bike Shed Hand Drawn Sketch."
+    )
+}}

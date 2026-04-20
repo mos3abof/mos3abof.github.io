@@ -2,6 +2,9 @@
 title = "جاري عنده تمساح!"
 date = "2006-09-12"
 
+[taxonomies]
+tags = ["نعناع الجنينة", "منشورات"]
+
 [extra]
 comments = true
 +++

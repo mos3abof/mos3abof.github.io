@@ -2,6 +2,9 @@
 title = " ساعات عصيبة!"
 date = "2007-03-08"
 
+[taxonomies]
+tags = ["دايرة الرحلة"]
+
 [extra]
 comments = true
 +++
