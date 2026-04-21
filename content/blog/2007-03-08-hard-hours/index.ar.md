@@ -3,7 +3,7 @@ title = " ساعات عصيبة!"
 date = "2007-03-08"
 
 [taxonomies]
-tags = ["دايرة الرحلة"]
+tags = ["حكايتي مع الزمان", "نعناع الجنينة"]
 
 [extra]
 comments = true

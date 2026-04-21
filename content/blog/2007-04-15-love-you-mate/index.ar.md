@@ -3,7 +3,7 @@ title = "بحبك يا صاحبي"
 date = "2007-04-15"
 
 [taxonomies]
-tags = ["الجيرة والعشرة", "بيبان القلب"]
+tags = ["الجيرة والعشرة", "افتح قلبك"]
 +++
 
 {{ image(src="me_and_baraa.jpg", size="full") }}  

@@ -3,7 +3,7 @@ title = " مصعب والأهرام!"
 date = "2007-01-03"
 
 [taxonomies]
-tags = ["دايرة الرحلة"]
+tags = ["في دايرة الرحلة"]
 
 [extra]
 comments = true

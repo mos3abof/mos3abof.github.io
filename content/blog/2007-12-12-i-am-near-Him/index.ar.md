@@ -3,7 +3,7 @@ title = "أنا جنبه بس.."
 date = "2007-12-12"
 
 [taxonomies]
-tags = ["بيبان القلب"]
+tags = ["الله يا دايم"]
 
 [extra]
 comments = true
