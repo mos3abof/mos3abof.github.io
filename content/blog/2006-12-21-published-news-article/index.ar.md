@@ -3,7 +3,7 @@ title = "امبارح كان عمري .. سطرين!"
 date = "2006-12-21"
 
 [taxonomies]
-tags = ["دايرة الرحلة"]
+tags = ["في دايرة الرحلة"]
 
 [extra]
 comments = true
