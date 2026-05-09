@@ -2,7 +2,7 @@
 title: "What Happens When You `kubectl apply -f network-policy.yaml`?"
 date: 2026-05-09
 tags: [kubernetes, networking, ebpf, sre]
-draft = true
+draft: true
 ---
 
 {{
