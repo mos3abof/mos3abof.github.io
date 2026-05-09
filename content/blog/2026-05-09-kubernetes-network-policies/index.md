@@ -29,7 +29,7 @@ fresh in my head, it felt like a good moment to sit down and write the
 Kubernetes-flavoured version of the same question: **What happens when you**
 `kubectl apply -f network-policy.yaml`?
 
-{{ sep(style="bullets", gap="lg") }}
+{{ sep(style="dingbats", gap="sm") }}
 
 A NetworkPolicy is one of those Kubernetes objects that *feels* like it should
 be simple. You write a YAML, you say "deny everything except this", you press
@@ -72,12 +72,14 @@ labelled `app=frontend`.
 
 Now let's watch what the cluster actually does with that.
 
+{{ sep(style="dingbats", gap="sm") }}
+
 ## Stage 1: `kubectl apply`, the easy bit
 
 `kubectl` is, almost embarrassingly, just a fancy HTTP client. When you run
 
 ```shell
-kubectl apply -f network-policy.yaml
+❯ kubectl apply -f network-policy.yaml
 ```
 
 a few things happen on your laptop before a single byte leaves it:
@@ -130,6 +132,8 @@ single packet has been dropped or permitted differently because of what we just
 did.* A NetworkPolicy on its own is inert, it's a declaration of intent.
 Something has to be listening.
 
+{{ sep(style="dingbats", gap="sm") }}
+
 ## Stage 2: Two controllers wake up
 
 In the AWS VPC CNI world, two things care that we just wrote a NetworkPolicy:
@@ -180,6 +184,8 @@ It's a good trade.
 Each NPA pod watches `PolicyEndpoint` with a field selector pinned to its own
 node, so it only sees the resolved policies for the pods it actually hosts.
 That sharding is the only reason this design scales.
+
+{{ sep(style="dingbats", gap="sm") }}
 
 ## Stage 3: The agent translates pods into eBPF
 
@@ -270,6 +276,8 @@ The `map_ids` line is the breadcrumb to the policy data. `bpftool map dump id
 456` will print the actual permitted CIDR-port-protocol entries for that pod's
 ingress. *That* is your NetworkPolicy, made byte-shaped.
 
+{{ sep(style="dingbats", gap="sm") }}
+
 ## Stage 4: A packet shows up
 
 A `frontend` pod opens a TCP connection to `10.0.5.7:8080`, the IP of an `api`
@@ -319,6 +327,8 @@ ingress, conntrack, policy lookup, is on the order of microseconds. The
 expensive part of NetworkPolicy is everything that happened in stages 1–3,
 which got us here in the first place.
 
+{{ sep(style="dingbats", gap="sm") }}
+
 ## Stage 5: The pod dies, and the policy has to die with it
 
 This is the stage I've spent the most time in over the last few weeks, so I
@@ -361,6 +371,8 @@ are not symmetric**, and the delete path runs in the worst conditions, during
 termination, during failure, during reboot. If you're building this sort of
 agent, write the cleanup tests first.
 
+{{ sep(style="dingbats", gap="sm") }}
+
 ## A short word on Calico and Cilium
 
 If you're not on EKS-with-VPC-CNI, your dataplane is almost certainly Calico or
@@ -390,6 +402,8 @@ API → control loop → resolved CR or in-process state → node-local agent �
 
 The interesting differences live in the last two letters: where exactly do
 bytes get inspected, and what is the lookup key.
+
+{{ sep(style="dingbats", gap="sm") }}
 
 ## Putting it back together
 
