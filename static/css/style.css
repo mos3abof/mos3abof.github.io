@@ -761,23 +761,87 @@ blockquote {
 }
 
 pre {
-  margin-top: 0.5rem;
-  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  background-color: #2e3440;
+  padding: 1rem 1.25rem 1.25rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  border-left: 3px solid #88c0d0;
   direction: ltr;
   unicode-bidi: isolate;
 }
 
+pre code {
+  background: transparent;
+  color: #d8dee9;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
 :not(pre)>code {
-  --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity, 1));
-  padding: 0.25rem;
+  border-radius: 0.25rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+  padding: 0.1em 0.4em;
+  font-size: 0.88em;
+  background-color: #dde8ef;
+  color: #0f766e;
   direction: ltr;
   unicode-bidi: isolate;
+}
+
+/* Footnotes */
+
+hr:has(+ .footnote-definition) {
+  border: none;
+  border-top: 1px solid #cbd5e1;
+  width: 4rem;
+  margin: 2rem 0 1rem;
+}
+
+.footnote-definition {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.footnote-definition-label {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #0f766e;
+}
+
+.footnote-definition p {
+  margin: 0;
+  padding-top: 0;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+sup.footnote-reference a {
+  color: #0f766e;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0 0.1em;
+}
+
+.footnote-definition-label a {
+  color: inherit;
+  text-decoration: none;
+  padding: 0;
+  background: transparent;
+}
+
+.footnote-definition-label a:hover {
+  color: inherit;
+  background: transparent;
+  text-decoration: underline;
 }
 
 .aspect-h-9 {
@@ -920,6 +984,10 @@ pre {
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 
 .mb-8 {
@@ -1089,6 +1157,10 @@ pre {
   flex: none;
 }
 
+.flex-shrink {
+  flex-shrink: 1;
+}
+
 .shrink-0 {
   flex-shrink: 0;
 }
@@ -1236,6 +1308,10 @@ pre {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .rounded-full {
@@ -1882,6 +1958,39 @@ pre {
 
 .rtl code {
   text-align: right;
+}
+
+pre[data-lang]::before {
+  content: attr(data-lang);
+  display: block;
+  text-align: right;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #616e88;
+  margin-bottom: 0.5rem;
+}
+
+pre[data-lang]::after {
+  content: '';
+  display: block;
+  margin-top: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :not(pre)>code {
+    background-color: #1e293b;
+    color: #5eead4;
+  }
+
+  hr:has(+ .footnote-definition) {
+    border-top-color: #334155;
+  }
+
+  .footnote-definition p {
+    color: #94a3b8;
+  }
 }
 
 pre,

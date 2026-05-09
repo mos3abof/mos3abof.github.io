@@ -150,8 +150,8 @@ replace(from="8", to="٨") | replace(from="9", to="٩") }}
     %}
     <nav class="flex gap-4 justify-between pt-6 mt-10 border-t border-slate-200 dark:border-slate-700">
       <div class="flex-1">
-        {% if page.lower %}
-        <a href="{{ page.lower.permalink }}" class="flex flex-col gap-1 no-underline hover:text-white group">
+        {% if page.higher %}
+        <a href="{{ page.higher.permalink }}" class="flex flex-col gap-1 no-underline hover:text-white group">
           <span class="text-xs tracking-wide uppercase group-hover:text-white text-slate-400 dark:text-slate-500">
             {% if res.settings_direction == 'rtl' %}
             {{ res.prev_post }} →
@@ -161,7 +161,7 @@ replace(from="8", to="٨") | replace(from="9", to="٩") }}
           </span>
           <span
             class="text-sm text-teal-600 sm:text-base group-hover:text-white group-hover:underline underline-offset-4 line-clamp-2">
-            {{ page.lower.title }}
+            {{ page.higher.title }}
           </span>
         </a>
         {% endif %}
@@ -179,8 +179,8 @@ replace(from="8", to="٨") | replace(from="9", to="٩") }}
         </a>
       </div>
       <div class="flex-1 text-end">
-        {% if page.higher %}
-        <a href="{{ page.higher.permalink }}" class="flex flex-col gap-1 items-end no-underline hover:text-white group">
+        {% if page.lower %}
+        <a href="{{ page.lower.permalink }}" class="flex flex-col gap-1 items-end no-underline hover:text-white group">
           <span class="text-xs tracking-wide uppercase group-hover:text-white text-slate-400 dark:text-slate-500">
             {% if res.settings_direction == 'rtl' %}
             ← {{ res.next_post }}
@@ -190,7 +190,7 @@ replace(from="8", to="٨") | replace(from="9", to="٩") }}
           </span>
           <span
             class="text-sm text-right text-teal-600 sm:text-base group-hover:text-white group-hover:underline underline-offset-4 line-clamp-2">
-            {{ page.higher.title }}
+            {{ page.lower.title }}
           </span>
         </a>
         {% endif %}
