@@ -95,6 +95,18 @@ replace(from="8", to="٨") | replace(from="9", to="٩") }}
     <span class="mt-4 block text-base sm:text-lg text-slate-400">
       {{ res.posted_on }}
       <time class="text-slate-500 ibm-plex-mono">{{ post_macros::format_date(date=page.date, res=res) }}</time>
+      {% set author = page.extra.author | default(value="") %}
+      {% if not author %}
+        {% if lang == 'ar' %}
+          {% set author = config.extra.author_ar %}
+        {% else %}
+          {% set author = config.extra.author %}
+        {% endif %}
+      {% endif %}
+      {% if author %}
+      <span aria-hidden="true" class="mx-1">·</span>{{ res.written_by }}
+      <span class="text-slate-500" dir="ltr">{{ author }}</span>
+      {% endif %}
     </span>
     {% endif %}
 

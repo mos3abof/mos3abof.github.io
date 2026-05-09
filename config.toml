@@ -219,3 +219,5 @@ build_search_index = false
 # Path to the language resource files
 path_language_resources = "i18n/"
 home_posts_limit = 50
+author = "Mosab Ibrahim"
+author_ar = "مصعب إبراهيم"
