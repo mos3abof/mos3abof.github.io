@@ -2,7 +2,7 @@
 {% set path_parts = page.relative_path | split(pat="/") %}
 {% set dir_parts = path_parts | slice(end=-1) %}
 {% set dir_path = dir_parts | join(sep="/") %}
-{% set comments_data = load_data(path="content/" ~ dir_path ~ "/comments.toml") %}
+{% set comments_data = load_data(path="content/" ~ dir_path ~ "/comments.toml", required=false) %}
 {% if comments_data and comments_data.comments %}
 
 <section class="pt-10 mt-12 border-t border-slate-200 dark:border-slate-700" dir="{{ res.settings_direction }}"
@@ -73,7 +73,8 @@
               <time datetime="{{ comment.date }}" class="text-sm text-slate-400 ibm-plex-mono dark:text-slate-500">{{
                 formatted_date }}</time>
 
-              {# Link to original comment on Blogger #}
+              {# Link to original comment — only shown for imported Blogger comments #}
+              {% if comment.comment_url %}
               <a href="{{ comment.comment_url }}"
                 class="transition-colors hover:text-teal-500 text-slate-300 dark:text-slate-600 dark:hover:text-teal-400"
                 target="_blank" rel="noopener noreferrer" title="{{ res.comments_view_original }}"
@@ -86,6 +87,7 @@
                   <line x1="10" y1="14" x2="21" y2="3" />
                 </svg>
               </a>
+              {% endif %}
             </div>
           </div>
         </header>

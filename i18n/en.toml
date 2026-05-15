@@ -45,6 +45,21 @@ comments_blogger_note = "Historical comments imported from Blogger"
 comments_post_author = "post author"
 comments_view_original = "View original comment on Blogger"
 
+# Comment form
+comment_form_title = "Leave a comment"
+comment_form_name_label = "Name"
+comment_form_name_placeholder = "Your name"
+comment_form_email_label = "Email (optional)"
+comment_form_email_placeholder = "Used for your avatar only — never shown publicly"
+comment_form_website_label = "Website (optional)"
+comment_form_website_placeholder = "https://your-site.com"
+comment_form_text_label = "Comment"
+comment_form_text_placeholder = "Share your thoughts…"
+comment_form_submit = "Post comment"
+comment_form_submitting = "Posting…"
+comment_form_success = "Your comment has been posted and will appear on the site shortly."
+comment_form_error = "Something went wrong. Please try again."
+
 # Nouns with singular and plural
 [words]
 one = "word"

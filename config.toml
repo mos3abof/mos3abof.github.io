@@ -221,3 +221,8 @@ path_language_resources = "i18n/"
 home_posts_limit = 50
 author = "Mosab Ibrahim"
 author_ar = "مصعب إبراهيم"
+# Comments system
+# Get the site key from dash.cloudflare.com → Turnstile after creating a widget for mosab.co.uk
+turnstile_site_key = "0x4AAAAAADPjTVV4b4KS6DQY"
+# URL of your deployed Cloudflare Worker (see comments/worker/wrangler.toml)
+comments_api_url = "https://api.mosab.co.uk/comments"

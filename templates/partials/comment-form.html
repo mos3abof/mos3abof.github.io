@@ -1,0 +1,177 @@
+{% if page.extra.comments | default(value=false) %}
+
+{%- set path_parts = page.relative_path | split(pat="/") -%}
+{%- set dir_parts  = path_parts | slice(end=-1) -%}
+{%- set dir_path   = dir_parts  | join(sep="/") -%}
+
+<section class="pt-10 mt-6" dir="{{ res.settings_direction }}" aria-label="{{ res.comment_form_title }}">
+  <h2 class="mb-6 text-2xl font-bold text-slate-900 dark:text-slate-200">
+    {{ res.comment_form_title }}<span class="text-3xl leading-none text-teal-600">.</span>
+  </h2>
+
+  <form id="comment-form" novalidate class="flex flex-col gap-5 max-w-2xl">
+
+    {# Honeypot — hidden from real users, filled by bots #}
+    <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+      <label for="cmnt-website-url">Website URL</label>
+      <input type="text" id="cmnt-website-url" name="website_url" tabindex="-1" autocomplete="off">
+    </div>
+
+    {# Name #}
+    <div class="flex flex-col gap-1.5">
+      <label for="cmnt-author" class="text-sm font-semibold text-slate-700 dark:text-slate-300">
+        {{ res.comment_form_name_label }}
+        <span class="text-teal-600" aria-hidden="true">*</span>
+      </label>
+      <input type="text" id="cmnt-author" name="author"
+        required maxlength="100"
+        placeholder="{{ res.comment_form_name_placeholder }}"
+        class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600
+               bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100
+               placeholder-slate-400 dark:placeholder-slate-500
+               focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent
+               text-base transition-colors">
+    </div>
+
+    {# Email #}
+    <div class="flex flex-col gap-1.5">
+      <label for="cmnt-email" class="text-sm font-semibold text-slate-700 dark:text-slate-300">
+        {{ res.comment_form_email_label }}
+      </label>
+      <input type="email" id="cmnt-email" name="email"
+        maxlength="254"
+        placeholder="{{ res.comment_form_email_placeholder }}"
+        class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600
+               bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100
+               placeholder-slate-400 dark:placeholder-slate-500
+               focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent
+               text-base transition-colors">
+    </div>
+
+    {# Website #}
+    <div class="flex flex-col gap-1.5">
+      <label for="cmnt-website" class="text-sm font-semibold text-slate-700 dark:text-slate-300">
+        {{ res.comment_form_website_label }}
+      </label>
+      <input type="url" id="cmnt-website" name="website"
+        maxlength="200"
+        placeholder="{{ res.comment_form_website_placeholder }}"
+        class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600
+               bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100
+               placeholder-slate-400 dark:placeholder-slate-500
+               focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent
+               text-base transition-colors">
+    </div>
+
+    {# Comment text #}
+    <div class="flex flex-col gap-1.5">
+      <label for="cmnt-text" class="text-sm font-semibold text-slate-700 dark:text-slate-300">
+        {{ res.comment_form_text_label }}
+        <span class="text-teal-600" aria-hidden="true">*</span>
+      </label>
+      <textarea id="cmnt-text" name="text"
+        required maxlength="5000" rows="6"
+        placeholder="{{ res.comment_form_text_placeholder }}"
+        class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600
+               bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100
+               placeholder-slate-400 dark:placeholder-slate-500
+               focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent
+               text-base resize-y transition-colors leading-relaxed"></textarea>
+    </div>
+
+    {# Cloudflare Turnstile #}
+    <div class="cf-turnstile"
+         data-sitekey="{{ config.extra.turnstile_site_key }}"
+         data-theme="auto"
+         data-size="normal"></div>
+
+    {# Submit row #}
+    <div class="flex flex-wrap items-center gap-4">
+      <button type="submit" id="cmnt-submit"
+        class="px-6 py-2.5 bg-teal-600 hover:bg-teal-700 active:bg-teal-800
+               text-white font-semibold rounded-lg transition-colors
+               focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2
+               disabled:opacity-60 disabled:cursor-not-allowed">
+        {{ res.comment_form_submit }}
+      </button>
+      <p id="cmnt-status" role="status" aria-live="polite" class="text-sm hidden"></p>
+    </div>
+
+  </form>
+</section>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+(function () {
+  'use strict';
+
+  const POST_SLUG  = {{ dir_path | json_encode }};
+  const LANG       = {{ lang     | json_encode }};
+  const API_URL    = {{ config.extra.comments_api_url | json_encode }};
+
+  const MSG_SUBMIT     = {{ res.comment_form_submit     | json_encode }};
+  const MSG_SUBMITTING = {{ res.comment_form_submitting | json_encode }};
+  const MSG_SUCCESS    = {{ res.comment_form_success    | json_encode }};
+  const MSG_ERROR      = {{ res.comment_form_error      | json_encode }};
+
+  const form   = document.getElementById('comment-form');
+  const submit = document.getElementById('cmnt-submit');
+  const status = document.getElementById('cmnt-status');
+
+  function setStatus(msg, ok) {
+    status.textContent = msg;
+    status.className = 'text-sm ' + (ok
+      ? 'text-teal-600 dark:text-teal-400'
+      : 'text-red-500  dark:text-red-400');
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const tsInput = form.querySelector('[name="cf-turnstile-response"]');
+    const tsToken = tsInput ? tsInput.value : '';
+    if (!tsToken) {
+      setStatus(MSG_ERROR, false);
+      return;
+    }
+
+    submit.disabled = true;
+    submit.textContent = MSG_SUBMITTING;
+    status.className = 'text-sm hidden';
+
+    const payload = {
+      post_slug:              POST_SLUG,
+      lang:                   LANG,
+      author:                 (form.querySelector('[name="author"]').value   || '').trim(),
+      email:                  (form.querySelector('[name="email"]').value    || '').trim(),
+      website:                (form.querySelector('[name="website"]').value  || '').trim(),
+      text:                   (form.querySelector('[name="text"]').value     || '').trim(),
+      website_url:            (form.querySelector('[name="website_url"]').value || ''),
+      cf_turnstile_response:  tsToken,
+    };
+
+    try {
+      const res = await fetch(API_URL, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        form.reset();
+        if (window.turnstile) window.turnstile.reset();
+        setStatus(MSG_SUCCESS, true);
+      } else {
+        setStatus(MSG_ERROR, false);
+      }
+    } catch (_) {
+      setStatus(MSG_ERROR, false);
+    } finally {
+      submit.disabled = false;
+      submit.textContent = MSG_SUBMIT;
+    }
+  });
+})();
+</script>
+
+{% endif %}
