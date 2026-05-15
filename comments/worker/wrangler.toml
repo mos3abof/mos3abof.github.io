@@ -1,6 +1,7 @@
 name            = "mosab-comments"
 main            = "src/index.ts"
 compatibility_date = "2024-09-23"
+account_id      = "45179458c57bdff1c97acf36e6d6178d"
 
 # Public vars change if you rename things
 [vars]
