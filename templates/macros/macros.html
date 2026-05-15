@@ -156,8 +156,10 @@ replace(from="8", to="٨") | replace(from="9", to="٩") }}
       {% endif %}
     </div>
 
+    {% if "blog/_index.md" in page.ancestors or "blog/_index.ar.md" in page.ancestors %}
     {% include "partials/comments.html" %}
     {% include "partials/comment-form.html" %}
+    {% endif %}
 
     {% if (page.lower or page.higher) and ("blog/_index.md" in page.ancestors or "blog/_index.ar.md" in page.ancestors)
     %}
