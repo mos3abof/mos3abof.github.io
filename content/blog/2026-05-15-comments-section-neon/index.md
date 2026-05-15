@@ -44,25 +44,32 @@ flowchart LR
         D[(PostgreSQL)]
     end
     subgraph GH [GitHub]
-        E[Build Action]
+        I[Issue]
+        E[Approve Action]
+        BW[Build Action]
         R[Repository]
     end
     A -->|POST JSON| B
     B <-->|verify token| T
-    B -->|INSERT| D
-    B -->|repository_dispatch| E
-    E -->|SELECT approved| D
-    E -->|zola build| R
+    B -->|INSERT pending| D
+    B -->|open issue| I
+    I -->|approved label| E
+    E -->|UPDATE approved| D
+    E -->|workflow_call| BW
+    BW -->|SELECT approved| D
+    BW -->|zola build| R
     R --> S([Live Site])
 {% end %}
 
 A form on the page posts JSON to a Cloudflare Worker. The Worker validates the
 input, checks a Turnstile CAPTCHA token, hashes the email and IP, and inserts
-the comment into a Neon PostgreSQL table. It then fires a `repository_dispatch`
-event at GitHub, which triggers the build workflow directly. That workflow
-queries the database, writes `comments.toml` files into the workspace, runs
-`zola build`, and deploys. The TOML files are ephemeral: they exist only during
-the build and are never committed back to the repository.
+the comment into Neon with `status = 'pending'`. It then opens a GitHub issue
+containing the comment text for review. When I add the `approved` label to that
+issue, an Actions workflow sets the status to `'approved'` in the database,
+closes the issue, and calls the build workflow. That build queries all approved
+comments, writes ephemeral `comments.toml` files into the workspace, runs
+`zola build`, and deploys. The TOML files are never committed back to the
+repository.
 
 ## The submission flow in detail
 
@@ -89,7 +96,7 @@ sequenceDiagram
     W->>DB: INSERT INTO comments ...
     DB-->>W: row inserted
     W-->>Form: 201 {ok: true}
-    W-)GH: repository_dispatch new-comment
+    W-)GH: open issue (pending review)
     Form-->>User: "Comment posted!"
 {% end %}
 
@@ -97,20 +104,48 @@ Before inserting, the Worker normalises line endings to `<br />` so that
 paragraph breaks in the comment body render correctly in the Zola template,
 which outputs the text as raw HTML after escaping everything else.
 
-The `repository_dispatch` call is fired via `ctx.waitUntil`, meaning the Worker
-returns the 201 to the browser immediately and dispatches to GitHub in the
-background. The commenter does not wait for the build to finish.
+The issue is opened via `ctx.waitUntil`, meaning the Worker returns the 201
+to the browser immediately and creates the issue in the background. The
+commenter does not wait for it.
+
+## The approval flow
+
+{% mermaid() %}
+sequenceDiagram
+    actor Me
+    participant GH as GitHub Issues
+    participant A as Approve Action
+    participant DB as Neon PostgreSQL
+    participant B as Build Action
+
+    GH->>Me: notification: new comment issue
+    Me->>GH: add "approved" label
+    GH->>A: issues.labeled event
+    A->>A: verify label added by repo owner
+    A->>DB: UPDATE SET status='approved'
+    DB-->>A: row updated
+    A->>GH: close issue
+    A->>B: workflow_call
+    B->>DB: SELECT all approved comments
+    DB-->>B: rows grouped by post_slug
+    B->>B: write comments.toml, zola build
+    B->>B: deploy to gh-pages
+{% end %}
+
+The approval workflow runs only when the label is added by the repository owner,
+checked via `github.actor == github.repository_owner`. Anyone else adding the
+label causes the job to be skipped entirely.
 
 ## The build pipeline
 
 {% mermaid() %}
 sequenceDiagram
-    participant GH as GitHub API
+    participant GH as GitHub Actions
     participant A as Build Action
     participant DB as Neon PostgreSQL
     participant R as Repository
 
-    GH->>A: repository_dispatch new-comment
+    GH->>A: workflow_call from approve action
     A->>R: checkout main
     A->>DB: SELECT all approved comments
     DB-->>A: rows grouped by post_slug
@@ -139,7 +174,7 @@ CREATE TABLE IF NOT EXISTS comments (
   email_hash           TEXT,          -- SHA-256(lower(trim(email))), for Gravatar only
   website              TEXT,          -- optional; becomes profile_url in TOML
   text                 TEXT        NOT NULL,
-  status               TEXT        NOT NULL DEFAULT 'approved',
+  status               TEXT        NOT NULL DEFAULT 'pending',  -- Worker always sets explicitly
   ip_hash              TEXT,          -- SHA-256(IP), never the raw address
   submitted_at         TIMESTAMPTZ NOT NULL DEFAULT now(),
   is_author            BOOLEAN     NOT NULL DEFAULT false,
@@ -178,11 +213,12 @@ absurdly generous for a personal blog. Turnstile, the CAPTCHA widget I am using
 for bot protection, is also a Cloudflare product, so the server-side
 verification is a single internal API call.
 
-**GitHub Actions** for the build was the path of least resistance. The deploy
-workflow already runs on every push to `main`. I added `repository_dispatch`
-as a second trigger and inserted two steps before `zola build`: install the
-Python dependencies, run the export script. The workflow deploys on both
-triggers, so a new comment and a code push go through identical build paths.
+**GitHub Actions** handles both moderation and deployment. The build workflow
+runs on push to `main`, on `repository_dispatch`, and as a reusable workflow
+via `workflow_call`. The approval workflow triggers on any issue label event,
+checks that the actor is the repository owner, flips the status in Neon, and
+calls the build workflow. No separate deploy step: the same build path runs
+regardless of what triggered it.
 
 ## Bridging two worlds
 
@@ -269,31 +305,37 @@ flowchart TD
     C4 -->|no| X4[400 Bad Request]
     C4 -->|yes| C5{Turnstile passes?}
     C5 -->|no| X5[400 CAPTCHA failed]
-    C5 -->|yes| OK[Insert + dispatch]
+    C5 -->|yes| OK[Insert pending + open issue]
 {% end %}
 
-All comments go straight to `approved` for now. Moderation-by-email would
-require email infrastructure I do not want to maintain. Moderation-by-console
-means I will forget to check it. If spam becomes a real problem later, Akismet
-has a clean API and can be wired in without changing anything else in the
-pipeline.
+Every comment lands in the database as `pending` and is invisible until I
+approve it. The approval mechanism is a GitHub issue: the Worker opens one for
+each submission, I read the text, and if it looks fine I add the `approved`
+label. An Actions workflow catches the label event, flips the status in the
+database, closes the issue, and triggers a build. If the submission is spam I
+just close the issue without labelling it and the comment stays pending forever.
+
+No email infrastructure, no admin panel, no console queries. The issue inbox
+is the moderation queue.
 
 ## What it took
 
-The whole system is six pieces:
+The whole system is seven pieces:
 
 1. A SQL migration: one `CREATE TABLE` and one `CREATE INDEX`.
 2. A one-time Python script that imports all existing Blogger comments from the
    exported TOML files into Neon, making the database the single source of truth.
 3. A Cloudflare Worker in TypeScript (~150 lines): CORS, honeypot, validation,
-   Turnstile check, SHA-256 hashing, DB insert, GitHub dispatch.
-4. Two additions to the existing build workflow (~10 lines of YAML): a
-   `repository_dispatch` trigger and a pre-build step that installs the Python
-   dependencies and runs the export script with the `NEON_DATABASE_URL` secret.
-5. A Python export script (~60 lines): connect to Neon, group rows by slug,
+   Turnstile check, SHA-256 hashing, DB insert as `pending`, GitHub issue creation.
+4. A moderation workflow (~30 lines of YAML): triggers on issue label, verifies
+   the actor is the repo owner, runs the approval script, closes the issue, calls
+   the build workflow.
+5. A Python approval script (~30 lines): extracts the comment UUID from the issue
+   body and sets `status = 'approved'` in Neon.
+6. A Python export script (~60 lines): connect to Neon, group rows by slug,
    write `comments.toml` files into the workspace with `tomli-w`.
-6. Two Zola template partials: one for rendering the comment list (with empty
+7. Two Zola template partials: one for rendering the comment list (with empty
    state), one for the form itself with RTL/LTR support for Arabic and English.
 
-The form is at the bottom of this post. Try it out and let me know what you
-think.
+The form is at the bottom of this post. Comments are moderated, so yours will
+appear once I have had a chance to review it.
