@@ -1,5 +1,5 @@
 {#
-  image — embed one or more images with an optional caption.
+  image embed one or more images with an optional caption.
 
   Usage (inline shortcode):
     {{ image(src="photo.jpg") }}
@@ -44,7 +44,7 @@
   {%- set caption_dir = "ltr" -%}
 {%- endif -%}
 
-{# Alignment — logical properties so left/right work in RTL too #}
+{# Alignment logical properties so left/right work in RTL too #}
 {%- if align == "left" or align == "start" -%}
   {%- set align_class = "me-auto" -%}
 {%- elif align == "right" or align == "end" -%}

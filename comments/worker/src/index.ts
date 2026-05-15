@@ -96,7 +96,7 @@ export default {
       return respond({ error: 'Invalid JSON' }, 400, cors);
     }
 
-    // Honeypot — bots fill the hidden field; humans don't
+    // Honeypot bots fill the hidden field; humans don't
     if (body.website_url) {
       return respond({ ok: true }, 201, cors);
     }
@@ -148,7 +148,7 @@ export default {
       return respond({ error: 'Database error' }, 500, cors);
     }
 
-    // Trigger the GitHub Action asynchronously — commenter doesn't wait for it
+    // Trigger the GitHub Action asynchronously commenter doesn't wait for it
     ctx.waitUntil(triggerExport(env));
 
     return respond({ ok: true }, 201, cors);

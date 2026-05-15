@@ -2,7 +2,7 @@ name            = "mosab-comments"
 main            = "src/index.ts"
 compatibility_date = "2024-09-23"
 
-# Public vars — change if you rename things
+# Public vars change if you rename things
 [vars]
 ALLOWED_ORIGIN = "https://mosab.co.uk"
 GITHUB_REPO    = "mos3abof/mos3abof.github.io"
@@ -11,7 +11,7 @@ GITHUB_REPO    = "mos3abof/mos3abof.github.io"
 pattern   = "api.mosab.co.uk/comments"
 zone_name = "mosab.co.uk"
 
-# Secrets — set with `wrangler secret put <NAME>`:
+# Secrets set with `wrangler secret put <NAME>`:
 #   NEON_DATABASE_URL      – Neon connection string (pooled endpoint)
 #   TURNSTILE_SECRET_KEY   – from dash.cloudflare.com → Turnstile
 #   GITHUB_TOKEN           – fine-grained PAT: Contents read + Actions write
