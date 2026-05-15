@@ -12,6 +12,7 @@ on:
       - main
   repository_dispatch:
     types: [new-comment]
+  workflow_call:
 
 jobs:
   build:
@@ -39,7 +40,7 @@ jobs:
         run: make build
       - name: Publish website to github pages
         uses: peaceiris/actions-gh-pages@v4
-        if: ${{ github.event_name == 'repository_dispatch' || (github.event_name == 'push' && github.ref == format('refs/heads/{0}', env.SOURCE_BRANCH)) }}
+        if: ${{ github.event_name == 'workflow_call' || github.event_name == 'repository_dispatch' || (github.event_name == 'push' && github.ref == format('refs/heads/{0}', env.SOURCE_BRANCH)) }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public

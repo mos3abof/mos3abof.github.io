@@ -11,7 +11,6 @@ export interface Env {
 const MAX_AUTHOR = 100;
 const MAX_TEXT = 5000;
 const MAX_WEBSITE = 200;
-// Only allow path-safe slug characters
 const SLUG_RE = /^[a-z0-9/_-]+$/;
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -41,8 +40,30 @@ async function verifyTurnstile(token: string, ip: string, secret: string): Promi
   return data.success === true;
 }
 
-async function triggerExport(env: Env): Promise<void> {
-  const res = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/dispatches`, {
+async function openIssue(
+  env: Env,
+  id: string,
+  slug: string,
+  author: string,
+  text: string,
+): Promise<void> {
+  const postUrl = `${env.ALLOWED_ORIGIN}/${slug}/`;
+  const body = [
+    `**Author:** ${author}`,
+    `**Post:** [${slug}](${postUrl})`,
+    ``,
+    `---`,
+    ``,
+    text,
+    ``,
+    `---`,
+    ``,
+    `Add the **approved** label to publish this comment.`,
+    ``,
+    `<!-- comment-id: ${id} -->`,
+  ].join('\n');
+
+  const res = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/issues`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${env.GITHUB_TOKEN}`,
@@ -51,10 +72,13 @@ async function triggerExport(env: Env): Promise<void> {
       'User-Agent': 'mosab-comments/1.0',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ event_type: 'new-comment' }),
+    body: JSON.stringify({
+      title: `New comment: ${author} on ${slug}`,
+      body,
+    }),
   });
   if (!res.ok) {
-    console.error('GitHub dispatch failed:', res.status, await res.text());
+    console.error('GitHub issue creation failed:', res.status, await res.text());
   }
 }
 
@@ -96,7 +120,7 @@ export default {
       return respond({ error: 'Invalid JSON' }, 400, cors);
     }
 
-    // Honeypot bots fill the hidden field; humans don't
+    // Honeypot: bots fill the hidden field; humans don't
     if (body.website_url) {
       return respond({ ok: true }, 201, cors);
     }
@@ -137,19 +161,22 @@ export default {
       .replace(/\r/g, '\n')
       .replace(/\n/g, '<br />');
 
+    let commentId: string;
     try {
       const sql = neon(env.NEON_DATABASE_URL);
-      await sql`
-        INSERT INTO comments (post_slug, lang, author, email_hash, website, text, ip_hash)
-        VALUES (${postSlug}, ${lang}, ${author}, ${emailHash}, ${website || null}, ${normText}, ${ipHash})
+      const rows = await sql`
+        INSERT INTO comments (post_slug, lang, author, email_hash, website, text, ip_hash, status)
+        VALUES (${postSlug}, ${lang}, ${author}, ${emailHash}, ${website || null}, ${normText}, ${ipHash}, 'pending')
+        RETURNING id
       `;
+      commentId = rows[0].id as string;
     } catch (err) {
       console.error('DB insert error:', err);
       return respond({ error: 'Database error' }, 500, cors);
     }
 
-    // Trigger the GitHub Action asynchronously commenter doesn't wait for it
-    ctx.waitUntil(triggerExport(env));
+    // Open a GitHub issue for moderation — commenter doesn't wait for it
+    ctx.waitUntil(openIssue(env, commentId, postSlug, author, text));
 
     return respond({ ok: true }, 201, cors);
   },

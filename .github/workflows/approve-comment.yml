@@ -1,0 +1,41 @@
+name: Approve comment
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  issues: write   # close issue, post comment
+  contents: write # needed by peaceiris/actions-gh-pages in the rebuild job
+
+jobs:
+  approve:
+    if: github.event.label.name == 'approved' && github.actor == github.repository_owner
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install psycopg2-binary --quiet
+
+      - name: Approve comment in Neon
+        env:
+          NEON_DATABASE_URL: ${{ secrets.NEON_DATABASE_URL }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: python comments/approve_comment.py
+
+      - name: Close issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue close ${{ github.event.issue.number }} \
+            --comment "Comment approved. A site rebuild is starting — it will appear shortly."
+
+  rebuild:
+    needs: approve
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
