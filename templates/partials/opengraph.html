@@ -1,5 +1,5 @@
 {#
-  opengraph.html — OpenGraph + Twitter Card meta tags.
+  opengraph.html OpenGraph + Twitter Card meta tags.
 
   Resolves, in order:
     og:image  → page.extra.og_image (explicit)
@@ -25,7 +25,7 @@
 {% elif section is defined and section.title %}
   {% set og_title = section.title ~ " | " ~ config.title %}
 {% else %}
-  {% set og_title = config.title ~ " — " ~ config.description %}
+  {% set og_title = config.title ~ " | " ~ config.description %}
 {% endif %}
 
 {# ── Description ── #}

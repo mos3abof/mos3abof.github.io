@@ -1,103 +1,138 @@
-{% if page.extra.comments | default(value=false) %}
+{% if page.extra.comments | default(value=true) %}
 
 {%- set path_parts = page.relative_path | split(pat="/") -%}
 {%- set dir_parts  = path_parts | slice(end=-1) -%}
 {%- set dir_path   = dir_parts  | join(sep="/") -%}
 
 <section class="pt-10 mt-6" dir="{{ res.settings_direction }}" aria-label="{{ res.comment_form_title }}">
-  <h2 class="mb-6 text-2xl font-bold text-slate-900 dark:text-slate-200">
-    {{ res.comment_form_title }}<span class="text-3xl leading-none text-teal-600">.</span>
-  </h2>
 
-  <form id="comment-form" novalidate class="flex flex-col gap-5 max-w-2xl">
+  <button id="cmnt-form-toggle" type="button"
+    aria-expanded="false" aria-controls="cmnt-form-body"
+    class="inline-flex items-center gap-2 px-5 py-2.5
+           border border-teal-600 dark:border-teal-500
+           text-teal-600 dark:text-teal-400
+           font-semibold rounded-lg text-base
+           hover:bg-teal-600 hover:text-white dark:hover:bg-teal-600 dark:hover:text-white
+           focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2
+           transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+    </svg>
+    {{ res.comment_form_title }}
+  </button>
 
-    {# Honeypot — hidden from real users, filled by bots #}
-    <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
-      <label for="cmnt-website-url">Website URL</label>
-      <input type="text" id="cmnt-website-url" name="website_url" tabindex="-1" autocomplete="off">
-    </div>
-
-    {# Name #}
-    <div class="flex flex-col gap-1.5">
-      <label for="cmnt-author" class="text-sm font-semibold text-slate-700 dark:text-slate-300">
-        {{ res.comment_form_name_label }}
-        <span class="text-teal-600" aria-hidden="true">*</span>
-      </label>
-      <input type="text" id="cmnt-author" name="author"
-        required maxlength="100"
-        placeholder="{{ res.comment_form_name_placeholder }}"
-        class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600
-               bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100
-               placeholder-slate-400 dark:placeholder-slate-500
-               focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent
-               text-base transition-colors">
-    </div>
-
-    {# Email #}
-    <div class="flex flex-col gap-1.5">
-      <label for="cmnt-email" class="text-sm font-semibold text-slate-700 dark:text-slate-300">
-        {{ res.comment_form_email_label }}
-      </label>
-      <input type="email" id="cmnt-email" name="email"
-        maxlength="254"
-        placeholder="{{ res.comment_form_email_placeholder }}"
-        class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600
-               bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100
-               placeholder-slate-400 dark:placeholder-slate-500
-               focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent
-               text-base transition-colors">
-    </div>
-
-    {# Website #}
-    <div class="flex flex-col gap-1.5">
-      <label for="cmnt-website" class="text-sm font-semibold text-slate-700 dark:text-slate-300">
-        {{ res.comment_form_website_label }}
-      </label>
-      <input type="url" id="cmnt-website" name="website"
-        maxlength="200"
-        placeholder="{{ res.comment_form_website_placeholder }}"
-        class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600
-               bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100
-               placeholder-slate-400 dark:placeholder-slate-500
-               focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent
-               text-base transition-colors">
-    </div>
-
-    {# Comment text #}
-    <div class="flex flex-col gap-1.5">
-      <label for="cmnt-text" class="text-sm font-semibold text-slate-700 dark:text-slate-300">
-        {{ res.comment_form_text_label }}
-        <span class="text-teal-600" aria-hidden="true">*</span>
-      </label>
-      <textarea id="cmnt-text" name="text"
-        required maxlength="5000" rows="6"
-        placeholder="{{ res.comment_form_text_placeholder }}"
-        class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600
-               bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100
-               placeholder-slate-400 dark:placeholder-slate-500
-               focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent
-               text-base resize-y transition-colors leading-relaxed"></textarea>
-    </div>
-
-    {# Cloudflare Turnstile #}
-    <div class="cf-turnstile"
-         data-sitekey="{{ config.extra.turnstile_site_key }}"
-         data-theme="auto"
-         data-size="normal"></div>
-
-    {# Submit row #}
-    <div class="flex flex-wrap items-center gap-4">
-      <button type="submit" id="cmnt-submit"
-        class="px-6 py-2.5 bg-teal-600 hover:bg-teal-700 active:bg-teal-800
-               text-white font-semibold rounded-lg transition-colors
-               focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2
-               disabled:opacity-60 disabled:cursor-not-allowed">
-        {{ res.comment_form_submit }}
+  <div id="cmnt-form-body" hidden>
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-200">
+        {{ res.comment_form_title }}<span class="text-3xl leading-none text-teal-600">.</span>
+      </h2>
+      <button id="cmnt-form-close" type="button"
+        aria-label="{{ res.comment_form_close }}"
+        class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200
+               hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
       </button>
-      <p id="cmnt-status" role="status" aria-live="polite" class="text-sm hidden"></p>
     </div>
 
-  </form>
+    <form id="comment-form" novalidate class="flex flex-col gap-5">
+
+      {# Honeypot hidden from real users, filled by bots #}
+      <div style="position:absolute;width:0;height:0;overflow:hidden;opacity:0;pointer-events:none" aria-hidden="true">
+        <label for="cmnt-website-url">Website URL</label>
+        <input type="text" id="cmnt-website-url" name="website_url" tabindex="-1" autocomplete="off">
+      </div>
+
+      {# Name #}
+      <div class="flex flex-col gap-1.5">
+        <label for="cmnt-author" class="text-sm font-semibold text-slate-700 dark:text-slate-300">
+          {{ res.comment_form_name_label }}
+          <span class="text-teal-600" aria-hidden="true">*</span>
+        </label>
+        <input type="text" id="cmnt-author" name="author"
+          required maxlength="100"
+          placeholder="{{ res.comment_form_name_placeholder }}"
+          class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600
+                 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100
+                 placeholder-slate-400 dark:placeholder-slate-500
+                 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent
+                 text-base transition-colors">
+      </div>
+
+      {# Email #}
+      <div class="flex flex-col gap-1.5">
+        <label for="cmnt-email" class="text-sm font-semibold text-slate-700 dark:text-slate-300">
+          {{ res.comment_form_email_label }}
+        </label>
+        <input type="email" id="cmnt-email" name="email"
+          maxlength="254"
+          placeholder="{{ res.comment_form_email_placeholder }}"
+          class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600
+                 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100
+                 placeholder-slate-400 dark:placeholder-slate-500
+                 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent
+                 text-base transition-colors">
+      </div>
+
+      {# Website #}
+      <div class="flex flex-col gap-1.5">
+        <label for="cmnt-website" class="text-sm font-semibold text-slate-700 dark:text-slate-300">
+          {{ res.comment_form_website_label }}
+        </label>
+        <input type="url" id="cmnt-website" name="website"
+          maxlength="200"
+          placeholder="{{ res.comment_form_website_placeholder }}"
+          class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600
+                 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100
+                 placeholder-slate-400 dark:placeholder-slate-500
+                 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent
+                 text-base transition-colors">
+      </div>
+
+      {# Comment text #}
+      <div class="flex flex-col gap-1.5">
+        <label for="cmnt-text" class="text-sm font-semibold text-slate-700 dark:text-slate-300">
+          {{ res.comment_form_text_label }}
+          <span class="text-teal-600" aria-hidden="true">*</span>
+        </label>
+        <textarea id="cmnt-text" name="text"
+          required maxlength="5000" rows="6"
+          placeholder="{{ res.comment_form_text_placeholder }}"
+          class="px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600
+                 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100
+                 placeholder-slate-400 dark:placeholder-slate-500
+                 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent
+                 text-base resize-y transition-colors leading-relaxed"></textarea>
+      </div>
+
+      {# Cloudflare Turnstile #}
+      <div class="cf-turnstile"
+           data-sitekey="{{ config.extra.turnstile_site_key }}"
+           data-theme="auto"
+           data-size="normal"></div>
+
+      {# Submit row #}
+      <div class="flex flex-wrap items-center gap-4">
+        <button type="submit" id="cmnt-submit"
+          class="px-6 py-2.5 bg-teal-600 hover:bg-teal-700 active:bg-teal-800
+                 text-white font-semibold rounded-lg transition-colors
+                 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2
+                 disabled:opacity-60 disabled:cursor-not-allowed">
+          {{ res.comment_form_submit }}
+        </button>
+        <p id="cmnt-status" role="status" aria-live="polite" class="text-sm hidden"></p>
+      </div>
+
+    </form>
+  </div>
+
 </section>
 
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -105,14 +140,29 @@
 (function () {
   'use strict';
 
-  const POST_SLUG  = {{ dir_path | json_encode }};
-  const LANG       = {{ lang     | json_encode }};
-  const API_URL    = {{ config.extra.comments_api_url | json_encode }};
+  const toggle  = document.getElementById('cmnt-form-toggle');
+  const body    = document.getElementById('cmnt-form-body');
+  const close   = document.getElementById('cmnt-form-close');
 
-  const MSG_SUBMIT     = {{ res.comment_form_submit     | json_encode }};
-  const MSG_SUBMITTING = {{ res.comment_form_submitting | json_encode }};
-  const MSG_SUCCESS    = {{ res.comment_form_success    | json_encode }};
-  const MSG_ERROR      = {{ res.comment_form_error      | json_encode }};
+  toggle.addEventListener('click', function () {
+    toggle.style.display = 'none';
+    body.removeAttribute('hidden');
+    body.querySelector('input, textarea').focus();
+  });
+
+  close.addEventListener('click', function () {
+    body.setAttribute('hidden', '');
+    toggle.style.display = '';
+  });
+
+  const POST_SLUG  = {{ dir_path | json_encode | safe }};
+  const LANG       = {{ lang     | json_encode | safe }};
+  const API_URL    = {{ config.extra.comments_api_url | json_encode | safe }};
+
+  const MSG_SUBMIT     = {{ res.comment_form_submit     | json_encode | safe }};
+  const MSG_SUBMITTING = {{ res.comment_form_submitting | json_encode | safe }};
+  const MSG_SUCCESS    = {{ res.comment_form_success    | json_encode | safe }};
+  const MSG_ERROR      = {{ res.comment_form_error      | json_encode | safe }};
 
   const form   = document.getElementById('comment-form');
   const submit = document.getElementById('cmnt-submit');

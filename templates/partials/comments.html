@@ -1,15 +1,16 @@
-{% if page.extra.comments | default(value=false) %}
+{% if page.extra.comments | default(value=true) %}
 {% set path_parts = page.relative_path | split(pat="/") %}
 {% set dir_parts = path_parts | slice(end=-1) %}
 {% set dir_path = dir_parts | join(sep="/") %}
 {% set comments_data = load_data(path="content/" ~ dir_path ~ "/comments.toml", required=false) %}
-{% if comments_data and comments_data.comments %}
 
 <section class="pt-10 mt-12 border-t border-slate-200 dark:border-slate-700" dir="{{ res.settings_direction }}"
   aria-label="{{ res.comments_title }}">
   <h2 class="mb-1 text-2xl font-bold text-slate-900 dark:text-slate-200">
     {{ res.comments_title }}<span class="text-3xl leading-none text-teal-600">.</span>
   </h2>
+
+  {% if comments_data and comments_data.comments %}
 
   <p class="flex gap-1.5 items-center mb-8 text-xs text-slate-400 dark:text-slate-500">
     <svg xmlns="http://www.w3.org/2000/svg" class="inline w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none"
@@ -64,7 +65,7 @@
               {% endif %}
               {% if is_author %}
               <span class="text-xs font-normal text-teal-600 opacity-80 dark:text-teal-500 ms-1.5">
-                — {{ res.comments_post_author }}
+                {{ res.comments_post_author }}
               </span>
               {% endif %}
             </span>
@@ -73,7 +74,7 @@
               <time datetime="{{ comment.date }}" class="text-sm text-slate-400 ibm-plex-mono dark:text-slate-500">{{
                 formatted_date }}</time>
 
-              {# Link to original comment — only shown for imported Blogger comments #}
+              {# Link to original comment only shown for imported Blogger comments #}
               {% if comment.comment_url %}
               <a href="{{ comment.comment_url }}"
                 class="transition-colors hover:text-teal-500 text-slate-300 dark:text-slate-600 dark:hover:text-teal-400"
@@ -107,7 +108,20 @@
 
     {% endfor %}
   </ol>
+
+  {% else %}
+
+  <div class="flex flex-col items-center gap-3 py-12 text-center text-slate-400 dark:text-slate-600">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 opacity-40" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+    <p class="font-semibold text-base text-slate-500 dark:text-slate-400">{{ res.comments_empty_heading }}</p>
+    <p class="text-sm">{{ res.comments_empty_body }}</p>
+  </div>
+
+  {% endif %}
+
 </section>
 
-{% endif %}
 {% endif %}
