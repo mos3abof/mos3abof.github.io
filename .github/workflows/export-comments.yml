@@ -1,43 +1,17 @@
-name: Export approved comments to TOML
+name: Export comments (retired)
+
+# The new-comment repository_dispatch event now triggers build.yml directly,
+# which runs export_comments.py before zola build and deploys without committing
+# any TOML files back to the repository.
+#
+# This file is kept to avoid 404s on any stored webhook references.
+# It does nothing.
 
 on:
-  repository_dispatch:
-    types: [new-comment]
   workflow_dispatch:
 
 jobs:
-  export:
+  noop:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.COMMENTS_GITHUB_TOKEN }}
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install dependencies
-        run: pip install psycopg2-binary tomli-w
-
-      - name: Export comments from Neon to TOML
-        env:
-          NEON_DATABASE_URL: ${{ secrets.NEON_DATABASE_URL }}
-        run: python comments/export_comments.py
-
-      - name: Commit and push if anything changed
-        run: |
-          git config user.name  "Comments Bot"
-          git config user.email "comments-bot@mosab.co.uk"
-          git add 'content/**/*.toml'
-          if git diff --staged --quiet; then
-            echo "Nothing to commit."
-          else
-            git commit -m "chore: export new comments from Neon"
-            git push
-          fi
+      - run: echo "Comment export is now handled by build.yml on repository_dispatch."

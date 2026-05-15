@@ -44,7 +44,7 @@ flowchart LR
         D[(PostgreSQL)]
     end
     subgraph GH [GitHub]
-        E[Actions]
+        E[Build Action]
         R[Repository]
     end
     A -->|POST JSON| B
@@ -52,17 +52,17 @@ flowchart LR
     B -->|INSERT| D
     B -->|repository_dispatch| E
     E -->|SELECT approved| D
-    E -->|commit .toml| R
-    R -->|push triggers| P[Build & Deploy]
-    P --> S([Live Site])
+    E -->|zola build| R
+    R --> S([Live Site])
 {% end %}
 
 A form on the page posts JSON to a Cloudflare Worker. The Worker validates the
 input, checks a Turnstile CAPTCHA token, hashes the email and IP, and inserts
 the comment into a Neon PostgreSQL table. It then fires a `repository_dispatch`
-event at GitHub, which triggers a separate Action. That Action queries the
-database, regenerates the `comments.toml` files, and commits the result. The
-existing build workflow picks up the commit and deploys the site.
+event at GitHub, which triggers the build workflow directly. That workflow
+queries the database, writes `comments.toml` files into the workspace, runs
+`zola build`, and deploys. The TOML files are ephemeral: they exist only during
+the build and are never committed back to the repository.
 
 ## The submission flow in detail
 
@@ -80,6 +80,7 @@ sequenceDiagram
     TS-->>Form: one-time token
     Form->>W: POST {author, text, email, token, ...}
     W->>W: CORS origin check
+    W->>W: POST method check
     W->>W: honeypot field check
     W->>W: input validation
     W->>TS: verify token + visitor IP
@@ -92,38 +93,38 @@ sequenceDiagram
     Form-->>User: "Comment posted!"
 {% end %}
 
+Before inserting, the Worker normalises line endings to `<br />` so that
+paragraph breaks in the comment body render correctly in the Zola template,
+which outputs the text as raw HTML after escaping everything else.
+
 The `repository_dispatch` call is fired via `ctx.waitUntil`, meaning the Worker
 returns the 201 to the browser immediately and dispatches to GitHub in the
-background. The commenter does not wait for the export to finish.
+background. The commenter does not wait for the build to finish.
 
-## The export pipeline
+## The build pipeline
 
 {% mermaid() %}
 sequenceDiagram
     participant GH as GitHub API
-    participant A as Export Action
+    participant A as Build Action
     participant DB as Neon PostgreSQL
     participant R as Repository
-    participant B as Build Workflow
 
-    GH->>A: trigger on new-comment event
+    GH->>A: repository_dispatch new-comment
     A->>R: checkout main
     A->>DB: SELECT all approved comments
     DB-->>A: rows grouped by post_slug
     A->>A: write content/.../comments.toml per post
-    A->>R: git add content/**/*.toml
-    Note over A,R: only commits if files changed
-    A->>R: git commit + push
-    R->>B: push event triggers build
-    B->>B: zola build
-    B->>R: deploy to GitHub Pages
+    Note over A: files exist only in the CI workspace
+    A->>A: zola build (reads .toml files)
+    A->>R: deploy ./public to gh-pages
 {% end %}
 
 The export script is plain Python with `psycopg2` and `tomli-w`. It queries
 every approved comment, groups them by `post_slug`, and writes one `comments.toml`
-per post directory. The Action then commits only the files that actually changed.
-If the same `repository_dispatch` fires twice in quick succession, the second
-commit will be empty and skipped.
+per post directory. Zola then reads those files during the build exactly as it
+does for the historical Blogger comments. The `comments.toml` files are never
+staged or committed; the CI workspace is discarded after the build completes.
 
 ## The database
 
@@ -177,12 +178,13 @@ absurdly generous for a personal blog. Turnstile, the CAPTCHA widget I am using
 for bot protection, is also a Cloudflare product, so the server-side
 verification is a single internal API call.
 
-**GitHub Actions** for the export was the path of least resistance. I already
-have a deploy Action running on every push to `main`. Adding a second workflow
-that triggers on `repository_dispatch` with a `new-comment` event type cost
-about twenty lines of YAML.
+**GitHub Actions** for the build was the path of least resistance. The deploy
+workflow already runs on every push to `main`. I added `repository_dispatch`
+as a second trigger and inserted two steps before `zola build`: install the
+Python dependencies, run the export script. The workflow deploys on both
+triggers, so a new comment and a code push go through identical build paths.
 
-## The TOML loop
+## Bridging two worlds
 
 The bit that sounds strangest is regenerating static files every time someone
 leaves a comment. Why not serve comments from the database at request time?
@@ -194,7 +196,7 @@ template. That rendering code was already written and working for the historical
 Blogger comments, which sit in the same format. Keeping the same format from a
 new source means the display layer never needs to change.
 
-So the loop exists to bridge two worlds:
+So the build step exists to bridge two worlds:
 
 {% mermaid() %}
 flowchart LR
@@ -202,19 +204,27 @@ flowchart LR
         direction TB
         F[Comment form] --> W[Worker] --> DB[(Neon)]
     end
-    subgraph static [Static world]
+    subgraph build [Build]
         direction TB
-        T[comments.toml] --> Z[Zola build] --> P[HTML page]
+        X[export script] --> T[comments.toml] --> Z[Zola] --> P[HTML page]
     end
-    DB -->|export Action| T
+    DB -->|SELECT at build time| X
 {% end %}
 
-The export script is the only thing that crosses the boundary. It runs on every
-`new-comment` event, pulls approved rows from Neon, and writes them into the
-file tree that Zola knows how to read. The commit is the trigger for the build.
+The export script is the only thing that crosses the boundary. It runs at the
+start of every build triggered by a `new-comment` dispatch, pulls approved rows
+from Neon, and writes them into the workspace where Zola can find them. The
+files are temporary: Zola reads them, produces HTML, and they vanish with the
+runner. Nothing is written back to the repository.
 
-It is a little baroque. It also means a comment takes a few minutes to appear
-rather than being instant. That tradeoff is fine for a personal blog.
+An earlier version of this system committed the `comments.toml` files after
+each new submission, then let the resulting push trigger the build. It worked,
+but it meant every comment created a commit, the repository history filled with
+churn, and a second comment arriving while the first export was still running
+could race. Querying at build time is simpler and avoids all of that.
+
+A comment still takes a few minutes to appear because a full build has to run.
+That tradeoff is fine for a personal blog.
 
 ## Security without login
 
@@ -277,10 +287,11 @@ The whole system is six pieces:
    exported TOML files into Neon, making the database the single source of truth.
 3. A Cloudflare Worker in TypeScript (~150 lines): CORS, honeypot, validation,
    Turnstile check, SHA-256 hashing, DB insert, GitHub dispatch.
-4. A GitHub Action (~40 lines of YAML): checkout, run export script, commit if
-   anything changed.
-5. A Python export script (~80 lines): connect to Neon, group rows by slug,
-   write `comments.toml` files with `tomli-w`.
+4. Two additions to the existing build workflow (~10 lines of YAML): a
+   `repository_dispatch` trigger and a pre-build step that installs the Python
+   dependencies and runs the export script with the `NEON_DATABASE_URL` secret.
+5. A Python export script (~60 lines): connect to Neon, group rows by slug,
+   write `comments.toml` files into the workspace with `tomli-w`.
 6. Two Zola template partials: one for rendering the comment list (with empty
    state), one for the form itself with RTL/LTR support for Arabic and English.
 

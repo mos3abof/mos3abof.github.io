@@ -12,6 +12,7 @@
 
   {% if comments_data and comments_data.comments %}
 
+  {% if comments_data.comments | filter(attribute="comment_url") | length > 0 %}
   <p class="flex gap-1.5 items-center mb-8 text-xs text-slate-400 dark:text-slate-500">
     <svg xmlns="http://www.w3.org/2000/svg" class="inline w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none"
       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -19,6 +20,7 @@
     </svg>
     {{ res.comments_blogger_note }}
   </p>
+  {% endif %}
 
   <ol class="flex flex-col gap-3 p-0 m-0 list-none">
     {% for comment in comments_data.comments | sort(attribute="date") %}
