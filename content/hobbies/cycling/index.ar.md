@@ -28,22 +28,11 @@ title = "ركوب الدراجات الهوائية"
 
 ## أنشطتي على منصة Strava
 
-<iframe
-  height='160'
-  width='300'
-  frameborder='0'
-  allowtransparency='true'
-  scrolling='no'
-  src='https://www.strava.com/athletes/60680051/activity-summary/9b24178edb4091c708c0ab0685680dbedc141f7b'></iframe>
+{{ strava(athlete_id="60680051", token="9b24178edb4091c708c0ab0685680dbedc141f7b") }}
 
 ## بعض الطرق الظريفة
 
-<iframe
-  src="https://www.komoot.com/tour/636080427/embed?profile=1"
-  width="100%"
-  height="680"
-  frameborder="0"
-  scrolling="no"></iframe>
+{{ komoot(tour_id="636080427") }}
 
 ## بعض مقاطع الفيديو
 

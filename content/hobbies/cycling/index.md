@@ -12,10 +12,9 @@ Check out my [first metric century ride](/blog/first-metric-century/)!
 
 Also, let's connect on
 
-* [Garmin](https://connect.garmin.com/modern/profile/18583322-eb7e-4f3f-8179-705ed2de5438),
-* [Komoot](https://www.komoot.com/user/1565437931381), and
-* [Strava](https://www.strava.com/athletes/60680051).
-
+* [Garmin][2],
+* [Komoot][3], and
+* [Strava][4].
 
 {{
   image(
@@ -34,26 +33,18 @@ Also, let's connect on
 
 ## Activities on Strava
 
-<iframe
-  height='160'
-  width='300'
-  frameborder='0'
-  allowtransparency='true'
-  scrolling='no'
-  src='https://www.strava.com/athletes/60680051/activity-summary/9b24178edb4091c708c0ab0685680dbedc141f7b'></iframe>
+{{
+  strava(athlete_id="60680051",
+  token="9b24178edb4091c708c0ab0685680dbedc141f7b")
+}}
 
 ## Routes
 
-<iframe
-  src="https://www.komoot.com/tour/636080427/embed?profile=1"
-  width="100%"
-  height="680"
-  frameborder="0"
-  scrolling="no"></iframe>
+{{ komoot(tour_id="636080427") }}
 
 ## Videos
 
-Here are some of the videos I recorded while cycling
+Here are some of the cycling videos I recorded
 
 {{youtube(id="kbq9XcBJdQk")}}
 
@@ -61,5 +52,7 @@ Here are some of the videos I recorded while cycling
 
 {{youtube(id="U4LP-4IYHtg")}}
 
-
 [1]: https://www.cannondale.com/en-gb/bikes/road/gravel/topstone-alloy/topstone-2
+[2]: https://connect.garmin.com/modern/profile/18583322-eb7e-4f3f-8179-705ed2de5438
+[3]: https://www.komoot.com/user/1565437931381
+[4]: https://www.strava.com/athletes/60680051
