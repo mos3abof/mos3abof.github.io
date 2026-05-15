@@ -5,6 +5,7 @@ env:
   SOURCE_BRANCH: "main"
   TARGET_BRANCH: "gh-pages"
   BUILD_MODE: "github"
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 on:
   push:
