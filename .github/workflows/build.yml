@@ -39,6 +39,11 @@ jobs:
           python comments/export_comments.py
       - name: Build the world
         run: make build
+      - name: Set up Node.js
+        if: ${{ github.event_name == 'push' && github.ref == format('refs/heads/{0}', env.SOURCE_BRANCH) }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Deploy Cloudflare Worker
         if: ${{ github.event_name == 'push' && github.ref == format('refs/heads/{0}', env.SOURCE_BRANCH) }}
         working-directory: comments/worker
