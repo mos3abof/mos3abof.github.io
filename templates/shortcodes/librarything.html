@@ -1,0 +1,24 @@
+{#
+  librarything — embeds a LibraryThing shelf widget.
+
+  Always renders LTR so the widget looks correct on both EN and AR pages.
+
+  Usage:
+    {{ librarything(userid="mos3abof", widget_id="w5c391d23d61cdeb5dce7204ad839286e") }}
+
+  Parameters:
+    userid    (string) LibraryThing username.
+    widget_id (string) Widget ID from the LibraryThing embed code.
+#}
+<div class="my-8 librarything-widget" dir="ltr">
+  <div id="{{ widget_id }}"></div>
+  <script
+    type="text/javascript"
+    charset="UTF-8"
+    src="https://www.librarything.com/widget_get.php?userid={{ userid }}&theID={{ widget_id }}">
+  </script>
+  <noscript>
+    <a href="https://www.librarything.com/catalog.php?view={{ userid }}&shelf=shelf">My Library</a>
+    on <a href="https://www.librarything.com">LibraryThing</a>
+  </noscript>
+</div>

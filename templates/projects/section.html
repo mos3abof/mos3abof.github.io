@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<section class="p-6">
+  <article class="px-4 w-full sm:px-0">
+    {{ post_macros::page_header(title=section.title) }}
+
+    <div class="project-grid">
+      {% for page in section.pages %}
+      <div class="project-card">
+        <h2 class="project-title">
+          <a href="{{ page.permalink }}">{{ page.title }}</a>
+        </h2>
+
+        {% if page.description %}
+        <div class="project-description">{{ page.description }}</div>
+        {% endif %}
+
+        {% if page.extra.github or page.extra.website or page.extra.year %}
+        <div class="project-links">
+          {% if page.extra.year %}
+          <span class="project-link project-link-meta">
+            <i class="mdi mdi-calendar-outline mdi-18px"></i> {{ page.extra.year }}
+          </span>
+          {% endif %}
+          {% if page.extra.github %}
+          <span class="project-link-sep" aria-hidden="true">|</span>
+          <a href="{{ page.extra.github }}" target="_blank" rel="noopener" class="project-link">
+            <i class="mdi mdi-github mdi-18px"></i>
+            {% if lang == "ar" %}المصدر{% else %}Github{% endif %}
+          </a>
+          {% endif %}
+          {% if page.extra.website %}
+          <span class="project-link-sep" aria-hidden="true">|</span>
+          <a href="{{ page.extra.website }}" target="_blank" rel="noopener" class="project-link">
+            <i class="mdi mdi-web mdi-18px"></i>
+            {% if lang == "ar" %}الموقع{% else %}Website{% endif %}
+          </a>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </article>
+</section>
+{% endblock main_content %}

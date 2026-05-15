@@ -1,0 +1,21 @@
+{#
+  pdf — embeds a PDF file in an iframe.
+
+  Usage:
+    {{ pdf(src="/files/MosabIbrahim.pdf") }}
+    {{ pdf(src="/files/MosabIbrahim.pdf", width="900", height="1000") }}
+
+  Parameters:
+    src    (string) Path or URL to the PDF file.
+    width  (string, optional) iframe width. Default: "100%".
+    height (string, optional) iframe height. Default: "800".
+#}
+<div class="pdf-embed" dir="ltr">
+  <iframe
+    src="{{ src }}"
+    width="{{ width | default(value='100%') }}"
+    height="{{ height | default(value='800') }}"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+</div>

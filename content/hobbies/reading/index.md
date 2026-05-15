@@ -2,21 +2,11 @@
 title = "Reading"
 +++
 
-Have a look at <a 
-  href="https://www.librarything.com/catalog.php?offset=0&shelf_rows=25&previousOffset=0&view=mos3abof&shelf=shelf"
-  target="_blank">my personal library</a> on LibraryThing.
+Have a look at [my library][1] on LibraryThing.
 
-<br />
-{% raw() %}
-<div id="w5c391d23d61cdeb5dce7204ad839286e"></div>
-<script 
-  type="text/javascript" 
-  charset="UTF-8" 
-  src="https://www.librarything.com/widget_get.php?userid=mos3abof&theID=w5c391d23d61cdeb5dce7204ad839286e">
-</script>
-<noscript>
-  <a href="https://www.librarything.com/profile/mos3abof">My Library</a>
-  at 
-  <a href="https://www.librarything.com/catalog.php?offset=0&shelf_rows=25&previousOffset=0&view=mos3abof&shelf=shelf">LibraryThing</a>
-</noscript>
-{% end %}
+{{
+  librarything(userid="mos3abof",
+  widget_id="w5c391d23d61cdeb5dce7204ad839286e")
+}}
+
+[1]: https://www.librarything.com/catalog.php?view=mos3abof&shelf=shelf

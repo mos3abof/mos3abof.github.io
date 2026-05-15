@@ -1,0 +1,21 @@
+{#
+  komoot — embeds a Komoot tour.
+
+  Usage:
+    {{ komoot(tour_id="636080427") }}
+
+  Parameters:
+    tour_id (string) Komoot tour ID from the tour URL.
+    width   (string, optional) iframe width.  Default: "100%".
+    height  (string, optional) iframe height. Default: "680".
+    profile (bool,   optional) Show elevation profile. Default: true.
+#}
+<div class="komoot-embed" dir="ltr">
+  <iframe
+    src="https://www.komoot.com/tour/{{ tour_id }}/embed?{% if profile is defined and not profile %}{% else %}profile=1{% endif %}"
+    width="{{ width | default(value='100%') }}"
+    height="{{ height | default(value='680') }}"
+    frameborder="0"
+    scrolling="no">
+  </iframe>
+</div>

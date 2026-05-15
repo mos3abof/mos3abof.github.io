@@ -76,7 +76,6 @@ When not working, you can find me spending time with my lovely family or on my
 [cycling](/hobbies/cycling), [DIY projects](/hobbies/diy),
 [cooking](/hobbies/cooking) and [woodworking](/hobbies/woodworking).
 
-
 [1]: https://meta.com
 [2]: https://twitter.com
 [3]: https://gocardless.com

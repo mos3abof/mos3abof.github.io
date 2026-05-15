@@ -1,17 +1,12 @@
 +++
 title = "Toggl Target"
 weight = 1
+description = "At work we had to track our working hours on Toggl, so I built this small tool to calculate exactly how many hours I need to work each day to hit my monthly targets."
+template = "projects/page.html"
+
+[extra]
+year = "2013"
+github = "https://github.com/mos3abof/toggl_target"
 +++
 
-
-At work, long time ago, we had to track our working hours on [Toggl](www.toggl.com),
-so I created this small project to calculate how many hours I should work to achieve
-my monthly goals. 
-
-<br />
-
----
-
-Source code: [github](https://github.com/mos3abof/toggl_target)
-
-Year: 2013
+At work we had to track our working hours on [Toggl](https://www.toggl.com), so I built this small tool to calculate how many hours I needed to work each day to hit my monthly targets. It queries the Toggl API to pull actual hours worked so far, then computes how many hours are left to reach the goal across the remaining working days.
