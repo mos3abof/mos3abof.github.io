@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block extra_head %}{% endblock extra_head %}
+
 {% block main_content %}
-  {{ post_macros::content(page=page)}}
+  {{ post_macros::content(page=page) }}
 {% endblock main_content %}

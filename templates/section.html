@@ -24,15 +24,15 @@
 
       {% if paginator %}
         <ul class="pagination text-center mt-8">
-          {% if paginator.previous %}
+          {% if paginator.next %}
           <span class="page-item page-prev">
-            <a href={{ paginator.previous }} class="page-link" aria-label="Previous"><span aria-hidden="true">{{res.previous_posts}}</span></a>
+            <a href={{ paginator.next }} class="page-link" aria-label="Previous"><span aria-hidden="true">{{res.previous_posts}}</span></a>
           </span>
           {% endif %}
 
-          {% if paginator.next %}
+          {% if paginator.previous %}
           <span class="page-item page-next">
-            <a href={{ paginator.next }} class="page-link" aria-label="Next"><span aria-hidden="true">{{res.next_posts}}</span></a>
+            <a href={{ paginator.previous }} class="page-link" aria-label="Next"><span aria-hidden="true">{{res.next_posts}}</span></a>
           </span>
           {% endif %}
         </ul>
