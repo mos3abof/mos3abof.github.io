@@ -36,7 +36,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh issue close ${{ github.event.issue.number }} \
-            --comment "Comment approved. A site rebuild is starting — it will appear shortly."
+            --comment "Comment approved. A rebuild is running now — https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
   rebuild:
     needs: approve

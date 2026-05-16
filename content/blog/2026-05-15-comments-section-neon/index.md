@@ -213,12 +213,14 @@ absurdly generous for a personal blog. Turnstile, the CAPTCHA widget I am using
 for bot protection, is also a Cloudflare product, so the server-side
 verification is a single internal API call.
 
-**GitHub Actions** handles both moderation and deployment. The build workflow
-runs on push to `main`, on `repository_dispatch`, and as a reusable workflow
-via `workflow_call`. The approval workflow triggers on any issue label event,
-checks that the actor is the repository owner, flips the status in Neon, and
-calls the build workflow. No separate deploy step: the same build path runs
-regardless of what triggered it.
+**GitHub Actions** handles moderation, site deployment, and Worker deployment.
+The build workflow runs on push to `main`, on `repository_dispatch`, and as a
+reusable workflow via `workflow_call`. On a push to `main` it also deploys the
+Cloudflare Worker via `wrangler deploy`, so Worker and site changes ship
+together. The approval workflow triggers on any issue label event, checks that
+the actor is the repository owner, flips the status in Neon, and calls the
+build workflow. No separate deploy step: the same build path runs regardless of
+what triggered it.
 
 ## Bridging two worlds
 
@@ -248,10 +250,11 @@ flowchart LR
 {% end %}
 
 The export script is the only thing that crosses the boundary. It runs at the
-start of every build triggered by a `new-comment` dispatch, pulls approved rows
-from Neon, and writes them into the workspace where Zola can find them. The
-files are temporary: Zola reads them, produces HTML, and they vanish with the
-runner. Nothing is written back to the repository.
+start of every build — whether triggered by a push to `main` or by the approval
+workflow — pulls approved rows from Neon, and writes them into the workspace
+where Zola can find them. The files are temporary: Zola reads them, produces
+HTML, and they vanish with the runner. Nothing is written back to the
+repository.
 
 An earlier version of this system committed the `comments.toml` files after
 each new submission, then let the resulting push trigger the build. It worked,
