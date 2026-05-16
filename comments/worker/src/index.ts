@@ -50,7 +50,7 @@ async function openIssue(
   const postUrl = `${env.ALLOWED_ORIGIN}/${slug}/`;
   const body = [
     `**Author:** ${author}`,
-    `**Post:** [${slug}](${postUrl})`,
+    `**Post:** ${postUrl}`,
     ``,
     `---`,
     ``,
