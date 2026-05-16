@@ -87,6 +87,15 @@ replace(from="8", to="٨") | replace(from="9", to="٩") }}
 
 {% macro content(page) %}
 {% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
+{%- set_global _posted_in_url = "" -%}
+{%- set_global _posted_in_title = "" -%}
+{%- for _ap in page.ancestors -%}
+  {%- if _ap != "_index.md" and _ap != "_index.ar.md" -%}
+    {%- set _s = get_section(path=_ap) -%}
+    {%- set_global _posted_in_url = _s.permalink -%}
+    {%- set_global _posted_in_title = _s.title -%}
+  {%- endif -%}
+{%- endfor -%}
 <section class="flex flex-col gap-8 justify-center items-center p-6 sm:flex-row">
   <article class="px-4 w-screen sm:px-0">
     {{ post_macros::page_header(title=page.title) }}
@@ -106,6 +115,10 @@ replace(from="8", to="٨") | replace(from="9", to="٩") }}
       {% if author %}
       <span aria-hidden="true" class="mx-1">·</span>{{ res.written_by }}
       <span class="text-slate-500" dir="ltr">{{ author }}</span>
+      {% endif %}
+      {% if _posted_in_title %}
+      <span aria-hidden="true" class="mx-1 text-slate-300 dark:text-slate-600">/</span>{{ res.posted_in }}
+      <a href="{{ _posted_in_url }}" class="text-slate-500 hover:text-white transition-colors duration-150">{{ _posted_in_title }}</a>
       {% endif %}
     </span>
     {% endif %}

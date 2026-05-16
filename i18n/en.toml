@@ -7,11 +7,11 @@ settings_direction = "ltr"
 # The main navigation menu
 menu_pages = [
   { title = "Home", url = "/", icon = '<i class="mdi mdi-home text-slate-600 mdi-24px my-auto hover:text-white dark:text-slate-300"></i>' },
-  { title = "Resume", url = "/resume/" },
-  { title = "Projects", url = "/projects/" },
-  { title = "About", url = "/about/" },
   { title = "Posts", url = "/blog/" },
+  { title = "Projects", url = "/projects/" },
   { title = "Talks", url = "/talks/" },
+  { title = "Resume", url = "/resume/" },
+  { title = "About", url = "/about/" },
   { title = "Contact", url = "/contact/" },
 ]
 
@@ -37,9 +37,12 @@ not_found_text = "Oops! Seems like this page vanished into the internet abyss. M
 not_found_home_hint = "Head back to safety"
 posted_on = "Posted on"
 written_by = "by"
+posted_in = "in"
 table_of_contents = "Table of Contents"
 prev_post = "Previous post"
 next_post = "Next post"
+breadcrumb_home = "Home"
+breadcrumb_aria = "Breadcrumb"
 comments_title = "Comments"
 comments_blogger_note = "Historical comments imported from Blogger"
 comments_post_author = "post author"

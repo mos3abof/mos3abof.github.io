@@ -11,7 +11,7 @@ comments = true
 
 {{ image(src="sunRise.jpg", size="full") }}  
 
-خير اللهم اجعله خير 2008 بدأ !..  
+خير اللهم اجعله خير 2008 بدأت!..  
   
 {{ sep(style="arabic", gap="lg") }}
 
