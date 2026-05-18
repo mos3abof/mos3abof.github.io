@@ -39,7 +39,11 @@ cur.execute(
     (comment_id,),
 )
 if cur.rowcount == 0:
-    print(f"Warning: no pending comment with id={comment_id} (already approved or not found).")
+    print(
+        f"Warning: no pending comment with id={
+            comment_id
+        } (already approved or not found)."
+    )
 else:
     print(f"Comment {comment_id} approved.")
 conn.commit()
