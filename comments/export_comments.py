@@ -44,8 +44,18 @@ def main() -> None:
 
     by_slug: dict[str, list[dict]] = {}
     for row in rows:
-        (slug, author, email_hash, website, av_url, prof_url,
-         text, submitted_at, is_author, blogger_url) = row
+        (
+            slug,
+            author,
+            email_hash,
+            website,
+            av_url,
+            prof_url,
+            text,
+            submitted_at,
+            is_author,
+            blogger_url,
+        ) = row
 
         resolved_avatar = av_url or (gravatar_url(email_hash) if email_hash else None)
         resolved_profile = prof_url or website or None

@@ -4,16 +4,26 @@ date: 2026-05-15
 tags: [neon, cloudflare, postgres, zola, static-site]
 ---
 
-This blog has had comments since 2006. They lived on Blogger, which hosted the
-whole thing back then. When I moved to a static site a few years ago, I exported
-all the old content: posts, images, and comments. The comments became `.toml`
-files sitting next to each post. The display layer already knew how to render
-them. They looked fine.
+Between the years of 2006 and 2014, I used to maintain an Arabic blog on
+Blogger.com. In parallel, although a few years after I started my blog, I also
+maintained a personal website (initially on the mos3abof.com domain name, and
+now mosab.co.uk). Both the blog and the website have undergone many phases of
+upgrades, tweaks, and re-purposing; they were merged and split multiple times
+across the years, and recently, I decided to import the Arabic posts into this
+website's blog section again, and make the website multilingual.
 
-What I did not keep was the ability to write new ones. If you wanted to leave a
-comment after the migration, there was simply nowhere to send it.
+I was happy with the results, with the occasional theme tweak here and there,
+but I missed the comments. Comments on posts were part of the soul of the blog,
+and without them, the imported blogs were incomplete; So, in one of my previous
+weekends, I ported the comments into a `comments.toml` file, and all the
+comments on the posts that were on blogger.com were also in here! The posts
+started feeling like "home" again!
 
-I have been meaning to fix that for a while. This week I finally did.
+Something was still missing thgough: the ability to write new ones. If you
+wanted to leave a comment on older or newer posts, there was simply nowhere to
+send it.
+
+I have been meaning to fix that for a while. This weekend I finally did.
 
 {{ sep(style="dingbats", gap="sm") }}
 
@@ -23,9 +33,16 @@ validate it, and store it somewhere. A static file host does none of that.
 
 There are two ways out. You outsource to a third-party commenting service
 (Disqus is the obvious one, there are smaller alternatives), or you build a
-small backend yourself and keep control of the data. I dislike Disqus on
-principle: the tracker payload, the ads, the constant account nagging. Building
-the backend is also the more interesting problem, so that is what I did.
+small backend yourself and keep control of the data. I used Disqus before in
+one of the incarnations of the website, and I was not a big fan. They are good,
+but no matter what I did, it just didn't fit right in my website's theme, and I
+go headaches getting it to work properly for Arabic content (RTL).
+
+An even more fundamental problem, that did not sit right with me with using 3rd
+party services: the tracker payload, the ads, the constant account nagging.
+
+Building the backend is also the more interesting problem, so that is what I
+did.
 
 ## Architecture
 
