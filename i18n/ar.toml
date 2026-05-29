@@ -6,7 +6,7 @@ settings_direction = "rtl"
 
 # The main navigation menu
 menu_pages = [
-  { title = "الرئيسية", url = "/", icon = '<i class="mdi mdi-home text-slate-600 mdi-24px my-auto hover:text-white dark:text-slate-300"></i>' },
+  { title = "الرئيسية", url = "/" },
   { title = "من أنا", url = "/about/" },
   { title = "تدويناتي", url = "/blog/" },
   { title = "مشاريعي", url = "/projects/" },

@@ -10,13 +10,13 @@
 
 <header class="top-0 z-10 text-black dark:text-slate-200">
   <section class="flex justify-between items-center p-4 mx-auto max-w-6xl">
-    <div>
+    <div class="w-full">
       <button id="hamburger-button" class="text-3xl cursor-pointer sm:hidden" aria-expanded="false"
         aria-controls="mobile-menu" aria-label="Open menu">
         &#9776;
       </button>
 
-      <nav class="hidden gap-1 items-center text-xl sm:flex" aria-label="main">
+      <nav class="hidden gap-1 items-center text-xl sm:flex w-full" aria-label="main">
         {% for menu_item in res.menu_pages %}
         {% if lang == config.default_language %}
         {% set item_url = menu_item.url %}
@@ -28,7 +28,7 @@
         {% endfor %}
 
         <a href="{{get_url(path=switch_to_url)}}"
-          class="py-1 px-2 hover:text-white hover:bg-teal-600 hover:opacity-90 noto-sans">
+          class="ms-auto py-1 px-2 hover:text-white hover:bg-teal-600 hover:opacity-90 noto-sans">
           <span class="border-solid">{{switch_to_title}}</span>
         </a>
 
