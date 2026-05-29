@@ -44,7 +44,7 @@
 {% set_global og_image_found = false %}
 {% if page is defined %}
   {% if page.extra.og_image is defined %}
-    {% set_global og_image       = config.base_url ~ page.colocated_path ~ page.extra.og_image %}
+    {% set_global og_image       = page.permalink ~ page.extra.og_image %}
     {% set_global og_image_found = true %}
   {% else %}
     {% for asset in page.assets %}
@@ -52,7 +52,7 @@
         {% set ext = asset | split(pat=".") | last | lower %}
         {% if ext == "jpg" or ext == "jpeg" or ext == "png" or ext == "webp" or ext == "gif" %}
           {% set filename = asset | split(pat="/") | last %}
-          {% set_global og_image       = config.base_url ~ page.colocated_path ~ filename %}
+          {% set_global og_image       = page.permalink ~ filename %}
           {% set_global og_image_found = true %}
         {% endif %}
       {% endif %}
