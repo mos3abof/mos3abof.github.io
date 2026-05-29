@@ -6,7 +6,7 @@ settings_direction = "ltr"
 
 # The main navigation menu
 menu_pages = [
-  { title = "Home", url = "/", icon = '<i class="mdi mdi-home text-slate-600 mdi-24px my-auto hover:text-white dark:text-slate-300"></i>' },
+  { title = "Home", url = "/" },
   { title = "Posts", url = "/blog/" },
   { title = "Projects", url = "/projects/" },
   { title = "Talks", url = "/talks/" },
