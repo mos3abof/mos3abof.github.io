@@ -30,4 +30,9 @@ build:
 	# Comment out for now.
 	#$(MAKE) build-resume
 
-.PHONY: all build
+# Build only the resume PDF with lualatex, then copy it into static/files/.
+# Delegates to build-resume (defined in makefiles/common.mk).
+resume:
+	$(MAKE) build-resume
+
+.PHONY: all build resume

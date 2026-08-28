@@ -6,10 +6,11 @@ TAG = latest
 compile-css:
 	npx tailwindcss -i styles/input.css -o static/css/style.css
 
-# Build resume using lualatex
+# Build resume using lualatex, then remove the (gitignored) LaTeX temp files
 build-resume:
-	cd resume; lualatex MosabIbrahim.tex
+	cd resume; TEXINPUTS="./lib:" lualatex MosabIbrahim.tex
 	cp ./resume/MosabIbrahim.pdf ./static/files/MosabIbrahim.pdf
+	cd resume; rm -f *.aux *.lof *.log *.lot *.fls *.out *.toc *.bbl *.bcf *.blg *.run.xml *.fdb_latexmk *.synctex *.synctex.gz *.pdfsync *.nav *.snm *.vrb *.xdv
 
 # Copy fonts
 copy-fonts:
