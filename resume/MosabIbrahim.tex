@@ -8,12 +8,13 @@
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
 % Specify the location of the included fonts
-\fontdir[fonts/]
+\fontdir[lib/fonts/]
 
 % Color for highlights
 % russell Colors: russell-emerald, russell-skyblue, russell-red, russell-pink, russell-orange
 %                 russell-nephritis, russell-concrete, russell-darknight, russell-purple
 \colorlet{russell}{russell-black}
+
 % Uncomment if you would like to specify your own color
 % \definecolor{russell}{HTML}{CA63A8}
 
@@ -27,70 +28,53 @@
 % Set false if you don't want to highlight section with russell color
 \setbool{acvSectionColorHighlight}{true}
 
-% If you would like to change the social information separator from a pipe (|) to something else
+% If you would like to change the social information separator from a pipe (|)
+% to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
 
 %-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
-%	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
-% Available options: circle|rectangle,edge/noedge,left/right
-% \photo[rectangle,edge,right]{./examples/profile}
-\name{Mosab}{Ibrahim}
-\position{Software Engineer {\enskip\cdotp\enskip} Infra {\enskip\cdotp\enskip} SRE}
-% \address{England, United Kingdom}
-
-\mobile{+447415654481}
-\email{mosab.a.ibrahim@gmail.com}
-% \dateofbirth{}
-\homepage{mosab.co.uk}
-\github{mos3abof}
-\linkedin{mosab}
-% \gitlab{gitlab-id}
-% \stackoverflow{SO-id}{SO-name}
-% \twitter{@twit}
-% \skype{skype-id}
-% \reddit{reddit-id}
-% \medium{medium-id}
-% \kaggle{kaggle-id}
-% \googlescholar{googlescholar-id}{name-to-display}
-%% \firstname and \lastname will be used
-% \googlescholar{googlescholar-id}{}
-\extrainfo{United Kingdom}
-
-% \quote{"Simplicity is deceptively complicated."}
+\input{content/personal-info.tex}
 
 %-------------------------------------------------------------------------------
- %	BIBLIOGRAPHY
- %-------------------------------------------------------------------------------
-\addbibresource{cv/references.bib}
+%	SECTION TEMPLATES — auto-load templates from lib/templates/
+%-------------------------------------------------------------------------------
+% Raw \directlua (not a luacode environment) so the \input'd definitions stay
+% global; string.char avoids the %, backslash and brace catcode traps.
+\directlua{
+  local dir = "lib/templates"
+  for entry in lfs.dir(dir) do
+    if entry:sub(-4) == ".tex" then
+      tex.sprint(string.char(92) .. "input" .. string.char(123) .. dir .. "/" .. entry .. string.char(125))
+    end
+  end
+}
 
 %-------------------------------------------------------------------------------
 \begin{document}
 
-% Print the header with above personal informations
-% Give optional argument to change alignment(C: center, L: left, R: right)
-\makecvheader
-
-% Print the footer with 3 arguments(<left>, <center>, <right>)
-% Leave any of these blank if they are not needed
-\makecvfooter
-{\today}
-{Mosab Ibrahim Resume}
-{\thepage}
+%-------------------------------------------------------------------------------
+% Header and footer
+%-------------------------------------------------------------------------------
+\input{content/header.tex}
+\input{content/footer.tex}
 
 %-------------------------------------------------------------------------------
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-% \input{cv/summary.tex}
-\input{cv/experience.tex}
-\input{cv/projects.tex}
-\input{cv/education.tex}
-\input{cv/languages.tex}
+% \input{content/summary.tex}
+\input{content/experience.tex}
+\input{content/projects.tex}
+\input{content/education.tex}
+\input{content/languages.tex}
 
 \vspace*{\fill}
+
+% Uncomment if you want to display a references disclaimer.
 %\centering{\textbf{References available upon request.}}
+
 %-------------------------------------------------------------------------------
 \end{document}

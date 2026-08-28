@@ -1,0 +1,458 @@
+%-------------------------------------------------------------------------------
+% SECTION TITLE
+%-------------------------------------------------------------------------------
+\cvsection{Work Experience}
+
+%-------------------------------------------------------------------------------
+% CONTENT
+%-------------------------------------------------------------------------------
+\begin{cventries}
+
+	% Databricks
+	\cventry
+	{\textbf{Senior Production Engineer, Lakebase}} % Job title
+	{Databricks / Neon.com} % Organisation
+	{Remote, United Kingdom} % Location
+	{Apr 2025 - Present} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Reliability engineer for Lakebase, Databricks' Serverless Postgres for
+				apps and agents (built on top of Neon, acquired by Databricks),
+				operating and expanding a multi-region, multi-cloud fleet hosting
+				millions of customer databases.
+			}
+			\item {
+				Designed and implemented a fleet-wide pod-level network-isolation
+				project across AWS, Azure and GCP. This was a security control required
+				to unblock the platform's public availability, and included deep dives
+				into and tuning of different CNI implementations (cutting CPU by 97\%
+				and memory by 99\%, and reducing policy-reconcile latency from tens of
+				seconds to tens of milliseconds).
+			}
+			\item {
+				Integrated Neon and Lakebase services with existing Databricks platform
+				services and helped onboard Lakebase engineers and teams onto them,
+				establishing a healthy feedback loop with the cross-org teams that
+				Lakebase depends on by contributing proposals, fixes and tooling that.
+			}
+			\item {
+				Led shaping the incident response process and best practices, and
+				participated in critical team and org level oncall rotations leading
+				investigations and authoring postmortems for high-blast-radius,
+				multi-region outages, driving root-cause and incident review meetings,
+				including commanding multiple concurrent SEV0 incidents in a single
+				on-call shift.
+			}
+			\item {
+				Key contributor to the observability and alerting strategies, and best
+				practices for oncall engineers on setting up monitoring dashboards \&
+				alerts. Also drove multiple self-initiated cross-team and cross-org
+				efforts to imporve incident/alert taxonomy and SLIs/SLOs and define
+				them as code.
+			}
+			\item {
+				Reduced on-call toil through automation and tooling; implemented a
+				unified on-call CLI, automated cloud health-event ingestion with
+				auto-remediation, and Terraform drift detection.
+			}
+			\item {
+				Addressed a range of platform security findings, hardening its service
+				security posture.
+			}
+		\end{cvitems}
+		\cvtechskills{Go, Python, Rust, PostgreSQL, Kubernetes, Terraform, AWS, Azure, GCP, Prometheus, Grafana, Distributed Systems}
+	}
+
+	% Career Break
+	\cventry
+	{\textbf{Family \& personal care}} % Job title  → subtitle
+	{Career Break} % Organisation
+	{United Kingdom} % Location
+	{Sep 2024 - Apr 2025} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Took a break for family and personal commitments, returning to
+				engineering recharged and ready to build.
+			}
+		\end{cvitems}
+	}
+
+	% Facebook / Meta
+	\cventry
+	{\textbf{Production Engineer}} % Job title
+	{Meta / Facebook} % Organisation
+	{London, United Kingdom} % Location
+	{Mar 2022 - Aug 2024} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Member of the Backup and Restore team, building services and tooling to
+				recover data from backups for MySQL and ZippyDB (Meta's main key/value
+				store) reliably, efficiently and correctly, serving as the defence line
+				against data loss and corruption across Facebook, Messenger, Instagram
+				and WhatsApp (3.7 billion users). MySQL at Meta is one of the largest
+				installations in the world.
+			}
+			\item {
+				Focused on the recovery area, leading projects that unblocked
+				large-scale data restoration in disaster scenarios and reduced RTO
+				(Restore Time Objective) for the datastores we supported.
+			}
+			\item {
+				Identified performance bottlenecks in fleet-wide backup and restore
+				agents and implemented fixes that reduced their memory and compute
+				footprint across hundreds of thousands of servers.
+			}
+			\item {
+				Participated in oncall rotation and led investigations into production
+				incidents (including high-visibility SEVs), driving them to mitigation,
+				root cause and tracked follow-ups, and helping other teams recover using
+				their backups. Introduced investigation best practices adopted across
+				teams, and improved monitoring dashboards and alerting to surface issues
+				earlier.
+			}
+			\item {
+				Designed and implemented integrations with the platform services our
+				systems depend on (e.g. backup storage), and led and participated in
+				decommissioning projects affecting teams across Meta, ensuring they were
+				carried out responsibly and reliably.
+			}
+			\item {
+				Mentored and onboarded engineers into the team's stack, practices and
+				culture, and influenced roadmap and prioritisation by building consensus
+				and deriving insights from production issues and toil.
+			}
+		\end{cvitems}
+		\cvtechskills{Python, Rust, Go, Linux, MySQL, ZippyDB, Distributed Systems, Database Infra, Thrift, Mercurial}
+	}
+
+	% Twitter
+	\cventry
+	{\textbf{Senior Site Reliability Engineer}} % Job title
+	{Twitter} % Organisation
+	{London, United Kingdom} % Location
+	{May 2020 - Mar 2022} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Member of Twitter's Database SRE team providing entire company with
+				Database infra, mainly MySQL clusters (both dedicated, and
+				multi-tenant), in addition to PostgreSQL, Vertica, and Druid clusters).
+			}
+			\item {
+				Designed and built a service that automates toil in the team. The
+				service resulted in a 98\% drop in "time to provision resources", that
+				is more than 100k person-hours worth of savings (i.e. >139 person
+				months, >11.5 person years) in the next few years.
+			}
+			\item {
+				Monitored and improved availability, scalability, performance and
+				reliability of services owned by our team.
+			}
+			\item {
+				Participated in the team's oncall rotation, ensuring production issues
+				and incidents are uncovered and addressed properly.
+			}
+			\item {
+				Led projects to reduce oncall noise, and authored runbooks and
+				documentation improving the team's incident response posture.
+			}
+			\item {
+				Mentored and onboarded new team members to the team, the tech stack,
+				and helped them become effective and successful members on the team.
+			}
+		\end{cvitems}
+		\cvtechskills{Python, Flask, SQLAlchemy, Linux, MySQL, PostgreSQL, Vertica, Druid, Apache Mesos, Apache Aurora, Git}
+	}
+
+	% GoCardless
+	\cventry
+	{\textbf{Site Reliability Engineer}} % Job title
+	{GoCardless} % Organisation
+	{London, United Kingdom} % Location
+	{Mar 2019 - Mar 2020} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Protect, provide for, and progress the software and systems that make
+				up the GoCardless product, supporting product teams in the deployment
+				of high quality services.
+			}
+		\end{cvitems}
+		\cvtechskills{Go, PostgreSQL, GCP, Kubernetes, Terraform, Helm, Elastic Search, Kibana, Linux, Docker, Git, Prometheus, Grafana, Thanos}
+	}
+
+	\cventry
+	{\textbf{Software Engineer}} % Job title
+	{WeQ Global Tech GmbH} % Organisation
+	{Berlin - Germany} % Location
+	{Nov 2017 - Mar 2019} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Developed, deployed \& maintained customer facing services handling
+				billions of requests per day.
+			}
+			\item {
+				Created and maintained infrastructure as code for both new and legacy
+				systems/microservices.
+			}
+			\item {
+				Implemented autoscaling and self healing features into new services.
+			}
+		\end{cvitems}
+		\cvtechskills{PHP, Java, Spring Boot, Vert.x, Kafka, Linux, MySQL, MongoDB, AWS, Docker, Docker Swarm, Terraform, Vagrant, Jenkins, Prometheus, Grafana}
+	}
+
+	% Levelset
+	\cventry
+	{\textbf{Sr. Software \& Platform Engineer - Tech Lead}} % Job title
+	{Levelset (formerly zlabs, acquired by Procore)} % Organisation
+	{Cairo - Egypt} % Location
+	{Jan 2017 - Sep 2017} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Led the team in designing \& developing an internal platform for data
+				verification and research process.
+			}
+			\item {
+				Led the migration of the levelset.com platform to a microservices based
+				architecture, and mentored the team throughout the process.
+			}
+			\item {
+				Designed \& built the API that enabled Levelset to onboard enterprise
+				customers by bulk importing their projects into the platform.
+			}
+			\item {
+				Worked with enterprise customers to integrate their systems with our
+				API and provided them with the support they needed to successfully
+				onboard to the platform.
+			}
+			\item {
+				Designed and built the PDF generation engine that generated
+				legal/financial letters for all our customers to secure their lien
+				rights. This is the core feature of the platform.
+			}
+			\item {
+				Designed \& led building various growth products/features that acquired
+				new customer segments.
+			}
+		\end{cvitems}
+		\cvrole{\textbf{Senior Software Engineer, DevOps}}{Mar 2013 - Jan 2017}
+		\begin{cvitems}
+			\item {
+				Overhauled, stabilised and scaled the MySQL backing infrastructure.
+			}
+			\item {
+				Designed the new cloud infrastructure (AWS), built automation tools and
+				established system monitoring, performance measurements, and fully
+				automated deployments
+			}
+			\item {
+				Migrated the platform from single point of failure virtual private
+				servers (Slicehost) to the cloud (AWS).
+			}
+			\item {
+				Worked closely with engineers and business folks to identify and solve
+				operational and customer issues with our services, tools and apps.
+			}
+			\item {
+				Optimised time to release by orders of magnitudes (from 2 days to an
+				average of 3-5 minutes), and improved uptime (99.99\% from several
+				outages a week).
+			}
+			\item {
+				Maintained and operated Git source repositories, defining branching
+				strategies and tutoring the engineering teams about it.
+			}
+		\end{cvitems}
+		\cvtechskills{PHP, Symfony, Linux, MySQL, Neo4j, AWS, RabbitMQ, Soap API, Rest API, Jenkins, Apache Web Server, Git, Nagios, New Relic}
+	}
+
+	% HandMade Studios
+	\cventry
+	{\textbf{Senior Software Engineer}} % Job title
+	{Handmade Studios} % Organisation
+	{Cairo - Egypt} % Location
+	{Jun 2012 - Feb 2013} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Designed, developed \& maintained an editorial website for
+				entrepreneurs and startups.
+			}
+		\end{cvitems}
+		\cvtechskills{PHP, Symfony, Linux, MySQL, MongoDB, AWS, Apache Web Server, Git}
+	}
+
+	% Inmobly
+	\cventry
+	{\textbf{Senior Software Engineer}} % Job title
+	{Inmobly} % Organisation
+	{Cairo - Egypt} % Location
+	{Nov 2011 - May 2012} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Designed, developed \& deployed API backends for two mobile apps that
+				recorded and streamed videos.
+			}
+		\end{cvitems}
+		\cvtechskills{Python, Flask, SQLAlchemy, Rest, AWS, Subversion (svn)}
+	}
+
+	% Bluw i LTD
+	\cventry
+	{\textbf{Technical Consultant}} % Job title
+	{Bluw i LTD} % Organisation
+	{Cairo - Egypt} % Location
+	{Jun 2011 - Sep 2011} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Implemented a social network for entrepreneurs to raise funds from
+				angel investors.
+			}
+		\end{cvitems}
+		\cvtechskills{PHP, Drupal, AWS, Apache Web Server, Git}
+	}
+
+	% Wuzzuf.net
+	\cventry
+	{\textbf{Software Engineer, Tech Lead}} % Job title
+	{Wuzzuf.net} % Organisation
+	{Cairo - Egypt} % Location
+	{Apr 2010 - Apr 2011} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Designed the architecture and laid out the technical vision and
+				guidelines for Wuzzuf.net, the leading platform in Egypt and the Middle
+				East.
+			}
+			\item {
+				Worked with, guided, and mentored the team in executing the technical
+				vision, and delivering Wuzzuf.net from scratch.
+			}
+			\item {
+			 Reported directly to the CTO and CEO.
+			}
+			\item {
+				Designed, created, monitored and maintained the infrastructure of
+				Wuzzuf.net.
+			}
+		\end{cvitems}
+		\cvtechskills{PHP, MySQL, AWS, Apache Web Server, Mercurial, CakePHP, Doctrine ORM, BitBucket}
+	}
+
+	% Arabia Inform
+	\cventry
+	{\textbf{Senior Software Engineer}} % Job title
+	{Arabia Inform} % Organisation
+	{Cairo - Egypt} % Location
+	{Nov 2009 - Apr 2010} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Designed and built an in-house media archival and indexing solution
+				with media encoding and advanced search capabilities and features.
+			}
+			\item {
+				Implemented and launched ads management infra and services for the
+				company’s websites network.
+			}
+			\item {
+				Mentored engineers from other teams throughout critical zero downtime
+				infra upgrades and migration projects.
+			}
+		\end{cvitems}
+		\cvtechskills{PHP, Drupal, MySQL, Apache Web Server, OpenX, AWS, Git}
+	}
+
+	% Citex Software
+	\cventry
+	{\textbf{Software Engineer}} % Job title
+	{Citex Software} % Organisation
+	{Cairo - Egypt} % Location
+	{Oct 2008 - Nov 2009} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Developed and shipped a social platform that connected entrepreneurs
+				with angel investors to raise funding.
+			}
+		\end{cvitems}
+		\cvtechskills{PHP, Drupal, MySQL, AWS, Git, Apache Web Server, Nagios}
+	}
+
+	% Media International
+	\cventry
+	{\textbf{PHP Developer}} % Job title
+	{Media International} % Organisation
+	{Cairo - Egypt} % Location
+	{Jan 2007 - Sep 2009} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Designed, developed, deployed various PHP projects for customers and
+				maintained them in production ensuring their availability.
+			}
+			\item {
+				Led various data migration projects for clients, ensuring safe,
+				correct, and efficient data migration from legacy systems to the new
+				solutions we implemented with minimal to no downtime.
+			}
+			\item {Created and maintained the "Tech Radar" for the org.}
+			\item {
+				Designed and implemented load balancing linux for web services.
+			}
+			\item {
+				Designed and implemented MySQL architecture, including replication.
+			}
+			\item {
+				Implemented a service to centralise file and object management solution
+				for our services.
+			}
+			\item {
+				Designed and implemented the monitoring strategies and infra for our
+				services, and was heavily involved in resolving production issues, and
+				maintaining our services availability and uptime.
+			}
+		\end{cvitems}
+		\cvtechskills{Linux, MySQL, PHP, Drupal, Joomla, Moodle, Apache Web Server, Nagios}
+	}
+
+	% 20@
+	\cventry
+	{\textbf{PHP Developer}} % Job title
+	{20at.com} % Organisation
+	{Cairo - Egypt} % Location
+	{Jun 2004 - Dec 2006} % Date(s)
+	{
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\item {
+				Designed and implemented a content management system (CMS) from scratch
+				to meet the demands of editorial and business requirements.
+			}
+			\item {
+				Designed and executed data migration projects from the legacy systems
+				of to the newly developed services with minimal downtime.
+			}
+			\item {
+				Maintained the online services and website and defined the strategies
+				and tooling for bug fixing and security patches.
+			}
+			\item {
+				Developed and shipped features (including whole new sub-portals) to
+				meet the business and editorial needs for major and current events
+				(e.g. a full new portals for reporting on Football World Cup 2006,
+				Presidential elections in Egypt, and some of the major conflicts in the
+				area.).
+			}
+		\end{cvitems}
+		\cvtechskills{PHP, Linux, MySQL, Apache Web Server, S/FTP}
+	}
+\end{cventries}
