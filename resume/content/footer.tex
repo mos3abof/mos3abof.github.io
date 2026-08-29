@@ -1,6 +1,13 @@
 % Print the footer with 3 arguments: <left>, <center>, <right>.
 % Leave any of these blank if they are not needed.
+% Build date in en-GB order (day month year), e.g. 29 August 2026.
+\newcommand*{\ukdate}{%
+	\the\day\space%
+	\ifcase\month\or January\or February\or March\or April\or May\or June\or%
+	July\or August\or September\or October\or November\or December\fi%
+	\space\the\year%
+}
 \makecvfooter
-{\today}
+{\ukdate}
 {Mosab Ibrahim Resume}
 {\thepage}
