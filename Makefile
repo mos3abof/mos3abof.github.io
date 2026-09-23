@@ -28,11 +28,10 @@ build:
 	$(MAKE) build-zola 
 
 	# Comment out for now.
-	#$(MAKE) build-resume
+	$(MAKE) build-resume
 
 # Build only the resume PDF with lualatex, then copy it into static/files/.
-# Delegates to build-resume (defined in makefiles/common.mk).
-resume:
-	$(MAKE) build-resume
+# build-resume is defined in makefiles/common.mk.
+resume: build-resume
 
 .PHONY: all build resume

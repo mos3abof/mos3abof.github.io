@@ -1,0 +1,29 @@
+%-------------------------------------------------------------------------------
+% \cvrole - an additional role inside an existing \cventry
+%
+% Usage: \cvrole{<title>}{<date>}
+%
+% Use it for a promotion or a second title at the same organisation: put it in
+% the description argument of \cventry, after the \begin{cvitems}...\end{cvitems}
+% of the role above it, and follow it with its own cvitems block.
+%
+% It repeats the position/date row of \cventry (and reuses its styles) without
+% repeating the organisation and location.
+%-------------------------------------------------------------------------------
+% Like \cvtechskills, this follows a cvitems block that ends with a negative
+% \vspace, so the leading glue is discarded and replaced with a fixed skip
+% rather than added to whatever happens to precede it.
+\newlength{\cvroleskip}
+\setlength{\cvroleskip}{3.14pt}
+
+\newcommand*{\cvrole}[2]{%
+	\cvtopskip{\cvroleskip}
+	\begingroup
+	\setlength{\parskip}{0pt}%
+	\setlength\tabcolsep{0pt}%
+	\setlength{\extrarowheight}{0pt}%
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+		\entrypositionstyle{#1} & \entrydatestyle{#2} \\
+	\end{tabular*}%
+	\endgroup
+}

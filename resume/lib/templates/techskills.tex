@@ -1,0 +1,43 @@
+%-------------------------------------------------------------------------------
+% \cvtechskills - the "Technical Skills:" line that closes an entry
+%
+% Usage: \cvtechskills{<comma separated list>}
+%
+% Works both inside the description argument of \cventry and directly inside
+% the cvprojects environment. It is wrapped in a full width tabular* so it stays
+% flush with the left margin in either place, rather than inheriting the
+% centring of the surrounding environment.
+%-------------------------------------------------------------------------------
+\newcommand*{\techskillslabel}{Technical Skills:}
+\newcommand*{\techskillslabelstyle}[1]{{\fontsize{7pt}{1em}\bodyfont\bfseries\color{text} #1}}
+% \color ends with \ignorespaces, so it has to come *before* the font switch:
+% otherwise it swallows the space that separates the label from the list. That
+% space is a real space token rather than a control space so that it still picks
+% up the space factor of the colon it follows.
+\newcommand*{\techskillsliststyle}[1]{{\fontsize{7pt}{1em}\color{text}\bodyfontlight #1}}
+
+% The line has to sit the same distance below the bullets in both places it is
+% used. cvitems ends with a negative \vspace, and starting the tabular's
+% paragraph would add \parskip on top of that - and neither is the same in a
+% \cventry cell as it is in cvprojects. So the leading glue is discarded with
+% \removelastskip and replaced with a fixed skip, and \parskip is zeroed.
+% Measured against the reference PDF: with the leading glue discarded the line
+% still lands 2.14pt higher inside cvprojects than inside a \cventry cell, so
+% cvprojects raises this length by that much. Interline glue is deliberately
+% left alone - it is what keeps the spacing even when a bullet ends in a
+% descender, and suppressing it reintroduces the overlap this fixes.
+\newlength{\cvtechskillsskip}
+\setlength{\cvtechskillsskip}{3.34pt}
+
+\newcommand*{\cvtechskills}[1]{%
+	\cvtopskip{\cvtechskillsskip}
+	\begingroup
+	\setlength{\parskip}{0pt}%
+	\setlength\tabcolsep{0pt}%
+	\setlength{\extrarowheight}{0pt}%
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth}}
+		\techskillslabelstyle{\techskillslabel}\techskillsliststyle{ #1} \\
+	\end{tabular*}%
+	\cvendblock
+	\endgroup
+}
