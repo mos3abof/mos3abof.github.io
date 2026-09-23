@@ -1,0 +1,66 @@
+%-------------------------------------------------------------------------------
+% cvprojects / \cvproject - the Open Source Projects section
+%
+% Usage: \begin{cvprojects} \cvproject{<name>}{<year>}{<url>} ... \end{cvprojects}
+%
+% Each project is a name and a linked URL on the left, the year on the right,
+% followed by its own cvitems block and an optional \cvtechskills line.
+% Pass an empty year for an entry that is just a pointer, e.g. {More Projects}{}.
+%-------------------------------------------------------------------------------
+% Inside \cventry the bullets get their size from \descriptionstyle, which wraps
+% the description argument. There is no such wrapper here, so the environment
+% applies the same switches itself - otherwise the project bullets would come
+% out at the 11pt document size instead of 9pt.
+\newenvironment{cvprojects}{%
+	\vspace{\acvSectionContentTopSkip}
+	\cvfirstentrytrue
+	\begin{center}
+		\fontsize{9pt}{9.96pt}\color{text}\bodyfontlight\upshape
+		}{%
+	\end{center}
+	\cvendblock
+}
+
+\newcommand*{\projecturlstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\color{graytext} #1}}
+
+% The gap between the name and the link is one em of the 11pt body font. It is
+% pinned to the document default family rather than inherited, because the
+% surrounding environment
+% runs at 9pt, and Barlow's em differs fractionally from the default family's.
+\newcommand*{\projectgap}{{\normalsize\normalfont\quad}}
+
+% The link text drops the scheme (the link itself keeps it), so the line reads
+% github.com/user/repo rather than https://github.com/user/repo. gsub is used
+% rather than an anchored pattern because % starts a comment inside \directlua.
+\newcommand*{\stripurlscheme}[1]{%
+	\directlua{
+		local u = "\luaescapestring{#1}"
+		u = string.gsub(u, "https://", "", 1)
+		u = string.gsub(u, "http://", "", 1)
+		tex.sprint(-2, u)
+	}%
+}
+
+% A URL is tokenised before any macro body gets the chance to protect it, so the
+% catcodes have to be switched off *before* the arguments are read. Hence the
+% split: \cvproject opens the group and \cvprojectrow reads the arguments under
+% it. \endgroup at the end of the row restores the normal catcodes.
+\newcommand*{\cvproject}{%
+	\begingroup
+	\catcode`\_=12 \catcode`\~=12 \catcode`\#=12 \catcode`\&=12 \catcode`\$=12
+	\cvprojectrow
+}
+\newcommand*{\cvprojectrow}[3]{%
+	\ifcvfirstentry
+		\cvtopskip{\cvfirstentrygap}%
+		\global\cvfirstentryfalse
+	\else
+		\cvtopskip{\cvprojectgap}%
+	\fi
+	\setlength\tabcolsep{0pt}
+	\setlength{\extrarowheight}{0pt}
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+		\entrytitlestyle{#1}\projectgap\projecturlstyle{\href{#3}{\faLink\ \stripurlscheme{#3}}} & \entrydatestyle{#2} \\
+	\end{tabular*}%
+	\endgroup
+}

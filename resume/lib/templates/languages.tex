@@ -1,0 +1,24 @@
+%-------------------------------------------------------------------------------
+% cvlanguages / \cvlanguage - the Languages section
+%
+% Usage: \begin{cvlanguages} \cvlanguage{<language>}{<proficiency>} ... \end{cvlanguages}
+%
+% Same two column shape as cvskills: the language is right aligned in a column
+% sized to the longest one, the proficiency is left aligned beside it.
+%-------------------------------------------------------------------------------
+\newenvironment{cvlanguages}{%
+	\vspace{\acvSectionContentTopSkip}
+	\vspace{-2.0mm}
+	\begin{center}
+		\setlength\tabcolsep{1ex}
+		\setlength{\extrarowheight}{0pt}
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r L{\textwidth * \real{0.9}}}
+			}{%
+		\end{tabular*}
+	\end{center}
+	\cvendblock
+}
+
+\newcommand*{\cvlanguage}[2]{%
+	\entrytitlestyle{#1} & \skillsetstyle{#2} \\
+}
