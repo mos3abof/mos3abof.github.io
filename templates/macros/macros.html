@@ -1,51 +1,32 @@
 {% macro list_posts(pages) %}
 {% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
-<ul class="mx-auto mt-8 list-none">
+<ol class="post-list">
   {% for page in pages %}
-  <section class="list-item">
-    <div class="post-header">
-      <li class="flex my-1">
-        {% if page.date %}
-        <time
-          class="hidden pt-3 sm:block shrink-0 text-slate-400 ibm-plex-mono {% if lang == 'ar' %}w-56{% else %}w-36{% endif %}">{{
-          post_macros::format_date(date=page.date, res=res) }}</time>
-        {% endif %}
-        <a href="{{ page.permalink }}" class="p-1 mx-2 text-2xl hover:text-white hover:bg-teal-600">
-          <span class="text-teal-600 sm:hidden">- </span>{{ page.title }}
-          {% if page.draft %}
-          <span class="draft-label">DRAFT</span>
-          {% endif %}
-        </a>
-      </li>
-      <div>
-        <div class="meta">
-          <div class="description">
-            {% if page.description %}
-            {{ page.description }}
-            {% elif page.summary %}
-            {{ page.summary | safe }}&hellip;
-            {% endif %}
-          </div>
-        </div>
-      </div>
+  <li class="post-list__item">
+    {% if page.date %}
+    <time class="post-list__date" datetime="{{ page.date }}">{{ post_macros::format_date(date=page.date, res=res) }}</time>
+    {% endif %}
+    <div class="post-list__main">
+      <a href="{{ page.permalink }}" class="post-list__title">{{ page.title }}</a>
+      {% if page.draft %}<span class="al-badge al-badge--warning">Draft</span>{% endif %}
+      {% if page.description %}
+      <p class="post-list__desc">{{ page.description }}</p>
+      {% elif page.summary %}
+      <p class="post-list__desc">{{ page.summary | striptags | safe }}&hellip;</p>
+      {% endif %}
     </div>
-  </section>
+  </li>
   {% endfor %}
-</ul>
+</ol>
 {% endmacro list_posts %}
 
 {% macro list_taxonomy_terms(terms) %}
-<ul class="mx-auto mt-8 list-none">
+<ul class="post-list">
   {%- for term in terms %}
-  <section class="list-item">
-    <div class="post-header">
-      <li class="flex my-1">
-        <h1 class="title">
-          <a href={{ term.permalink }}>{{ term.name }}</a>
-        </h1>
-      </li>
-    </div>
-  </section>
+  <li class="post-list__item post-list__item--term">
+    <a href="{{ term.permalink }}" class="post-list__title">{{ term.name }}</a>
+    <span class="post-list__date">{{ term.pages | length }}</span>
+  </li>
   {% endfor -%}
 </ul>
 {% endmacro list_taxonomy_terms %}
@@ -80,9 +61,7 @@ replace(from="8", to="٨") | replace(from="9", to="٩") }}
 {%- endmacro format_date %}
 
 {% macro page_header(title) %}
-<h1 class="text-4xl font-bold sm:text-5xl text-slate-900 dark:text-slate-300">
-  {{ title }}<span class="p-0 m-0 text-7xl text-teal-600 leading-[0px]">.</span>
-</h1>
+<h1 class="page-title">{{ title }}<span class="page-title__dot" aria-hidden="true">.</span></h1>
 {% endmacro page_header %}
 
 {% macro content(page) %}
@@ -96,14 +75,15 @@ replace(from="8", to="٨") | replace(from="9", to="٩") }}
     {%- set_global _posted_in_title = _s.title -%}
   {%- endif -%}
 {%- endfor -%}
-<section class="flex flex-col gap-8 justify-center items-center p-6 sm:flex-row">
-  <article class="px-4 w-screen sm:px-0">
+{% set is_post = "blog/_index.md" in page.ancestors or "blog/_index.ar.md" in page.ancestors %}
+<article class="post">
+  <header class="post-head">
     {{ post_macros::page_header(title=page.title) }}
 
     {% if page.date %}
-    <span class="mt-4 block text-base sm:text-lg text-slate-400">
+    <p class="post-meta">
       {{ res.posted_on }}
-      <time class="text-slate-500 ibm-plex-mono">{{ post_macros::format_date(date=page.date, res=res) }}</time>
+      <time class="post-meta__date" datetime="{{ page.date }}">{{ post_macros::format_date(date=page.date, res=res) }}</time>
       {% set author = page.extra.author | default(value="") %}
       {% if not author %}
         {% if lang == 'ar' %}
@@ -113,23 +93,23 @@ replace(from="8", to="٨") | replace(from="9", to="٩") }}
         {% endif %}
       {% endif %}
       {% if author %}
-      <span aria-hidden="true" class="mx-1">·</span>{{ res.written_by }}
-      <span class="text-slate-500" dir="ltr">{{ author }}</span>
+      <span aria-hidden="true">·</span> {{ res.written_by }} <bdi>{{ author }}</bdi>
       {% endif %}
       {% if _posted_in_title %}
-      <span aria-hidden="true" class="mx-1 text-slate-300 dark:text-slate-600">/</span>{{ res.posted_in }}
-      <a href="{{ _posted_in_url }}" class="text-slate-500 hover:text-white transition-colors duration-150">{{ _posted_in_title }}</a>
+      <span aria-hidden="true">·</span> {{ res.posted_in }}
+      <a href="{{ _posted_in_url }}" class="al-link al-link--muted">{{ _posted_in_title }}</a>
       {% endif %}
-    </span>
+    </p>
     {% endif %}
 
     {% if page.draft %}
-    <span class="draft-label">DRAFT</span>
+    <span class="al-badge al-badge--warning">Draft</span>
     {% endif %}
+  </header>
 
-    {% if page.extra.toc | default(value=false) %}
-    {% if page.toc %}
-    <h1>{{ res.table_of_contents }}</h1>
+  {% if page.extra.toc | default(value=false) and page.toc %}
+  <nav class="post-toc" aria-labelledby="post-toc-title">
+    <h2 id="post-toc-title" class="post-toc__title">{{ res.table_of_contents }}</h2>
     <ul>
       {% for h1 in page.toc %}
       <li>
@@ -139,92 +119,65 @@ replace(from="8", to="٨") | replace(from="9", to="٩") }}
           {% for h2 in h1.children %}
           <li>
             <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+            {% if h2.children %}
+            <ul>
+              {% for h3 in h2.children %}
+              <li><a href="{{ h3.permalink | safe }}">{{ h3.title }}</a></li>
+              {% endfor %}
+            </ul>
+            {% endif %}
           </li>
-          {% if h2.children %}
-          <ul>
-            {% for h3 in h2.children %}
-            <li><a href="{{ h3.permalink | safe }}">{{ h3.title }}</a></li>
-            {% endfor %}
-          </ul>
-          {% endif %}
           {% endfor %}
         </ul>
         {% endif %}
       </li>
       {% endfor %}
     </ul>
-    {% endif %}
-    {% endif %}
+  </nav>
+  {% endif %}
 
-    <div class="my-4">
-      {{ page.content | safe }}
+  <div class="site-prose">
+    {{ page.content | safe }}
+  </div>
 
-      {% if page.taxonomies and page.taxonomies.tags %}
-      <aside class="mt-8 ibm-plex-arabic {% if lang == 'ar' %}text-lg{% else %}text-sl{% endif %} text-slate-700 dark:text-slate-300">
-        {% for tag in page.taxonomies.tags %}
-        <a href="{{ get_taxonomy_url(kind='tags', name=tag, lang=lang) | safe }}"
-          class="p-1 text-teal-600 hover:text-white hover:bg-teal-600">#{{ tag }}</a>
-        {% endfor %}
-      </aside>
+  {% if page.taxonomies and page.taxonomies.tags %}
+  <p class="post-tags">
+    {% for tag in page.taxonomies.tags %}
+    <a href="{{ get_taxonomy_url(kind='tags', name=tag, lang=lang) | safe }}" class="al-link al-link--muted">#{{ tag }}</a>
+    {% endfor %}
+  </p>
+  {% endif %}
+
+  {% if is_post %}
+  {% include "partials/comments.html" %}
+  {% include "partials/comment-form.html" %}
+  {% endif %}
+
+  {% if is_post and (page.lower or page.higher) %}
+  {% if lang != config.default_language %}
+  {% set archive_url = "/" ~ lang ~ "/blog/" %}
+  {% else %}
+  {% set archive_url = "/blog/" %}
+  {% endif %}
+  <nav class="post-pager" aria-label="{{ res.post_list }}">
+    <div class="post-pager__prev">
+      {% if page.higher %}
+      <a href="{{ page.higher.permalink }}" rel="prev">
+        <span class="post-pager__label">{{ res.prev_post }}</span>
+        <span class="post-pager__title">{{ page.higher.title }}</span>
+      </a>
       {% endif %}
     </div>
-
-    {% if "blog/_index.md" in page.ancestors or "blog/_index.ar.md" in page.ancestors %}
-    {% include "partials/comments.html" %}
-    {% include "partials/comment-form.html" %}
-    {% endif %}
-
-    {% if (page.lower or page.higher) and ("blog/_index.md" in page.ancestors or "blog/_index.ar.md" in page.ancestors)
-    %}
-    <nav class="flex gap-4 justify-between pt-6 mt-10 border-t border-slate-200 dark:border-slate-700">
-      <div class="flex-1">
-        {% if page.higher %}
-        <a href="{{ page.higher.permalink }}" class="flex flex-col gap-1 no-underline hover:text-white group">
-          <span class="text-xs tracking-wide uppercase group-hover:text-white text-slate-400 dark:text-slate-500">
-            {% if res.settings_direction == 'rtl' %}
-            {{ res.prev_post }} →
-            {% else %}
-            ← {{ res.prev_post }}
-            {% endif %}
-          </span>
-          <span
-            class="text-sm text-teal-600 sm:text-base group-hover:text-white group-hover:underline underline-offset-4 line-clamp-2">
-            {{ page.higher.title }}
-          </span>
-        </a>
-        {% endif %}
-      </div>
-      <div class="flex flex-col flex-none justify-center items-center">
-        {% if lang != config.default_language %}
-        {% set archive_url = "/" ~ lang ~ "/blog/" %}
-        {% else %}
-        {% set archive_url = "/blog/" %}
-        {% endif %}
-        <a href="{{ archive_url }}" class="flex flex-col gap-1 items-center no-underline group">
-          <span class="text-xs tracking-wide uppercase group-hover:text-white text-slate-400 dark:text-slate-500">
-            {{ res.post_list }}
-          </span>
-        </a>
-      </div>
-      <div class="flex-1 text-end">
-        {% if page.lower %}
-        <a href="{{ page.lower.permalink }}" class="flex flex-col gap-1 items-end no-underline hover:text-white group">
-          <span class="text-xs tracking-wide uppercase group-hover:text-white text-slate-400 dark:text-slate-500">
-            {% if res.settings_direction == 'rtl' %}
-            ← {{ res.next_post }}
-            {% else %}
-            {{ res.next_post }} →
-            {% endif %}
-          </span>
-          <span
-            class="text-sm text-right text-teal-600 sm:text-base group-hover:text-white group-hover:underline underline-offset-4 line-clamp-2">
-            {{ page.lower.title }}
-          </span>
-        </a>
-        {% endif %}
-      </div>
-    </nav>
-    {% endif %}
-  </article>
-</section>
+    <a href="{{ get_url(path=archive_url) }}" class="post-pager__archive al-link al-link--muted">{{ res.post_list }}</a>
+    <div class="post-pager__next">
+      {% if page.lower %}
+      <a href="{{ page.lower.permalink }}" rel="next">
+        <span class="post-pager__label">{{ res.next_post }}</span>
+        <span class="post-pager__title">{{ page.lower.title }}</span>
+      </a>
+      {% endif %}
+    </div>
+  </nav>
+  {% endif %}
+</article>
 {% endmacro content %}

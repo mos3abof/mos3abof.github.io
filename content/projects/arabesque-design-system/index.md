@@ -1,5 +1,5 @@
 +++
-title = "Arabesque Labs Design System"
+title = "Arabesque"
 weight = 1
 description = "A design system for Arabesque Labs LTD"
 template = "projects/page.html"

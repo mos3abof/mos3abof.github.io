@@ -4,18 +4,36 @@
 {% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
 
 <!DOCTYPE html>
-<html lang="{{lang}}" class="sm:scroll-smooth" dir="{{res.settings_direction}}">
+<html lang="{{lang}}" dir="{{res.settings_direction}}">
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="Viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{get_url(path='css/style.css', cachebust=true)}}">
-  <link rel="stylesheet" href="{{get_url(path='css/font-faces.css')}}">
-  <link rel="icon" type="image/x-icon" href="{{get_url(path='./images/favicon.ico')}}">
-  <!-- MDI Icons -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {# The saved theme, before first paint (the design system's js/theme.js reads the same key). #}
+  <script>try { const t = localStorage.getItem("al-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch {}</script>
+  {# Cascade order: Tailwind's reset under the design system, its utilities over it. #}
+  <style>@layer theme, base, al.tokens, al.base, al.layout, al.components, al.utilities, components, utilities;</style>
+  <link rel="stylesheet" href="{{ get_url(path='arabesque/fonts/fonts.css') }}">
+  <link rel="stylesheet" href="{{ get_url(path='arabesque/arabesque.css') }}">
+  <link rel="stylesheet" href="{{ get_url(path='css/style.css', cachebust=true) }}">
+  <link rel="stylesheet" href="{{ get_url(path='css/font-faces.css') }}">
+  <link rel="icon" type="image/x-icon" href="{{ get_url(path='./images/favicon.ico') }}">
+  <!-- MDI Icons: still used by pages not yet on the design system -->
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css">
-  <script src="{{get_url(path='js/main.js')}}" defer></script>
+  <script src="{{ get_url(path='js/main.js') }}" defer></script>
+  <script type="module">
+    import { initSiteHeaders } from "{{ get_url(path='arabesque/js/site-header.js') }}";
+    import { currentTheme, setTheme } from "{{ get_url(path='arabesque/js/theme.js') }}";
+    import { highlightCode } from "{{ get_url(path='arabesque/js/highlight.js') }}";
+
+    initSiteHeaders();
+    highlightCode();
+    for (const button of document.querySelectorAll("[data-theme-toggle]")) {
+      const label = () => button.setAttribute("aria-label", currentTheme() === "dark" ? button.dataset.labelLight : button.dataset.labelDark);
+      button.addEventListener("click", () => { setTheme(currentTheme() === "dark" ? "light" : "dark"); label(); });
+      label();
+    }
+  </script>
   <title>
     {% if page.title %}
       {{page.title}} | {{config.title}}
@@ -27,25 +45,15 @@
   {% include "partials/opengraph.html" %}
 
   {% block extra_head %}{% endblock %}
-
-  <script>
-    const t = localStorage.getItem('color-theme');
-    if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    }
-  </script>
 </head>
 
-<body class="min-h-screen bg-slate-50 dark:bg-black dark:text-white selection:text-white selection:bg-blue-600 {% if lang == 'ar' %}rtl-grid{% endif %}">
-  <!-- Header -->
+<body>
   {% include "partials/header.html" %}
 
-  <!-- Main  part of the page -->
-  <main class="max-w-6xl mx-auto my-4 {% if lang == 'ar' %}rtl-grid{% endif %}">
+  <main id="main" tabindex="-1" class="al-page site-main">
     {% block main_content %} {% endblock %}
   </main>
 
-  <!-- Footer -->
   {% include "partials/footer.html" %}
 </body>
 </html>

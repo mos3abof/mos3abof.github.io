@@ -1,5 +1,5 @@
 +++
-title = "نظام التصميم في معامل آرابيسك"
+title = "آرابيسك"
 weight = 1
 description = "نظام التصميم في معامل آرابيسك"
 template = "projects/page.html"

@@ -4,20 +4,29 @@ settings_date_locale = "ar_EG"
 settings_date_format = "%-d %B، %Y"
 settings_direction = "rtl"
 
-# The main navigation menu
+# The main navigation menu. Home is the lockup; keep this to four.
 menu_pages = [
-  { title = "الرئيسية", url = "/" },
-  { title = "من أنا", url = "/about/" },
   { title = "تدويناتي", url = "/blog/" },
   { title = "مشاريعي", url = "/projects/" },
-  { title = "سيرتي الذاتية", url = "/resume/" },
   # { title = "كلام عن التكنولوجيا", url = "/talks/" },
-  { title = "تواصل معي", url = "/contact/" },
+  { title = "من أنا", url = "/about/" },
 ]
+
+# Header
+site_name = "مصعب إبراهيم"
+skip_link = "انتقل إلى المحتوى"
+menu_label = "القائمة"
+theme_to_dark = "التبديل إلى الوضع الداكن"
+theme_to_light = "التبديل إلى الوضع الفاتح"
 
 # Footer
 role = ""
-copyright = "جميع الحقوق محفوظة © 2026 - مصعب أحمد إبراهيم"
+copyright = "© ٢٠٢٦"
+footer_pages = [
+  { title = "سيرتي الذاتية", url = "/resume/" },
+  { title = "تواصل معي", url = "/contact/" },
+]
+glider_title = "الطائرة الشراعية: شعار الهاكرز"
 
 # Simple language resources
 post_list = "الأرشيف"

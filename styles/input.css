@@ -1,375 +1,708 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss" source(none);
+@source "../templates";
+@source "../static/js";
 
-.radial-blue {
-  background: radial-gradient(lightyellow, skyblue);
+/* The Arabesque Labs design system's Tailwind theme: colours, type, radii
+   and breakpoints resolve to its --al-* tokens, and dark: follows data-theme. */
+@import "../static/arabesque/tailwind-theme.css";
+
+/* Keep Tailwind's own text scale for the utility classes. The system's theme
+   maps text-sm…text-3xl onto its tokens, which resized every template still
+   written in utilities (comments, 404, the shortcodes). Site styles below use
+   the system's tokens directly (var(--al-text-*)), so they don't depend on this. */
+@theme {
+  --text-xs: 0.75rem;
+  --text-xs--line-height: calc(1 / 0.75);
+  --text-sm: 0.875rem;
+  --text-sm--line-height: calc(1.25 / 0.875);
+  --text-base: 1rem;
+  --text-base--line-height: calc(1.5 / 1);
+  --text-lg: 1.125rem;
+  --text-lg--line-height: calc(1.75 / 1.125);
+  --text-xl: 1.25rem;
+  --text-xl--line-height: calc(1.75 / 1.25);
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: calc(2 / 1.5);
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: calc(2.25 / 1.875);
 }
 
-@font-face {
-  font-family: "Montserrat";
-  font-weight: normal;
-  font-style: normal;
-  src: url("../fonts/Montserrat/Montserrat-Regular.ttf") format('truetype');
-}
-
-@font-face {
-  font-family: "Robot";
-  src: url(../fonts/Roboto/Roboto-Regular.woff) format('woff');
-  font-style: normal;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat/Montserrat-SemiBoldItalic.ttf") format('truetype');
-  font-style: normal;
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat/Montserrat-Italic.ttf") format('truetype');
-  font-style: italic;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat/Montserrat-Bold.ttf") format('truetype');
-  font-style: normal;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("../fonts/Montserrat/Montserrat-BlackItalic.ttf") format('truetype');
-  font-style: italic;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Space GrotesK";
-  src: url("../fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf");
-}
-
-@layer base {
-  html {
-    font-family: "Montserrat";
-    font-weight: normal;
-
+/*
+  Site styles, on the design system's tokens. They sit in the components
+  layer: over the system's own layers and under Tailwind's utilities (the
+  order is declared in templates/base.html).
+*/
+@layer components {
+  /* The site reads larger than the system's interface default (15px), as it always has. */
+  body {
+    font-size: var(--al-text-md);
   }
 
-  h1 {
-    font-family: "Space Grotesk", "Helvetica", sans-serif;
+  .site-main {
+    padding-block: var(--al-space-8) var(--al-space-12);
   }
 
-  article img {
-    @apply rounded-xl my-2 mx-auto;
+  /* ---- header and footer -------------------------------------------------------------------- */
+
+  /* The logo is the favicon: a round avatar, so its white ground reads in dark too. */
+  .site-logo {
+    inline-size: 1.75em;
+    block-size: 1.75em;
+    border: var(--al-border-hairline) solid var(--al-color-line);
+    border-radius: var(--al-radius-full);
+    background: #fff;
   }
 
-  article h1>a {
-    @apply sm:text-4xl font-bold dark:bg-inherit dark:text-teal-300 p-1;
+  .al-site-header__nav a,
+  .al-site-header .al-language {
+    font-size: var(--al-text-lg);
   }
 
-  article h2 {
-    @apply text-xl sm:text-4xl my-5
-    /*font-bold bg-yellow-100*/
-    dark:bg-inherit dark:text-teal-300 p-1;
+  .al-footer {
+    font-size: var(--al-text-base);
   }
 
-  article h3 {
-    @apply sm:text-3xl my-3
-    /*bg-yellow-100*/
-    dark:bg-inherit dark:text-teal-300 p-1;
+  .al-footer__links {
+    font-size: var(--al-text-md);
   }
 
-  article h4 {
-    @apply my-2 text-2xl
-    /*bg-yellow-100*/
-    dark:bg-inherit dark:text-teal-300 p-1;
+  /* The name, then the copyright on the same line */
+  .site-footer__sign {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--al-space-1) var(--al-space-3);
+    color: var(--al-color-text-muted);
   }
 
-  article {
-    @apply text-slate-700;
+  .site-footer__sep {
+    color: var(--al-color-line-strong);
   }
 
-  article p {
-    @apply text-xl text-left dark:text-slate-200 pt-5;
+  /* One line: the name and copyright at the start, the page links in the
+     middle, the icons at the end, all centred on the same line; the glider
+     on its own row below. Stacked on a phone. */
+  .al-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
+    align-items: center;
+    gap: var(--al-space-3) var(--al-space-6);
   }
 
-  article a {
-    @apply text-teal-600 underline underline-offset-4 hover:text-white hover:bg-teal-600 hover:no-underline p-1;
+  @media (min-width: 52rem) {
+    .al-footer {
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    }
+
+    .site-footer__links {
+      justify-self: center;
+    }
+
+    .site-social {
+      justify-self: end;
+    }
   }
 
-  article ul {
-    @apply list-disc my-4 text-xl;
+  .site-footer__sign,
+  .al-footer__links {
+    align-items: center;
   }
 
-  article ol {
-    @apply list-decimal my-4 text-xl;
-  }
-
-  article li {
-    @apply ms-10 text-xl dark:text-slate-200;
-  }
-
-  strong,
-  article strong {
-    @apply font-extrabold;
-  }
-
-  blockquote {
-    @apply px-2 pb-4 pt-0 my-4 border-s-4 border-gray-300 bg-slate-200 dark:border-slate-500 dark:bg-slate-800 italic font-medium;
-  }
-
-  .pagination a {
-    @apply text-xl text-teal-600 p-1 hover:text-white hover:bg-teal-600;
-  }
-
-  pre {
-    @apply rounded-xl mt-4 mb-6 overflow-x-auto;
-    background-color: #2e3440;
-    padding: 1rem 1.25rem 1.25rem;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
-    font-size: 0.9rem;
-    line-height: 1.7;
-    border-left: 3px solid #88c0d0;
-    direction: ltr;
-    unicode-bidi: isolate;
-  }
-
-  pre code {
-    background: transparent;
-    color: #d8dee9;
+  .site-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--al-space-1);
+    list-style: none;
+    margin: 0;
     padding: 0;
-    font-size: inherit;
-    font-family: inherit;
   }
 
-  :not(pre)>code {
-    @apply rounded font-mono;
-    padding: 0.1em 0.4em;
+  .site-social a {
+    display: grid;
+    place-items: center;
+    inline-size: var(--al-size-target-touch);
+    block-size: var(--al-size-target-touch);
+    border-radius: var(--al-radius-sm);
+    color: var(--al-color-text-muted);
+    transition: color var(--al-duration-fast) var(--al-ease-standard);
+  }
+
+  .site-social a:hover {
+    color: var(--brand, var(--al-color-text));
+  }
+
+  .site-social svg {
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+    fill: currentColor;
+  }
+
+  /* The glider, the hacker emblem, at the foot of every page as it always was */
+  .site-emblem {
+    grid-column: 1 / -1;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    color: var(--al-color-text-muted);
+  }
+
+  .site-emblem:hover {
+    color: var(--al-color-text);
+  }
+
+  .site-emblem .al-mark {
+    inline-size: 3rem;
+    block-size: 3rem;
+  }
+
+  /* ---- page title, with the site's full stop ---------------------------------------------- */
+
+  .page-title {
+    font-size: var(--al-text-3xl);
+    font-weight: var(--al-weight-medium);
+  }
+
+  .page-title__dot {
+    color: var(--al-color-accent);
+  }
+
+  /* ---- 404 -------------------------------------------------------------------------------- */
+
+  .not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--al-space-4);
+    max-inline-size: var(--al-size-measure);
+    padding-block: var(--al-space-8);
+  }
+
+  .not-found__code {
+    font-family: var(--al-font-mono);
+    font-size: var(--al-text-xl);
+    color: var(--al-color-accent);
+  }
+
+  .not-found__text {
+    font-family: var(--al-font-serif);
+    font-size: var(--al-text-lg);
+    line-height: var(--al-leading-prose);
+    color: var(--al-color-text-muted);
+  }
+
+  /* ---- home --------------------------------------------------------------------------------- */
+
+  .home-intro {
+    display: grid;
+    gap: var(--al-space-8);
+    align-items: center;
+    padding-block: var(--al-space-6);
+  }
+
+  @media (min-width: 52rem) {
+    .home-intro {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: var(--al-space-12);
+    }
+  }
+
+  .home-intro__title {
+    margin-block-end: var(--al-space-6);
+  }
+
+  .home-intro__lede {
+    font-family: var(--al-font-serif);
+    font-size: var(--al-text-xl);
+    line-height: var(--al-leading-prose);
+    max-inline-size: var(--al-size-measure);
+  }
+
+  .home-intro__lede + .home-intro__lede {
+    margin-block-start: var(--al-space-4);
+  }
+
+  .home-intro__photo {
+    inline-size: 100%;
+    max-inline-size: 22rem;
+    justify-self: center;
+    border: var(--al-border-hairline) solid var(--al-color-line);
+    border-radius: var(--al-radius-md);
+  }
+
+  /* ---- post list (the archive) -------------------------------------------------------------- */
+
+  .post-list {
+    list-style: none;
+    margin-block-start: var(--al-space-6);
+    padding: 0;
+  }
+
+  .post-list__item {
+    display: grid;
+    gap: var(--al-space-1) var(--al-space-6);
+    padding-block: var(--al-space-3);
+    border-block-end: var(--al-border-hairline) solid var(--al-color-line);
+  }
+
+  @media (min-width: 40rem) {
+    .post-list__item {
+      grid-template-columns: 11rem minmax(0, 1fr);
+      align-items: baseline;
+    }
+
+    .post-list__item:lang(ar) {
+      grid-template-columns: 13rem minmax(0, 1fr);
+    }
+  }
+
+  /* Tags: the name, then how many posts */
+  .post-list__item--term {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+  }
+
+  @media (min-width: 40rem) {
+    .post-list__item--term,
+    .post-list__item--term:lang(ar) {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+  }
+
+  .post-list__date {
+    font-family: var(--al-font-mono);
+    font-size: var(--al-text-lg);
+    font-variant-numeric: tabular-nums;
+    color: var(--al-color-text-muted);
+    white-space: nowrap;
+  }
+
+  .post-list__title {
+    font-family: var(--al-font-display);
+    font-size: var(--al-text-xl);
+    text-decoration-color: var(--al-color-accent);
+  }
+
+  .post-list__title:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  .post-list__desc {
+    margin-block-start: var(--al-space-1);
+    font-size: var(--al-text-base);
+    color: var(--al-color-text-muted);
+  }
+
+  .post-pagination {
+    margin-block-start: var(--al-space-8);
+  }
+
+  /* ---- a post or page ----------------------------------------------------------------------- */
+
+  .post-head {
+    margin-block-end: var(--al-space-8);
+  }
+
+  .post-meta {
+    margin-block-start: var(--al-space-3);
+    font-size: var(--al-text-lg);
+    color: var(--al-color-text-muted);
+  }
+
+  .post-meta__date {
+    font-family: var(--al-font-mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--al-color-text);
+  }
+
+  .post-lede {
+    color: var(--al-color-text-muted);
+  }
+
+  .post-toc {
+    max-inline-size: var(--al-size-measure);
+    margin-block-end: var(--al-space-8);
+    padding: var(--al-space-4) var(--al-space-5);
+    border: var(--al-border-hairline) solid var(--al-color-line);
+    border-radius: var(--al-radius-sm);
+    font-size: var(--al-text-md);
+  }
+
+  .post-toc__title {
+    font-size: var(--al-text-base);
+    font-weight: var(--al-weight-medium);
+    margin-block-end: var(--al-space-2);
+  }
+
+  .post-toc ul {
+    list-style: none;
+    margin: 0;
+    padding-inline-start: var(--al-space-4);
+  }
+
+  .post-toc > ul {
+    padding: 0;
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--al-space-1) var(--al-space-4);
+    margin-block-start: var(--al-space-8);
+    font-size: var(--al-text-md);
+  }
+
+  .post-pager {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: var(--al-space-6);
+    align-items: start;
+    margin-block-start: var(--al-space-12);
+    padding-block-start: var(--al-space-6);
+    border-block-start: var(--al-border-hairline) solid var(--al-color-line);
+  }
+
+  .post-pager a[rel] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--al-space-1);
+    text-decoration: none;
+  }
+
+  .post-pager__next {
+    text-align: end;
+  }
+
+  .post-pager__label {
+    font-size: var(--al-text-sm);
+    color: var(--al-color-text-muted);
+  }
+
+  .post-pager__title {
+    text-decoration: underline;
+    text-decoration-color: var(--al-color-accent);
+    text-underline-offset: 0.2em;
+  }
+
+  .post-pager__archive {
+    font-size: var(--al-text-base);
+  }
+
+  /* ---- prose: posts and pages, set for reading ---------------------------------------------- */
+
+  /* Full column width, as the site's posts have always been (no reading measure) */
+  .site-prose {
+    font-family: var(--al-font-serif);
+    font-size: var(--al-text-lg);
+    line-height: var(--al-leading-prose);
+  }
+
+  .site-prose > * + * {
+    margin-block-start: 1em;
+  }
+
+  .site-prose > :is(h1, h2, h3, h4) {
+    margin-block-start: 1.75em;
+  }
+
+  .site-prose > :is(h1, h2, h3, h4) + * {
+    margin-block-start: 0.5em;
+  }
+
+  .site-prose h1,
+  .site-prose h2 {
+    font-size: var(--al-text-2xl);
+  }
+
+  /* Between the 2xl and xl steps, as the site's third-level headings always were */
+  .site-prose h3 {
+    font-size: 1.875rem;
+  }
+
+  .site-prose h4 {
+    font-size: var(--al-text-lg);
+  }
+
+  .site-prose a:not([class]) {
+    text-decoration-color: var(--al-color-accent);
+  }
+
+  .site-prose a:not([class]):hover {
+    text-decoration-thickness: 2px;
+  }
+
+  .site-prose ul {
+    list-style: disc;
+    padding-inline-start: 1.5em;
+  }
+
+  .site-prose ol {
+    list-style: decimal;
+    padding-inline-start: 1.5em;
+  }
+
+  .site-prose li + li {
+    margin-block-start: 0.35em;
+  }
+
+  .site-prose li::marker {
+    color: var(--al-color-text-muted);
+  }
+
+  .site-prose img {
+    margin-inline: auto;
+    border-radius: var(--al-radius-md);
+  }
+
+  .site-prose figcaption {
+    margin-block-start: var(--al-space-2);
+    font-family: var(--al-font-sans);
+    font-size: var(--al-text-base);
+    color: var(--al-color-text-muted);
+    text-align: center;
+  }
+
+  .site-prose blockquote {
+    padding: var(--al-space-3) var(--al-space-5);
+    border-inline-start: 3px solid var(--al-color-accent);
+    border-start-end-radius: var(--al-radius-sm);
+    border-end-end-radius: var(--al-radius-sm);
+    background: var(--al-color-surface-sunk);
+    font-style: italic;
+  }
+
+  .site-prose blockquote:lang(ar) {
+    font-style: normal;
+  }
+
+  .site-prose blockquote > * + * {
+    margin-block-start: 0.75em;
+  }
+
+  .site-prose table {
+    inline-size: 100%;
+    font-family: var(--al-font-sans);
+    font-size: var(--al-text-base);
+  }
+
+  .site-prose :is(th, td) {
+    padding: var(--al-space-2) var(--al-space-3);
+    border-block-end: var(--al-border-hairline) solid var(--al-color-line);
+    text-align: start;
+  }
+
+  /* Embedded PDFs (the pdf shortcode) never push past the column */
+  .site-prose .pdf-embed iframe {
+    display: block;
+    max-inline-size: 100%;
+    border: var(--al-border-hairline) solid var(--al-color-line);
+    border-radius: var(--al-radius-sm);
+  }
+
+  /* Code: the system's code panel, coloured by js/highlight.js where it knows the language. */
+  .site-prose pre:not(.mermaid) {
+    padding: var(--al-space-4) var(--al-space-5);
+    border: var(--al-border-hairline) solid var(--al-color-line);
+    border-radius: var(--al-radius-sm);
+    background: var(--al-color-surface-sunk);
+    font-size: var(--al-text-base);
+    line-height: var(--al-leading-ui);
+    overflow-x: auto;
+  }
+
+  .site-prose pre code {
+    font-size: inherit;
+  }
+
+  .site-prose pre[data-lang]:not(.mermaid)::before {
+    content: attr(data-lang);
+    display: block;
+    margin-block-end: var(--al-space-2);
+    font-size: var(--al-text-xs);
+    color: var(--al-color-text-muted);
+    text-align: end;
+  }
+
+  .site-prose :not(pre) > code {
+    padding: 0.1em 0.35em;
+    border-radius: var(--al-radius-sm);
+    background: var(--al-color-surface-sunk);
     font-size: 0.88em;
-    background-color: #dde8ef;
-    color: #0f766e;
-    direction: ltr;
-    unicode-bidi: isolate;
   }
 
   /* Footnotes */
-  hr:has(+ .footnote-definition) {
-    border: none;
-    border-top: 1px solid #cbd5e1;
-    width: 4rem;
-    margin: 2rem 0 1rem;
+  .site-prose hr:has(+ .footnote-definition) {
+    inline-size: 4rem;
+    margin-block: var(--al-space-8) var(--al-space-4);
   }
 
-  .footnote-definition {
+  .site-prose .footnote-definition {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--al-space-2);
     align-items: baseline;
-    margin-bottom: 0.5rem;
+    font-size: var(--al-text-base);
+    color: var(--al-color-text-muted);
   }
 
-  .footnote-definition-label {
-    flex-shrink: 0;
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: #0f766e;
-  }
-
-  .footnote-definition p {
+  .site-prose .footnote-definition p {
     margin: 0;
-    padding-top: 0;
-    font-size: 0.875rem;
-    color: #64748b;
   }
 
-  sup.footnote-reference a {
-    color: #0f766e;
+  .site-prose .footnote-definition-label {
+    flex-shrink: 0;
+    font-family: var(--al-font-mono);
+    font-size: var(--al-text-xs);
+  }
+
+  .site-prose sup.footnote-reference a,
+  .site-prose .footnote-definition-label a {
+    color: var(--al-color-accent);
     text-decoration: none;
-    font-weight: 700;
-    padding: 0 0.1em;
   }
 
-  .footnote-definition-label a {
-    color: inherit;
-    text-decoration: none;
-    padding: 0;
-    background: transparent;
-  }
+  /* ---- projects ----------------------------------------------------------------------------- */
 
-  .footnote-definition-label a:hover {
-    color: inherit;
-    background: transparent;
-    text-decoration: underline;
-  }
-}
-
-/* ── Projects ──────────────────────────────────── */
-@layer components {
   .project-grid {
-    @apply grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3;
+    display: grid;
+    gap: var(--al-space-6);
+    margin-block-start: var(--al-space-6);
   }
 
-  /* min-w-0: stop the full-size screenshots from widening the grid column */
+  @media (min-width: 40rem) {
+    .project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .project-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
   .project-card {
-    @apply flex flex-col min-w-0 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm
-      transition duration-200 hover:-translate-y-1 hover:shadow-lg
-      dark:border-slate-700 dark:bg-slate-800;
+    display: flex;
+    flex-direction: column;
+    min-inline-size: 0;
+    overflow: hidden;
+    border: var(--al-border-hairline) solid var(--al-color-line);
+    border-radius: var(--al-radius-md);
+    background: var(--al-color-surface);
+    transition: border-color var(--al-duration-fast) var(--al-ease-standard);
   }
 
-  /* Reset the global `article a` link styling for the cover link */
-  .project-cover,
-  .project-cover:hover {
-    @apply block p-0 bg-slate-100 no-underline border-b border-slate-200 dark:bg-slate-900 dark:border-slate-700;
+  .project-card:hover {
+    border-color: var(--al-color-control);
   }
 
   .project-cover {
+    display: block;
     aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-block-end: var(--al-border-hairline) solid var(--al-color-line);
+    background: var(--al-color-surface-sunk);
+    text-decoration: none;
   }
 
+  /* Anchored top-left so wide banners keep their start rather than being centre-cropped */
   .project-cover img {
-    /* Anchor top-left so wide banners keep their start rather than being centre-cropped */
-    @apply m-0 h-full w-full rounded-none object-cover object-left-top transition duration-300;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: left top;
   }
 
-  .project-card:hover .project-cover img {
-    transform: scale(1.03);
-  }
-
-  /* Cards without a screenshot get a monogram on a tinted pattern */
+  /* No screenshot: the initial on the system's quiet pattern tile */
   .project-cover-placeholder {
-    @apply flex h-full w-full items-center justify-center text-6xl font-bold text-teal-700 dark:text-teal-300;
-    font-family: "Space Grotesk", "Helvetica", sans-serif;
-    background-color: #f0fdfa;
-    background-image: radial-gradient(#99f6e4 1px, transparent 1px);
-    background-size: 16px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    block-size: 100%;
+    font-family: var(--al-font-display);
+    font-size: var(--al-text-3xl);
+    color: var(--al-color-text-muted);
+    background-image: url("../arabesque/patterns/tile-quiet.svg");
+  }
+
+  @variant dark {
+    .project-cover-placeholder {
+      background-image: url("../arabesque/patterns/tile-quiet-dark.svg");
+    }
   }
 
   .project-body {
-    @apply flex flex-1 flex-col p-5;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--al-space-2);
+    padding: var(--al-space-5);
   }
 
   .project-title {
-    @apply m-0 p-0 text-xl sm:text-2xl font-bold;
+    font-size: var(--al-text-xl);
+    font-weight: var(--al-weight-medium);
   }
 
-  .project-title a,
-  .project-title a:hover {
-    @apply p-0 no-underline bg-transparent text-slate-800 dark:text-teal-300;
+  .project-title a {
+    text-decoration: none;
   }
 
   .project-title a:hover {
-    @apply text-teal-600;
+    text-decoration: underline;
+    text-decoration-color: var(--al-color-accent);
   }
 
   .project-description {
-    @apply mt-2 flex-1 text-base text-slate-600 dark:text-slate-300;
+    flex: 1;
+    font-size: var(--al-text-md);
+    color: var(--al-color-text-muted);
   }
 
   .project-links {
-    @apply mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--al-space-2) var(--al-space-4);
+    margin-block-start: var(--al-space-3);
+    font-size: var(--al-text-base);
   }
 
-  .project-link-meta {
-    @apply text-slate-500 dark:text-slate-400;
-  }
-
-  .project-link-sep {
-    @apply text-slate-300 dark:text-slate-600;
+  .project-link-meta,
+  .project-page-meta-year {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--al-space-1);
+    color: var(--al-color-text-muted);
   }
 
   .project-hero {
-    @apply my-6;
+    margin-block: var(--al-space-6) var(--al-space-8);
   }
 
-  .project-hero a,
-  .project-hero a:hover {
-    @apply block p-0 bg-transparent;
+  .project-hero a {
+    display: block;
   }
 
+  /* Natural width, capped to the column, so small covers are not upscaled */
   .project-hero img {
-    /* Natural width, capped to the column, so small covers are not upscaled */
-    @apply mx-auto my-0 block w-auto max-w-full rounded-xl border border-slate-200 shadow-md dark:border-slate-700;
+    max-inline-size: 100%;
+    border: var(--al-border-hairline) solid var(--al-color-line);
+    border-radius: var(--al-radius-md);
   }
 
   .project-page-meta {
-    @apply mt-8 flex flex-wrap items-center gap-3;
-  }
-
-  .project-page-meta-year {
-    @apply text-slate-500 dark:text-slate-400;
-  }
-
-  .project-page-link,
-  .project-page-link:hover {
-    @apply inline-flex items-center gap-1 rounded-lg border border-teal-600 px-3 py-1.5 no-underline;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--al-space-3);
+    margin-block-start: var(--al-space-8);
+    font-family: var(--al-font-sans);
+    font-size: var(--al-text-base);
   }
 }
 
-.rtl-grid {
-  direction: rtl;
-  font-family: "Amiri", serif;
-}
+/* ---- named Arabic faces, for the poem, quote and comment templates --------------------------- */
 
-.rtl-grid p {
-  text-align: right;
-}
-
-.rtl code {
-  text-align: right;
-}
-
-
-pre[data-lang]::before {
-  content: attr(data-lang);
-  display: block;
-  text-align: right;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #616e88;
-  margin-bottom: 0.5rem;
-}
-
-pre[data-lang]::after {
-  content: '';
-  display: block;
-  margin-top: 0.5rem;
-}
-
-@media (prefers-color-scheme: dark) {
-  :not(pre)>code {
-    background-color: #1e293b;
-    color: #5eead4;
-  }
-
-  hr:has(+ .footnote-definition) {
-    border-top-color: #334155;
-  }
-
-  .footnote-definition p {
-    color: #94a3b8;
-  }
-}
-
-pre,
-pre code,
-:not(pre) > code {
-  direction: ltr !important;
-  unicode-bidi: embed !important;
-  text-align: left !important;
-}
-
-.noto-sans {
-  font-family: "Noto Sans Arabic", sans-serif;
-  font-optical-sizing: auto;
-}
-
-/* ── Arabic font classes ───────────────────────── */
 .amiri {
   font-family: "Amiri", serif;
 }
@@ -388,6 +721,10 @@ pre code,
 
 .noto-kufi {
   font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+.noto-sans {
+  font-family: "Noto Sans Arabic", sans-serif;
 }
 
 .cairo {
@@ -424,29 +761,4 @@ pre code,
 
 .rubik {
   font-family: "Rubik", sans-serif;
-}
-
-/* ── Arabic typography system ─────────────────── */
-/* Kufam for all headings in RTL (Arabic) pages */
-.rtl-grid article h1,
-.rtl-grid article h2,
-.rtl-grid article h3,
-.rtl-grid article h4 {
-  font-family: "Kufam", sans-serif;
-  font-weight: 700;
-}
-
-/* Amiri for Arabic article body text */
-.rtl-grid article p {
-  font-family: "Amiri", serif;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 2.2;
-  text-align: right;
-}
-
-.rtl-grid article strong,
-.rtl-grid strong {
-  font-family: "Amiri", serif;
-  font-weight: 700;
 }

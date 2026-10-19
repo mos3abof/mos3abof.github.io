@@ -1,53 +1,24 @@
-<!-- Footer -->
-<footer class="mx-auto max-w-6xl">
-  <section class="flex flex-col gap-8 justify-center items-center mt-6 sm:flex-row">
-    <div class="flex px-0 mx-0">
-      <a href="https://twitter.com/mos3abof" class="px-1">
-        <i class="my-auto hover:text-blue-400 text-slate-600 mdi mdi-twitter mdi-24px dark:text-slate-300"></i>
-      </a>
-      <a href="https://www.github.com/mos3abof" class="px-1">
-        <i
-          class="my-auto hover:text-black text-slate-600 mdi mdi-github mdi-24px dark:text-slate-300 dark:hover:text-slate-500"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/mosab" class="px-1">
-        <i class="my-auto hover:text-blue-500 text-slate-600 mdi mdi-linkedin mdi-24px dark:text-slate-300"></i>
-      </a>
-      <a href="https://www.facebook.com/mos3abof" class="px-1">
-        <i class="my-auto hover:text-blue-700 text-slate-600 mdi mdi-facebook mdi-24px dark:text-slate-300"></i>
-      </a>
-      <a href="https://www.instagram.com/mos3abof" class="px-1">
-        <i class="my-auto hover:text-pink-500 text-slate-600 mdi mdi-instagram mdi-24px dark:text-slate-300"></i>
-      </a>
-      <a href="https://www.youtube.com/@mos3abof13" class="px-1">
-        <i class="my-auto hover:text-red-500 text-slate-600 mdi mdi-youtube mdi-24px dark:text-slate-300"></i>
-      </a>
-      <a rel="me" href="https://fosstodon.org/@mos3abof" class="px-1">
-        <i class="my-auto hover:text-violet-600 text-slate-600 mdi mdi-mastodon mdi-24px dark:text-slate-300"></i>
-      </a>
-      <a href="/rss" class="px-1">
-        <i class="my-auto hover:text-orange-400 text-slate-600 mdi mdi-rss mdi-24px dark:text-slate-300"></i>
-      </a>
-    </div>
-  </section>
-
-  <section class="flex flex-col gap-8 justify-center items-center mt-5 mb-4 sm:flex-row">
-    <div class="px-0 mx-0">
-      <p class="max-w-md text-center text-sl text-slate-600 sm:text-sl dark:text-slate-300">
-        {{ res.role }}
-      <p>
-      <p class="max-w-md text-center text-sl text-slate-600 sm:text-sl dark:text-slate-300">
-        {{ res.copyright }}
-      <p>
-    </div>
-  </section>
-
-  <!-- <section class="flex flex-col-reverse justify-center items-center mt-5 sm:flex-row"> -->
-  <!--   <a href="https://decolonizepalestine.com/"><img src="/images/decolonize-palestine.png.webp" target="_blank" -->
-  <!--       alt="Decolonize Palestine" title="Decolonize Palestine" class="text-center drop-shadow" /></a> -->
-  <!-- </section> -->
-
-  <section class="flex flex-col-reverse justify-center items-center mt-10 mb-12 sm:flex-row">
-    <a href="http://www.catb.org/hacker-emblem/"><img src="{{get_url(path='images/glider.png')}}" target="_blank"
-        alt="Hacker Emblem Logo" title="Hacker Emblem Logo" class="text-center drop-shadow" /></a>
-  </section>
-</footer>
+{% if lang == config.default_language %}{% set home_path = "/" %}{% else %}{% set home_path = "/" ~ lang ~ "/" %}{% endif %}
+{# Site footer: the design system's al-footer. Social profiles are icons
+   (partials/social-icons.html): the system's icon sprite has no brand marks. #}
+<div class="al-page">
+  <footer class="al-footer">
+    <p class="site-footer__sign">
+      <a class="al-lockup" href="{{ get_url(path=home_path) }}">{{ res.site_name }}</a>
+      <span class="site-footer__sep" aria-hidden="true">|</span>
+      <span>{{ res.copyright }}</span>
+    </p>
+    <nav class="site-footer__links" aria-label="{{ res.aria_menu }}">
+      <ul class="al-footer__links">
+        {% for item in res.footer_pages %}
+        {% if lang == config.default_language %}{% set path = item.url %}{% else %}{% set path = "/" ~ lang ~ item.url %}{% endif %}
+        <li><a href="{{ get_url(path=path) }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% include "partials/social-icons.html" %}
+    <a class="site-emblem" href="http://www.catb.org/hacker-emblem/" title="{{ res.glider_title }}" aria-label="{{ res.glider_title }}">
+      {% include "partials/glider.html" %}
+    </a>
+  </footer>
+</div>
