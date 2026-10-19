@@ -1,11 +1,13 @@
 +++
 title = "Dir2HTML"
-weight = 2
+weight = 20
 description = "A Python utility that generates a Bootstrap album HTML page from a directory of images. Useful for quickly spinning up a photo gallery from a local folder."
 template = "projects/page.html"
+aliases = ["/projects/02-dir2html/"]
 
 [extra]
 year = "2018"
+cover = "cover.jpg"
 github = "https://github.com/mos3abof/dir2html"
 website = "https://pypi.org/project/dir2html/"
 +++

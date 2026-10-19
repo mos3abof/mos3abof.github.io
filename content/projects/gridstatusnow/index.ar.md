@@ -1,11 +1,13 @@
 +++
 title = "مرصد أحمال شبكة الكهرباء المصرية"
-weight = 3
+weight = 30
 description = "منصة تستخلص بيانات أحمال شبكة الكهرباء المصرية من موقع جهاز تنظيم مرفق الكهرباء وتعرضها بصورة مقروءة، مع واجهة برمجية مفتوحة للمطورين."
 template = "projects/page.html"
+aliases = ["/ar/projects/03-gridstatusnow/"]
 
 [extra]
 year = "2014"
+cover = "cover.jpg"
 github = "https://github.com/mos3abof/gridstatusnow"
 +++
 

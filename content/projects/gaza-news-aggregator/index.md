@@ -1,11 +1,13 @@
 +++
-title = "Gaza News Aggregator"
-weight = 5
+title = "Gaza News Aggregator - 2014"
+weight = 50
 description = "A chronological news aggregator built during the 2014 military operation on Gaza. Pulled feeds from Google News and akhbarak.net and presented them in a descending timeline."
 template = "projects/page.html"
+aliases = ["/projects/05-gaza-news-aggregator/"]
 
 [extra]
 year = "2014"
+cover = "cover.jpg"
 website = "/gaza/"
 +++
 
