@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 
 {% block main_content %}
+{# GitHub Pages serves this page for every missing path and cannot redirect
+   server-side, so send unknown /projects/... (or /ar/projects/...) URLs to the
+   projects list instead of showing a 404. #}
+<script>
+  (function () {
+    var m = window.location.pathname.match(/^(\/ar)?\/projects?\/./);
+    if (m) window.location.replace((m[1] || "") + "/projects/");
+  })();
+</script>
 {% set res = load_data(path=config.extra.path_language_resources ~ lang ~ '.toml') %}
 {% set home_url = "/" %}
 {% if lang != config.default_language %}{% set home_url = "/" ~ lang ~ "/" %}{% endif %}

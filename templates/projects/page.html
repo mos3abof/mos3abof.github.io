@@ -5,6 +5,26 @@
   <article class="px-4 w-full sm:px-0">
     {{ post_macros::page_header(title=page.title) }}
 
+    {# Resolve extra.cover against the page's co-located assets #}
+    {% set_global cover_url = "" %}
+    {% if page.extra.cover %}
+      {% for asset in page.assets %}
+        {% if asset is ending_with("/" ~ page.extra.cover) %}
+          {% set_global cover_url = get_url(path=asset) %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    {% if cover_url %}
+    <figure class="project-hero">
+      {% if page.extra.website %}<a href="{{ page.extra.website }}" target="_blank" rel="noopener">{% endif %}
+      <img src="{{ cover_url }}"
+           alt="{% if lang == 'ar' %}لقطة شاشة من {{ page.title }}{% else %}Screenshot of {{ page.title }}{% endif %}"
+           decoding="async">
+      {% if page.extra.website %}</a>{% endif %}
+    </figure>
+    {% endif %}
+
     <div class="my-4">
       {% if page.description %}
       <p>{{ page.description }}</p>

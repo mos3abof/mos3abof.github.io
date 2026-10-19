@@ -207,6 +207,108 @@
   }
 }
 
+/* ── Projects ──────────────────────────────────── */
+@layer components {
+  .project-grid {
+    @apply grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  /* min-w-0: stop the full-size screenshots from widening the grid column */
+  .project-card {
+    @apply flex flex-col min-w-0 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm
+      transition duration-200 hover:-translate-y-1 hover:shadow-lg
+      dark:border-slate-700 dark:bg-slate-800;
+  }
+
+  /* Reset the global `article a` link styling for the cover link */
+  .project-cover,
+  .project-cover:hover {
+    @apply block p-0 bg-slate-100 no-underline border-b border-slate-200 dark:bg-slate-900 dark:border-slate-700;
+  }
+
+  .project-cover {
+    aspect-ratio: 16 / 10;
+  }
+
+  .project-cover img {
+    /* Anchor top-left so wide banners keep their start rather than being centre-cropped */
+    @apply m-0 h-full w-full rounded-none object-cover object-left-top transition duration-300;
+  }
+
+  .project-card:hover .project-cover img {
+    transform: scale(1.03);
+  }
+
+  /* Cards without a screenshot get a monogram on a tinted pattern */
+  .project-cover-placeholder {
+    @apply flex h-full w-full items-center justify-center text-6xl font-bold text-teal-700 dark:text-teal-300;
+    font-family: "Space Grotesk", "Helvetica", sans-serif;
+    background-color: #f0fdfa;
+    background-image: radial-gradient(#99f6e4 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+
+  .project-body {
+    @apply flex flex-1 flex-col p-5;
+  }
+
+  .project-title {
+    @apply m-0 p-0 text-xl sm:text-2xl font-bold;
+  }
+
+  .project-title a,
+  .project-title a:hover {
+    @apply p-0 no-underline bg-transparent text-slate-800 dark:text-teal-300;
+  }
+
+  .project-title a:hover {
+    @apply text-teal-600;
+  }
+
+  .project-description {
+    @apply mt-2 flex-1 text-base text-slate-600 dark:text-slate-300;
+  }
+
+  .project-links {
+    @apply mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm;
+  }
+
+  .project-link-meta {
+    @apply text-slate-500 dark:text-slate-400;
+  }
+
+  .project-link-sep {
+    @apply text-slate-300 dark:text-slate-600;
+  }
+
+  .project-hero {
+    @apply my-6;
+  }
+
+  .project-hero a,
+  .project-hero a:hover {
+    @apply block p-0 bg-transparent;
+  }
+
+  .project-hero img {
+    /* Natural width, capped to the column, so small covers are not upscaled */
+    @apply mx-auto my-0 block w-auto max-w-full rounded-xl border border-slate-200 shadow-md dark:border-slate-700;
+  }
+
+  .project-page-meta {
+    @apply mt-8 flex flex-wrap items-center gap-3;
+  }
+
+  .project-page-meta-year {
+    @apply text-slate-500 dark:text-slate-400;
+  }
+
+  .project-page-link,
+  .project-page-link:hover {
+    @apply inline-flex items-center gap-1 rounded-lg border border-teal-600 px-3 py-1.5 no-underline;
+  }
+}
+
 .rtl-grid {
   direction: rtl;
   font-family: "Amiri", serif;

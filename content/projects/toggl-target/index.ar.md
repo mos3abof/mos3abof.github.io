@@ -1,11 +1,13 @@
 +++
 title = "أداة تتبع ساعات العمل Toggl Target"
-weight = 1
+weight = 10
 description = "أداة تسهّل حساب عدد ساعات العمل اليومية المطلوبة للوصول إلى هدف شهري محدد، باستخدام الواجهة البرمجية لمنصة Toggl."
 template = "projects/page.html"
+aliases = ["/ar/projects/01-toggl-target/"]
 
 [extra]
 year = "2013"
+cover = "cover.jpg"
 github = "https://github.com/mos3abof/toggl_target"
 +++
 

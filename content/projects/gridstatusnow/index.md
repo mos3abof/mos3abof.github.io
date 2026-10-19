@@ -1,11 +1,13 @@
 +++
 title = "Grid Status Now"
-weight = 3
+weight = 30
 description = "Egypt's power grid load status as a web service. Parses real-time data from EGYPTERA and presents it in a human-friendly format, with a public API for other developers to build on."
 template = "projects/page.html"
+aliases = ["/projects/03-gridstatusnow/"]
 
 [extra]
 year = "2014"
+cover = "cover.jpg"
 github = "https://github.com/mos3abof/gridstatusnow"
 +++
 
