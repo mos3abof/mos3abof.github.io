@@ -1,62 +1,69 @@
-<!-- Header -->
+{# Site header: the design system's al-site-header (css/components/site-header.css,
+   js/site-header.js). The lockup is the favicon (the Bitmoji) and the name, and goes home. #}
 
 {% if lang == config.default_language %}
-{% set switch_to_title="العربية" %}
-{% set switch_to_url="/ar" %}
+{% set other_lang = "ar" %}
+{% set other_title = "العربية" %}
+{% set home_path = "/" %}
+{% set_global switch_url = get_url(path="/ar") %}
 {% else %}
-{% set switch_to_title="English" %}
-{% set switch_to_url="/" %}
+{% set other_lang = config.default_language %}
+{% set other_title = "English" %}
+{% set home_path = "/" ~ lang ~ "/" %}
+{% set_global switch_url = get_url(path="/") %}
 {% endif %}
 
-<header class="top-0 z-10 text-black dark:text-slate-200">
-  <section class="flex justify-between items-center p-4 mx-auto max-w-6xl">
-    <div class="w-full">
-      <button id="hamburger-button" class="text-3xl cursor-pointer sm:hidden" aria-expanded="false"
-        aria-controls="mobile-menu" aria-label="Open menu">
-        &#9776;
-      </button>
+{# Switch to this page's translation when there is one, else the other home. #}
+{% if page is defined %}{% set translations = page.translations %}
+{% elif section is defined %}{% set translations = section.translations %}
+{% else %}{% set translations = [] %}{% endif %}
+{% for t in translations %}
+  {% if t.lang == other_lang %}{% set_global switch_url = t.permalink %}{% endif %}
+{% endfor %}
 
-      <nav class="hidden gap-1 items-center text-xl sm:flex w-full" aria-label="main">
-        {% for menu_item in res.menu_pages %}
-        {% if lang == config.default_language %}
-        {% set item_url = menu_item.url %}
-        {%else %}
-        {% set item_url = lang ~ menu_item.url %}
-        {% endif %}
-        <a class="py-1 px-2 hover:text-white hover:bg-teal-600 hover:opacity-90" href="{{get_url(path=item_url)}}">{% if
-          menu_item.icon %} {{menu_item.icon | safe}} {%else%}{{menu_item.title}}{%endif%}</a>
-        {% endfor %}
+{% set here = current_path | default(value="") %}
 
-        <a href="{{get_url(path=switch_to_url)}}"
-          class="ms-auto py-1 px-2 hover:text-white hover:bg-teal-600 hover:opacity-90 noto-sans">
-          <span class="border-solid">{{switch_to_title}}</span>
-        </a>
 
-        <!-- Dark/Light theme toggle -->
-        <button class="hidden cursor-pointer" id="theme-toggle" aria-label="Toggle dark mode">
-          <i class="mdi mdi-brightness-6"></i>
-        </button>
+<header class="al-site-header">
+  <a class="al-skip-link" href="#main">{{ res.skip_link }}</a>
+  <div class="al-page al-site-header__bar">
+    <a class="al-lockup al-site-header__lockup" href="{{ get_url(path=home_path) }}">
+      <img class="al-mark site-logo" src="{{ get_url(path='images/logo.png') }}" alt="" width="128" height="128"><span class="al-visually-hidden">{{ res.site_name }}</span>
+    </a>
+    <div class="al-site-header__end">
+      <nav class="al-site-header__nav" aria-label="{{ res.aria_menu }}">
+        <ul>
+          {% for item in res.menu_pages %}
+          {% if lang == config.default_language %}{% set path = item.url %}{% else %}{% set path = "/" ~ lang ~ item.url %}{% endif %}
+          <li><a href="{{ get_url(path=path) }}" {% if here is starting_with(path) %}aria-current="page"{% endif %}>{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
       </nav>
+      <div class="al-site-header__tools">
+        <div class="al-site-header__extras">
+          <a class="al-language" href="{{ switch_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}">{{ other_title }}</a>
+        </div>
+        <button type="button" class="al-button al-button--icon al-button--quiet" data-theme-toggle
+          data-label-dark="{{ res.theme_to_dark }}" data-label-light="{{ res.theme_to_light }}" aria-label="{{ res.theme_to_dark }}">
+          <svg class="al-icon" aria-hidden="true" focusable="false"><use href="{{ get_url(path='arabesque/icons.svg') }}#al-icon-theme"></use></svg>
+        </button>
+        <button type="button" class="al-button al-button--icon al-button--quiet al-site-header__toggle" data-site-menu-toggle
+          aria-controls="site-menu" aria-expanded="false" aria-label="{{ res.menu_label }}">
+          <svg class="al-icon al-site-header__open" aria-hidden="true" focusable="false"><use href="{{ get_url(path='arabesque/icons.svg') }}#al-icon-menu"></use></svg>
+          <svg class="al-icon al-site-header__close" aria-hidden="true" focusable="false"><use href="{{ get_url(path='arabesque/icons.svg') }}#al-icon-close"></use></svg>
+        </button>
+      </div>
     </div>
-  </section>
-  <section id="mobile-menu"
-    class="hidden absolute top-0 z-10 flex-col w-full text-3xl text-teal-600 origin-top dark:text-white dark:bg-black bg-slate-200 justify-content-center animate-open-menu">
-    <button class="self-end px-6 text-6xl cursor-pointer" aria-label="Close menu">
-      &times;
-    </button>
-    <nav class="flex flex-col items-center py-8 min-h-screen" aria-label="mobile">
-      {% for menu_item in res.menu_pages %}
-      {% if lang == config.default_language %}
-      {% set item_url = menu_item.url %}
-      {%else %}
-      {% set item_url = lang ~ menu_item.url %}
-      {% endif %}
-      <a href="{{get_url(path=item_url)}}" class="py-6 w-full text-center hover:opacity-90">{{menu_item.title |
-        safe}}</a>
+  </div>
+  <nav class="al-page al-site-header__menu" id="site-menu" aria-label="{{ res.aria_menu }}" hidden>
+    <ul>
+      {% for item in res.menu_pages %}
+      {% if lang == config.default_language %}{% set path = item.url %}{% else %}{% set path = "/" ~ lang ~ item.url %}{% endif %}
+      <li><a href="{{ get_url(path=path) }}" {% if here is starting_with(path) %}aria-current="page"{% endif %}>{{ item.title }}</a></li>
       {% endfor %}
-
-      <a href="{{get_url(path=switch_to_url)}}"
-        class="py-6 w-full text-center hover:opacity-90 noto-sans">{{switch_to_title | safe}}</a>
-    </nav>
-  </section>
+    </ul>
+    <div class="al-site-header__menu-tools">
+      <a class="al-language" href="{{ switch_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}">{{ other_title }}</a>
+    </div>
+  </nav>
 </header>

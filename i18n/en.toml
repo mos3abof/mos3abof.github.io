@@ -4,21 +4,29 @@ settings_date_locale = "en_US"
 settings_date_format = "%b %d, %Y"
 settings_direction = "ltr"
 
-# The main navigation menu
+# The main navigation menu. Home is the lockup; keep this to four.
 menu_pages = [
-  { title = "Home", url = "/" },
   { title = "Posts", url = "/blog/" },
   { title = "Projects", url = "/projects/" },
-  { title = "Talks", url = "/talks/" },
   { title = "Resume", url = "/resume/" },
   { title = "About", url = "/about/" },
-  { title = "Contact", url = "/contact/" },
 ]
 
+# Header
+site_name = "Mosab Ibrahim"
+skip_link = "Skip to content"
+menu_label = "Menu"
+theme_to_dark = "Switch to dark theme"
+theme_to_light = "Switch to light theme"
 
 # Footer
 role = ""
-copyright = "(c) 2026 - Mosab Ibrahim"
+copyright = "© 2026"
+footer_pages = [
+  { title = "Talks", url = "/talks/" },
+  { title = "Contact", url = "/contact/" },
+]
+glider_title = "The glider: the hacker emblem"
 
 # Simple language resources
 post_list = "Archive"

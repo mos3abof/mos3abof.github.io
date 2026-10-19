@@ -20,7 +20,7 @@ RESUME_TMP_EXT = aux lof log lot fls out toc bbl bcf blg run.xml fdb_latexmk \
 ## [START] Common Make commands
 # Recompile css files
 compile-css:
-	npx tailwindcss -i styles/input.css -o static/css/style.css
+	npx @tailwindcss/cli -i styles/input.css -o static/css/style.css
 
 # Build resume using lualatex, then remove the (gitignored) LaTeX temp files.
 # Runs twice so hyperref bookmarks and the page numbers in the footer settle;

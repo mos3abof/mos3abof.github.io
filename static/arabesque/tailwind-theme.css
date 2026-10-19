@@ -1,0 +1,104 @@
+/* Arabesque Labs design system: a Tailwind v4 theme on the --al-* tokens. Generated: don't edit.
+   Use: @import "tailwindcss"; @import "./tokens.css"; @import "./tailwind-theme.css"; */
+@theme inline {
+  --spacing: 0.25rem;
+  --color-bg: var(--al-color-bg);
+  --color-surface: var(--al-color-surface);
+  --color-surface-sunk: var(--al-color-surface-sunk);
+  --color-text: var(--al-color-text);
+  --color-text-muted: var(--al-color-text-muted);
+  --color-line: var(--al-color-line);
+  --color-line-strong: var(--al-color-line-strong);
+  --color-control: var(--al-color-control);
+  --color-accent: var(--al-color-accent);
+  --color-accent-hover: var(--al-color-accent-hover);
+  --color-on-accent: var(--al-color-on-accent);
+  --color-accent-wash: var(--al-color-accent-wash);
+  --color-focus: var(--al-color-focus);
+  --color-focus-on-inverse: var(--al-color-focus-on-inverse);
+  --color-danger: var(--al-color-danger);
+  --color-danger-hover: var(--al-color-danger-hover);
+  --color-danger-wash: var(--al-color-danger-wash);
+  --color-warning: var(--al-color-warning);
+  --color-warning-wash: var(--al-color-warning-wash);
+  --color-success: var(--al-color-success);
+  --color-success-wash: var(--al-color-success-wash);
+  --color-info: var(--al-color-info);
+  --color-info-wash: var(--al-color-info-wash);
+  --color-backdrop: var(--al-color-backdrop);
+  --color-inverse: var(--al-color-inverse);
+  --color-on-inverse: var(--al-color-on-inverse);
+  --color-chart-0: var(--al-color-chart-0);
+  --color-chart-1: var(--al-color-chart-1);
+  --color-chart-2: var(--al-color-chart-2);
+  --color-chart-3: var(--al-color-chart-3);
+  --color-chart-4: var(--al-color-chart-4);
+  --color-tint-teal-bg: var(--al-color-tint-teal-bg);
+  --color-tint-teal-ink: var(--al-color-tint-teal-ink);
+  --color-tint-green-bg: var(--al-color-tint-green-bg);
+  --color-tint-green-ink: var(--al-color-tint-green-ink);
+  --color-tint-yellow-bg: var(--al-color-tint-yellow-bg);
+  --color-tint-yellow-ink: var(--al-color-tint-yellow-ink);
+  --color-tint-orange-bg: var(--al-color-tint-orange-bg);
+  --color-tint-orange-ink: var(--al-color-tint-orange-ink);
+  --color-tint-pink-bg: var(--al-color-tint-pink-bg);
+  --color-tint-pink-ink: var(--al-color-tint-pink-ink);
+  --color-tint-purple-bg: var(--al-color-tint-purple-bg);
+  --color-tint-purple-ink: var(--al-color-tint-purple-ink);
+  --color-tint-blue-bg: var(--al-color-tint-blue-bg);
+  --color-tint-blue-ink: var(--al-color-tint-blue-ink);
+  --color-tint-cyan-bg: var(--al-color-tint-cyan-bg);
+  --color-tint-cyan-ink: var(--al-color-tint-cyan-ink);
+  --color-syntax-keyword: var(--al-color-syntax-keyword);
+  --color-syntax-string: var(--al-color-syntax-string);
+  --color-syntax-number: var(--al-color-syntax-number);
+  --color-syntax-comment: var(--al-color-syntax-comment);
+  --color-syntax-function: var(--al-color-syntax-function);
+  --color-syntax-tag: var(--al-color-syntax-tag);
+  --color-syntax-attribute: var(--al-color-syntax-attribute);
+  --color-pattern-line: var(--al-color-pattern-line);
+  --color-pattern-scaffold: var(--al-color-pattern-scaffold);
+  --color-pattern-quiet: var(--al-color-pattern-quiet);
+  --color-pattern-focal: var(--al-color-pattern-focal);
+  --color-pattern-focal-fill: var(--al-color-pattern-focal-fill);
+  --font-sans: var(--al-font-sans);
+  --font-display: var(--al-font-display);
+  --font-serif: var(--al-font-serif);
+  --font-mono: var(--al-font-mono);
+  --text-xs: var(--al-text-xs);
+  --text-sm: var(--al-text-sm);
+  --text-base: var(--al-text-base);
+  --text-md: var(--al-text-md);
+  --text-lg: var(--al-text-lg);
+  --text-xl: var(--al-text-xl);
+  --text-2xl: var(--al-text-2xl);
+  --text-3xl: var(--al-text-3xl);
+  --text-display: var(--al-text-display);
+  --leading-tight: var(--al-leading-tight);
+  --leading-heading: var(--al-leading-heading);
+  --leading-ui: var(--al-leading-ui);
+  --leading-prose: var(--al-leading-prose);
+  --font-weight-regular: var(--al-weight-regular);
+  --font-weight-medium: var(--al-weight-medium);
+  --font-weight-semibold: var(--al-weight-semibold);
+  --tracking-tight: var(--al-tracking-tight);
+  --tracking-none: var(--al-tracking-none);
+  --tracking-wide: var(--al-tracking-wide);
+  --radius-sm: var(--al-radius-sm);
+  --radius-md: var(--al-radius-md);
+  --radius-full: var(--al-radius-full);
+  --ease-standard: var(--al-ease-standard);
+  --ease-exit: var(--al-ease-exit);
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 52rem;
+  --breakpoint-lg: 64rem;
+}
+
+/* dark: follows the system's setting unless light is chosen, or a chosen dark,
+   as tokens.css does (data-theme on <html>, set by js/theme.js). */
+@custom-variant dark {
+  &:where([data-theme="dark"], [data-theme="dark"] *) { @slot; }
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme="light"]), :root:not([data-theme="light"]) *) { @slot; }
+  }
+}
