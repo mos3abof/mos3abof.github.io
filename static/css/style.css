@@ -1442,6 +1442,13 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  .project-group {
+    margin-block-start: var(--al-space-12);
+  }
+  .project-group-title {
+    font-size: var(--al-text-2xl);
+    font-weight: var(--al-weight-medium);
+  }
   .project-card {
     display: flex;
     flex-direction: column;
