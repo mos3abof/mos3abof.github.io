@@ -5,55 +5,19 @@
 
     <div class="project-grid">
       {% for page in section.pages %}
-      {# Resolve extra.cover against the page's co-located assets #}
-      {% set_global cover_url = "" %}
-      {% if page.extra.cover %}
-        {% for asset in page.assets %}
-          {% if asset is ending_with("/" ~ page.extra.cover) %}
-            {% set_global cover_url = get_url(path=asset) %}
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-
-      <div class="project-card">
-        <a href="{{ page.permalink }}" class="project-cover" tabindex="-1" aria-hidden="true">
-          {% if cover_url %}
-          <img src="{{ cover_url }}" alt="" loading="lazy" decoding="async">
-          {% else %}
-          <span class="project-cover-placeholder">{{ page.title | truncate(length=1, end="") }}</span>
-          {% endif %}
-        </a>
-
-        <div class="project-body">
-          <h2 class="project-title">
-            <a href="{{ page.permalink }}">{{ page.title }}</a>
-          </h2>
-
-          {% if page.description %}
-          <div class="project-description">{{ page.description }}</div>
-          {% endif %}
-
-          {% if page.extra.github or page.extra.website or page.extra.year %}
-          <div class="project-links">
-            {% if page.extra.year %}
-            <span class="project-link project-link-meta">
-              <svg class="al-icon" aria-hidden="true" focusable="false"><use href="{{ get_url(path='arabesque/icons.svg') }}#al-icon-calendar"></use></svg><bdi>{{ page.extra.year }}</bdi>
-            </span>
-            {% endif %}
-            {% if page.extra.github %}
-            <a href="{{ page.extra.github }}" target="_blank" rel="noopener" class="project-link al-link">
-              {% if lang == "ar" %}المصدر{% else %}Source code{% endif %}
-            </a>
-            {% endif %}
-            {% if page.extra.website %}
-            <a href="{{ page.extra.website }}" target="_blank" rel="noopener" class="project-link al-link">
-              {% if lang == "ar" %}الموقع{% else %}Website{% endif %}<svg class="al-icon" aria-hidden="true" focusable="false"><use href="{{ get_url(path='arabesque/icons.svg') }}#al-icon-external"></use></svg>
-            </a>
-            {% endif %}
-          </div>
-          {% endif %}
-        </div>
-      </div>
+      {% include "partials/project-card.html" %}
       {% endfor %}
     </div>
+
+    {% for subsection_path in section.subsections %}
+    {% set subsection = get_section(path=subsection_path) %}
+    <section class="project-group">
+      <h2 class="project-group-title">{{ subsection.title }}</h2>
+      <div class="project-grid">
+        {% for page in subsection.pages %}
+        {% include "partials/project-card.html" %}
+        {% endfor %}
+      </div>
+    </section>
+    {% endfor %}
 {% endblock main_content %}

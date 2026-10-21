@@ -580,6 +580,15 @@
     }
   }
 
+  .project-group {
+    margin-block-start: var(--al-space-12);
+  }
+
+  .project-group-title {
+    font-size: var(--al-text-2xl);
+    font-weight: var(--al-weight-medium);
+  }
+
   .project-card {
     display: flex;
     flex-direction: column;
