@@ -1525,6 +1525,24 @@
     margin-block-start: var(--al-space-3);
     font-size: var(--al-text-base);
   }
+  .project-link-icon {
+    display: inline-grid;
+    place-items: center;
+    inline-size: var(--al-size-target-touch);
+    block-size: var(--al-size-target-touch);
+    margin-block: calc((1lh - var(--al-size-target-touch)) / 2);
+    border-radius: var(--al-radius-sm);
+    color: var(--al-color-text-muted);
+    transition: color var(--al-duration-fast) var(--al-ease-standard);
+  }
+  .project-link-icon:hover {
+    color: var(--al-color-text);
+  }
+  .project-link-icon svg {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    fill: currentColor;
+  }
   .project-link-meta, .project-page-meta-year {
     display: inline-flex;
     align-items: center;
