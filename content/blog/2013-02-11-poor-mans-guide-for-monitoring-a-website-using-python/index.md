@@ -1,6 +1,9 @@
 +++
 title= "Poor Man's Guide: Monitoring a Website Using Python"
 date= "2013-02-11T15:34:00Z"
+
+[extra]
+toc = true
 +++
 
 In one of the projects I am working on there was a problem with Apache server.

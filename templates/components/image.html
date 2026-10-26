@@ -22,10 +22,13 @@
                              "xl" | "2xl" | "full". Defaults to "md".
     link   (string, optional) Wraps the image(s) in an anchor pointing to this
                              URL. Opens in a new tab.
+    crop   (bool, optional)  With srcs: crop the images to the same height
+                             (true, the default), or show each one whole,
+                             sized by its aspect ratio to share one height.
 
   Its output has no blank lines: Markdown would end the figure at one.
 -#}
-{%- component image(src: string = "", srcs: array = [], alt: string = "", text: string = "", dir: string = "", align: string = "center", size: string = "md", link: string = "", @lang: string) -%}
+{%- component image(src: string = "", srcs: array = [], alt: string = "", text: string = "", dir: string = "", align: string = "center", size: string = "md", link: string = "", crop: bool = true, @page: map = {}, @lang: string) -%}
 {%- set images = [src, ...srcs] if src else srcs -%}
 {%- set resolved_alt = alt or text -%}
 {#- Caption direction: explicit dir param → page language -#}
@@ -52,7 +55,12 @@
   <div class="flex flex-wrap gap-2 justify-center">
     {%- for s in images %}
     {%- if link %}<a href="{{ link }}" target="_blank" rel="noopener">{% endif %}
+    {%- if crop %}
     <img src="{{ s }}" alt="{{ resolved_alt }}" loading="lazy" decoding="async" class="rounded-xl flex-1 min-w-0 object-cover">
+    {%- else %}
+    {%- set meta = get_image_metadata(path=page.colocated_path ~ s) %}
+    <img src="{{ s }}" alt="{{ resolved_alt }}" loading="lazy" decoding="async" class="rounded-xl min-w-0 h-auto" style="flex: {{ meta.width / meta.height }} 1 0">
+    {%- endif %}
     {%- if link %}</a>{% endif %}
     {%- endfor %}
   </div>
