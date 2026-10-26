@@ -1,8 +1,13 @@
----
-title: "Comments Backed by Neon & Cloudflare"
-date: 2026-05-15
-tags: [neon, cloudflare, postgres, zola, static-site]
----
++++
+title = "Comments Backed by Neon & Cloudflare"
+date = "2026-05-15"
+
+[taxonomies]
+tags = ["neon", "cloudflare", "postgres", "zola", "static-site"]
+
+[extra]
+toc = true
++++
 
 Between the years of 2006 and 2014, I used to maintain an Arabic blog on
 Blogger.com. In parallel, although a few years after I started my blog, I also
@@ -98,7 +103,6 @@ sequenceDiagram
     participant W as Cloudflare Worker
     participant DB as Neon PostgreSQL
     participant GH as GitHub API
-
     User->>Form: fills in name + comment
     Form->>TS: widget solves challenge
     TS-->>Form: one-time token
@@ -134,7 +138,6 @@ sequenceDiagram
     participant A as Approve Action
     participant DB as Neon PostgreSQL
     participant B as Build Action
-
     GH->>Me: notification: new comment issue
     Me->>GH: add "approved" label
     GH->>A: issues.labeled event
@@ -161,7 +164,6 @@ sequenceDiagram
     participant A as Build Action
     participant DB as Neon PostgreSQL
     participant R as Repository
-
     GH->>A: workflow_call from approve action
     A->>R: checkout main
     A->>DB: SELECT all approved comments

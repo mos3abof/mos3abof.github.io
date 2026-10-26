@@ -1,6 +1,9 @@
 +++
 title = "2018: State of the Union"
 date = "2019-01-13T00:00:00Z"
+
+[extra]
+toc = true
 +++
 
 {{ <image src="mosab-london-bridge.jpg" size="full" text="Standing on Millennium Bridge, London, United Kingdom" /> }}

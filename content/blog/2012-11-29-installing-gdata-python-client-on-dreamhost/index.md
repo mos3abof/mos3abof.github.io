@@ -1,6 +1,9 @@
 +++
 title= "Installing Gdata Python Client on Dreamhost"
 date= "2012-11-29T20:05:00Z"
+
+[extra]
+toc = true
 +++
 
 Our company's website is hosted on [Dreamhost][dreamhost]. Today I needed to

@@ -1,6 +1,9 @@
 +++
 title = "How To Install Firefox On Debian Jessie"
 date = "2016-05-10T00:00:00Z"
+
+[extra]
+toc = true
 +++
 
 {{ <image src="firefox-iceweasel-debian.png" alt="logos" size="full" /> }}

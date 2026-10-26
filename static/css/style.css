@@ -216,6 +216,9 @@
   .relative {
     position: relative;
   }
+  .sticky {
+    position: sticky;
+  }
   .top-2 {
     top: calc(0.25rem * 2);
   }
@@ -1223,26 +1226,15 @@
   .post-lede {
     color: var(--al-color-text-muted);
   }
-  .post-toc {
-    max-inline-size: var(--al-size-measure);
-    margin-block-end: var(--al-space-8);
-    padding: var(--al-space-4) var(--al-space-5);
-    border: var(--al-border-hairline) solid var(--al-color-line);
-    border-radius: var(--al-radius-sm);
-    font-size: var(--al-text-md);
+  .site-main {
+    --zt-header: 0rem;
   }
-  .post-toc__title {
-    font-size: var(--al-text-base);
-    font-weight: var(--al-weight-medium);
-    margin-block-end: var(--al-space-2);
+  .post {
+    min-inline-size: 0;
   }
-  .post-toc ul {
-    list-style: none;
-    margin: 0;
-    padding-inline-start: var(--al-space-4);
-  }
-  .post-toc > ul {
-    padding: 0;
+  .post-toc ul ul a {
+    padding-inline-start: var(--al-space-6);
+    font-size: var(--al-text-xs);
   }
   .post-tags {
     display: flex;
@@ -1365,25 +1357,32 @@
     border: var(--al-border-hairline) solid var(--al-color-line);
     border-radius: var(--al-radius-sm);
   }
-  .site-prose pre:not(.mermaid) {
-    padding: var(--al-space-4) var(--al-space-5);
+  .site-prose pre:not(.zt-mermaid__source) {
+    padding: var(--al-space-4);
+    overflow-x: auto;
     border: var(--al-border-hairline) solid var(--al-color-line);
     border-radius: var(--al-radius-sm);
     background: var(--al-color-surface-sunk);
-    font-size: var(--al-text-base);
-    line-height: var(--al-leading-ui);
-    overflow-x: auto;
+    font-family: var(--al-font-mono);
+    font-size: var(--al-text-sm);
+    line-height: 1.7;
+    direction: ltr;
+    text-align: start;
+    tab-size: 2;
+  }
+  .site-prose .al-code pre {
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
   }
   .site-prose pre code {
-    font-size: inherit;
+    font: inherit;
   }
-  .site-prose pre > code[data-lang]::before {
-    content: attr(data-lang);
-    display: block;
-    margin-block-end: var(--al-space-2);
-    font-size: var(--al-text-xs);
-    color: var(--al-color-text-muted);
-    text-align: end;
+  .site-prose .al-code__bar {
+    font-family: var(--al-font-sans);
+    font-size: var(--al-text-base);
+    line-height: var(--al-leading-ui);
   }
   .site-prose :not(pre) > code {
     padding: 0.1em 0.35em;

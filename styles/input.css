@@ -361,29 +361,19 @@
     color: var(--al-color-text-muted);
   }
 
-  .post-toc {
-    max-inline-size: var(--al-size-measure);
-    margin-block-end: var(--al-space-8);
-    padding: var(--al-space-4) var(--al-space-5);
-    border: var(--al-border-hairline) solid var(--al-color-line);
-    border-radius: var(--al-radius-sm);
-    font-size: var(--al-text-md);
+  /* The contents, beside the post (the theme's zt-doc-layout). The site's header
+     doesn't stick, so the contents and a heading linked to stop near the top. */
+  .site-main {
+    --zt-header: 0rem;
   }
 
-  .post-toc__title {
-    font-size: var(--al-text-base);
-    font-weight: var(--al-weight-medium);
-    margin-block-end: var(--al-space-2);
+  .post {
+    min-inline-size: 0;
   }
 
-  .post-toc ul {
-    list-style: none;
-    margin: 0;
-    padding-inline-start: var(--al-space-4);
-  }
-
-  .post-toc > ul {
-    padding: 0;
+  .post-toc ul ul a {
+    padding-inline-start: var(--al-space-6);
+    font-size: var(--al-text-xs);
   }
 
   .post-tags {
@@ -541,29 +531,38 @@
     border-radius: var(--al-radius-sm);
   }
 
-  /* Code: the system's code panel, coloured by js/highlight.js where it knows the language. */
-  .site-prose pre:not(.mermaid) {
-    padding: var(--al-space-4) var(--al-space-5);
+  /* Code: the system's code block (components/code), as the theme's .zt-prose has it:
+     js/code.js wraps each <pre> in .al-code, with a bar naming its language and a
+     copy button; js/highlight.js colours it where it knows the language. */
+  .site-prose pre:not(.zt-mermaid__source) {
+    padding: var(--al-space-4);
+    overflow-x: auto;
     border: var(--al-border-hairline) solid var(--al-color-line);
     border-radius: var(--al-radius-sm);
     background: var(--al-color-surface-sunk);
-    font-size: var(--al-text-base);
-    line-height: var(--al-leading-ui);
-    overflow-x: auto;
+    font-family: var(--al-font-mono);
+    font-size: var(--al-text-sm);
+    line-height: 1.7;
+    direction: ltr;
+    text-align: start;
+    tab-size: 2;
+  }
+
+  .site-prose .al-code pre {
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
   }
 
   .site-prose pre code {
-    font-size: inherit;
+    font: inherit;
   }
 
-  /* The language, at the top. Zola writes it on the <code> (data-lang). */
-  .site-prose pre > code[data-lang]::before {
-    content: attr(data-lang);
-    display: block;
-    margin-block-end: var(--al-space-2);
-    font-size: var(--al-text-xs);
-    color: var(--al-color-text-muted);
-    text-align: end;
+  .site-prose .al-code__bar {
+    font-family: var(--al-font-sans);
+    font-size: var(--al-text-base);
+    line-height: var(--al-leading-ui);
   }
 
   .site-prose :not(pre) > code {
