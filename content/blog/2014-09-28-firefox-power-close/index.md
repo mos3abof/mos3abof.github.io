@@ -25,13 +25,7 @@ After installation, this icon will appear as a button in your browser.
 Press on it, and an input field will appear. Write the keyword or domain name in
 it and press enter, and voila!
 
-{{
-  image(
-    srcs=["icon.png", "1_IRXZxyKWj1vd4DpaT1Fl8g.png"], 
-    size="2xl",
-    text="Click on the icon, then use the plugin!"
-  )
-}}
+{{ <image srcs={["icon.png", "1_IRXZxyKWj1vd4DpaT1Fl8g.png"]} size="2xl" text="Click on the icon, then use the plugin!" /> }}
 
 ## What’s next for "Power Close"
 

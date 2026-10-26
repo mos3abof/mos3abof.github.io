@@ -2,13 +2,13 @@
 title = "Arabesque for Zola"
 weight = 2
 description = "A Zola theme built on the Arabesque design system"
-template = "projects/page.html"
+template = "project.html"
 
 [extra]
 year = "2026"
-cover = "cover.png"
+image = "cover.png"
 website = "https://arabesquelabs.github.io/zola-theme-arabesque/"
-github = "https://github.com/ArabesqueLabs/zola-theme-arabesque"
+source = "https://github.com/ArabesqueLabs/zola-theme-arabesque"
 +++
 
 A theme for the static site generator [Zola](https://www.getzola.org) that brings the

@@ -3,13 +3,7 @@ title = "2018: State of the Union"
 date = "2019-01-13T00:00:00Z"
 +++
 
-{{
-  image(
-    src="mosab-london-bridge.jpg", 
-    size="full", 
-    text="Standing on Millennium Bridge, London, United Kingdom"
-  )
-}}
+{{ <image src="mosab-london-bridge.jpg" size="full" text="Standing on Millennium Bridge, London, United Kingdom" /> }}
 
 The last year, 2018, has been a very busy year for me, I barely had a break! I
 am going to list what has been accomplished, and important milestones very
@@ -45,13 +39,7 @@ scalability.
 
 ### The Year of The Good Reads
 
-{{ 
-  image(
-    src="2018-good-reads.png",
-    size="lg",
-    text="2018 Good Reads Challenge Results"
-  )
-}}
+{{ <image src="2018-good-reads.png" size="lg" text="2018 Good Reads Challenge Results" /> }}
 
 This year, I started with a pledge to read 10 books on the annual Good Reads
 challenge. I ended up [reading 18
@@ -79,14 +67,7 @@ of it with me. But I managed to grow this portion into a little library over the
 past year and 2 months. I have expanded both the hard copy books, my Kindle book
 collection, and ebooks from other sources like Packt Publishing.
 
-{{
-  image(
-    size="lg",
-    src="small-library-berlin.jpg", 
-    size="2xl",
-    text="My small library in Berlin"
-  )
-}}
+{{ <image size="lg" src="small-library-berlin.jpg" size="2xl" text="My small library in Berlin" /> }}
 
 ### The year of “Finished” Online Courses
 
@@ -205,39 +186,21 @@ Apollo mission -among other things- that was absolutely mesmerizing, had fish
 and chips at “Sherlock” restaurant in Baker Street, had Egyptian pies, and
 overall great times.
 
-{{ 
-  image(
-    src="sherlock-fish-and-chips.jpg", 
-    size="full",
-    text="Sherlock fish and chips restaurant, Baker Street, London"
-  )
-}}
+{{ <image src="sherlock-fish-and-chips.jpg" size="full" text="Sherlock fish and chips restaurant, Baker Street, London" /> }}
 
 There was also a magical weekend that was well spent in Vienna, Austria. A
 friend of mine was visiting another country in Europe, and we spontaneously
 agreed to meet in Vienna for a weekend. A friend of his was amazing and gave us
 shelter at his house, and took great care of us during the entire visit.
 
-{{
-  image(
-    src="vienna-party.jpg",
-    size="2xl",
-    text="A party in Vienna, Austria"
-  )
-}}
+{{ <image src="vienna-party.jpg" size="2xl" text="A party in Vienna, Austria" /> }}
 
 During the 4 days trip to Amsterdam for the second interview at Booking, I took
 some time to meet some friends in Amsterdam. I also visited Haarlem since it is
 a popular residential place for families and met another friend living there who
 took me on a tour of the city. The Netherlands is always a delight to visit.
 
-{{ 
-  image(
-    src="booking-office-view.jpg",
-    size="full",
-    text="The view from one of Booking.com’s offices"
-  )
-}}
+{{ <image src="booking-office-view.jpg" size="full" text="The view from one of Booking.com’s offices" /> }}
 
 ### First Tax Declaration!
 
@@ -268,13 +231,7 @@ account every month without requiring me to intervene.
 
 ### New Laptop Sticker
 
-{{
-  image(
-    src="2018-laptop-stickers.jpg",
-    size="2xl",
-    text="My laptop sticker collection"
-    )
-}}
+{{ <image src="2018-laptop-stickers.jpg" size="2xl" text="My laptop sticker collection" /> }}
 
 This year, I bought a new personal laptop, and of course, needed some stickers
 to decorate it. I bought some stickers from Sticker Mule and got others from
@@ -308,8 +265,8 @@ countless occasions, often on short notice. Thank you, neighbours/friends!
 
 ### A Friend Visited from Egypt
 
-{{ image(src="osama-shoenefeld.jpg", alt="Picking Osama, on the right, from Schönefeld
-airport") }}
+{{ <image src="osama-shoenefeld.jpg" alt="Picking Osama, on the right, from Schönefeld
+airport" /> }}
 
 In 2018, my friend Osama visited me from Egypt as part of a Euro-trip he had.
 Unfortunately, we coudln’t spend as much time together as we hoped to because of

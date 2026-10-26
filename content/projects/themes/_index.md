@@ -1,5 +1,6 @@
 +++
 title = "Themes"
 sort_by = "weight"
-template = "projects/section.html"
+template = "projects.html"
+page_template = "project.html"
 +++

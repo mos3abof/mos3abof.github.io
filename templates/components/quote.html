@@ -1,0 +1,50 @@
+{#-
+  quote: styled block quote with an optional attribution line. (Replaces
+  the theme's quote component, which takes name and role.)
+
+  Usage:
+    {% <quote> %}Quote text.{% </quote> %}
+    {% <quote author="Ibn Khaldun" dir="rtl"> %}النص.{% </quote> %}
+
+  Parameters:
+    author (string, optional) Attribution shown below the quote after an em dash.
+    dir    (string, optional) Text direction: "ltr" or "rtl".
+                             Defaults to the current page language.
+                             Use dir="ltr" to force LTR inside an Arabic page,
+                             e.g. for English quotes embedded in Arabic posts.
+    size   (string, optional) Tailwind text-size suffix for the quote body,
+                             e.g. "xl" (default), "2xl", "lg".
+    font   (string, optional) Additional CSS class applied to the quote body,
+                             e.g. a font utility class like "amiri" or "scheherazade-new".
+
+  Body:
+    The quoted text. Line breaks are kept.
+-#}
+{%- component quote(author: string = "", dir: string = "", size: string = "", font: string = "", @lang: string) -%}
+{%- set quote_dir = dir if dir else ("rtl" if lang == "ar" else "ltr") -%}
+<figure class="my-8" dir="{{ quote_dir }}">
+  <blockquote
+    class="relative py-6 px-8 not-italic rounded-lg border-teal-600 border-s-4 bg-slate-100 dark:bg-slate-900">
+    <span class="absolute top-2
+      {% if lang == 'ar' and not dir %}right-3{% else %}left-3{% endif %}
+      text-teal-600/20
+      text-8xl
+      font-serif
+      leading-none select-none" aria-hidden="true">{% if lang == 'ar' and not dir %}«{% else %}"{% endif %}
+    </span>
+    <div class="not-italic leading-loose
+            text-slate-700 dark:text-slate-200
+            font-medium space-y-4
+            text-{% if size %}{{ size }}{% else %}xl{% endif %}
+            {% if font %}{{ font }}{% endif %}">
+      {{- body | trim | newlines_to_br | safe -}}
+    </div>
+    {%- if author %}
+    <figcaption class="px-8 mt-2 text-xl italic text-slate-500 dark:text-slate-400" dir="{{ quote_dir }}">
+      <br />
+      &#8212; {{ author | safe }}
+    </figcaption>
+    {%- endif %}
+  </blockquote>
+</figure>
+{%- endcomponent quote -%}

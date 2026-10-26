@@ -9,12 +9,7 @@ tags = ["يا بنت يا اللي", "نعناع الجنينة"]
 comments = true
 +++
 
-{{
-  image(
-    srcs=["amira-drawing-1.jpg", "amira-drawing-2.jpg"],
-    size="full"
-  )
-}}
+{{ <image srcs={["amira-drawing-1.jpg", "amira-drawing-2.jpg"]} size="full" /> }}
 
 زوجتي العزيزة أميرة قامت برسم كائن ما -من الزهرة على الأرجح- ومازالت مقتنعة حتى
 لحظة كتابة هذه السطور أنه يشبهني تمام الشبه!!

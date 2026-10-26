@@ -1,24 +1,23 @@
 {% if page.extra.comments | default(value=true) %}
 {% set path_parts = page.relative_path | split(pat="/") %}
-{% set dir_parts = path_parts | slice(end=-1) %}
-{% set dir_path = dir_parts | join(sep="/") %}
+{% set dir_path = path_parts[:-1] | join(sep="/") %}
 {% set comments_data = load_data(path="content/" ~ dir_path ~ "/comments.toml", required=false) %}
 
-<section class="pt-10 mt-12 border-t border-slate-200 dark:border-slate-700" dir="{{ res.settings_direction }}"
-  aria-label="{{ res.comments_title }}">
+<section class="pt-10 mt-12 border-t border-slate-200 dark:border-slate-700" dir="{{ dir }}"
+  aria-label="{{ t.comments_title }}">
   <h2 class="mb-1 text-4xl font-medium text-slate-900 dark:text-slate-200">
-    {{ res.comments_title }}<span class="text-3xl leading-none text-teal-600">.</span>
+    {{ t.comments_title }}<span class="text-3xl leading-none text-teal-600">.</span>
   </h2>
 
   {% if comments_data and comments_data.comments %}
 
-  {% if comments_data.comments | filter(attribute="comment_url") | length > 0 %}
+  {% if [c for c in comments_data.comments if c.comment_url] | length > 0 %}
   <p class="flex gap-1.5 items-center mb-8 text-xs text-slate-400 dark:text-slate-500">
     <svg xmlns="http://www.w3.org/2000/svg" class="inline w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none"
       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
     </svg>
-    {{ res.comments_blogger_note }}
+    {{ t.comments_blogger_note }}
   </p>
   {% endif %}
 
@@ -28,11 +27,8 @@
     {%- set is_author = comment.is_author | default(value=false) -%}
 
     {%- if lang == "ar" -%}
-    {%- set formatted_date = comment.date | date(format="%-d %B، %Y · %-I:%M %p", locale="ar_EG") -%}
-    {%- set formatted_date = formatted_date | replace(from="0", to="٠") | replace(from="1", to="١") | replace(from="2",
-    to="٢") | replace(from="3", to="٣") | replace(from="4", to="٤") | replace(from="5", to="٥") | replace(from="6",
-    to="٦") | replace(from="7", to="٧") | replace(from="8", to="٨") | replace(from="9", to="٩") | replace(from="AM",
-    to="ص") | replace(from="PM", to="م") -%}
+    {#- ar_EG writes Arabic digits, and ص and م for AM and PM, itself. #}
+    {%- set formatted_date = comment.date | date(format="d MMMM، y · h:mm a", locale="ar_EG") -%}
     {%- else -%}
     {%- set formatted_date = comment.date | date(format="%b %-d, %Y · %-I:%M %p") -%}
     {%- endif -%}
@@ -67,7 +63,7 @@
               {% endif %}
               {% if is_author %}
               <span class="text-xs font-normal text-teal-600 opacity-80 dark:text-teal-500 ms-1.5">
-                {{ res.comments_post_author }}
+                {{ t.comments_post_author }}
               </span>
               {% endif %}
             </span>
@@ -80,8 +76,8 @@
               {% if comment.comment_url %}
               <a href="{{ comment.comment_url }}"
                 class="transition-colors hover:text-teal-500 text-slate-300 dark:text-slate-600 dark:hover:text-teal-400"
-                target="_blank" rel="noopener noreferrer" title="{{ res.comments_view_original }}"
-                aria-label="{{ res.comments_view_original }}">
+                target="_blank" rel="noopener noreferrer" title="{{ t.comments_view_original }}"
+                aria-label="{{ t.comments_view_original }}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                   aria-hidden="true">
@@ -118,8 +114,8 @@
       stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
     </svg>
-    <p class="font-semibold text-base text-slate-500 dark:text-slate-400">{{ res.comments_empty_heading }}</p>
-    <p class="text-sm">{{ res.comments_empty_body }}</p>
+    <p class="font-semibold text-base text-slate-500 dark:text-slate-400">{{ t.comments_empty_heading }}</p>
+    <p class="text-sm">{{ t.comments_empty_body }}</p>
   </div>
 
   {% endif %}

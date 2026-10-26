@@ -1,23 +1,25 @@
-{% if lang == config.default_language %}{% set home_path = "/" %}{% else %}{% set home_path = "/" ~ lang ~ "/" %}{% endif %}
-{# Site footer: the design system's al-footer. Social profiles are icons
-   (partials/social-icons.html): the system's icon sprite has no brand marks. #}
+{#- Site footer (overrides the theme's): the name and copyright, the
+    footer links (extra.footer.links), the social profiles as icons
+    (partials/social-icons.html), and the glider below. -#}
+{%- set footer = config.extra.footer -%}
+{%- set year = now() | date(format="y", locale=t.date_locale) -%}
+{%- set copyright = footer.copyright | get(key=lang, default="© %year") | replace(from="%year", to=year) -%}
 <div class="al-page">
   <footer class="al-footer">
     <p class="site-footer__sign">
-      <a class="al-lockup" href="{{ get_url(path=home_path) }}">{{ res.site_name }}</a>
+      <a class="al-lockup" href="{{ home_url | safe }}">{{ t.site_name }}</a>
       <span class="site-footer__sep" aria-hidden="true">|</span>
-      <span>{{ res.copyright }}</span>
+      <span>{{ copyright }}</span>
     </p>
-    <nav class="site-footer__links" aria-label="{{ res.aria_menu }}">
+    <nav class="site-footer__links" aria-label="{{ t.footer_nav }}">
       <ul class="al-footer__links">
-        {% for item in res.footer_pages %}
-        {% if lang == config.default_language %}{% set path = item.url %}{% else %}{% set path = "/" ~ lang ~ item.url %}{% endif %}
-        <li><a href="{{ get_url(path=path) }}">{{ item.title }}</a></li>
-        {% endfor %}
+        {%- for item in footer.links | get(key=lang, default=[]) %}
+        <li><a href="{{ <zt.url path={item.url} /> | safe }}">{{ item.name }}</a></li>
+        {%- endfor %}
       </ul>
     </nav>
     {% include "partials/social-icons.html" %}
-    <a class="site-emblem" href="http://www.catb.org/hacker-emblem/" title="{{ res.glider_title }}" aria-label="{{ res.glider_title }}">
+    <a class="site-emblem" href="http://www.catb.org/hacker-emblem/" title="{{ t.glider_title }}" aria-label="{{ t.glider_title }}">
       {% include "partials/glider.html" %}
     </a>
   </footer>

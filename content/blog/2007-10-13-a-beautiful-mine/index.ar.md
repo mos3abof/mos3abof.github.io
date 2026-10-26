@@ -9,7 +9,7 @@ tags = ["يا بنت يا اللي"]
 comments = true
 +++
 
-{{ image(src="beautifullmine.jpg", size="2xl") }}  
+{{ <image src="beautifullmine.jpg" size="2xl" /> }}  
 
 قبل ما تيجي أنا عاوزك تعرفي حاجة مهمة أوي..  
   
@@ -32,9 +32,9 @@ comments = true
 
 وهتلاقيني بأقول :  
 
-{% quote(dir="ltr") %}
+{% <quote dir="ltr"> %}
 “It's only in the mysterious equation of love that any logical reasons can be found. I'm only here tonight because of you. You are the only reason I am... you are all my reasons.”  
-{% end %}
+{% </quote> %}
   
 يا اللي لسة ما ظهرتيش  
 مشتاقلك .. بس خايف عليكي مني..

@@ -9,7 +9,7 @@ tags = ["شيء من بعيد ناداني", "افتح قلبك", "أشكي لم
 comments = true
 +++
 
-{{ image(src="Corbis-CB052484.jpg") }}
+{{ <image src="Corbis-CB052484.jpg" /> }}
 
 [نُشر على موقع عشرينات](http://www.20at.com/mosab/forYouFather.jpg)
 

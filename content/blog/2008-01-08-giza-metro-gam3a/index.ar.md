@@ -9,7 +9,7 @@ tags = ["نعناع الجنينة", "في دايرة الرحلة", "شبابي
 comments = true
 +++
 
-{{ image(src="metro.jpg", size="full") }}  
+{{ <image src="metro.jpg" size="full" /> }}  
 
 (1)  
   

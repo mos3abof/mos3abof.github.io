@@ -2,13 +2,13 @@
 title = "آرابيسك لزولا"
 weight = 2
 description = "سمة لزولا مبنية على نظام التصميم آرابيسك"
-template = "projects/page.html"
+template = "project.html"
 
 [extra]
 year = "2026"
-cover = "cover.png"
+image = "cover.png"
 website = "https://arabesquelabs.github.io/zola-theme-arabesque/"
-github = "https://github.com/ArabesqueLabs/zola-theme-arabesque"
+source = "https://github.com/ArabesqueLabs/zola-theme-arabesque"
 +++
 
 سمة لمولّد المواقع الثابتة [Zola](https://www.getzola.org) تنقل

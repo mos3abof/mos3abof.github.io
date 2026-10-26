@@ -9,7 +9,7 @@ tags = ["في دايرة الرحلة", "الجيرة والعشرة"]
 comments = true
 +++
 
-{{ image(src="20atBirthDay.jpg", size="full") }}  
+{{ <image src="20atBirthDay.jpg" size="full" /> }}  
 
 [عشرينات](http://www.20at.com/newArticle.php?sid=6967)  حبي الكبير  
 

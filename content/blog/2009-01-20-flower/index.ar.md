@@ -16,6 +16,6 @@ comments = true
   
 أميرة ..  
   
-{{ image(src="iLoveYou.jpg", size="2xl") }}  
+{{ <image src="iLoveYou.jpg" size="2xl" /> }}  
 
 بس خلاص ;)

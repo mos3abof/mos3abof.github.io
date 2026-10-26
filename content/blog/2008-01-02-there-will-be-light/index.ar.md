@@ -9,11 +9,11 @@ tags = ["يا بنت يا اللي", "بحر الحياة"]
 comments = true
 +++
 
-{{ image(src="sunRise.jpg", size="full") }}  
+{{ <image src="sunRise.jpg" size="full" /> }}  
 
 خير اللهم اجعله خير 2008 بدأت!..  
   
-{{ sep(style="arabic", gap="lg") }}
+{{ <separator style="arabic" gap="lg" /> }}
 
 من بين غصون كتيرة مشبكة.. جاي "ضي”..  
 صدقوني جاي "ضي”..  

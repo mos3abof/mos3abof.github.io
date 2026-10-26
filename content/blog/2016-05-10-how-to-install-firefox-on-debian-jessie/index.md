@@ -3,7 +3,7 @@ title = "How To Install Firefox On Debian Jessie"
 date = "2016-05-10T00:00:00Z"
 +++
 
-{{ image(src="firefox-iceweasel-debian.png", alt="logos", size="full") }}
+{{ <image src="firefox-iceweasel-debian.png" alt="logos" size="full" /> }}
 
 _Iceweasel_ is great, but I prefer _Firefox_.
 

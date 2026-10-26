@@ -4,7 +4,7 @@ date = "2019-06-26T00:00:00Z"
 draft = true
 +++
 
-{{ image(src="filing-system.jpg", alt="Photo by Samuel Zeller on Unsplash") }}
+{{ <image src="filing-system.jpg" alt="Photo by Samuel Zeller on Unsplash" /> }}
 
 > **Disclaimer: This is a Work In Progress. More updates will come in the future
 > to this piece.**
@@ -48,7 +48,7 @@ requirement.
 
 ## Components of the System
 
-{{ image(src="filing-system-sketch.png", alt="Filing system sketch") }}
+{{ <image src="filing-system-sketch.png" alt="Filing system sketch" /> }}
 
 ### Staging Area
 

@@ -8,7 +8,7 @@ tags = ["أتحدى لياليك", "طفي النور يا بهية"]
 [extra]
 comments = true
 +++
-{{ image(src="436649726_4dc4b1d00a.jpg", size="full") }}  
+{{ <image src="436649726_4dc4b1d00a.jpg" size="full" /> }}  
 
 عزيزتي مصر.. تحية طيبة وبعد،  
   

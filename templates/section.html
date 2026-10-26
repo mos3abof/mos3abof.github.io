@@ -1,32 +1,25 @@
-{% extends "base.html" %}
+{%- extends "base.html" -%}
 
-{% block main_content %}
-  {% if section.extra.section_path %}
-    {% set section = get_section(path=section.extra.section_path) %}
-  {% endif %}
+{#- A section: its title, then its pages as the archive lists them, a page
+    of them at a time when it's paginated. -#}
 
-  {% block title %}
-    {{ post_macros::page_header(title=section.title) }}
-  {% endblock title %}
+{%- block main %}
+<div class="al-page site-main">
+  {{ <site.title text={section.title} /> }}
 
-  {% block post_list %}
-    {% if paginator %}
-      {% set show_pages = paginator.pages %}
-    {% else %}
-      {% set show_pages = section.pages %}
-    {% endif %}
+  {%- if paginator is defined %}{% set pages = paginator.pages %}{% else %}{% set pages = section.pages %}{% endif %}
+  {%- include "partials/post_list.html" %}
 
-    {{ post_macros::list_posts(pages=show_pages) }}
-  {% endblock post_list %}
-
-  {% if paginator and (paginator.next or paginator.previous) %}
+  {#- Newest first: the next page holds older posts, so it's "previous". #}
+  {%- if paginator is defined and (paginator.next or paginator.previous) %}
   <nav class="al-cluster al-cluster--between post-pagination">
-    {% if paginator.next %}
-    <a href="{{ paginator.next }}" class="al-link">{{ res.previous_posts }}</a>
-    {% else %}<span></span>{% endif %}
-    {% if paginator.previous %}
-    <a href="{{ paginator.previous }}" class="al-link">{{ res.next_posts }}</a>
-    {% endif %}
+    {%- if paginator.next %}
+    <a href="{{ paginator.next | safe }}" class="al-link">{{ t.previous_posts }}</a>
+    {%- else %}<span></span>{% endif %}
+    {%- if paginator.previous %}
+    <a href="{{ paginator.previous | safe }}" class="al-link">{{ t.next_posts }}</a>
+    {%- endif %}
   </nav>
-  {% endif %}
-{% endblock main_content %}
+  {%- endif %}
+</div>
+{%- endblock main %}

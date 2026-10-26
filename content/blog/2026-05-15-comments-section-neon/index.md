@@ -25,7 +25,7 @@ send it.
 
 I have been meaning to fix that for a while. This weekend I finally did.
 
-{{ sep(style="dingbats", gap="sm") }}
+{{ <separator style="dingbats" gap="sm" /> }}
 
 The core problem with comments on a static site is that a static site has no
 server. When you hit "submit" on a form, something has to catch the request,
@@ -48,7 +48,7 @@ did.
 
 The shape of the solution at a glance:
 
-{% mermaid() %}
+{% <mermaid> %}
 flowchart LR
     subgraph Browser
         A[Comment Form]
@@ -76,7 +76,7 @@ flowchart LR
     BW -->|SELECT approved| D
     BW -->|zola build| R
     R --> S([Live Site])
-{% end %}
+{% </mermaid> %}
 
 A form on the page posts JSON to a Cloudflare Worker. The Worker validates the
 input, checks a Turnstile CAPTCHA token, hashes the email and IP, and inserts
@@ -90,7 +90,7 @@ repository.
 
 ## The submission flow in detail
 
-{% mermaid() %}
+{% <mermaid> %}
 sequenceDiagram
     actor User
     participant Form
@@ -115,7 +115,7 @@ sequenceDiagram
     W-->>Form: 201 {ok: true}
     W-)GH: open issue (pending review)
     Form-->>User: "Comment posted!"
-{% end %}
+{% </mermaid> %}
 
 Before inserting, the Worker normalises line endings to `<br />` so that
 paragraph breaks in the comment body render correctly in the Zola template,
@@ -127,7 +127,7 @@ commenter does not wait for it.
 
 ## The approval flow
 
-{% mermaid() %}
+{% <mermaid> %}
 sequenceDiagram
     actor Me
     participant GH as GitHub Issues
@@ -147,7 +147,7 @@ sequenceDiagram
     DB-->>B: rows grouped by post_slug
     B->>B: write comments.toml, zola build
     B->>B: deploy to gh-pages
-{% end %}
+{% </mermaid> %}
 
 The approval workflow runs only when the label is added by the repository owner,
 checked via `github.actor == github.repository_owner`. Anyone else adding the
@@ -155,7 +155,7 @@ label causes the job to be skipped entirely.
 
 ## The build pipeline
 
-{% mermaid() %}
+{% <mermaid> %}
 sequenceDiagram
     participant GH as GitHub Actions
     participant A as Build Action
@@ -170,7 +170,7 @@ sequenceDiagram
     Note over A: files exist only in the CI workspace
     A->>A: zola build (reads .toml files)
     A->>R: deploy ./public to gh-pages
-{% end %}
+{% </mermaid> %}
 
 The export script is plain Python with `psycopg2` and `tomli-w`. It queries
 every approved comment, groups them by `post_slug`, and writes one `comments.toml`
@@ -253,7 +253,7 @@ new source means the display layer never needs to change.
 
 So the build step exists to bridge two worlds:
 
-{% mermaid() %}
+{% <mermaid> %}
 flowchart LR
     subgraph live [Live world]
         direction TB
@@ -264,7 +264,7 @@ flowchart LR
         X[export script] --> T[comments.toml] --> Z[Zola] --> P[HTML page]
     end
     DB -->|SELECT at build time| X
-{% end %}
+{% </mermaid> %}
 
 The export script is the only thing that crosses the boundary. It runs at the
 start of every build — whether triggered by a push to `main` or by the approval
@@ -313,7 +313,7 @@ The visitor IP is treated the same way.
 
 The security layers in sequence:
 
-{% mermaid() %}
+{% <mermaid> %}
 flowchart TD
     R[Incoming request] --> C1{Correct origin?}
     C1 -->|no| X1[403 Forbidden]
@@ -326,7 +326,7 @@ flowchart TD
     C4 -->|yes| C5{Turnstile passes?}
     C5 -->|no| X5[400 CAPTCHA failed]
     C5 -->|yes| OK[Insert pending + open issue]
-{% end %}
+{% </mermaid> %}
 
 Every comment lands in the database as `pending` and is invisible until I
 approve it. The approval mechanism is a GitHub issue: the Worker opens one for

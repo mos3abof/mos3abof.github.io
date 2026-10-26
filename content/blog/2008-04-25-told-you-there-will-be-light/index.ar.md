@@ -9,7 +9,7 @@ tags = ["يا بنت يا اللي"]
 comments = true
 +++
 
-{{ image(src="engaged.jpg", size="full") }}  
+{{ <image src="engaged.jpg" size="full" /> }}  
 
 مش قلت لكم [جاي "ضي"][1]..  
 

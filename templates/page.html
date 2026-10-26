@@ -1,7 +1,112 @@
-{% extends "base.html" %}
+{%- extends "base.html" -%}
 
-{% block extra_head %}{% endblock extra_head %}
+{#- A post or a page, on the theme's base: its title, when, by whom and in
+    which section it was posted, its contents when it asks for them
+    (extra.toc = true), its text and tags; on a post, its comments and the
+    posts either side. -#}
 
-{% block main_content %}
-  {{ post_macros::content(page=page) }}
-{% endblock main_content %}
+{%- block main %}
+{%- set is_post = "blog/_index.md" in page.ancestors or "blog/_index.ar.md" in page.ancestors %}
+<div class="al-page site-main">
+<article class="post">
+  <header class="post-head">
+    {{ <site.title text={page.title} /> }}
+
+    {%- if page.date %}
+    {%- set author = page.extra.author | default(value=config.extra.author_ar if lang == "ar" else config.extra.author) %}
+    <p class="post-meta">
+      {{ t.posted_on }}
+      {{ <site.date value={page.date} class="post-meta__date" /> }}
+      {%- if author %}
+      <span aria-hidden="true">·</span> {{ t.written_by }} <bdi>{{ author }}</bdi>
+      {%- endif %}
+      {#- The section it's in, if not the home page. #}
+      {%- if page.ancestors | length > 1 %}
+      {%- set in_section = get_section(path=page.ancestors[-1], metadata_only=true) %}
+      <span aria-hidden="true">·</span> {{ t.posted_in }}
+      <a href="{{ in_section.permalink | safe }}" class="al-link al-link--muted">{{ in_section.title }}</a>
+      {%- endif %}
+    </p>
+    {%- endif %}
+
+    {%- if page.draft %}
+    <span class="al-badge al-badge--warning">{{ t.draft }}</span>
+    {%- endif %}
+    {#- As the theme's page.html, for templates that extend this one (its project.html). #}
+    {%- block doc_head %}{% endblock doc_head %}
+  </header>
+
+  {%- if page.extra.toc | default(value=false) and page.toc %}
+  <nav class="post-toc" aria-labelledby="post-toc-title">
+    <h2 id="post-toc-title" class="post-toc__title">{{ t.table_of_contents }}</h2>
+    <ul>
+      {%- for h1 in page.toc %}
+      <li>
+        <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+        {%- if h1.children %}
+        <ul>
+          {%- for h2 in h1.children %}
+          <li>
+            <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+            {%- if h2.children %}
+            <ul>
+              {%- for h3 in h2.children %}
+              <li><a href="{{ h3.permalink | safe }}">{{ h3.title }}</a></li>
+              {%- endfor %}
+            </ul>
+            {%- endif %}
+          </li>
+          {%- endfor %}
+        </ul>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </nav>
+  {%- endif %}
+
+  <div class="site-prose">
+    {{ page.content | safe }}
+  </div>
+
+  {%- if page.taxonomies.tags %}
+  <p class="post-tags">
+    {%- for tag in page.taxonomies.tags %}
+    <a href="{{ get_taxonomy_url(kind='tags', term=tag, lang=lang) | safe }}" class="al-link al-link--muted">#{{ tag }}</a>
+    {%- endfor %}
+  </p>
+  {%- endif %}
+
+  {%- if is_post %}
+  {% include "partials/comments.html" %}
+  {% include "partials/comment-form.html" %}
+  {%- endif %}
+
+  {%- if is_post and (page.lower or page.higher) %}
+  <nav class="post-pager" aria-label="{{ t.post_list }}">
+    <div class="post-pager__prev">
+      {%- if page.higher %}
+      <a href="{{ page.higher.permalink | safe }}" rel="prev">
+        <span class="post-pager__label">{{ t.prev_post }}</span>
+        <span class="post-pager__title">{{ page.higher.title }}</span>
+      </a>
+      {%- endif %}
+    </div>
+    <a href="{{ get_url(path='@/blog/_index.md', lang=lang) | safe }}" class="post-pager__archive al-link al-link--muted">{{ t.post_list }}</a>
+    <div class="post-pager__next">
+      {%- if page.lower %}
+      <a href="{{ page.lower.permalink | safe }}" rel="next">
+        <span class="post-pager__label">{{ t.next_post }}</span>
+        <span class="post-pager__title">{{ page.lower.title }}</span>
+      </a>
+      {%- endif %}
+    </div>
+  </nav>
+  {%- endif %}
+</article>
+</div>
+{%- endblock main %}
+
+{%- block scripts %}
+<script src="{{ get_url(path='js/main.js') }}" defer></script>
+{%- endblock scripts %}

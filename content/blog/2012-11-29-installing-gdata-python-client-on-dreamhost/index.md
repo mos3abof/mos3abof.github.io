@@ -80,7 +80,7 @@ great help : [DreamHost SSH][dreamhost ssh]
 Here is my final script that I wrote, and I set up a cron job to run it every
 morning:
 
-{{gist(user='mos3abof', gist=4164654)}}
+{{ <gist user="mos3abof" gist="4164654" /> }}
 
 Happy Gdata programming on Dreamhost :)
 

@@ -1,0 +1,78 @@
+{#- Embeds the theme has no component for: a Komoot tour, a Strava
+    activity summary and a LibraryThing shelf. (YouTube, gists, Instagram,
+    PDFs and Mermaid are the theme's.) Always left to right, so the
+    widgets look right on Arabic pages too. -#}
+
+{#-
+  komoot embeds a Komoot tour.
+
+  Usage:
+    {{ <komoot tour_id="636080427" /> }}
+
+  Parameters:
+    tour_id (string) Komoot tour ID from the tour URL.
+    width   (string, optional) iframe width.  Default: "100%".
+    height  (string, optional) iframe height. Default: "680".
+    profile (bool,   optional) Show elevation profile. Default: true.
+-#}
+{%- component komoot(tour_id: string, width: string = "100%", height: string = "680", profile: bool = true) -%}
+<div class="komoot-embed" dir="ltr">
+  <iframe
+    src="https://www.komoot.com/tour/{{ tour_id }}/embed?{% if profile %}profile=1{% endif %}"
+    width="{{ width }}"
+    height="{{ height }}"
+    frameborder="0"
+    scrolling="no">
+  </iframe>
+</div>
+{%- endcomponent komoot -%}
+
+{#-
+  strava embeds a Strava athlete activity-summary widget.
+
+  Usage:
+    {{ <strava athlete_id="60680051" token="9b24178edb4091c708c0ab0685680dbedc141f7b" /> }}
+
+  Parameters:
+    athlete_id (string) Strava numeric athlete ID.
+    token      (string) Widget authentication token from the embed URL.
+    width      (string, optional) iframe width.  Default: "300".
+    height     (string, optional) iframe height. Default: "160".
+-#}
+{%- component strava(athlete_id: string, token: string, width: string = "300", height: string = "160") -%}
+<div class="strava-widget" dir="ltr">
+  <iframe
+    src="https://www.strava.com/athletes/{{ athlete_id }}/activity-summary/{{ token }}"
+    width="{{ width }}"
+    height="{{ height }}"
+    frameborder="0"
+    allowtransparency="true"
+    scrolling="no">
+  </iframe>
+</div>
+{%- endcomponent strava -%}
+
+{#-
+  librarything embeds a LibraryThing shelf widget.
+
+  Usage:
+    {{ <librarything userid="mos3abof" widget_id="w5c391d23d61cdeb5dce7204ad839286e" /> }}
+
+  Parameters:
+    userid    (string) LibraryThing username.
+    widget_id (string) Widget ID from the LibraryThing embed code.
+-#}
+{%- component librarything(userid: string, widget_id: string) -%}
+<div class="my-8 librarything-widget" dir="ltr">
+  <div id="{{ widget_id }}"></div>
+  <script
+    type="text/javascript"
+    charset="UTF-8"
+    src="https://www.librarything.com/widget_get.php?userid={{ userid }}&theID={{ widget_id }}">
+  </script>
+  <noscript>
+    <a href="https://www.librarything.com/catalog.php?view={{ userid }}&shelf=shelf">My Library</a>
+    on <a href="https://www.librarything.com">LibraryThing</a>
+  </noscript>
+</div>
+{%- endcomponent librarything -%}

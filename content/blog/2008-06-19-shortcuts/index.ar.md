@@ -9,7 +9,7 @@ tags = ["بحر الحياة", "يا بنت يا اللي"]
 comments = true
 +++
 
-{{ image(src="42-15440216.jpg", size="2xl") }}  
+{{ <image src="42-15440216.jpg" size="2xl" /> }}  
 
 (1)  
   

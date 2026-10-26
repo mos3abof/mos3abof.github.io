@@ -2,13 +2,13 @@
 title = "أداة تتبع ساعات العمل Toggl Target"
 weight = 10
 description = "أداة تسهّل حساب عدد ساعات العمل اليومية المطلوبة للوصول إلى هدف شهري محدد، باستخدام الواجهة البرمجية لمنصة Toggl."
-template = "projects/page.html"
+template = "project.html"
 aliases = ["/ar/projects/01-toggl-target/"]
 
 [extra]
 year = "2013"
-cover = "cover.jpg"
-github = "https://github.com/mos3abof/toggl_target"
+image = "cover.jpg"
+source = "https://github.com/mos3abof/toggl_target"
 +++
 
 أداة تستخدم الواجهة البرمجية لمنصة [Toggl](https://www.toggl.com) لحساب عدد ساعات العمل المطلوبة يوميا للوصول إلى هدف شهري محدد. تحسب الأداة الساعات المتبقية في الشهر وتوزعها على أيام العمل المتبقية.

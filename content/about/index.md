@@ -3,11 +3,7 @@ title = "About"
 assets = ["mosab-child.png"]
 +++
 
-{{ image(
-  src="mosab-first-computer.png",
-  text="The first ever personal computer I owned, more than a couple decades ago!",
-  size="2xl"
-) }}
+{{ <image src="mosab-first-computer.png" text="The first ever personal computer I owned, more than a couple decades ago!" size="2xl" /> }}
 
 I am a resourceful and passionate Software & Systems Engineer with two decades
 of experience, I have honed my skills in designing, developing, operating, and
@@ -25,30 +21,19 @@ create and share ideas and information instantly without barriers. I have also
 held positions at [GoCardless][3], [Levelset][4], [Wuzzuf][5], [Inmobly][6],
 20@, and other great companies.
 
-{{
-  image(
-    srcs = [
+{{ <image srcs={[
           "mosab-reading.png",
           "mosab-child.png",
           "mosab-young.png",
-    ],
-    size = "full"
-  )
-}}
+    ]} size="full" /> }}
 
-{{
-  image(
-    srcs = [
+{{ <image srcs={[
           "mosab-and-burger.png",
           "mosab-london-bridge.png",
           "mosab-01.jpg"
-    ],
-    size = "full",
-    text = "Here are some pictures of me over time.
+    ]} size="full" text="Here are some pictures of me over time.
             That burger in there was the very first meal to buy with my
-            very first salary writing software programs!"
-  )
-}}
+            very first salary writing software programs!" /> }}
 
 Throughout my career, I have consistently sought out opportunities to push my
 own boundaries and continue learning and growing as a Software & Systems
@@ -60,16 +45,10 @@ As I move forward in my career, I am excited to continue pushing myself to new
 heights, making meaningful contributions, and developing innovative solutions
 to complex problems.
 
-{{
-  image(
-    srcs = ["baraa-and-i-protest.png", "baraa-and-i-cafe.png"],
-    size = "2xl",
-    text = "Baraa, my best friend (RIP). On the left, Baraa and I were attending
+{{ <image srcs={["baraa-and-i-protest.png", "baraa-and-i-cafe.png"]} size="2xl" text="Baraa, my best friend (RIP). On the left, Baraa and I were attending
             our first *documented* protest.
             The fuzzy picture on the right was in our favourite cage.
-            Phone cameras were not that good back then!"
-  )
-}}
+            Phone cameras were not that good back then!" /> }}
 
 When not working, you can find me spending time with my lovely family or on my
 [hobbies](/hobbies) of [reading](/hobbies/reading),

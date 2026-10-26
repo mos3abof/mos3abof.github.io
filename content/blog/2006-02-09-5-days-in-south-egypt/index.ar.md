@@ -9,7 +9,7 @@ tags = ["في دايرة الرحلة", "شبابيك", "اخرج م البيب�
 comments = true
 +++
 
-{{ image(src="./qa3r-masr.jpg") }}
+{{ <image src="./qa3r-masr.jpg" /> }}
 
 مش عارف ايه اللي خلاني أكتب عنها دلوقتي!  
 

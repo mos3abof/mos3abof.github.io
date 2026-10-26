@@ -1,0 +1,10 @@
+{#- A project's year, a link to its site, and its source as GitHub's mark:
+    set `pr`. (The theme's names the source in words.) -#}
+{%- set x = pr.extra -%}
+{%- if x.year or x.website or x.source %}
+<p class="zt-project__links">
+  {%- if x.year %}<span class="zt-project__year">{{ <zt.icon name="calendar" class="al-icon--sm" /> }}<bdi>{{ x.year }}</bdi></span>{% endif %}
+  {%- if x.website %}<a class="al-link zt-project__link" href="{{ x.website }}" target="_blank" rel="noopener">{{ t.project_website }}{{ <zt.icon name="external" class="al-icon--sm" /> }}</a>{% endif %}
+  {%- if x.source %}<a class="zt-project__link project-link-icon" href="{{ x.source }}" target="_blank" rel="noopener" aria-label="{{ t.project_source_github }}" title="{{ t.project_source_github }}">{{ <zt.icon name="github" /> }}</a>{% endif %}
+</p>
+{%- endif %}

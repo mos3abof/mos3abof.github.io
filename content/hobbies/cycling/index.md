@@ -6,7 +6,7 @@ I recently got into cycling, and will update this page with some interesting
 details soon. In the meantime though, will leave you with some pictures of my
 new bike, the [Cannondale Topstone 2][1] below.
 
-{{ image(src="topstone.png", size="2xl") }}
+{{ <image src="topstone.png" size="2xl" /> }}
 
 Check out my [first metric century ride](/blog/first-metric-century/)!
 
@@ -16,41 +16,27 @@ Also, let's connect on
 * [Komoot][3], and
 * [Strava][4].
 
-{{
-  image(
-    srcs = ["topstone-2-1.jpeg", "topstone-2-2.jpeg"],
-    size="full"
-  )
-}}
+{{ <image srcs={["topstone-2-1.jpeg", "topstone-2-2.jpeg"]} size="full" /> }}
 
-{{
-  image(
-    srcs = ["topstone-2-3.jpeg", "topstone-2-4.jpeg"],
-    size="full",
-    text="My Cannondale Topstone Gravel Bike"
-  )
-}}
+{{ <image srcs={["topstone-2-3.jpeg", "topstone-2-4.jpeg"]} size="full" text="My Cannondale Topstone Gravel Bike" /> }}
 
 ## Activities on Strava
 
-{{
-  strava(athlete_id="60680051",
-  token="9b24178edb4091c708c0ab0685680dbedc141f7b")
-}}
+{{ <strava athlete_id="60680051" token="9b24178edb4091c708c0ab0685680dbedc141f7b" /> }}
 
 ## Routes
 
-{{ komoot(tour_id="636080427") }}
+{{ <komoot tour_id="636080427" /> }}
 
 ## Videos
 
 Here are some of the cycling videos I recorded
 
-{{youtube(id="kbq9XcBJdQk")}}
+{{ <youtube id="kbq9XcBJdQk" /> }}
 
-{{youtube(id="O0s0MB4IKCw")}}
+{{ <youtube id="O0s0MB4IKCw" /> }}
 
-{{youtube(id="U4LP-4IYHtg")}}
+{{ <youtube id="U4LP-4IYHtg" /> }}
 
 [1]: https://www.cannondale.com/en-gb/bikes/road/gravel/topstone-alloy/topstone-2
 [2]: https://connect.garmin.com/modern/profile/18583322-eb7e-4f3f-8179-705ed2de5438

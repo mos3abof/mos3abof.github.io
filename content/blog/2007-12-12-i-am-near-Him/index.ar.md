@@ -9,7 +9,7 @@ tags = ["الله يا دايم"]
 comments = true
 +++
 
-{{ image(src="i_still_love_him_but_i_forgot.jpg") }}  
+{{ <image src="i_still_love_him_but_i_forgot.jpg" /> }}  
 
 اتقابلوا مرة  
   
@@ -23,7 +23,7 @@ comments = true
   
 وسابه ومشي، وساب معاه بداية فرج..  
   
-{{ sep(style="bullets", gap="lg") }}
+{{ <separator style="bullets" gap="lg" /> }}
   
 بعد سنة في نفس المكان،  
   

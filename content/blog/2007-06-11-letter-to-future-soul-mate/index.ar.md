@@ -9,7 +9,7 @@ tags=["نعناع الجنينة"]
 comments = true
 +++
 
-{{ image(src="confused.jpg") }}  
+{{ <image src="confused.jpg" /> }}  
 
 رفيقة دربي  
 وملكة قلبي التي لم أرها بعد  

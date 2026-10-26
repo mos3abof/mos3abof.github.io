@@ -9,7 +9,7 @@ tags = ["الجيرة والعشرة", "افتح قلبك", "في دايرة ا�
 comments = true
 +++
 
-{{ image(src="IMG_2429.jpg", size="fule") }}  
+{{ <image src="IMG_2429.jpg" size="fule" /> }}  
   
 قبل ما أكتب وأعترف،  
 بيرو حبيبي..  
