@@ -2,13 +2,13 @@
 title = "Arabesque for Docusaurus"
 weight = 1
 description = "A Docusaurus theme built on the Arabesque design system"
-template = "projects/page.html"
+template = "project.html"
 
 [extra]
 year = "2026"
-cover = "cover.png"
+image = "cover.png"
 website = "https://docusaurus.arabesquelabs.com/"
-github = "https://github.com/arabesqueLabs/docusaurus-theme-arabesque"
+source = "https://github.com/arabesqueLabs/docusaurus-theme-arabesque"
 +++
 
 A Docusaurus 3 theme that brings the [Arabesque design system](@/projects/arabesque-design-system/index.md)

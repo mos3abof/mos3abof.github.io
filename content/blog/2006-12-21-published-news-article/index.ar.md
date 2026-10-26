@@ -9,13 +9,7 @@ tags = ["في دايرة الرحلة"]
 comments = true
 +++
 
-{{
-  image(
-    src="kalmeny.jpg",
-    text="امبارح كان عمري سطرين",
-    link="https://wanamaly.blogspot.com/2006/11/blog-post_30.html"
-  )
-}}
+{{ <image src="kalmeny.jpg" text="امبارح كان عمري سطرين" link="https://wanamaly.blogspot.com/2006/11/blog-post_30.html" /> }}
 
 العدد بتاع امبارح (الأربعاء الموافق العشرين من ديسمبر لعام 2006 م) من جرنان
 الدستور نزل لي فيه أول "نصف مقال صغير متواضع" في صفحة "كلمني شكرا" ...  

@@ -1,6 +1,12 @@
 IMAGE = ghcr.io/mos3abof/ubuntu-lualatex
 TAG = latest
 
+# The Zola theme, vendored into themes/arabesque/ rather than a submodule (jj
+# has no submodules). THEME_REF is a branch, tag or commit.
+THEME_REPO ?= https://github.com/ArabesqueLabs/zola-theme-arabesque
+THEME_REF ?= main
+THEME_DIR ?= themes/arabesque
+
 # Resume build settings
 RESUME_DIR ?= resume
 RESUME_NAME ?= MosabIbrahim
@@ -42,6 +48,20 @@ copy-fonts:
 	cp -r ./fonts/* ./static/fonts/
 	cp ./fonts/arabic/font-faces.css ./static/css/font-faces.css
 
+# Replace the vendored theme with THEME_REF's: its templates, static files,
+# highlighting themes, theme.toml, README and licence (not its demo site),
+# and a VERSION file saying which commit it is. Don't edit the copy: change
+# the theme upstream, or override its files in templates/ and static/.
+vendor-theme:
+	set -e; src=$$(mktemp -d); \
+	git clone --quiet $(THEME_REPO).git $$src; \
+	git -C $$src checkout --quiet $(THEME_REF); \
+	rm -rf ./$(THEME_DIR); mkdir -p ./$(THEME_DIR); \
+	cp -R $$src/templates $$src/static $$src/highlighting ./$(THEME_DIR)/; \
+	cp $$src/theme.toml $$src/README.md $$src/LICENSE ./$(THEME_DIR)/; \
+	echo "zola-theme-arabesque $$(git -C $$src log -1 --format='%h (%cs)'), vendored from $(THEME_REPO) ($(THEME_REF)). Don't edit; replace with make vendor-theme THEME_REF=<ref>." > ./$(THEME_DIR)/VERSION; \
+	rm -rf $$src
+
 # Create a CNAME file needed for domain owbership verification.
 create-cname-file:
 	mkdir -p ./public
@@ -52,5 +72,5 @@ clean-files: clean-resume
 	rm -rf ./public/*
 	rm -rf ./static/fonts/*
 
-.PHONY: compile-css build-resume clean-resume copy-fonts create-cname-file clean-files
+.PHONY: compile-css build-resume clean-resume copy-fonts vendor-theme create-cname-file clean-files
 ## [END] Common Make commands

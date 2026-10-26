@@ -1,17 +1,13 @@
-{% extends "base.html" %}
+{%- extends "base.html" -%}
 
-{% block main_content %}
-  {% block title %}
-    {{ post_macros::page_header(title=term.name | capitalize) }}
-  {% endblock title %}
+{#- One term: the pages that have it, as the archive lists them. -#}
 
-  {% block post_list %}
-      {%- if paginator %}
-        {%- set show_pages = paginator.pages -%}
-      {% else %}
-        {%- set show_pages = term.pages -%}
-      {% endif -%}
+{%- block title %}{{ term.name }} · {{ config.title }}{% endblock title -%}
 
-      {{ post_macros::list_posts(pages=show_pages) }}
-  {% endblock post_list %}
-{% endblock main_content %}
+{%- block main %}
+<div class="al-page site-main">
+  {{ <site.title text={term.name | capitalize} /> }}
+  {%- if paginator is defined %}{% set pages = paginator.pages %}{% else %}{% set pages = term.pages %}{% endif %}
+  {%- include "partials/post_list.html" %}
+</div>
+{%- endblock main %}

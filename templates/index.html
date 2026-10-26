@@ -1,9 +1,12 @@
-{% extends "base.html" %}
+{%- extends "base.html" -%}
 
 {# The highlighter colours are the design system's tints (al-highlight with
    data-tint): identity, never status. Interests are marks; hobbies and the
    two calls to action are links. #}
-{% block main_content %}
+{%- block title %}{{ config.title }} · {{ config.description | trim }}{% endblock title -%}
+
+{%- block main %}
+<div class="al-page site-main">
 <section class="home-intro">
   <div class="home-intro__text">
     {% if lang == "ar" %}
@@ -72,4 +75,5 @@
     alt="{% if lang == 'ar' %}صورة لي أدخن سيجارًا{% else %}A picture of me smoking a cigar{% endif %}"
     width="579" height="579" />
 </section>
-{% endblock main_content %}
+</div>
+{%- endblock main %}

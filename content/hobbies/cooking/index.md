@@ -9,4 +9,4 @@ something, but the result more than justifies it.
 Will be adding more content here, but for now, here is one picture from my
 instagram account.
 
-{{ instagram(id="B0v64qDHmpG") }}
+{{ <instagram id="B0v64qDHmpG" /> }}

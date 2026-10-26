@@ -9,7 +9,7 @@ tags = ["نعناع الجنينة"]
 comments = true
 +++
 
-{{ image(src="pepsiAndKetchup.jpg", size="2xl") }}  
+{{ <image src="pepsiAndKetchup.jpg" size="2xl" /> }}  
 
 أمام كشك صغير بيبيع حاجة ساقعة وقفت أنا وأسامة بعد مشوار رخم، نظر هو للزجاجة في
 يده وقال :  

@@ -2,13 +2,13 @@
 title = "Arabesque"
 weight = 1
 description = "A design system for Arabesque Labs LTD"
-template = "projects/page.html"
+template = "project.html"
 
 [extra]
 year = "2026"
-cover = "cover.jpg"
+image = "cover.jpg"
 website = "https://design.arabesquelabs.com"
-github = "https://github.com/ArabesqueLabs/design-system"
+source = "https://github.com/ArabesqueLabs/design-system"
 +++
 
 I built this design system for Arabesque Labs to set the standard for every

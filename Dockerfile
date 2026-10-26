@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.licenses=MIT
 LABEL org.opencontainers.image.source="https://github.com/mos3abof/mos3abof.github.io"
 
 # Construct url for zola binary
-ENV ZOLA_VERSION="0.19.2"
+ENV ZOLA_VERSION="0.23.6"
 ENV ZOLA_URL="https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
 
 # Install apt packages

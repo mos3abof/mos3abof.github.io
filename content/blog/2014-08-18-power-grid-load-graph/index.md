@@ -3,9 +3,9 @@ title = "Heading For The Dark Ages!"
 date = "2014-08-18T04:00:00Z"
 +++
 
-{% quote() %}
+{% <quote> %}
 tl;dr? Check the graph at the end of the post
-{% end %}
+{% </quote> %}
 
 In Egypt we are having an electricity crisis. It started in Mubrak's presidency,
 the dude ousted by the great Jan 2011 Revolution. After his removal, the crises
@@ -37,12 +37,7 @@ grid. He said that the meter did not provide any way to be processed
 programmatically, like an API, and he invited his fellow programmers to try and
 do so.
 
-{{
-  image(
-    src="Screen-Shot-2014-08-06-at-19.59.15-222x300.png",
-    text="EGYPTERA Load Meter"
-  )
-}}
+{{ <image src="Screen-Shot-2014-08-06-at-19.59.15-222x300.png" text="EGYPTERA Load Meter" /> }}
 
 I liked the idea very much, and worked on a [web
 application](http://www.gridstatusnow.com/) that parses the meter data and
@@ -61,13 +56,7 @@ for the past 7 days and a half about the load status every 10 minutes.
 
 When I plotted it using D3js, the output was scary!
 
-{{
-  image(
-    src="15061405582_bb8de1c0cc_n.jpg", 
-    size="2xl",
-    text="Load Distribution Graph"
-  )
-}}
+{{ <image src="15061405582_bb8de1c0cc_n.jpg" size="2xl" text="Load Distribution Graph" /> }}
 
 Each row represents a day, and every block stands for an hour of the day
 starting at 12 am and finishing at 12 am the next day.

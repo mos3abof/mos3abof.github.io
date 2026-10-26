@@ -1,0 +1,11 @@
+{#- In <head>: the theme's (partials/head.html), with one change. A page
+    without an image of its own (extra.image) is shared with the first image
+    beside it, as the site's pages always were; the theme's then falls back
+    to extra.social.image. -#}
+{%- if page is defined and page.extra.image is not defined -%}
+{%- set images = [a for a in page.assets if (a | split(pat=".") | last | lower) in ["jpg", "jpeg", "png", "webp", "gif"]] -%}
+{%- if images | length > 0 -%}
+{%- set current = {...current, "extra": {...current.extra, "image": images[0] | split(pat="/") | last}} -%}
+{%- endif -%}
+{%- endif -%}
+{% include "arabesque/templates/partials/head.html" %}

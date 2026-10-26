@@ -9,7 +9,7 @@ tags = ["يا بنت يا اللي"]
 comments = true
 +++
 
-{{ image(src="mosab.jpg", size="2xl") }}
+{{ <image src="mosab.jpg" size="2xl" /> }}
 
  الثالث عشر من مارس عام 2009..  
 أصبح عمري 23 عاما  
@@ -17,7 +17,7 @@ comments = true
 وأدرك أن الله يحبنا أكثر مما نتخيل،  
 وأَنَّ القمر جميلٌ.. كطلعة وردة، وأني وسيم . . لأني لديكِ!**  
   
-{{ sep(style="arabic", gap="lg") }}
+{{ <separator style="arabic" gap="lg" /> }}
 
 * الصورة من يوم سابق أحبه جدا..  
 ** شكرا محمود درويش

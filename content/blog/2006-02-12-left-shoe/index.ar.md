@@ -9,7 +9,7 @@ tags = ["نعناع الجنينة"]
 comments = true
 +++
 
-{{ image(src="./Phil_Shoe.jpg", size="md") }}
+{{ <image src="./Phil_Shoe.jpg" size="md" /> }}
 
 من صغري و قبل ما أعرف إن ده من السنة ، كنت بأحب آكل بايدي اليمين ..  
 

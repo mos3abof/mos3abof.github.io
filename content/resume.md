@@ -2,8 +2,7 @@
 title = "Resume"
 +++
 
-Download [my resume <i class="mdi mdi-file-pdf-box text-slate-600 mdi-96px>
-  my-auto dark:text-slate-300 align-middle"></i>](/files/MosabIbrahim.pdf).
+Download [my resume {{ <zt.icon name="file" /> }}](/files/MosabIbrahim.pdf).
 
 With two decades of experience as a Software & Systems Engineer, I've built a
 career on designing, deploying, and maintaining high-performance systems at

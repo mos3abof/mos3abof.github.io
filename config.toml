@@ -8,8 +8,9 @@ description = "an oddly wired brain!"
 # The default language; used in feeds.
 default_language = "en"
 
-# The site theme to use.
-# theme = "apollo"
+# The site theme to use: vendored in themes/arabesque/ (make vendor-theme).
+# templates/ and static/ override its files of the same name.
+theme = "arabesque"
 
 # Whether dotfiles at the root level of the output directory are preserved when (re)building the site.
 # Enabling this also prevents the deletion of the output folder itself on rebuilds.
@@ -101,8 +102,8 @@ smart_punctuation = false
 # For example, `![xx](...)` is ok but `![*x*x](...)` isn’t ok
 lazy_async_image = true
 
-[markdown.highlighting]
-theme = "nord"
+# No highlighting at build time: the design system's script (js/highlight.js,
+# run by the theme's) colours code in the browser, in its own syntax colours.
 
 ###################################################################################################################
 ###################################################################################################################
@@ -215,14 +216,157 @@ build_search_index = false
 #     author = "Famous author"
 #
 # author value will be available using {{ config.extra.author }} in templates
+#
+# The theme's settings and their defaults are in themes/arabesque/theme.toml:
+# tables merge key by key with these, so only what differs is set here.
 [extra]
-# Path to the language resource files
-path_language_resources = "i18n/"
-home_posts_limit = 50
 author = "Mosab Ibrahim"
 author_ar = "مصعب إبراهيم"
+favicon = "images/favicon.ico"
+# After the design system's and the theme's: the Arabic faces (copied from
+# fonts/ by make copy-fonts), then the site's own (built by Tailwind).
+stylesheets = ["css/font-faces.css", "css/style.css"]
 # Comments system
 # Get the site key from dash.cloudflare.com → Turnstile after creating a widget for mosab.co.uk
 turnstile_site_key = "0x4AAAAAADPjTVV4b4KS6DQY"
 # URL of your deployed Cloudflare Worker (see comments/worker/wrangler.toml)
 comments_api_url = "https://api.mosab.co.uk/comments"
+
+# The header's links. Home is the lockup; keep this to four.
+[extra.menu]
+en = [
+  { name = "Posts", url = "@/blog/_index.md" },
+  { name = "Projects", url = "@/projects/_index.md" },
+  { name = "Resume", url = "@/resume.md" },
+  { name = "About", url = "@/about/index.md" },
+]
+ar = [
+  { name = "تدويناتي", url = "@/blog/_index.md" },
+  { name = "مشاريعي", url = "@/projects/_index.md" },
+  { name = "من أنا", url = "@/about/index.md" },
+]
+
+[extra.header]
+logo = "images/logo.png"
+sticky = false
+
+[extra.page]
+# Posts show their contents only when they ask for it (extra.toc = true).
+toc_min_headings = 0
+reading_time = false
+
+[extra.social]
+image = "images/mosab-cigar.png"
+image_alt = "Mosab Ibrahim"
+twitter_site = "@mos3abof"
+twitter_creator = "@mos3abof"
+fediverse_creator = "@mos3abof@fosstodon.org"
+same_as = [
+  "https://www.github.com/mos3abof",
+  "https://fosstodon.org/@mos3abof",
+  "https://www.linkedin.com/in/mosab",
+  "https://twitter.com/mos3abof",
+  "https://www.youtube.com/@mos3abof13",
+  "https://www.instagram.com/mos3abof",
+  "https://www.facebook.com/mos3abof",
+]
+
+[extra.footer.links]
+en = [
+  { name = "Talks", url = "@/talks/index.md" },
+  { name = "Contact", url = "@/contact.md" },
+]
+ar = [
+  { name = "سيرتي الذاتية", url = "@/resume.md" },
+  { name = "تواصل معي", url = "@/contact.md" },
+]
+
+# %year is this year, in the language's own digits.
+[extra.footer.copyright]
+en = "© %year"
+ar = "© %year"
+
+# The site's words, beside the theme's (theme.toml's [extra.i18n]).
+[extra.i18n.en]
+date_format = "MMM dd, y"
+date_locale = "en_US"
+project_website = "Homepage"
+project_source = "Source code"
+site_name = "Mosab Ibrahim"
+glider_title = "The glider: the hacker emblem"
+post_list = "Archive"
+previous_posts = "← Prev"
+next_posts = "Next →"
+not_found_header = "The page you requested could not be found."
+not_found_text = "Oops! Seems like this page vanished into the internet abyss. Maybe it's on vacation? Please check the URL or ping me, and I'll see if I can locate it, or at least send out a search party."
+aria_to_homepage = "Go to homepage"
+posted_on = "Posted on"
+written_by = "by"
+posted_in = "in"
+table_of_contents = "Table of Contents"
+prev_post = "Previous post"
+next_post = "Next post"
+project_cover = "Screenshot of %title"
+project_source_github = "Source code on GitHub"
+comments_title = "Comments"
+comments_blogger_note = "Historical comments imported from Blogger"
+comments_post_author = "post author"
+comments_view_original = "View original comment on Blogger"
+comments_empty_heading = "No comments yet"
+comments_empty_body = "Be the first to share your thoughts."
+comment_form_title = "Leave a comment"
+comment_form_name_label = "Name"
+comment_form_name_placeholder = "Your name"
+comment_form_email_label = "Email (optional)"
+comment_form_email_placeholder = "Used for your avatar only (never shown publicly)"
+comment_form_website_label = "Website (optional)"
+comment_form_website_placeholder = "https://your-site.com"
+comment_form_text_label = "Comment"
+comment_form_text_placeholder = "Share your thoughts…"
+comment_form_close = "Close comment form"
+comment_form_submit = "Post comment"
+comment_form_submitting = "Posting…"
+comment_form_success = "Your comment has been posted and will appear on the site shortly."
+comment_form_error = "Something went wrong. Please try again."
+
+[extra.i18n.ar]
+date_format = "d MMMM، y"
+date_locale = "ar_EG"
+project_website = "الصفحة الرئيسية"
+project_source = "المصدر"
+site_name = "مصعب إبراهيم"
+glider_title = "الطائرة الشراعية: شعار الهاكرز"
+post_list = "الأرشيف"
+previous_posts = "→ السابق"
+next_posts = "التالي ←"
+not_found_header = "الصفحة التي تبحث عنها غير موجودة"
+not_found_text = "يبدو أن هذه الصفحة قد اختفت في متاهة الإنترنت! تحقق من الرابط، أو عُد إلى الصفحة الرئيسية."
+aria_to_homepage = "الصفحة الرئيسية"
+posted_on = "نُشِرَت في"
+written_by = "بقلم"
+posted_in = "في"
+table_of_contents = "المواضيع"
+prev_post = "التدوينة السابقة"
+next_post = "التدوينة التالية"
+project_cover = "لقطة شاشة من %title"
+project_source_github = "المصدر على GitHub"
+comments_title = "تعليقات"
+comments_blogger_note = "تعليقات تاريخية مستوردة من مدوّنة Blogger"
+comments_post_author = "صاحب التدوينة"
+comments_view_original = "عرض التعليق الأصلي على Blogger"
+comments_empty_heading = "لا تعليقات بعد"
+comments_empty_body = "كن أول من يشارك رأيه."
+comment_form_title = "اترك تعليقاً"
+comment_form_name_label = "الاسم"
+comment_form_name_placeholder = "اسمك"
+comment_form_email_label = "البريد الإلكتروني (اختياري)"
+comment_form_email_placeholder = "يُستخدم للصورة الشخصية فقط، ولن يُنشر"
+comment_form_website_label = "الموقع الإلكتروني (اختياري)"
+comment_form_website_placeholder = "https://موقعك.com"
+comment_form_text_label = "التعليق"
+comment_form_text_placeholder = "شاركنا أفكارك…"
+comment_form_close = "إغلاق نموذج التعليق"
+comment_form_submit = "نشر التعليق"
+comment_form_submitting = "جارٍ النشر…"
+comment_form_success = "تم نشر تعليقك وسيظهر على الموقع قريباً."
+comment_form_error = "حدث خطأ ما. يرجى المحاولة مرة أخرى."

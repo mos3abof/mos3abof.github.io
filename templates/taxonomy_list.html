@@ -1,11 +1,19 @@
-{% extends "base.html" %}
+{%- extends "base.html" -%}
 
-{% block main_content %}
-  {% block title %}
-    {{ post_macros::page_header(title=taxonomy.name) }}
-  {% endblock title %}
+{#- A taxonomy's terms, with how many pages each has. -#}
 
-  {% block post_list %}
-      {{ post_macros::list_taxonomy_terms(terms=terms) }}
-  {% endblock post_list %}
-{% endblock main_content %}
+{%- block title %}{{ t | get(key="taxonomy_" ~ taxonomy.name, default=taxonomy.name | capitalize) }} · {{ config.title }}{% endblock title -%}
+
+{%- block main %}
+<div class="al-page site-main">
+  {{ <site.title text={taxonomy.name} /> }}
+  <ul class="post-list">
+    {%- for term in terms %}
+    <li class="post-list__item post-list__item--term">
+      <a href="{{ term.permalink | safe }}" class="post-list__title">{{ term.name }}</a>
+      <span class="post-list__date">{{ term.pages | length }}</span>
+    </li>
+    {%- endfor %}
+  </ul>
+</div>
+{%- endblock main %}

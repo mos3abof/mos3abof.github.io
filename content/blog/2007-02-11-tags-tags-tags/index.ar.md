@@ -9,13 +9,7 @@ tags = ["الجيرة والعشرة", "شبابيك"]
 comments = true
 +++
 
-{{
-  image(
-    src="293033676_07c2730bfc.jpg",
-    alt="تاجلت",
-    size="2xl"
-  )
-}}
+{{ <image src="293033676_07c2730bfc.jpg" alt="تاجلت" size="2xl" /> }}
 
 `أنا اتبعتلي تلات تاجات.. واحد من
 [كريم](http://kprogramer.wordpress.com/2007/01/28/%25d9%2583%25d8%25b1%25d8%25b3%25d9%2589-%25d8%25a5%25d8%25b9%25d8%25aa%25d8%25b1%25d8%25a7%25d9%2581-%25d8%25b5%25d8%25a8%25d8%25a7%25d8%25ad%25d9%2589-%25d9%2585%25d9%2586-%25d8%25a3%25d8%25ad%25d9%2585%25d8%25af-%25d9%2585%25d8%25a8%25d8%25b1%25d9%2585%25d8%25ac-%25d8%25ad%25d8%25b1/)
@@ -24,7 +18,7 @@ comments = true
   
 أنا آسف يا كريم ويا دينا إني اتأخرت أوي في الرد عليهم بس ظروف والله.
 
-{{ sep(style="arabic", gap="lg") }}
+{{ <separator style="arabic" gap="lg" /> }}
   
 ### التاج الأول: خمس حاجات ما حدش يعرفهم عني
 
@@ -91,7 +85,7 @@ comments = true
 
 آدي يا عم كريم التاج الأول بتاعك..  
 
-{{ sep(style="arabic", gap="lg") }}
+{{ <separator style="arabic" gap="lg" /> }}
   
 ## التاج التاني
 
@@ -203,7 +197,7 @@ comments = true
 يوم 13 مارس- يوم عيد ميلادي.. بالمناسبة أنا أخرت صدور بيان مرور سنة على بداية
 مدونتي (26 يناير 2006) علشان تطلع في 13 مارس :)  
 
-{{ sep(style="arabic", gap="lg") }}
+{{ <separator style="arabic" gap="lg" /> }}
   
 ## التاج التالت من عند وئام  
   
@@ -211,10 +205,10 @@ comments = true
 ما بلاش!! بس ما علينا انتوا أحرار..  
 
 
-{% quote(lang="en") %}
+{% <quote> %}
 Software Engineering observation 11.2  
 whenever possible, specify the size of a container at compile time (possibly throught a non-type template size parameter).This avoids the the possibility of a potentially fatal executoin-time error if  new is unable to obtain the needed memory.  
-{% end %}
+{% </quote> %}
   
   
 بأمرر التاج دلوقتي ل[براء](http://wanamaly.blogspot.com/)  و[دعاء](http://bintbalad.blogspot.com/)  و[أحمد الهواري](http://fromgrave.blogspot.com/)  و[لميا](http://lamiaamahmoad4810.blogspot.com/)، دول الـcouples اللي في الليلة.. و[أحمد عبدالله](http://cerebrosus.blogspot.com/)  الشاب الفرداني :)

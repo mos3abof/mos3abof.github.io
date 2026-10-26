@@ -9,13 +9,7 @@ tags = ["الجيرة والعشرة", "افتح قلبك"]
 comments = true
 +++
 
-{{
-  image(
-    src="biroooWaAna.jpg",
-    size="full",
-    text="براء وأنا على جانب طريق العين السخنة"
-  )
-}}  
+{{ <image src="biroooWaAna.jpg" size="full" text="براء وأنا على جانب طريق العين السخنة" /> }}  
 
 "كل سنة وأنت  
 يا راجل يا أنت"  

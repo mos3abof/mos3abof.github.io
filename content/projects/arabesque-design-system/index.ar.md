@@ -2,13 +2,13 @@
 title = "آرابيسك"
 weight = 1
 description = "نظام التصميم في معامل آرابيسك"
-template = "projects/page.html"
+template = "project.html"
 
 [extra]
 year = "2026"
-cover = "cover.jpg"
+image = "cover.jpg"
 website = "https://design.arabesquelabs.com"
-github = "https://github.com/ArabesqueLabs/design-system"
+source = "https://github.com/ArabesqueLabs/design-system"
 +++
 
 

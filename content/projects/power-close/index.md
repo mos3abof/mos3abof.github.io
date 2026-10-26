@@ -2,13 +2,13 @@
 title = "Power Close"
 weight = 40
 description = "A Firefox and Chrome extension for tab addicts. Type a domain name, hit enter, and every tab open on that domain is closed instantly."
-template = "projects/page.html"
+template = "project.html"
 aliases = ["/projects/04-power-close/"]
 
 [extra]
 year = "2014"
-cover = "cover.jpg"
-github = "https://github.com/mos3abof/power-close"
+image = "cover.jpg"
+source = "https://github.com/mos3abof/power-close"
 website = "https://power-close.com"
 +++
 

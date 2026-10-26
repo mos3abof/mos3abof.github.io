@@ -163,7 +163,7 @@ folder to hold the log files.
 
 Here is a gist with the complete script:
 
-{{gist(user='mos3abof', gist=4771874)}}
+{{ <gist user="mos3abof" gist="4771874" /> }}
 
 ## Setting up a cron job to run the script
 

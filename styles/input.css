@@ -1,10 +1,27 @@
-@import "tailwindcss" source(none);
+/*
+  The cascade, lowest first: Tailwind's reset (preflight), the design
+  system's layers (arabesque.css, from the theme), the site's styles
+  (components), Tailwind's utilities; then the theme's theme.css, which is
+  unlayered, and the few site rules over it at the end of this file.
+
+  The theme's <head> loads arabesque.css before this file, so its al.*
+  layers are declared first, and Tailwind's base layer would land over
+  them. Preflight goes in a layer inside al.tokens instead: under the
+  system's base, as it always was. (Imported in parts, Tailwind doesn't
+  declare its layers' order, so it's declared here.)
+*/
+@layer theme, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(al.tokens.preflight);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
 @source "../templates";
 @source "../static/js";
 
 /* The Arabesque Labs design system's Tailwind theme: colours, type, radii
-   and breakpoints resolve to its --al-* tokens, and dark: follows data-theme. */
-@import "../static/arabesque/tailwind-theme.css";
+   and breakpoints resolve to its --al-* tokens, and dark: follows data-theme.
+   From design system 0.5.1, which the theme's 0.9.0 doesn't ship; its tokens
+   are all still there. */
+@import "./arabesque-tailwind-theme.css";
 
 /* Keep Tailwind's own text scale for the utility classes. The system's theme
    maps text-sm…text-3xl onto its tokens, which resized every template still
@@ -29,10 +46,26 @@
 
 /*
   Site styles, on the design system's tokens. They sit in the components
-  layer: over the system's own layers and under Tailwind's utilities (the
-  order is declared in templates/base.html).
+  layer: over the system's own layers and under Tailwind's utilities.
 */
 @layer components {
+  /* The type scale of design system 0.5.1, which the site was set in; 0.9.0
+     (the theme's) raised every step a little. Declared where the system
+     declares it (the root and any element with lang), so Arabic keeps its
+     larger scale. */
+  :root,
+  [lang] {
+    --al-text-xs: calc(0.75rem * var(--al-script-scale));
+    --al-text-sm: calc(0.8125rem * var(--al-script-scale));
+    --al-text-base: calc(0.9375rem * var(--al-script-scale));
+    --al-text-md: calc(1.0625rem * var(--al-script-scale));
+    --al-text-lg: calc(1.25rem * var(--al-script-scale));
+    --al-text-xl: calc(1.5rem * var(--al-script-scale));
+    --al-text-2xl: calc(clamp(1.75rem, 1.5rem + 1vw, 2.25rem) * var(--al-script-scale));
+    --al-text-3xl: calc(clamp(2rem, 1.5rem + 2vw, 3rem) * var(--al-script-scale));
+    --al-text-display: calc(clamp(2.5rem, 1.6rem + 3.6vw, 4.75rem) * var(--al-script-scale));
+  }
+
   /* The site reads larger than the system's interface default (15px), as it always has. */
   body {
     font-size: var(--al-text-md);
@@ -45,12 +78,22 @@
   /* ---- header and footer -------------------------------------------------------------------- */
 
   /* The logo is the favicon: a round avatar, so its white ground reads in dark too. */
-  .site-logo {
+  .al-site-header .zt-logo {
     inline-size: 1.75em;
     block-size: 1.75em;
     border: var(--al-border-hairline) solid var(--al-color-line);
     border-radius: var(--al-radius-full);
     background: #fff;
+  }
+
+  /* The lockup is the logo alone; the theme's wordmark is there for screen readers. */
+  .al-site-header__lockup .al-wordmark {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 
   .al-site-header__nav a,
@@ -242,7 +285,6 @@
     display: grid;
     gap: var(--al-space-1) var(--al-space-6);
     padding-block: var(--al-space-3);
-    border-block-end: var(--al-border-hairline) solid var(--al-color-line);
   }
 
   @media (min-width: 40rem) {
@@ -514,7 +556,8 @@
     font-size: inherit;
   }
 
-  .site-prose pre[data-lang]:not(.mermaid)::before {
+  /* The language, at the top. Zola writes it on the <code> (data-lang). */
+  .site-prose pre > code[data-lang]::before {
     content: attr(data-lang);
     display: block;
     margin-block-end: var(--al-space-2);
@@ -562,119 +605,9 @@
 
   /* ---- projects ----------------------------------------------------------------------------- */
 
-  .project-grid {
-    display: grid;
-    gap: var(--al-space-6);
-    margin-block-start: var(--al-space-6);
-  }
-
-  @media (min-width: 40rem) {
-    .project-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (min-width: 64rem) {
-    .project-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  .project-group {
-    margin-block-start: var(--al-space-12);
-  }
-
-  .project-group-title {
-    font-size: var(--al-text-2xl);
-    font-weight: var(--al-weight-medium);
-  }
-
-  .project-card {
-    display: flex;
-    flex-direction: column;
-    min-inline-size: 0;
-    overflow: hidden;
-    border: var(--al-border-hairline) solid var(--al-color-line);
-    border-radius: var(--al-radius-md);
-    background: var(--al-color-surface);
-    transition: border-color var(--al-duration-fast) var(--al-ease-standard);
-  }
-
-  .project-card:hover {
-    border-color: var(--al-color-control);
-  }
-
-  .project-cover {
-    display: block;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    border-block-end: var(--al-border-hairline) solid var(--al-color-line);
-    background: var(--al-color-surface-sunk);
-    text-decoration: none;
-  }
-
-  /* Anchored top-left so wide banners keep their start rather than being centre-cropped */
-  .project-cover img {
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-    object-position: left top;
-  }
-
-  /* No screenshot: the initial on the system's quiet pattern tile */
-  .project-cover-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    block-size: 100%;
-    font-family: var(--al-font-display);
-    font-size: var(--al-text-3xl);
-    color: var(--al-color-text-muted);
-    background-image: url("../arabesque/patterns/tile-quiet.svg");
-  }
-
-  @variant dark {
-    .project-cover-placeholder {
-      background-image: url("../arabesque/patterns/tile-quiet-dark.svg");
-    }
-  }
-
-  .project-body {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: var(--al-space-2);
-    padding: var(--al-space-5);
-  }
-
-  .project-title {
-    font-size: var(--al-text-xl);
-    font-weight: var(--al-weight-medium);
-  }
-
-  .project-title a {
-    text-decoration: none;
-  }
-
-  .project-title a:hover {
-    text-decoration: underline;
-    text-decoration-color: var(--al-color-accent);
-  }
-
-  .project-description {
-    flex: 1;
-    font-size: var(--al-text-md);
-    color: var(--al-color-text-muted);
-  }
-
-  .project-links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--al-space-2) var(--al-space-4);
-    margin-block-start: var(--al-space-3);
-    font-size: var(--al-text-base);
-  }
+  /* The cards are the theme's (partials/project_cards.html), set as the
+     site's at the end of this file, over theme.css. The source link is
+     GitHub's mark (partials/project_links.html). */
 
   .project-link-icon {
     display: inline-grid;
@@ -697,7 +630,6 @@
     fill: currentColor;
   }
 
-  .project-link-meta,
   .project-page-meta-year {
     display: inline-flex;
     align-items: center;
@@ -791,4 +723,90 @@
 
 .rubik {
   font-family: "Rubik", sans-serif;
+}
+
+/*
+  Over the theme's theme.css. It's unlayered, so it wins over every layer
+  above; these are unlayered too, and come after it (extra.stylesheets).
+*/
+
+/* The footer follows the content, however short the page, rather than
+   sitting at the foot of the window. */
+main {
+  flex: none;
+}
+
+/* ---- projects: the theme's cards, as the site's --------------------------------------------- */
+
+/* One column, then two, then three */
+.zt-projects {
+  grid-template-columns: minmax(0, 1fr);
+  margin-block-start: var(--al-space-6);
+}
+
+@media (min-width: 40rem) {
+  .zt-projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .zt-projects {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.zt-projects-group__title {
+  font-weight: var(--al-weight-medium);
+}
+
+.zt-project {
+  border-radius: var(--al-radius-md);
+}
+
+/* Anchored top-left so wide banners keep their start rather than being centre-cropped */
+.zt-project__cover {
+  object-position: left top;
+}
+
+.zt-project:hover .zt-card__link {
+  color: var(--al-color-text);
+}
+
+.zt-card__link:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--al-color-accent);
+}
+
+.zt-project__summary {
+  font-size: var(--al-text-md);
+}
+
+.zt-project__links {
+  margin-block-start: var(--al-space-3);
+  font-size: var(--al-text-base);
+}
+
+/* ---- separators: the theme's, with the room the site's had around them ------------------------ */
+
+.zt-separator--gap-sm {
+  --zt-separator-gap: 1.5rem;
+}
+
+.zt-separator--gap-md {
+  --zt-separator-gap: 2.5rem;
+}
+
+.zt-separator--gap-lg {
+  --zt-separator-gap: 4rem;
+}
+
+.zt-separator--gap-xl {
+  --zt-separator-gap: 6rem;
+}
+
+/* ---- embeds: an Instagram post at Instagram's own width, as the site's was --------------------- */
+
+.zt-embed--instagram {
+  max-inline-size: 540px;
 }

@@ -5,7 +5,7 @@ date = "2022-05-21T23:00:00Z"
 tags=["cycling"]
 +++
 
-{{ image(src="audax-brevet.png", text="Audax Tour De Ricky", size="full") }}
+{{ <image src="audax-brevet.png" text="Audax Tour De Ricky" size="full" /> }}
 
 Today I finished my first _**metric century**_ (a ride that is 100km or more)!
 Was riding in _**Tour De Ricky**_ audax, and it was a challenging route for me.
@@ -24,7 +24,7 @@ Here are the basic stats from the ride:
 
 And here is the ride on a map:
 
-{{ image(src="metric-century-strava.jpg", text="Metric Century Stats", size="2xl") }}
+{{ <image src="metric-century-strava.jpg" text="Metric Century Stats" size="2xl" /> }}
 
 
 ## Lessons Learned
@@ -84,8 +84,8 @@ on them later):
     whole route alone instead of doing it with a bunch of fellow colleagues, but
     that's ok.
 
-{{ image(src="metric-century-finish-line.jpg", text="At the finish line", size="2xl") }}
+{{ <image src="metric-century-finish-line.jpg" text="At the finish line" size="2xl" /> }}
 
 Here is a video about the ride:
 
-{{ youtube(id="uhsU0AqyNgM" class="w-fit") }}
+{{ <youtube id="uhsU0AqyNgM" /> }}

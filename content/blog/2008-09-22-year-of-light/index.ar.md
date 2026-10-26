@@ -22,8 +22,8 @@ while(1) {
 }  
 ```
 
-{% quote(dir="ltr") %}
+{% <quote dir="ltr"> %}
 Happy birthday, my Princess..
-{% end %}
+{% </quote> %}
 
 [1]: http://mos3abof.blogspot.com/2008/01/blog-post.html

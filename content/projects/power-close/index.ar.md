@@ -2,13 +2,13 @@
 title = "قاهر تبويبات المتصفح Power Close"
 weight = 40
 description = "إضافة لمتصفحي Firefox وChrome تُغلق دفعةً واحدة كل تبويبات المتصفح التي تنتمي إلى نطاق معيّن. اكتب اسم الموقع واضغط Enter."
-template = "projects/page.html"
+template = "project.html"
 aliases = ["/ar/projects/04-power-close/"]
 
 [extra]
 year = "2014"
-cover = "cover.jpg"
-github = "https://github.com/mos3abof/power-close"
+image = "cover.jpg"
+source = "https://github.com/mos3abof/power-close"
 website = "https://power-close.com"
 +++
 

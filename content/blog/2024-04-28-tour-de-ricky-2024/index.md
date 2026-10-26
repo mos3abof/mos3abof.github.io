@@ -6,7 +6,7 @@ date = "2024-04-28T00:00:00Z"
 tags=["cycling"]
 +++
 
-{{ image(src="tour-de-ricky-2024-banner.png", size="full", text="Tour De Ricky 2024 Banner") }}
+{{ <image src="tour-de-ricky-2024-banner.png" size="full" text="Tour De Ricky 2024 Banner" /> }}
 
 I am beyond excited to announce that I will be participating in the Tour De
 Ricky 200km (approximately 125 miles) ride event in 2024! As a beginner, yet
@@ -49,7 +49,7 @@ from which I quote:
 
 You can also watch this great video explaining what Audax is:
 
-{{ youtube(id="qreIQjtClbw" class="w-fit") }}
+{{ <youtube id="qreIQjtClbw" /> }}
 
 The Tour De Ricky event in particular offers a range of routes, 50km, 100km,
 and 200km long in distance, but I have set my sights on the 200km challenge.
@@ -88,7 +88,7 @@ this year.
 
 ## Training and Preparation
 
-{{ image(src="training-plan.png", size="2xl", text="Training Plan") }}
+{{ <image src="training-plan.png" size="2xl" text="Training Plan" /> }}
 
 While I'm excited, I'm also aware that this event requires careful preparation
 and training. Over the coming weeks and months, I will be putting in the miles,

@@ -1,0 +1,14 @@
+{#- The site's own small parts, beside the theme's (components/theme.html):
+    <site.title /> and <site.date />. -#}
+
+{#- A page's title, with the site's full stop. -#}
+{%- component site.title(text: string) -%}
+<h1 class="page-title">{{ text }}<span class="page-title__dot" aria-hidden="true">.</span></h1>
+{%- endcomponent site.title -%}
+
+{#- A date in the language's words and its own digits (the theme's
+    <zt.date /> keeps Latin digits), in a <time>. -#}
+{%- component site.date(value, class: string = "", @config: map, @lang: string) -%}
+{%- set t = config.extra.i18n | get(key=lang, default=config.extra.i18n.en) -%}
+<time{% if class %} class="{{ class }}"{% endif %} datetime="{{ value }}">{{ value | date(format=t.date_format, locale=t.date_locale) }}</time>
+{%- endcomponent site.date -%}

@@ -2,13 +2,13 @@
 title = "صانع جاليري صور Dir2HTML"
 weight = 20
 description = "أداة Python تُنشئ صفحة جاليري صور بتنسيق Bootstrap من مجلد صور محلي، لإنشاء ألبوم ويب بخطوة واحدة."
-template = "projects/page.html"
+template = "project.html"
 aliases = ["/ar/projects/02-dir2html/"]
 
 [extra]
 year = "2018"
-cover = "cover.jpg"
-github = "https://github.com/mos3abof/dir2html"
+image = "cover.jpg"
+source = "https://github.com/mos3abof/dir2html"
 website = "https://pypi.org/project/dir2html/"
 +++
 

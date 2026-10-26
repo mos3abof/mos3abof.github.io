@@ -9,7 +9,7 @@ tags = ["يا بنت يا اللي", "نعناع الجنينة"]
 comments = true
 +++
 
-{{ image(src="salad-plate-art.jpg", size="2xl") }}
+{{ <image src="salad-plate-art.jpg" size="2xl" /> }}
 
 في مرة كنت بأتغدى أنا و[أميرة][1] وعملت طبق السلطة بتاعي كده :)
 

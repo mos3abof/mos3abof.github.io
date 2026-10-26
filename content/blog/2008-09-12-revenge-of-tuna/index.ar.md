@@ -9,7 +9,7 @@ tags = ["بحر الحياة", "نعناع الجنينة"]
 comments = true
 +++
 
-{{ image(src="chilli_tuna.jpg", size="xl") }}  
+{{ <image src="chilli_tuna.jpg" size="xl" /> }}  
 
 جريمة لا تغتفر..  
   
