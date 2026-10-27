@@ -1,5 +1,8 @@
 +++
 title = "Cooking"
+
+[extra]
+full_width = true
 +++
 
 I am not a good cook, but I am a decent hacker/researcher! I keep hunting for a

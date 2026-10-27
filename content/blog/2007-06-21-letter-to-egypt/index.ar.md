@@ -7,6 +7,7 @@ tags = ["أتحدى لياليك", "طفي النور يا بهية"]
 
 [extra]
 comments = true
+full_width = true
 +++
 {{ <image src="436649726_4dc4b1d00a.jpg" size="full" /> }}  
 

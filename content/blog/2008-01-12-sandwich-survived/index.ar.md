@@ -7,6 +7,7 @@ tags = ["بحر الحياة"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="HU059498.jpg" size="full" /> }}  

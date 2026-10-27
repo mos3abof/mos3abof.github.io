@@ -26,51 +26,42 @@
                              (true, the default), or show each one whole,
                              sized by its aspect ratio to share one height.
 
-  Its output has no blank lines: Markdown would end the figure at one.
+  Styled in css/components.css. Its output has no blank lines: Markdown
+  would end the figure at one.
 -#}
 {%- component image(src: string = "", srcs: array = [], alt: string = "", text: string = "", dir: string = "", align: string = "center", size: string = "md", link: string = "", crop: bool = true, @page: map = {}, @lang: string) -%}
 {%- set images = [src, ...srcs] if src else srcs -%}
 {%- set resolved_alt = alt or text -%}
 {#- Caption direction: explicit dir param → page language -#}
 {%- set caption_dir = dir if dir else ("rtl" if lang == "ar" else "ltr") -%}
-{#- Alignment logical properties so left/right work in RTL too -#}
-{%- if align == "left" or align == "start" -%}
-  {%- set align_class = "me-auto" -%}
-{%- elif align == "right" or align == "end" -%}
-  {%- set align_class = "ms-auto" -%}
-{%- else -%}
-  {%- set align_class = "mx-auto" -%}
-{%- endif -%}
-{#- Max-width of the figure -#}
-{%- if size == "sm" %}{% set size_class = "max-w-sm" %}
-{%- elif size == "md" %}{% set size_class = "max-w-md" %}
-{%- elif size == "lg" %}{% set size_class = "max-w-lg" %}
-{%- elif size == "xl" %}{% set size_class = "max-w-xl" %}
-{%- elif size == "2xl" %}{% set size_class = "max-w-2xl" %}
-{%- else %}{% set size_class = "w-full" %}
-{%- endif -%}
+{#- Alignment: left/right are the start/end of the line, so they mirror in RTL -#}
+{%- if align == "left" or align == "start" %}{% set align = "start" %}
+{%- elif align == "right" or align == "end" %}{% set align = "end" %}
+{%- else %}{% set align = "center" %}{% endif -%}
+{#- Max-width of the figure; anything else is the full width -#}
+{%- if size not in ["sm", "md", "lg", "xl", "2xl"] %}{% set size = "full" %}{% endif -%}
 {%- if images -%}
-<figure class="my-6 {{ size_class }} {{ align_class }}">
+<figure class="s-image s-image--{{ size }} s-image--{{ align }}">
   {%- if images | length > 1 %}
-  <div class="flex flex-wrap gap-2 justify-center">
+  <div class="s-image__row">
     {%- for s in images %}
     {%- if link %}<a href="{{ link }}" target="_blank" rel="noopener">{% endif %}
     {%- if crop %}
-    <img src="{{ s }}" alt="{{ resolved_alt }}" loading="lazy" decoding="async" class="rounded-xl flex-1 min-w-0 object-cover">
+    <img src="{{ s }}" alt="{{ resolved_alt }}" loading="lazy" decoding="async" class="s-image__img s-image__img--crop">
     {%- else %}
     {%- set meta = get_image_metadata(path=page.colocated_path ~ s) %}
-    <img src="{{ s }}" alt="{{ resolved_alt }}" loading="lazy" decoding="async" class="rounded-xl min-w-0 h-auto" style="flex: {{ meta.width / meta.height }} 1 0">
+    <img src="{{ s }}" alt="{{ resolved_alt }}" loading="lazy" decoding="async" class="s-image__img" style="flex: {{ meta.width / meta.height }} 1 0">
     {%- endif %}
     {%- if link %}</a>{% endif %}
     {%- endfor %}
   </div>
   {%- else %}
   {%- if link %}<a href="{{ link }}" target="_blank" rel="noopener">{% endif %}
-  <img src="{{ images[0] }}" alt="{{ resolved_alt }}" loading="lazy" decoding="async" class="rounded-xl w-full">
+  <img src="{{ images[0] }}" alt="{{ resolved_alt }}" loading="lazy" decoding="async" class="s-image__img">
   {%- if link %}</a>{% endif %}
   {%- endif %}
   {%- if text %}
-  <figcaption class="mt-2 text-sm text-center italic text-slate-500 dark:text-slate-400" dir="{{ caption_dir }}">
+  <figcaption class="s-image__caption" dir="{{ caption_dir }}">
     {{- text -}}
   </figcaption>
   {%- endif %}

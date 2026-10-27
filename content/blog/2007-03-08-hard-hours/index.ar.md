@@ -7,6 +7,7 @@ tags = ["حكايتي مع الزمان", "نعناع الجنينة"]
 
 [extra]
 comments = true
+toc = true
 +++
 
 {{ <image src="at-the-hospital-1.jpg" size="2xl" /> }}

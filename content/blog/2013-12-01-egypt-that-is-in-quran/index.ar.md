@@ -1,6 +1,9 @@
 +++
 title = "مصر المذكورة!"
 date = "2013-12-01T00:00:00Z"
+
+[extra]
+full_width = true
 +++
 
 {{ <image src="egypt.jpg" size="full" /> }}

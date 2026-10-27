@@ -1,26 +1,45 @@
-{#- Site footer (overrides the theme's): the name and copyright, the
-    footer links (extra.footer.links), the social profiles as icons
-    (partials/social-icons.html), and the glider below. -#}
+{#- The footer (components/footer): the site's name, its links, and the legal line.
+
+    The theme's own (themes/arabesque/templates/partials/footer.html), but
+    for two additions: the social profiles and the feed as icons, after the
+    links (partials/social-icons.html), and the glider, the hacker emblem,
+    on its own row below (partials/glider.html). Styled in
+    css/components.css. -#}
 {%- set footer = config.extra.footer -%}
-{%- set year = now() | date(format="y", locale=t.date_locale) -%}
-{%- set copyright = footer.copyright | get(key=lang, default="© %year") | replace(from="%year", to=year) -%}
+{%- set links = footer.links | get(key=lang, default=[]) -%}
+{%- set owner = (config.extra.author or config.author or config.title) | escape -%}
+{%- set owner = "<bdi>" ~ owner ~ "</bdi>" -%}
+{%- set year = now() | date(format="%Y") -%}
+{%- set year = "<bdi>" ~ year ~ "</bdi>" -%}
 <div class="al-page">
-  <footer class="al-footer">
-    <p class="site-footer__sign">
-      <a class="al-lockup" href="{{ home_url | safe }}">{{ t.site_name }}</a>
-      <span class="site-footer__sep" aria-hidden="true">|</span>
-      <span>{{ copyright }}</span>
-    </p>
-    <nav class="site-footer__links" aria-label="{{ t.footer_nav }}">
-      <ul class="al-footer__links">
-        {%- for item in footer.links | get(key=lang, default=[]) %}
-        <li><a href="{{ <zt.url path={item.url} /> | safe }}">{{ item.name }}</a></li>
-        {%- endfor %}
-      </ul>
-    </nav>
-    {% include "partials/social-icons.html" %}
-    <a class="site-emblem" href="http://www.catb.org/hacker-emblem/" title="{{ t.glider_title }}" aria-label="{{ t.glider_title }}">
-      {% include "partials/glider.html" %}
-    </a>
-  </footer>
+<footer class="al-footer">
+  {#- Without the site's name, the legal line comes first, on the links' row. #}
+  {%- if not footer.lockup %}{% include "partials/footer_legal.html" %}{% endif %}
+  {%- if footer.lockup %}
+  <a class="al-lockup" href="{{ home_url | safe }}">
+    {%- if config.extra.header.logo %}<img class="al-mark zt-logo" src="{{ get_url(path=config.extra.header.logo) }}" alt="">{% endif -%}
+    <span class="al-wordmark">{{ config.title }}</span></a>
+  {%- endif %}
+  {%- set feed = footer.feed_link and config.generate_feeds %}
+  {%- if links | length > 0 or feed %}
+  <nav class="zt-footer-nav" aria-label="{{ t.footer_nav }}"><ul class="al-footer__links">
+    {%- for item in links %}
+    {%- set href = <zt.url path={item.url} /> %}
+    {%- if item.icon is defined %}
+    <li><a class="zt-footer-icon" href="{{ href | safe }}" aria-label="{{ item.name }}" title="{{ item.name }}">{{ <zt.icon name={item.icon} /> }}</a></li>
+    {%- else %}
+    <li><a href="{{ href | safe }}">{{ item.name }}</a></li>
+    {%- endif %}
+    {%- endfor %}
+    {%- if feed %}
+    <li><a class="zt-footer-icon" href="{{ get_url(path=config.feed_filenames[0], lang=lang) | safe }}" aria-label="{{ t.feed }}" title="{{ t.feed }}">{{ <zt.icon name="feed" /> }}</a></li>
+    {%- endif %}
+  </ul></nav>
+  {%- endif %}
+  {% include "partials/social-icons.html" %}
+  {%- if footer.lockup %}{% include "partials/footer_legal.html" %}{% endif %}
+  <a class="site-emblem" href="http://www.catb.org/hacker-emblem/" title="{{ t.glider_title }}" aria-label="{{ t.glider_title }}">
+    {%- include "partials/glider.html" %}
+  </a>
+</footer>
 </div>

@@ -1,6 +1,9 @@
 +++
 title = "Caffeine Code Cycle"
 date = "2009-03-11T22:00:00Z"
+
+[extra]
+full_width = true
 +++
 
 I saw this quote and loved it:

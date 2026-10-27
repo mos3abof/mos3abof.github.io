@@ -7,6 +7,7 @@ tags = ["بحر الحياة", "نعناع الجنينة"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="chilli_tuna.jpg" size="xl" /> }}  

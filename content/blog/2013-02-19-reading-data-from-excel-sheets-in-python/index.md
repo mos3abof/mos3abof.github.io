@@ -1,9 +1,9 @@
 +++
-title= "Reading Data from Excel Sheets in Python"
-date= "2013-02-19T11:18:00Z"
+title = "Reading Data from Excel Sheets in Python"
+date = "2013-02-19T11:18:00Z"
 
 [extra]
-toc = true
+full_width = true
 +++
 
 On _May 22nd 2012_ I was approached by the official campaign of the presidential

@@ -7,6 +7,7 @@ tags = ["يا بنت يا اللي", "بحر الحياة"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="sunRise.jpg" size="full" /> }}  

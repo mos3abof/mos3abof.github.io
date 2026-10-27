@@ -1,5 +1,8 @@
 +++
 title = "Talks"
+
+[extra]
+full_width = true
 +++
 
 ### Talks in Arabic

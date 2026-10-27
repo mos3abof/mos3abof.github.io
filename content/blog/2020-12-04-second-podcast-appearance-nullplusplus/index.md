@@ -1,6 +1,9 @@
 +++
 title = "About SRE with null++"
 date = 2020-12-04T00:00:00Z
+
+[extra]
+full_width = true
 +++
 
 Today, I was the guest in one of my favourite podcasts in Arabic:

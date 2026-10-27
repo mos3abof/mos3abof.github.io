@@ -7,6 +7,7 @@ tags = ["افتح قلبك", "بحر الحياة", "أشكي لمين"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="i_miss_u_dad.jpg" /> }}  

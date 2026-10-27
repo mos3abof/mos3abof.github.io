@@ -1,6 +1,9 @@
 +++
 title = "My First Podcast Appearance!"
 date = "2020-07-12T00:00:00Z"
+
+[extra]
+full_width = true
 +++
 
 I have recently received an invitation from my dear friend [Ahmed Zain](https://iahmadzain.me/), who

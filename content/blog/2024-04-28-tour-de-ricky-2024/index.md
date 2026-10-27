@@ -4,6 +4,9 @@ date = "2024-04-28T00:00:00Z"
 
 [taxonomies]
 tags=["cycling"]
+
+[extra]
+toc = true
 +++
 
 {{ <image src="tour-de-ricky-2024-banner.png" size="full" text="Tour De Ricky 2024 Banner" /> }}

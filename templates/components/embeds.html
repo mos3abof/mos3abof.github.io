@@ -1,7 +1,7 @@
 {#- Embeds the theme has no component for: a Komoot tour, a Strava
     activity summary and a LibraryThing shelf. (YouTube, gists, Instagram,
     PDFs and Mermaid are the theme's.) Always left to right, so the
-    widgets look right on Arabic pages too. -#}
+    widgets look right on Arabic pages too. Styled in css/components.css. -#}
 
 {#-
   komoot embeds a Komoot tour.
@@ -16,7 +16,7 @@
     profile (bool,   optional) Show elevation profile. Default: true.
 -#}
 {%- component komoot(tour_id: string, width: string = "100%", height: string = "680", profile: bool = true) -%}
-<div class="komoot-embed" dir="ltr">
+<div class="s-embed s-embed--komoot" dir="ltr">
   <iframe
     src="https://www.komoot.com/tour/{{ tour_id }}/embed?{% if profile %}profile=1{% endif %}"
     width="{{ width }}"
@@ -40,7 +40,7 @@
     height     (string, optional) iframe height. Default: "160".
 -#}
 {%- component strava(athlete_id: string, token: string, width: string = "300", height: string = "160") -%}
-<div class="strava-widget" dir="ltr">
+<div class="s-embed s-embed--strava" dir="ltr">
   <iframe
     src="https://www.strava.com/athletes/{{ athlete_id }}/activity-summary/{{ token }}"
     width="{{ width }}"
@@ -63,7 +63,7 @@
     widget_id (string) Widget ID from the LibraryThing embed code.
 -#}
 {%- component librarything(userid: string, widget_id: string) -%}
-<div class="my-8 librarything-widget" dir="ltr">
+<div class="s-embed s-embed--librarything" dir="ltr">
   <div id="{{ widget_id }}"></div>
   <script
     type="text/javascript"

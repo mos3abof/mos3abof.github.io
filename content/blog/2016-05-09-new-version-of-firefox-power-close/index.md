@@ -1,6 +1,9 @@
 +++
 title ="New Version of Power Close"
 date = "2016-05-09T12:00:00Z"
+
+[extra]
+toc = true
 +++
 
 New website, new icon, and improvements for the tab addict Firefox add-on

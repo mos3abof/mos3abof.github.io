@@ -7,6 +7,7 @@ tags = ["يا بنت يا اللي", "نعناع الجنينة"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image srcs={["amira-drawing-1.jpg", "amira-drawing-2.jpg"]} size="full" /> }}

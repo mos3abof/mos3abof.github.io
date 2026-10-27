@@ -1,6 +1,10 @@
 +++
 title = "من أنا"
 assets = ["mosab-child.png"]
+
+[extra]
+# The text takes the whole width of the page column.
+full_width = true
 +++
 
 {{ <image src="mosab-first-computer.png" text="أول حاسوب شخصي أمتلكه، منذ أكثر من عقدين من الزمان!" size="2xl" /> }}

@@ -1,5 +1,8 @@
 +++
 title = "Woodworking"
+
+[extra]
+full_width = true
 +++
 
 I picked up woodworking and it is such therapeutic hobby! I am still a

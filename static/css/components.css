@@ -1,0 +1,173 @@
+/* The site's own components (templates/components/), in the theme's tokens:
+   its colours, so they follow the light and dark themes, its spacing and its
+   type. Logical properties throughout, so they mirror in Arabic. */
+
+/* ---- fonts: the classes the quote and poem components take ----------------------------------- */
+
+.amiri { font-family: "Amiri", var(--al-font-serif); }
+.amiri-quran { font-family: "Amiri Quran", "Amiri", var(--al-font-serif); }
+.scheherazade-new { font-family: "Scheherazade New", var(--al-font-serif); }
+.aref-ruqaa-ink { font-family: "Aref Ruqaa Ink", var(--al-font-serif); }
+.kufam { font-family: "Kufam", var(--al-font-display); }
+.noto-kufi { font-family: "Noto Kufi Arabic", var(--al-font-display); }
+.reem-kufi { font-family: "Reem Kufi", var(--al-font-display); }
+.reem-kufi-fun { font-family: "Reem Kufi Fun", var(--al-font-display); }
+.reem-kufi-ink { font-family: "Reem Kufi Ink", var(--al-font-display); }
+.noto-sans { font-family: "Noto Sans Arabic", var(--al-font-sans); }
+.cairo, .cairo-play { font-family: "Cairo", var(--al-font-sans); }
+.ibm-plex-arabic { font-family: "IBM Plex Sans Arabic", var(--al-font-sans); }
+.rubik { font-family: "Rubik", var(--al-font-sans); }
+.ibm-plex-mono { font-family: "IBM Plex Mono", var(--al-font-mono); }
+
+/* ---- image ----------------------------------------------------------------------------------- */
+
+.s-image { display: flex; flex-direction: column; gap: var(--al-space-2); margin: var(--al-space-8) auto; }
+.zt-prose .s-image { margin-block: var(--al-space-8); }
+.s-image--sm { max-inline-size: 24rem; }
+.s-image--md { max-inline-size: 28rem; }
+.s-image--lg { max-inline-size: 32rem; }
+.s-image--xl { max-inline-size: 36rem; }
+.s-image--2xl { max-inline-size: 42rem; }
+.s-image--full { max-inline-size: none; }
+.s-image--center { margin-inline: auto; }
+.s-image--start { margin-inline: 0 auto; }
+.s-image--end { margin-inline: auto 0; }
+.s-image__img { inline-size: 100%; block-size: auto; border-radius: var(--al-radius-md); }
+.s-image__row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--al-space-2); }
+.s-image__row > a { display: contents; }
+.s-image__row .s-image__img { inline-size: auto; min-inline-size: 0; }
+.s-image__row .s-image__img--crop { flex: 1; object-fit: cover; }
+.s-image__caption { font-family: var(--al-font-sans); font-size: var(--al-text-sm); line-height: var(--al-leading-ui); font-style: italic; text-align: center; color: var(--al-color-text-muted); }
+
+/* ---- quote ----------------------------------------------------------------------------------- */
+
+/* A card with a teal line at the start and a large quotation mark behind
+   its first line: " in English, « in Arabic. In the site's colours from
+   before the theme (Tailwind's teal and slates), not the theme's tokens;
+   dark as the theme is: by the system's setting, or its toggle. */
+.s-quote {
+  --s-quote-line: oklch(60% 0.118 184.704);    /* teal-600 */
+  --s-quote-ground: oklch(96.8% 0.007 247.896); /* slate-100 */
+  --s-quote-text: oklch(37.2% 0.044 257.287);   /* slate-700 */
+  --s-quote-by: oklch(55.4% 0.046 257.417);     /* slate-500 */
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .s-quote {
+    --s-quote-ground: oklch(20.8% 0.042 265.755); /* slate-900 */
+    --s-quote-text: oklch(92.9% 0.013 255.508);   /* slate-200 */
+    --s-quote-by: oklch(70.4% 0.04 256.788);      /* slate-400 */
+  }
+}
+:root[data-theme="dark"] .s-quote {
+  --s-quote-ground: oklch(20.8% 0.042 265.755);
+  --s-quote-text: oklch(92.9% 0.013 255.508);
+  --s-quote-by: oklch(70.4% 0.04 256.788);
+}
+.s-quote { position: relative; margin: var(--al-space-8) 0; padding: var(--al-space-6) var(--al-space-8); border-inline-start: 4px solid var(--s-quote-line); border-radius: 0.5rem; background: var(--s-quote-ground); }
+.s-quote::before { content: "\201C"; position: absolute; inset-block-start: var(--al-space-2); inset-inline-start: var(--al-space-3); font-family: var(--al-font-serif); font-size: 6rem; line-height: 1; color: var(--s-quote-line); opacity: 0.2; pointer-events: none; }
+.s-quote:dir(rtl)::before { content: "\00AB"; }
+/* In place of the theme's prose blockquote: a hairline at the start, in muted text. */
+.s-quote .s-quote__body { position: relative; margin: 0; padding: 0; border: 0; color: var(--s-quote-text); font-weight: var(--al-weight-medium); line-height: 2; }
+.s-quote__by { margin-block-start: var(--al-space-4); font-family: var(--al-font-sans); font-size: var(--al-text-md); font-style: italic; color: var(--s-quote-by); }
+.s-quote--sm .s-quote__body { font-size: var(--al-text-sm); }
+.s-quote--base .s-quote__body { font-size: var(--al-text-base); }
+.s-quote--md .s-quote__body { font-size: var(--al-text-md); }
+.s-quote--lg .s-quote__body { font-size: var(--al-text-lg); }
+.s-quote--xl .s-quote__body { font-size: var(--al-text-xl); }
+.s-quote--2xl .s-quote__body { font-size: var(--al-text-2xl); }
+.s-quote--3xl .s-quote__body { font-size: var(--al-text-3xl); }
+.s-quote--4xl .s-quote__body { font-size: 2.25rem; }
+.s-quote--5xl .s-quote__body { font-size: 3rem; }
+.s-quote--6xl .s-quote__body { font-size: 3.75rem; }
+.s-quote--7xl .s-quote__body { font-size: clamp(3rem, 2rem + 4vw, 4.5rem); }
+.s-quote--8xl .s-quote__body { font-size: clamp(3.5rem, 2rem + 6vw, 6rem); }
+.s-quote--9xl .s-quote__body { font-size: clamp(4rem, 2rem + 8vw, 8rem); }
+.s-quote:is(.s-quote--2xl, .s-quote--3xl, .s-quote--4xl, .s-quote--5xl, .s-quote--6xl, .s-quote--7xl, .s-quote--8xl, .s-quote--9xl) .s-quote__body { line-height: var(--al-leading-heading); }
+
+/* ---- quran ----------------------------------------------------------------------------------- */
+
+/* The Mushaf's face where it's installed (the site doesn't ship it), else Amiri Quran. */
+.s-quran, .s-quran-inline { font-family: "Uthmanic Hafs", "Amiri Quran", "Amiri", var(--al-font-serif); }
+.s-quran { margin: var(--al-space-8) 0; padding: var(--al-space-6) var(--al-space-8); border: var(--al-border-hairline) solid var(--al-color-accent); border-radius: var(--al-radius-md); background: var(--al-color-accent-wash); }
+.s-quran__text { font-size: 1.6rem; line-height: 2.2; text-align: start; color: var(--al-color-text); }
+.s-quran__ref { margin: var(--al-space-4) 0 0; font-family: var(--al-font-sans); font-size: var(--al-text-md); text-align: center; color: var(--al-color-accent); }
+.s-quran__translation { margin: var(--al-space-3) 0 0; font-family: var(--al-font-sans); font-size: var(--al-text-sm); font-style: italic; text-align: center; color: var(--al-color-text-muted); }
+.s-quran-inline { font-size: 1.1em; }
+.s-quran-inline__ref { margin-inline-start: 0.25em; font-family: var(--al-font-mono); font-size: var(--al-text-xs); font-style: normal; color: var(--al-color-accent); }
+
+/* ---- poem ------------------------------------------------------------------------------------ */
+
+.s-poem { margin: var(--al-space-8) 0; }
+.s-poem--traditional { display: flex; justify-content: center; }
+.s-poem__body { font-size: var(--al-text-xl); line-height: 2; color: var(--al-color-text); }
+
+/* ---- embeds ---------------------------------------------------------------------------------- */
+
+.s-embed { margin: var(--al-space-8) 0; }
+.s-embed iframe { display: block; max-inline-size: 100%; border: 0; border-radius: var(--al-radius-md); }
+
+/* ---- comments (partials/comments.html, partials/comment-form.html) ---------------------------- */
+
+.s-comments { margin-block-start: var(--al-space-12); padding-block-start: var(--al-space-8); border-block-start: var(--al-border-hairline) solid var(--al-color-line); font-family: var(--al-font-sans); }
+.s-comments__title { margin: 0 0 var(--al-space-4); font-family: var(--al-font-display); font-size: var(--al-text-2xl); font-weight: var(--al-weight-regular); letter-spacing: var(--al-tracking-tight); }
+/* The site's full stop, in the accent, after the titles. */
+.s-comments__title::after { content: "."; color: var(--al-color-accent); }
+.s-comments__note { display: flex; align-items: center; gap: var(--al-space-1-5); margin: 0 0 var(--al-space-6); }
+.s-comments__list { display: flex; flex-direction: column; gap: var(--al-space-3); margin: 0; padding: 0; list-style: none; }
+
+.s-comment { overflow: hidden; border: var(--al-border-hairline) solid var(--al-color-line); border-radius: var(--al-radius-md); background: var(--al-color-surface); }
+/* The post's author's: on the accent's wash, with its line at the start. */
+.s-comment--author { border-color: color-mix(in srgb, var(--al-color-accent) 35%, transparent); border-inline-start: 2px solid var(--al-color-accent); background: var(--al-color-accent-wash); }
+.s-comment__head { display: flex; align-items: center; gap: var(--al-space-3); padding: var(--al-space-3) var(--al-space-4) var(--al-space-2); }
+.s-comment__avatar { inline-size: 2.25rem; block-size: 2.25rem; object-fit: cover; font-weight: var(--al-weight-medium); }
+.s-comment--author .s-comment__avatar { background: var(--al-color-accent-wash); color: var(--al-color-accent); }
+.s-comment__meta { display: flex; flex: 1; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--al-space-1) var(--al-space-3); min-inline-size: 0; }
+.s-comment__author { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: var(--al-space-2); font-weight: var(--al-weight-medium); }
+.s-comment--author .s-comment__author { color: var(--al-color-accent); }
+.s-comment__author a { color: inherit; text-decoration: none; }
+.s-comment__author a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+.s-comment__when { display: inline-flex; align-items: center; gap: var(--al-space-2); flex: none; font-family: var(--al-font-mono); font-size: var(--al-text-xs); color: var(--al-color-text-muted); }
+.s-comment__original { display: inline-flex; color: var(--al-color-text-muted); }
+.s-comment__original:hover { color: var(--al-color-accent); }
+.s-comment__body { padding: var(--al-space-1) var(--al-space-4) var(--al-space-3); font-family: "IBM Plex Sans Arabic", var(--al-font-sans); font-size: var(--al-text-md); line-height: var(--al-leading-prose); color: var(--al-color-text-muted); overflow-wrap: anywhere; }
+.s-comments__empty { align-items: center; text-align: center; }
+
+.s-comment-form { margin-block-start: var(--al-space-8); font-family: var(--al-font-sans); }
+.s-comment-form__head { display: flex; align-items: center; justify-content: space-between; gap: var(--al-space-4); margin-block-end: var(--al-space-2); }
+.s-comment-form__form { display: flex; flex-direction: column; gap: var(--al-space-5); }
+.s-comment-form__trap { position: absolute; inline-size: 0; block-size: 0; overflow: hidden; opacity: 0; pointer-events: none; }
+.s-comment-form__required { color: var(--al-color-accent); }
+.s-comment-form .al-textarea { resize: vertical; }
+.s-comment-form__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--al-space-4); }
+.s-comment-form__status { margin: 0; font-size: var(--al-text-sm); }
+.s-comment-form__status[data-state="success"] { color: var(--al-color-success); }
+.s-comment-form__status[data-state="error"] { color: var(--al-color-danger); }
+
+/* ---- footer (partials/footer.html) ------------------------------------------------------------ */
+
+/* The social profiles and the feed, as icons, after the links: muted, each
+   in its brand's colour on hover (--brand, set on each link). */
+/* At the end of the line; right after the links, when there are any. */
+.site-social { display: flex; flex-wrap: wrap; gap: var(--al-space-1); margin: 0; margin-inline-start: auto; padding: 0; list-style: none; }
+.zt-footer-nav + .site-social { margin-inline-start: 0; }
+.site-social a { display: grid; place-items: center; inline-size: var(--al-size-target-touch); block-size: var(--al-size-target-touch); border-radius: var(--al-radius-sm); color: var(--al-color-text-muted); transition: color var(--al-duration-fast) var(--al-ease-standard); }
+.site-social a:hover { color: var(--brand, var(--al-color-text)); }
+.site-social svg { inline-size: 1.5rem; block-size: 1.5rem; fill: currentColor; }
+
+/* The glider, the hacker emblem, at the foot of every page, on its own row. */
+.site-emblem { display: flex; flex-basis: 100%; justify-content: center; color: var(--al-color-text-muted); }
+.site-emblem:hover { color: var(--al-color-text); }
+.site-emblem .al-mark { inline-size: 3rem; block-size: 3rem; }
+
+/* ---- timeline (components/timeline.html) ------------------------------------------------------ */
+
+/* The design system's own, in a page's text: without the prose's list
+   indent and the space it puts between items, which the timeline sets. */
+.al-prose .al-timeline { padding-inline-start: 0; }
+.al-prose .al-timeline > li + li { margin-block-start: 0; }
+.al-prose .al-timeline p { margin: 0; }
+/* The copyright line at the links' size, and the icons' row out by their
+   targets' padding, so the last glyph meets the column's edge as the
+   copyright meets the other. */
+.al-footer > .al-footer__legal:first-child { font-size: var(--al-text-sm); }
+.site-social { margin-inline-end: calc((1.5rem - var(--al-size-target-touch)) / 2); }

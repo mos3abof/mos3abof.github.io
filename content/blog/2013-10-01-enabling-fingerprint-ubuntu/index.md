@@ -2,6 +2,9 @@
 title = "Enabling Fingerprint Reader On Ubuntu 13.04"
 date = "2013-10-01T12:00:00Z"
 draft = true
+
+[extra]
+full_width = true
 +++
 
 The company I work for (a cool company called [Yubb

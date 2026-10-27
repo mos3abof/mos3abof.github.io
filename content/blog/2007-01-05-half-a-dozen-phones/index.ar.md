@@ -7,6 +7,7 @@ tags = ["في دايرة الرحلة", "شبابيك", "اخرج م البيب�
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="mahmool.jpg" text="نصف دستة محمول" size="full" /> }}  

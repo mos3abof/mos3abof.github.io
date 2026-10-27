@@ -20,15 +20,13 @@
                               Options: "aref-ruqaa-ink", "amiri", "cairo",
                               "ibm-plex-arabic", "rubik".
 
-  Its output has no blank lines: Markdown would end the block at one (the
+  Styled in css/components.css. Its output has no blank lines: Markdown would end the block at one (the
   body's own blank lines become <br>s, as all its line breaks do).
 -#}
 {%- component poem(form: string = "free", dir: string = "rtl", font: string = "scheherazade-new") -%}
 {%- set is_hemistich = form == "traditional" -%}
-<div class="poem-block poem-{{ form }}{% if is_hemistich %} poem-hemistich flex justify-center{% endif %} my-8"
-  dir="{{ dir }}">
-  <div class="poem-body {{ font }} text-slate-800 dark:text-slate-100 leading-loose text-xl"
-    dir="{{ dir }}">
+<div class="s-poem s-poem--{{ form }}" dir="{{ dir }}">
+  <div class="s-poem__body {{ font }}" dir="{{ dir }}">
     {{- body | trim | newlines_to_br | safe -}}
   </div>
 </div>
@@ -41,10 +39,10 @@
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
   }
-  var blocks = document.querySelectorAll('.poem-hemistich');
+  var blocks = document.querySelectorAll('.s-poem--traditional');
   var el = blocks[blocks.length - 1];
   if (!el) return;
-  var body = el.querySelector('.poem-body');
+  var body = el.querySelector('.s-poem__body');
   if (!body) return;
   /* Turn poem-body into a flat 3-column grid so all sadr cells share one
      column width and all ajuz cells share another — required for kashida

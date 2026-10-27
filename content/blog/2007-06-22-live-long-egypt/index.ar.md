@@ -7,6 +7,7 @@ tags = ["أتحدى لياليك", "طفي النور يا بهية"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 

@@ -7,6 +7,7 @@ tags = ["الجيرة والعشرة", "افتح قلبك"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="biroooWaAna.jpg" size="full" text="براء وأنا على جانب طريق العين السخنة" /> }}  

@@ -1,0 +1,37 @@
+{#-
+  timeline: the design system's timeline (.al-timeline), of the events in
+  the page's front matter, in their order.
+
+  Usage, in the page:
+    [[extra.events]]
+    time = "June 16th, 2000"     # as it reads
+    datetime = "2000-06-16"      # optional: the machine-readable date
+    title = "My mother passed away"
+    body = "A line more."        # optional
+    tone = "accent"              # optional: the marker's colour: accent,
+                                 # success, warning or danger
+
+    {{ <timeline /> }}
+
+  Styled by the design system; css/components.css keeps the prose's list
+  styles off it.
+-#}
+{%- component timeline(@page: map = {}) -%}
+{%- set events = page.extra.events | default(value=[]) -%}
+{%- if events | length > 0 -%}
+<ol class="al-timeline" role="list">
+  {%- for event in events %}
+  <li>
+    <span class="al-timeline__marker"{% if event.tone is defined %} data-tone="{{ event.tone }}"{% endif %} aria-hidden="true"></span>
+    <div class="al-timeline__event">
+      <time class="al-timeline__time"{% if event.datetime is defined %} datetime="{{ event.datetime }}"{% endif %}>{{ event.time }}</time>
+      <p class="al-timeline__title">{{ event.title }}</p>
+      {%- if event.body is defined %}
+      <p class="al-timeline__body">{{ event.body }}</p>
+      {%- endif %}
+    </div>
+  </li>
+  {%- endfor %}
+</ol>
+{%- endif -%}
+{%- endcomponent timeline -%}

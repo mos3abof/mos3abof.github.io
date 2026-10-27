@@ -4,6 +4,9 @@ date = "2022-03-07T00:00:00Z"
 
 [taxonomies]
 tags=["career"]
+
+[extra]
+full_width = true
 +++
 
 {{ <image src="meta-logo.png" alt="Meta Logo" size="2xl" /> }}

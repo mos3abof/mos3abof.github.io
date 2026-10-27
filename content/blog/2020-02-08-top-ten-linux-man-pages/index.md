@@ -1,6 +1,9 @@
 +++
 title = "Top 10 Man Pages Every Linux Sys Admin Should Read"
 date = "2020-02-08T10:00:00Z"
+
+[extra]
+full_width = true
 +++
 
 Came across an interesting question on Quora (A great question and answers
@@ -58,4 +61,4 @@ I think if an administrator masters those, anything else becomes that much easie
 To read the rest of the answers, you can check the [question on
 quora](https://www.quora.com/What-are-the-top-10-man-pages-that-most-Linux-administrators-should-read)
 
-[^1] [Jesse Pollard's answer](https://www.quora.com/What-are-the-top-10-man-pages-that-most-Linux-administrators-should-read/answer/Jesse-Pollard-1) to the question.
+[^1]: [Jesse Pollard's answer](https://www.quora.com/What-are-the-top-10-man-pages-that-most-Linux-administrators-should-read/answer/Jesse-Pollard-1) to the question.

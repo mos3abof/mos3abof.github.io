@@ -1,5 +1,8 @@
 +++
 title = "Cycling"
+
+[extra]
+full_width = true
 +++
 
 I recently got into cycling, and will update this page with some interesting
