@@ -201,13 +201,22 @@
 
   /* ---- page title, with the site's full stop ---------------------------------------------- */
 
+  /* The full width, wrapping as the words fall rather than balanced. */
   .page-title {
+    max-inline-size: none;
     font-size: var(--al-text-3xl);
     font-weight: var(--al-weight-medium);
+    text-wrap: wrap;
   }
 
   .page-title__dot {
     color: var(--al-color-accent);
+  }
+
+  /* Icons sit in the line of text: preflight makes every svg a block, and
+     the system's .al-icon doesn't set its display back. */
+  .al-icon {
+    display: inline-block;
   }
 
   /* ---- 404 -------------------------------------------------------------------------------- */
