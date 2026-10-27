@@ -309,6 +309,9 @@
   .h-10 {
     height: calc(0.25rem * 10);
   }
+  .h-auto {
+    height: auto;
+  }
   .w-3\.5 {
     width: calc(0.25rem * 3.5);
   }
@@ -1103,11 +1106,16 @@
     block-size: 3rem;
   }
   .page-title {
+    max-inline-size: none;
     font-size: var(--al-text-3xl);
     font-weight: var(--al-weight-medium);
+    text-wrap: wrap;
   }
   .page-title__dot {
     color: var(--al-color-accent);
+  }
+  .al-icon {
+    display: inline-block;
   }
   .not-found {
     display: flex;

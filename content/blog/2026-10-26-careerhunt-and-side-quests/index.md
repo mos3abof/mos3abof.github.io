@@ -1,5 +1,5 @@
 +++
-title = "CareerHunt, and 100 other Side Quests"
+title = "CareerHunt App and Other Storeies!"
 date = "2026-10-26"
 
 [taxonomies]
@@ -10,6 +10,8 @@ toc = true
 +++
 
 {{ <image src="careerhunt-social-card.png" alt="CareerHunt: Your job hunt, captured. Your data, set free." size="full" /> }}
+
+## Intro
 
 I am in the looking for a job. If you have ever been in that position, you know
 the drill; dozens of applications, each one at a different stage, recruiters
@@ -24,7 +26,13 @@ over to yet another SaaS platform. I looked around, could not quite find what I
 wanted, so I did what any reasonable engineer would do: I built a little app
 and deployed it on my local Kubernetes cluster.
 
-> Problem solved, right? Well, my brain had other plans. 😅
+**Problem solved, right?** Well, my brain had other plans. 😅
+
+Well, the post's title is an ode to a novel I read in school, and forgot
+everything about it except the title, which very aptly describes what you are
+about to read next! The novel's title was:
+
+> Thirteen O'clock and Other Stories
 
 What followed was a few weeks of hyperfocus, one rabbit hole after the other,
 and a multi-layered scope creep that would make any project manager weep. Let
@@ -206,14 +214,8 @@ would especially love feedback from people who run their own services: what is
 missing, what could be simpler, and what would make this something you would
 actually use?
 
-## Links
 
-- **Website:** [careerhunt.app][14]
-- **Source code:** [github.com/ArabesqueLabs/hunt][15]
-- **Quick start guide:** [careerhunt.app/docs/quick-start][13]
-- **Design system:** [design.arabesquelabs.com][2]
-
-## Early Days
+## These are the Early Days
 
 This is an early release, and there is still plenty I would like to improve.
 But I figured it was better to get it out there, learn from real users, and
@@ -227,6 +229,15 @@ contributions, constructive criticism, jokes, memes, rants, or any type of
 feedback really, are all welcome. ❤️ The comments section below works too!
 
 Hopefully, it makes someone's job hunt a little less chaotic.
+
+## The Links
+
+- **Website:** [careerhunt.app][14]
+- **Source code:** [github.com/ArabesqueLabs/hunt][15]
+- **Quick start guide:** [careerhunt.app/docs/quick-start][13]
+- **Design system:** [design.arabesquelabs.com][2]
+
+{{ <separator style="dingbats" gap="sm" /> }}
 
 And if you happen to be hiring, well, you know where to find [my resume][16]. 😉
 
