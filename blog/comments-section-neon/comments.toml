@@ -1,0 +1,13 @@
+[[comments]]
+author = "Mosab Ibrahim"
+date = "2026-05-16T02:46:02.617438+00:00"
+text = "Hello, world! These things are working! :)"
+avatar_url = "https://www.gravatar.com/avatar/b7eab20f1098b1f93ffc8d16c57cf14bf1f592f8ff8538e5248167f1b13e2caf?s=72&d=identicon"
+profile_url = "https://mosab.co.uk"
+
+[[comments]]
+author = "Tom"
+date = "2026-06-07T04:29:58.725854+00:00"
+text = "Very cool! Hope the bots never see this post about the honeypot ;)"
+avatar_url = "https://www.gravatar.com/avatar/84c158f08c02eb4073b16acd218386084252f770556ba5fc8d528eb3ca667192?s=72&d=identicon"
+profile_url = "https://fridgecow.com"

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Mosab Ibrahim - sketching</title>
+      <link>https://mosab.co.uk</link>
+      <description>I tell the machine stories about the world!</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mosab.co.uk/tags/sketching/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Wed, 13 Mar 2024 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Bike Shed Sketches</title>
+          <pubDate>Wed, 13 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/bike-shed/</link>
+          <guid>https://mosab.co.uk/blog/bike-shed/</guid>
+          <description xml:base="https://mosab.co.uk/blog/bike-shed/">&lt;p&gt;Here is a random sketch of a bike shed I am building!&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--full s-image--center&quot;&gt;
+  &lt;div class=&quot;s-image__row&quot;&gt;
+    &lt;img src=&quot;bike-shed-sketch-1.jpg&quot; alt=&quot;Bike Shed Hand Drawn Sketch.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+    &lt;img src=&quot;bike-shed-sketch-2.jpg&quot; alt=&quot;Bike Shed Hand Drawn Sketch.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+  &lt;/div&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Bike Shed Hand Drawn Sketch.&lt;/figcaption&gt;
+&lt;/figure&gt;
+</description>
+      </item>
+    </channel>
+</rss>

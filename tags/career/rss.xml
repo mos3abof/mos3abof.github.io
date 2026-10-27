@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Mosab Ibrahim - career</title>
+      <link>https://mosab.co.uk</link>
+      <description>I tell the machine stories about the world!</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mosab.co.uk/tags/career/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Mon, 26 Oct 2026 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>CareerHunt App and Other Storeies!</title>
+          <pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/careerhunt-and-side-quests/</link>
+          <guid>https://mosab.co.uk/blog/careerhunt-and-side-quests/</guid>
+          <description xml:base="https://mosab.co.uk/blog/careerhunt-and-side-quests/">&lt;figure class=&quot;s-image s-image--full s-image--center&quot;&gt;
+  &lt;img src=&quot;careerhunt-social-card.png&quot; alt=&quot;CareerHunt: Your job hunt, captured. Your data, set free.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;intro&quot;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;I am in the looking for a job. If you have ever been in that position, you know
+the drill; dozens of applications, each one at a different stage, recruiters
+whose names you half remember, interview dates scribbled somewhere, job
+descriptions that vanish from the company&#39;s careers page the moment you need to
+re-read them, and a spreadsheet that starts tidy and becomes a crime scene by
+the second week.&lt;/p&gt;
+&lt;p&gt;I wanted a simple way to keep track of all of it: applications, interviews,
+contacts, notes, and progress. I also did not want to hand my career history
+over to yet another SaaS platform. I looked around, could not quite find what I
+wanted, so I did what any reasonable engineer would do: I built a little app
+and deployed it on my local Kubernetes cluster.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Problem solved, right?&lt;/strong&gt; Well, my brain had other plans. 😅&lt;/p&gt;
+&lt;p&gt;Well, the post&#39;s title is an ode to a novel I read in school, and forgot
+everything about it except the title, which very aptly describes what you are
+about to read next! The novel&#39;s title was:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Thirteen O&#39;clock and Other Stories&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;What followed was a few weeks of hyperfocus, one rabbit hole after the other,
+and a multi-layered scope creep that would make any project manager weep. Let
+me walk you through it, one side quest at a time.&lt;/p&gt;
+&lt;div class=&quot;zt-separator zt-separator--dingbats zt-separator--gap-sm zt-separator--size-xl zt-separator--width-1-2&quot; role=&quot;separator&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;✦ ✦ ✦&lt;/span&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;side-quest-1-a-design-system&quot;&gt;Side Quest #1: A Design System&lt;/h2&gt;
+&lt;p&gt;The little app needed a UI, and I did not want it to look like every other
+admin dashboard on the internet. Arabesque Labs, my software venture, did not
+have a visual identity yet either. Two birds, one stone.&lt;/p&gt;
+&lt;p&gt;A few weeks later, I had the &lt;a href=&quot;https://mosab.co.uk/projects/arabesque-design-system/&quot;&gt;Arabesque design system&lt;/a&gt;: the tokens, CSS,
+components and rules that I build everything at Arabesque Labs with.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;design-system.jpg&quot; alt=&quot;The Arabesque design system homepage&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;The Arabesque design system: everything around the star follows from the same rule.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;A few things I cared about from day one:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bidirectional from the start:&lt;/strong&gt; English and Arabic, left-to-right and
+right-to-left, as first class citizens. Not as an afterthought bolted on when
+someone files a bug about a mirrored arrow.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accessible:&lt;/strong&gt; WCAG 2.2 AA is the floor, not the ceiling. The contrast of
+every colour pair the system relies on is measured at build time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Efficient interaction:&lt;/strong&gt; people should get things done in the fewest steps,
+with actions that say what they do, and every consequence shown before, during,
+and after.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Boring technology:&lt;/strong&gt; plain CSS custom properties and plain HTML. No
+framework, and no runtime dependency. A single token file is the source of
+truth, and a small Node script builds everything else from it. There are React
+components and a handful of optional JavaScript helpers too, for those who want
+them.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And, of course, the geometric patterns. The eight-pointed star tile is the
+mark, and the patterns you see on the background of every Arabesque page are
+drawn from it.&lt;/p&gt;
+&lt;p&gt;It is open source, and you can browse it at &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://design.arabesquelabs.com&quot;&gt;design.arabesquelabs.com&lt;/a&gt;, or
+read the source on &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://github.com/ArabesqueLabs/design-system&quot;&gt;GitHub&lt;/a&gt;. Fair warning though: it is still experimental,
+and things will move around until it reaches 1.0.&lt;/p&gt;
+&lt;h2 id=&quot;side-quest-2-a-rebrand&quot;&gt;Side Quest #2: A Rebrand&lt;/h2&gt;
+&lt;p&gt;At some point the &quot;little app&quot; stopped being little. It grew into a proper
+project, so it deserved a proper name and a proper home: &lt;strong&gt;CareerHunt&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;A name, a domain, a landing page, a logo that uses the Arabesque star... You
+know how it goes. 😅&lt;/p&gt;
+&lt;h2 id=&quot;side-quest-3-custom-documentation&quot;&gt;Side Quest #3: Custom Documentation&lt;/h2&gt;
+&lt;p&gt;A proper project needs proper documentation. I love Docusaurus, and I have used
+it many times before. But now that I have a design system, I could not just use
+Docusaurus as is, right?!&lt;/p&gt;
+&lt;p&gt;So I built &lt;a href=&quot;https://mosab.co.uk/projects/themes/arabesque-docusaurus/&quot;&gt;Arabesque for Docusaurus&lt;/a&gt;, a Docusaurus 3 theme on top of
+Arabesque. It restyles the classic theme with the design system&#39;s tokens,
+typography and components, maps Infima (Docusaurus&#39; CSS framework) onto them,
+and even brings its own colours for code highlighting. The result: a
+documentation site that looks and reads like the rest of Arabesque, in light and
+dark, and in left-to-right and right-to-left alike.&lt;/p&gt;
+&lt;p&gt;And because no rabbit hole is complete without going one level deeper, I even
+remixed the Docusaurus dinosaur using geometric patterns. Meet the
+Arabesquosaurus! (Okay, I just made that name up, but I think it might stick.)&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--xl s-image--center&quot;&gt;
+  &lt;div class=&quot;s-image__row&quot;&gt;
+    &lt;img src=&quot;docusaurus-theme.png&quot; alt=&quot;The Arabesque for Docusaurus homepage, and the Docusaurus dinosaur redrawn with Arabesque geometric patterns&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot; style=&quot;flex: 1.4656188605108056 1 0&quot;&gt;
+    &lt;img src=&quot;docusaurus-dinosaur.svg&quot; alt=&quot;The Arabesque for Docusaurus homepage, and the Docusaurus dinosaur redrawn with Arabesque geometric patterns&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot; style=&quot;flex: 1.0 1 0&quot;&gt;
+  &lt;/div&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Arabesque for Docusaurus, and Docusaurus&#39; dinosaur, redrawn with Arabesque geometric patterns.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The theme is published on &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.npmjs.com/package/@arabesquelabs/docusaurus-theme-arabesque&quot;&gt;npm&lt;/a&gt;, and comes with &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://docusaurus.arabesquelabs.com/&quot;&gt;its own documentation
+site&lt;/a&gt;, built with, you guessed it, the theme itself. Both CareerHunt&#39;s
+documentation and the design system&#39;s documentation use it.&lt;/p&gt;
+&lt;h2 id=&quot;side-quest-4-power-close-gets-a-facelift&quot;&gt;Side Quest #4: Power Close Gets a Facelift&lt;/h2&gt;
+&lt;p&gt;Once you have a design system, everything you have ever built starts looking a
+bit outdated.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://mosab.co.uk/projects/power-close/&quot;&gt;Power Close&lt;/a&gt; is a browser extension I first built back in 2014, for the tab
+addicts among us (yes, I am one of them). You type a domain name or a keyword,
+hit &lt;kbd&gt;Enter&lt;/kbd&gt;, and every tab with it in the address is closed, across
+all your windows. Many Facebook tabs open, scattered across windows? Type
+&lt;code&gt;facebook.com&lt;/code&gt;, press &lt;kbd&gt;Enter&lt;/kbd&gt;, and they are gone.&lt;/p&gt;
+&lt;p&gt;Twelve years later, it got the Arabesque treatment: a new logo, a redesigned
+popup, and a &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://power-close.com&quot;&gt;brand new website&lt;/a&gt;.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;power-close.jpg&quot; alt=&quot;The Power Close website, showing the extension&#39;s popup&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Power Close: close every tab that matches, at once.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;And since I was already in there, it also picked up a few features I had been
+meaning to add for, well, years:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The popup counts the matching tabs as you type, so you see what will close
+before anything does.&lt;/li&gt;
+&lt;li&gt;Suggestions from the domains of your open tabs, as you type.&lt;/li&gt;
+&lt;li&gt;A keyboard shortcut: &lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;P&lt;/kbd&gt;.&lt;/li&gt;
+&lt;li&gt;A right-click menu option: &lt;strong&gt;Close all tabs from this domain&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Settings, synced with your browser.&lt;/li&gt;
+&lt;li&gt;Support for Firefox for Android.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can get it from the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://chrome.google.com/webstore/detail/power-close/jjpmcpmmajigbkjchbkoclipomlmpaaj&quot;&gt;Chrome Web Store&lt;/a&gt; or &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://addons.mozilla.org/firefox/addon/firefox-power-close/&quot;&gt;Firefox Add-ons&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;side-quest-5-a-new-zola-theme&quot;&gt;Side Quest #5: A New Zola Theme!&lt;/h2&gt;
+&lt;p&gt;And finally, the one that hits close to home, literally. This very website got
+a new theme: &lt;a href=&quot;https://mosab.co.uk/projects/themes/arabesque-zola/&quot;&gt;Arabesque for Zola&lt;/a&gt;. If things look different around here,
+that is why!&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;zola-theme-light.png&quot; alt=&quot;The Arabesque for Zola demo site in the light theme&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Arabesque for Zola, in light.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;This one was particularly important for me. My blog has been bilingual for a
+while now, with the old Arabic posts imported back from Blogger. Getting a
+theme that handles both English and Arabic properly has always been a
+struggle, and usually involved me overriding half the theme&#39;s CSS. This time
+round, right-to-left is built in: each language gets its own address, the
+header links each page to its translation, and right-to-left pages mirror,
+while numbers, code, and the pattern do not.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--full s-image--center&quot;&gt;
+  &lt;div class=&quot;s-image__row&quot;&gt;
+    &lt;img src=&quot;zola-theme-dark.jpg&quot; alt=&quot;The Arabesque for Zola demo site in the dark theme, and in Arabic&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+    &lt;img src=&quot;zola-theme-arabic.jpg&quot; alt=&quot;The Arabesque for Zola demo site in the dark theme, and in Arabic&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+  &lt;/div&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Dark, and right-to-left in Arabic.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;On top of that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Light and dark:&lt;/strong&gt; it follows your system, with a button to switch between
+system, light, and dark. It remembers your choice, with no flash.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Templates for everything:&lt;/strong&gt; a home page, paginated sections, tags, an
+archive by year, search, and a 404 page.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nineteen shortcodes for Markdown:&lt;/strong&gt; the design system&#39;s components that
+Markdown cannot write, plus galleries, separators, Mermaid diagrams, and
+YouTube, PDF, Gist, and Instagram embeds.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nothing from elsewhere:&lt;/strong&gt; the fonts, CSS, and scripts are all in the theme.
+No tracking, and no framework.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It is open source as well, and the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://github.com/ArabesqueLabs/zola-theme-arabesque&quot;&gt;GitHub repository&lt;/a&gt; doubles as the demo
+site.&lt;/p&gt;
+&lt;div class=&quot;zt-separator zt-separator--dingbats zt-separator--gap-sm zt-separator--size-xl zt-separator--width-1-2&quot; role=&quot;separator&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;✦ ✦ ✦&lt;/span&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;but-i-digress&quot;&gt;But I Digress!&lt;/h2&gt;
+&lt;p&gt;So, back to the main quest!&lt;/p&gt;
+&lt;p&gt;Somewhere along the way, CareerHunt stopped being just a tool for my own
+homelab, and became something I wanted to share, in the hope that it might make
+someone&#39;s life a little bit better.&lt;/p&gt;
+&lt;h2 id=&quot;so-what-is-careerhunt&quot;&gt;So, What Is CareerHunt?&lt;/h2&gt;
+&lt;p&gt;CareerHunt helps you manage your job search in one place: from applications and
+interview stages, to the notes and details you would otherwise scatter across
+spreadsheets, documents, and browser tabs.&lt;/p&gt;
+&lt;p&gt;The idea is simple: &lt;strong&gt;your job search, on your own infrastructure, with your
+data under your control.&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;careerhunt.jpg&quot; alt=&quot;The CareerHunt landing page, showing the tracking board&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Your job hunting, captured!&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;notable-features&quot;&gt;Notable Features&lt;/h3&gt;
+&lt;p&gt;Below is a list of notable features, and you can seel the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://careerhunt.app/features/&quot;&gt;full list here&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Application pipeline:&lt;/strong&gt; Track applications as they move through stages such
+as Applied, Interviewing, Offer, and Rejected.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Application details:&lt;/strong&gt; Keep job descriptions, notes, contact information,
+salary details, and everything else about an application in one place.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Self-hosted and privacy-first:&lt;/strong&gt; Your job search data lives on
+infrastructure you control, not on a third-party hosted service.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A custom UI:&lt;/strong&gt; A clean interface built with the open-source Arabesque
+design system.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexible deployment:&lt;/strong&gt; Run it with Docker Compose, or deploy it to
+Kubernetes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And a lot of little things that I hope you will like.&lt;/p&gt;
+&lt;h3 id=&quot;self-hosting&quot;&gt;Self-hosting&lt;/h3&gt;
+&lt;p&gt;CareerHunt is designed with self-hosting in mind. Both Docker Compose and
+Kubernetes deployment options are documented in the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://careerhunt.app/docs/quick-start/&quot;&gt;quick start guide&lt;/a&gt;. I
+would especially love feedback from people who run their own services: what is
+missing, what could be simpler, and what would make this something you would
+actually use?&lt;/p&gt;
+&lt;h2 id=&quot;these-are-the-early-days&quot;&gt;These are the Early Days&lt;/h2&gt;
+&lt;p&gt;This is an early release, and there is still plenty I would like to improve.
+But I figured it was better to get it out there, learn from real users, and
+improve it in the open, than to keep polishing it forever. (Also, if I kept
+polishing it, I would probably end up building a custom font next. Do not tempt
+me.)&lt;/p&gt;
+&lt;p&gt;If you are job hunting, maintaining a homelab, or just enjoy trying out
+open-source projects, give CareerHunt a spin. Bug reports, feature requests,
+contributions, constructive criticism, jokes, memes, rants, or any type of
+feedback really, are all welcome. ❤️ The comments section below works too!&lt;/p&gt;
+&lt;p&gt;Hopefully, it makes someone&#39;s job hunt a little less chaotic.&lt;/p&gt;
+&lt;h2 id=&quot;the-links&quot;&gt;The Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Website:&lt;/strong&gt; &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://careerhunt.app/&quot;&gt;careerhunt.app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Source code:&lt;/strong&gt; &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://github.com/ArabesqueLabs/hunt&quot;&gt;github.com/ArabesqueLabs/hunt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Quick start guide:&lt;/strong&gt; &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://careerhunt.app/docs/quick-start/&quot;&gt;careerhunt.app/docs/quick-start&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Design system:&lt;/strong&gt; &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://design.arabesquelabs.com&quot;&gt;design.arabesquelabs.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;zt-separator zt-separator--dingbats zt-separator--gap-sm zt-separator--size-xl zt-separator--width-1-2&quot; role=&quot;separator&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;✦ ✦ ✦&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;And if you happen to be hiring, well, you know where to find &lt;a href=&quot;https://mosab.co.uk/resume/&quot;&gt;my resume&lt;/a&gt;. 😉&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Joining Production Engineering at Facebook/Meta</title>
+          <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/joining-facebook-meta/</link>
+          <guid>https://mosab.co.uk/blog/joining-facebook-meta/</guid>
+          <description xml:base="https://mosab.co.uk/blog/joining-facebook-meta/">&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;meta-logo.png&quot; alt=&quot;Meta Logo&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+&lt;/figure&gt;
+&lt;p&gt;Super excited and thrilled to share that I am joining the Production
+Engineering team at &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://facebook.com&quot;&gt;Meta/Facebook&lt;/a&gt; in London! Today is
+my first day.&lt;/p&gt;
+&lt;p&gt;Production Engineering was created at Facebook to work with engineering teams
+and partners to champion the Reliability, Scalability, Performance, and
+Security posture of production services. PEs are hybrid software and systems
+engineers; they are the glue holding things together, whether that’s
+infrastructure and software or teams and processes.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;london-infra.png&quot; alt=&quot;FB London Infra logo on the wall&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;FB London Infra logo on the wall&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The true power of Production Engineering comes from developing strong
+relationships with partner engineering teams and valuing collaboration and
+knowledge sharing to build technical expertise and community. PE’s write
+production code and solve hard problems in systems serving billions of people
+across Facebook, services like Instagram, WhatsApp, and Oculus, and in diverse
+infrastructure areas like machine learning/inference, storage, and networking.&lt;/p&gt;
+&lt;p&gt;If you still are trying to figure out what a production engineer does, watch &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.youtube.com/watch?v=TnCY6Apxibk&quot;&gt;this
+video&lt;/a&gt;!&lt;/p&gt;
+&lt;div class=&quot;zt-embed zt-embed--video&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/TnCY6Apxibk&quot;
+    title=&quot;YouTube video&quot; loading=&quot;lazy&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot;
+    allow=&quot;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;Or you can watch this presentation at SRECon 2015 that talks about Production
+Engineering at Facebook and how it evolved:&lt;/p&gt;
+&lt;div class=&quot;zt-embed zt-embed--video&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/ugkkza3vKbc&quot;
+    title=&quot;YouTube video&quot; loading=&quot;lazy&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot;
+    allow=&quot;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;Can not wait to get starts on a journey of challenges, learnings and hyper growth!&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Joining Twitter SRE Team!</title>
+          <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/joining-twitter/</link>
+          <guid>https://mosab.co.uk/blog/joining-twitter/</guid>
+          <description xml:base="https://mosab.co.uk/blog/joining-twitter/">&lt;figure class=&quot;s-image s-image--md s-image--center&quot;&gt;
+  &lt;img src=&quot;twitter-logo.png&quot; alt=&quot;Twitter&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+&lt;/figure&gt;
+&lt;p&gt;Last Friday was my last day at &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://gocardless.com&quot;&gt;GoCardless&lt;/a&gt;. It has been
+a year -and change- full of knowing smart and great colleagues, and learning a
+lot from them. Special shout-out to the Core Infrastructure team!&lt;/p&gt;
+&lt;p&gt;I am super excited that starting next Monday I will be joining
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://twitter.com&quot;&gt;Twitter&lt;/a&gt;&#39;s Site Reliability Engineering team
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://twitter.com/TwitterSRE&quot;&gt;@TwitterSRE&lt;/a&gt; in London! I have met some of the
+team already, and can&#39;t wait to start working with them and meet the rest!&lt;/p&gt;
+&lt;p&gt;This is a huge step for me, and I look forward to months and years of hard
+working, learning and making new friends while empowering everyone in the world
+to create and share ideas and information instantly without barriers!&lt;/p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

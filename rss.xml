@@ -1,0 +1,2058 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Mosab Ibrahim</title>
+      <link>https://mosab.co.uk</link>
+      <description>I tell the machine stories about the world!</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mosab.co.uk/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Mon, 26 Oct 2026 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>CareerHunt App and Other Storeies!</title>
+          <pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/careerhunt-and-side-quests/</link>
+          <guid>https://mosab.co.uk/blog/careerhunt-and-side-quests/</guid>
+          <description xml:base="https://mosab.co.uk/blog/careerhunt-and-side-quests/">&lt;figure class=&quot;s-image s-image--full s-image--center&quot;&gt;
+  &lt;img src=&quot;careerhunt-social-card.png&quot; alt=&quot;CareerHunt: Your job hunt, captured. Your data, set free.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;intro&quot;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;I am in the looking for a job. If you have ever been in that position, you know
+the drill; dozens of applications, each one at a different stage, recruiters
+whose names you half remember, interview dates scribbled somewhere, job
+descriptions that vanish from the company&#39;s careers page the moment you need to
+re-read them, and a spreadsheet that starts tidy and becomes a crime scene by
+the second week.&lt;/p&gt;
+&lt;p&gt;I wanted a simple way to keep track of all of it: applications, interviews,
+contacts, notes, and progress. I also did not want to hand my career history
+over to yet another SaaS platform. I looked around, could not quite find what I
+wanted, so I did what any reasonable engineer would do: I built a little app
+and deployed it on my local Kubernetes cluster.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Problem solved, right?&lt;/strong&gt; Well, my brain had other plans. 😅&lt;/p&gt;
+&lt;p&gt;Well, the post&#39;s title is an ode to a novel I read in school, and forgot
+everything about it except the title, which very aptly describes what you are
+about to read next! The novel&#39;s title was:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Thirteen O&#39;clock and Other Stories&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;What followed was a few weeks of hyperfocus, one rabbit hole after the other,
+and a multi-layered scope creep that would make any project manager weep. Let
+me walk you through it, one side quest at a time.&lt;/p&gt;
+&lt;div class=&quot;zt-separator zt-separator--dingbats zt-separator--gap-sm zt-separator--size-xl zt-separator--width-1-2&quot; role=&quot;separator&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;✦ ✦ ✦&lt;/span&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;side-quest-1-a-design-system&quot;&gt;Side Quest #1: A Design System&lt;/h2&gt;
+&lt;p&gt;The little app needed a UI, and I did not want it to look like every other
+admin dashboard on the internet. Arabesque Labs, my software venture, did not
+have a visual identity yet either. Two birds, one stone.&lt;/p&gt;
+&lt;p&gt;A few weeks later, I had the &lt;a href=&quot;https://mosab.co.uk/projects/arabesque-design-system/&quot;&gt;Arabesque design system&lt;/a&gt;: the tokens, CSS,
+components and rules that I build everything at Arabesque Labs with.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;design-system.jpg&quot; alt=&quot;The Arabesque design system homepage&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;The Arabesque design system: everything around the star follows from the same rule.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;A few things I cared about from day one:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bidirectional from the start:&lt;/strong&gt; English and Arabic, left-to-right and
+right-to-left, as first class citizens. Not as an afterthought bolted on when
+someone files a bug about a mirrored arrow.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accessible:&lt;/strong&gt; WCAG 2.2 AA is the floor, not the ceiling. The contrast of
+every colour pair the system relies on is measured at build time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Efficient interaction:&lt;/strong&gt; people should get things done in the fewest steps,
+with actions that say what they do, and every consequence shown before, during,
+and after.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Boring technology:&lt;/strong&gt; plain CSS custom properties and plain HTML. No
+framework, and no runtime dependency. A single token file is the source of
+truth, and a small Node script builds everything else from it. There are React
+components and a handful of optional JavaScript helpers too, for those who want
+them.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And, of course, the geometric patterns. The eight-pointed star tile is the
+mark, and the patterns you see on the background of every Arabesque page are
+drawn from it.&lt;/p&gt;
+&lt;p&gt;It is open source, and you can browse it at &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://design.arabesquelabs.com&quot;&gt;design.arabesquelabs.com&lt;/a&gt;, or
+read the source on &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://github.com/ArabesqueLabs/design-system&quot;&gt;GitHub&lt;/a&gt;. Fair warning though: it is still experimental,
+and things will move around until it reaches 1.0.&lt;/p&gt;
+&lt;h2 id=&quot;side-quest-2-a-rebrand&quot;&gt;Side Quest #2: A Rebrand&lt;/h2&gt;
+&lt;p&gt;At some point the &quot;little app&quot; stopped being little. It grew into a proper
+project, so it deserved a proper name and a proper home: &lt;strong&gt;CareerHunt&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;A name, a domain, a landing page, a logo that uses the Arabesque star... You
+know how it goes. 😅&lt;/p&gt;
+&lt;h2 id=&quot;side-quest-3-custom-documentation&quot;&gt;Side Quest #3: Custom Documentation&lt;/h2&gt;
+&lt;p&gt;A proper project needs proper documentation. I love Docusaurus, and I have used
+it many times before. But now that I have a design system, I could not just use
+Docusaurus as is, right?!&lt;/p&gt;
+&lt;p&gt;So I built &lt;a href=&quot;https://mosab.co.uk/projects/themes/arabesque-docusaurus/&quot;&gt;Arabesque for Docusaurus&lt;/a&gt;, a Docusaurus 3 theme on top of
+Arabesque. It restyles the classic theme with the design system&#39;s tokens,
+typography and components, maps Infima (Docusaurus&#39; CSS framework) onto them,
+and even brings its own colours for code highlighting. The result: a
+documentation site that looks and reads like the rest of Arabesque, in light and
+dark, and in left-to-right and right-to-left alike.&lt;/p&gt;
+&lt;p&gt;And because no rabbit hole is complete without going one level deeper, I even
+remixed the Docusaurus dinosaur using geometric patterns. Meet the
+Arabesquosaurus! (Okay, I just made that name up, but I think it might stick.)&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--xl s-image--center&quot;&gt;
+  &lt;div class=&quot;s-image__row&quot;&gt;
+    &lt;img src=&quot;docusaurus-theme.png&quot; alt=&quot;The Arabesque for Docusaurus homepage, and the Docusaurus dinosaur redrawn with Arabesque geometric patterns&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot; style=&quot;flex: 1.4656188605108056 1 0&quot;&gt;
+    &lt;img src=&quot;docusaurus-dinosaur.svg&quot; alt=&quot;The Arabesque for Docusaurus homepage, and the Docusaurus dinosaur redrawn with Arabesque geometric patterns&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot; style=&quot;flex: 1.0 1 0&quot;&gt;
+  &lt;/div&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Arabesque for Docusaurus, and Docusaurus&#39; dinosaur, redrawn with Arabesque geometric patterns.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The theme is published on &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.npmjs.com/package/@arabesquelabs/docusaurus-theme-arabesque&quot;&gt;npm&lt;/a&gt;, and comes with &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://docusaurus.arabesquelabs.com/&quot;&gt;its own documentation
+site&lt;/a&gt;, built with, you guessed it, the theme itself. Both CareerHunt&#39;s
+documentation and the design system&#39;s documentation use it.&lt;/p&gt;
+&lt;h2 id=&quot;side-quest-4-power-close-gets-a-facelift&quot;&gt;Side Quest #4: Power Close Gets a Facelift&lt;/h2&gt;
+&lt;p&gt;Once you have a design system, everything you have ever built starts looking a
+bit outdated.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://mosab.co.uk/projects/power-close/&quot;&gt;Power Close&lt;/a&gt; is a browser extension I first built back in 2014, for the tab
+addicts among us (yes, I am one of them). You type a domain name or a keyword,
+hit &lt;kbd&gt;Enter&lt;/kbd&gt;, and every tab with it in the address is closed, across
+all your windows. Many Facebook tabs open, scattered across windows? Type
+&lt;code&gt;facebook.com&lt;/code&gt;, press &lt;kbd&gt;Enter&lt;/kbd&gt;, and they are gone.&lt;/p&gt;
+&lt;p&gt;Twelve years later, it got the Arabesque treatment: a new logo, a redesigned
+popup, and a &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://power-close.com&quot;&gt;brand new website&lt;/a&gt;.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;power-close.jpg&quot; alt=&quot;The Power Close website, showing the extension&#39;s popup&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Power Close: close every tab that matches, at once.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;And since I was already in there, it also picked up a few features I had been
+meaning to add for, well, years:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The popup counts the matching tabs as you type, so you see what will close
+before anything does.&lt;/li&gt;
+&lt;li&gt;Suggestions from the domains of your open tabs, as you type.&lt;/li&gt;
+&lt;li&gt;A keyboard shortcut: &lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;P&lt;/kbd&gt;.&lt;/li&gt;
+&lt;li&gt;A right-click menu option: &lt;strong&gt;Close all tabs from this domain&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Settings, synced with your browser.&lt;/li&gt;
+&lt;li&gt;Support for Firefox for Android.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can get it from the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://chrome.google.com/webstore/detail/power-close/jjpmcpmmajigbkjchbkoclipomlmpaaj&quot;&gt;Chrome Web Store&lt;/a&gt; or &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://addons.mozilla.org/firefox/addon/firefox-power-close/&quot;&gt;Firefox Add-ons&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;side-quest-5-a-new-zola-theme&quot;&gt;Side Quest #5: A New Zola Theme!&lt;/h2&gt;
+&lt;p&gt;And finally, the one that hits close to home, literally. This very website got
+a new theme: &lt;a href=&quot;https://mosab.co.uk/projects/themes/arabesque-zola/&quot;&gt;Arabesque for Zola&lt;/a&gt;. If things look different around here,
+that is why!&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;zola-theme-light.png&quot; alt=&quot;The Arabesque for Zola demo site in the light theme&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Arabesque for Zola, in light.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;This one was particularly important for me. My blog has been bilingual for a
+while now, with the old Arabic posts imported back from Blogger. Getting a
+theme that handles both English and Arabic properly has always been a
+struggle, and usually involved me overriding half the theme&#39;s CSS. This time
+round, right-to-left is built in: each language gets its own address, the
+header links each page to its translation, and right-to-left pages mirror,
+while numbers, code, and the pattern do not.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--full s-image--center&quot;&gt;
+  &lt;div class=&quot;s-image__row&quot;&gt;
+    &lt;img src=&quot;zola-theme-dark.jpg&quot; alt=&quot;The Arabesque for Zola demo site in the dark theme, and in Arabic&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+    &lt;img src=&quot;zola-theme-arabic.jpg&quot; alt=&quot;The Arabesque for Zola demo site in the dark theme, and in Arabic&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+  &lt;/div&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Dark, and right-to-left in Arabic.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;On top of that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Light and dark:&lt;/strong&gt; it follows your system, with a button to switch between
+system, light, and dark. It remembers your choice, with no flash.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Templates for everything:&lt;/strong&gt; a home page, paginated sections, tags, an
+archive by year, search, and a 404 page.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nineteen shortcodes for Markdown:&lt;/strong&gt; the design system&#39;s components that
+Markdown cannot write, plus galleries, separators, Mermaid diagrams, and
+YouTube, PDF, Gist, and Instagram embeds.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nothing from elsewhere:&lt;/strong&gt; the fonts, CSS, and scripts are all in the theme.
+No tracking, and no framework.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It is open source as well, and the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://github.com/ArabesqueLabs/zola-theme-arabesque&quot;&gt;GitHub repository&lt;/a&gt; doubles as the demo
+site.&lt;/p&gt;
+&lt;div class=&quot;zt-separator zt-separator--dingbats zt-separator--gap-sm zt-separator--size-xl zt-separator--width-1-2&quot; role=&quot;separator&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;✦ ✦ ✦&lt;/span&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;but-i-digress&quot;&gt;But I Digress!&lt;/h2&gt;
+&lt;p&gt;So, back to the main quest!&lt;/p&gt;
+&lt;p&gt;Somewhere along the way, CareerHunt stopped being just a tool for my own
+homelab, and became something I wanted to share, in the hope that it might make
+someone&#39;s life a little bit better.&lt;/p&gt;
+&lt;h2 id=&quot;so-what-is-careerhunt&quot;&gt;So, What Is CareerHunt?&lt;/h2&gt;
+&lt;p&gt;CareerHunt helps you manage your job search in one place: from applications and
+interview stages, to the notes and details you would otherwise scatter across
+spreadsheets, documents, and browser tabs.&lt;/p&gt;
+&lt;p&gt;The idea is simple: &lt;strong&gt;your job search, on your own infrastructure, with your
+data under your control.&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;careerhunt.jpg&quot; alt=&quot;The CareerHunt landing page, showing the tracking board&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Your job hunting, captured!&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;notable-features&quot;&gt;Notable Features&lt;/h3&gt;
+&lt;p&gt;Below is a list of notable features, and you can seel the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://careerhunt.app/features/&quot;&gt;full list here&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Application pipeline:&lt;/strong&gt; Track applications as they move through stages such
+as Applied, Interviewing, Offer, and Rejected.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Application details:&lt;/strong&gt; Keep job descriptions, notes, contact information,
+salary details, and everything else about an application in one place.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Self-hosted and privacy-first:&lt;/strong&gt; Your job search data lives on
+infrastructure you control, not on a third-party hosted service.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A custom UI:&lt;/strong&gt; A clean interface built with the open-source Arabesque
+design system.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexible deployment:&lt;/strong&gt; Run it with Docker Compose, or deploy it to
+Kubernetes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And a lot of little things that I hope you will like.&lt;/p&gt;
+&lt;h3 id=&quot;self-hosting&quot;&gt;Self-hosting&lt;/h3&gt;
+&lt;p&gt;CareerHunt is designed with self-hosting in mind. Both Docker Compose and
+Kubernetes deployment options are documented in the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://careerhunt.app/docs/quick-start/&quot;&gt;quick start guide&lt;/a&gt;. I
+would especially love feedback from people who run their own services: what is
+missing, what could be simpler, and what would make this something you would
+actually use?&lt;/p&gt;
+&lt;h2 id=&quot;these-are-the-early-days&quot;&gt;These are the Early Days&lt;/h2&gt;
+&lt;p&gt;This is an early release, and there is still plenty I would like to improve.
+But I figured it was better to get it out there, learn from real users, and
+improve it in the open, than to keep polishing it forever. (Also, if I kept
+polishing it, I would probably end up building a custom font next. Do not tempt
+me.)&lt;/p&gt;
+&lt;p&gt;If you are job hunting, maintaining a homelab, or just enjoy trying out
+open-source projects, give CareerHunt a spin. Bug reports, feature requests,
+contributions, constructive criticism, jokes, memes, rants, or any type of
+feedback really, are all welcome. ❤️ The comments section below works too!&lt;/p&gt;
+&lt;p&gt;Hopefully, it makes someone&#39;s job hunt a little less chaotic.&lt;/p&gt;
+&lt;h2 id=&quot;the-links&quot;&gt;The Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Website:&lt;/strong&gt; &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://careerhunt.app/&quot;&gt;careerhunt.app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Source code:&lt;/strong&gt; &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://github.com/ArabesqueLabs/hunt&quot;&gt;github.com/ArabesqueLabs/hunt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Quick start guide:&lt;/strong&gt; &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://careerhunt.app/docs/quick-start/&quot;&gt;careerhunt.app/docs/quick-start&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Design system:&lt;/strong&gt; &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://design.arabesquelabs.com&quot;&gt;design.arabesquelabs.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;zt-separator zt-separator--dingbats zt-separator--gap-sm zt-separator--size-xl zt-separator--width-1-2&quot; role=&quot;separator&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;✦ ✦ ✦&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;And if you happen to be hiring, well, you know where to find &lt;a href=&quot;https://mosab.co.uk/resume/&quot;&gt;my resume&lt;/a&gt;. 😉&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Comments Backed by Neon &amp; Cloudflare</title>
+          <pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/comments-section-neon/</link>
+          <guid>https://mosab.co.uk/blog/comments-section-neon/</guid>
+          <description xml:base="https://mosab.co.uk/blog/comments-section-neon/">&lt;p&gt;Between the years of 2006 and 2014, I used to maintain an Arabic blog on
+Blogger.com. In parallel, although a few years after I started my blog, I also
+maintained a personal website (initially on the mos3abof.com domain name, and
+now mosab.co.uk). Both the blog and the website have undergone many phases of
+upgrades, tweaks, and re-purposing; they were merged and split multiple times
+across the years, and recently, I decided to import the Arabic posts into this
+website&#39;s blog section again, and make the website multilingual.&lt;/p&gt;
+&lt;p&gt;I was happy with the results, with the occasional theme tweak here and there,
+but I missed the comments. Comments on posts were part of the soul of the blog,
+and without them, the imported blogs were incomplete; So, in one of my previous
+weekends, I ported the comments into a &lt;code&gt;comments.toml&lt;/code&gt; file, and all the
+comments on the posts that were on blogger.com were also in here! The posts
+started feeling like &quot;home&quot; again!&lt;/p&gt;
+&lt;p&gt;Something was still missing thgough: the ability to write new ones. If you
+wanted to leave a comment on older or newer posts, there was simply nowhere to
+send it.&lt;/p&gt;
+&lt;p&gt;I have been meaning to fix that for a while. This weekend I finally did.&lt;/p&gt;
+&lt;div class=&quot;zt-separator zt-separator--dingbats zt-separator--gap-sm zt-separator--size-xl zt-separator--width-1-2&quot; role=&quot;separator&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;✦ ✦ ✦&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;The core problem with comments on a static site is that a static site has no
+server. When you hit &quot;submit&quot; on a form, something has to catch the request,
+validate it, and store it somewhere. A static file host does none of that.&lt;/p&gt;
+&lt;p&gt;There are two ways out. You outsource to a third-party commenting service
+(Disqus is the obvious one, there are smaller alternatives), or you build a
+small backend yourself and keep control of the data. I used Disqus before in
+one of the incarnations of the website, and I was not a big fan. They are good,
+but no matter what I did, it just didn&#39;t fit right in my website&#39;s theme, and I
+go headaches getting it to work properly for Arabic content (RTL).&lt;/p&gt;
+&lt;p&gt;An even more fundamental problem, that did not sit right with me with using 3rd
+party services: the tracker payload, the ads, the constant account nagging.&lt;/p&gt;
+&lt;p&gt;Building the backend is also the more interesting problem, so that is what I
+did.&lt;/p&gt;
+&lt;h2 id=&quot;architecture&quot;&gt;Architecture&lt;/h2&gt;
+&lt;p&gt;The shape of the solution at a glance:&lt;/p&gt;
+&lt;figure class=&quot;zt-mermaid&quot;&gt;
+  &lt;pre class=&quot;zt-mermaid__source&quot; dir=&quot;ltr&quot;&gt;flowchart LR
+    subgraph Browser
+        A[Comment Form]
+    end
+    subgraph CF [Cloudflare]
+        B[Worker]
+        T[Turnstile]
+    end
+    subgraph N [Neon]
+        D[(PostgreSQL)]
+    end
+    subgraph GH [GitHub]
+        I[Issue]
+        E[Approve Action]
+        BW[Build Action]
+        R[Repository]
+    end
+    A --&amp;gt;|POST JSON| B
+    B &amp;lt;--&amp;gt;|verify token| T
+    B --&amp;gt;|INSERT pending| D
+    B --&amp;gt;|open issue| I
+    I --&amp;gt;|approved label| E
+    E --&amp;gt;|UPDATE approved| D
+    E --&amp;gt;|workflow_call| BW
+    BW --&amp;gt;|SELECT approved| D
+    BW --&amp;gt;|zola build| R
+    R --&amp;gt; S([Live Site])&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;A form on the page posts JSON to a Cloudflare Worker. The Worker validates the
+input, checks a Turnstile CAPTCHA token, hashes the email and IP, and inserts
+the comment into Neon with &lt;code&gt;status = &#39;pending&#39;&lt;/code&gt;. It then opens a GitHub issue
+containing the comment text for review. When I add the &lt;code&gt;approved&lt;/code&gt; label to that
+issue, an Actions workflow sets the status to &lt;code&gt;&#39;approved&#39;&lt;/code&gt; in the database,
+closes the issue, and calls the build workflow. That build queries all approved
+comments, writes ephemeral &lt;code&gt;comments.toml&lt;/code&gt; files into the workspace, runs
+&lt;code&gt;zola build&lt;/code&gt;, and deploys. The TOML files are never committed back to the
+repository.&lt;/p&gt;
+&lt;h2 id=&quot;the-submission-flow-in-detail&quot;&gt;The submission flow in detail&lt;/h2&gt;
+&lt;figure class=&quot;zt-mermaid&quot;&gt;
+  &lt;pre class=&quot;zt-mermaid__source&quot; dir=&quot;ltr&quot;&gt;sequenceDiagram
+    actor User
+    participant Form
+    participant TS as Turnstile
+    participant W as Cloudflare Worker
+    participant DB as Neon PostgreSQL
+    participant GH as GitHub API
+    User-&amp;gt;&amp;gt;Form: fills in name + comment
+    Form-&amp;gt;&amp;gt;TS: widget solves challenge
+    TS--&amp;gt;&amp;gt;Form: one-time token
+    Form-&amp;gt;&amp;gt;W: POST {author, text, email, token, ...}
+    W-&amp;gt;&amp;gt;W: CORS origin check
+    W-&amp;gt;&amp;gt;W: POST method check
+    W-&amp;gt;&amp;gt;W: honeypot field check
+    W-&amp;gt;&amp;gt;W: input validation
+    W-&amp;gt;&amp;gt;TS: verify token + visitor IP
+    TS--&amp;gt;&amp;gt;W: success: true
+    W-&amp;gt;&amp;gt;W: SHA-256(email), SHA-256(IP)
+    W-&amp;gt;&amp;gt;DB: INSERT INTO comments ...
+    DB--&amp;gt;&amp;gt;W: row inserted
+    W--&amp;gt;&amp;gt;Form: 201 {ok: true}
+    W-)GH: open issue (pending review)
+    Form--&amp;gt;&amp;gt;User: &amp;quot;Comment posted!&amp;quot;&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;Before inserting, the Worker normalises line endings to &lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt; so that
+paragraph breaks in the comment body render correctly in the Zola template,
+which outputs the text as raw HTML after escaping everything else.&lt;/p&gt;
+&lt;p&gt;The issue is opened via &lt;code&gt;ctx.waitUntil&lt;/code&gt;, meaning the Worker returns the 201
+to the browser immediately and creates the issue in the background. The
+commenter does not wait for it.&lt;/p&gt;
+&lt;h2 id=&quot;the-approval-flow&quot;&gt;The approval flow&lt;/h2&gt;
+&lt;figure class=&quot;zt-mermaid&quot;&gt;
+  &lt;pre class=&quot;zt-mermaid__source&quot; dir=&quot;ltr&quot;&gt;sequenceDiagram
+    actor Me
+    participant GH as GitHub Issues
+    participant A as Approve Action
+    participant DB as Neon PostgreSQL
+    participant B as Build Action
+    GH-&amp;gt;&amp;gt;Me: notification: new comment issue
+    Me-&amp;gt;&amp;gt;GH: add &amp;quot;approved&amp;quot; label
+    GH-&amp;gt;&amp;gt;A: issues.labeled event
+    A-&amp;gt;&amp;gt;A: verify label added by repo owner
+    A-&amp;gt;&amp;gt;DB: UPDATE SET status=&amp;#39;approved&amp;#39;
+    DB--&amp;gt;&amp;gt;A: row updated
+    A-&amp;gt;&amp;gt;GH: close issue
+    A-&amp;gt;&amp;gt;B: workflow_call
+    B-&amp;gt;&amp;gt;DB: SELECT all approved comments
+    DB--&amp;gt;&amp;gt;B: rows grouped by post_slug
+    B-&amp;gt;&amp;gt;B: write comments.toml, zola build
+    B-&amp;gt;&amp;gt;B: deploy to gh-pages&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;The approval workflow runs only when the label is added by the repository owner,
+checked via &lt;code&gt;github.actor == github.repository_owner&lt;/code&gt;. Anyone else adding the
+label causes the job to be skipped entirely.&lt;/p&gt;
+&lt;h2 id=&quot;the-build-pipeline&quot;&gt;The build pipeline&lt;/h2&gt;
+&lt;figure class=&quot;zt-mermaid&quot;&gt;
+  &lt;pre class=&quot;zt-mermaid__source&quot; dir=&quot;ltr&quot;&gt;sequenceDiagram
+    participant GH as GitHub Actions
+    participant A as Build Action
+    participant DB as Neon PostgreSQL
+    participant R as Repository
+    GH-&amp;gt;&amp;gt;A: workflow_call from approve action
+    A-&amp;gt;&amp;gt;R: checkout main
+    A-&amp;gt;&amp;gt;DB: SELECT all approved comments
+    DB--&amp;gt;&amp;gt;A: rows grouped by post_slug
+    A-&amp;gt;&amp;gt;A: write content/.../comments.toml per post
+    Note over A: files exist only in the CI workspace
+    A-&amp;gt;&amp;gt;A: zola build (reads .toml files)
+    A-&amp;gt;&amp;gt;R: deploy ./public to gh-pages&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;The export script is plain Python with &lt;code&gt;psycopg2&lt;/code&gt; and &lt;code&gt;tomli-w&lt;/code&gt;. It queries
+every approved comment, groups them by &lt;code&gt;post_slug&lt;/code&gt;, and writes one &lt;code&gt;comments.toml&lt;/code&gt;
+per post directory. Zola then reads those files during the build exactly as it
+does for the historical Blogger comments. The &lt;code&gt;comments.toml&lt;/code&gt; files are never
+staged or committed; the CI workspace is discarded after the build completes.&lt;/p&gt;
+&lt;h2 id=&quot;the-database&quot;&gt;The database&lt;/h2&gt;
+&lt;p&gt;One table, no ORM, no migration framework:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;sql&quot;&gt;CREATE TABLE IF NOT EXISTS comments (
+  id                   UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+  post_slug            TEXT        NOT NULL,
+  lang                 TEXT        NOT NULL DEFAULT &amp;#39;en&amp;#39;,
+  author               TEXT        NOT NULL,
+  email_hash           TEXT,          -- SHA-256(lower(trim(email))), for Gravatar only
+  website              TEXT,          -- optional; becomes profile_url in TOML
+  text                 TEXT        NOT NULL,
+  status               TEXT        NOT NULL DEFAULT &amp;#39;pending&amp;#39;,  -- Worker always sets explicitly
+  ip_hash              TEXT,          -- SHA-256(IP), never the raw address
+  submitted_at         TIMESTAMPTZ NOT NULL DEFAULT now(),
+  is_author            BOOLEAN     NOT NULL DEFAULT false,
+  -- Fields populated only for comments imported from Blogger
+  avatar_url           TEXT,
+  profile_url          TEXT,
+  blogger_comment_url  TEXT        UNIQUE
+);
+
+CREATE INDEX IF NOT EXISTS comments_slug_status_date
+  ON comments (post_slug, status, submitted_at);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;email_hash&lt;/code&gt; column deserves a note. Gravatar uses a SHA-256 hash of the
+lowercased, trimmed email address to look up avatars, so storing the hash is
+sufficient. The raw address never touches the database. Same for the IP: it is
+hashed before insert and only useful if I ever want to rate-limit by identity
+without knowing who the person is.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;blogger_comment_url&lt;/code&gt; column is only populated for comments imported from
+the old Blogger export. New comments leave it null. The &lt;code&gt;UNIQUE&lt;/code&gt; constraint
+prevents importing the same Blogger comment twice.&lt;/p&gt;
+&lt;h2 id=&quot;why-these-pieces&quot;&gt;Why these pieces&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Neon&lt;/strong&gt; is serverless PostgreSQL. Connections are handled over HTTP via their
+&lt;code&gt;@neondatabase/serverless&lt;/code&gt; driver, which matters a great deal when your backend
+is an edge function that might run in dozens of locations: you cannot hold a
+traditional TCP connection open. Neon&#39;s free tier is generous, the SQL is just
+SQL, and I can inspect or edit rows directly in their console without installing
+anything.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cloudflare Workers&lt;/strong&gt; was the obvious choice for the API layer because the
+domain is already on Cloudflare, and Workers run at the edge. The free tier is
+absurdly generous for a personal blog. Turnstile, the CAPTCHA widget I am using
+for bot protection, is also a Cloudflare product, so the server-side
+verification is a single internal API call.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Actions&lt;/strong&gt; handles moderation, site deployment, and Worker deployment.
+The build workflow runs on push to &lt;code&gt;main&lt;/code&gt;, on &lt;code&gt;repository_dispatch&lt;/code&gt;, and as a
+reusable workflow via &lt;code&gt;workflow_call&lt;/code&gt;. On a push to &lt;code&gt;main&lt;/code&gt; it also deploys the
+Cloudflare Worker via &lt;code&gt;wrangler deploy&lt;/code&gt;, so Worker and site changes ship
+together. The approval workflow triggers on any issue label event, checks that
+the actor is the repository owner, flips the status in Neon, and calls the
+build workflow. No separate deploy step: the same build path runs regardless of
+what triggered it.&lt;/p&gt;
+&lt;h2 id=&quot;bridging-two-worlds&quot;&gt;Bridging two worlds&lt;/h2&gt;
+&lt;p&gt;The bit that sounds strangest is regenerating static files every time someone
+leaves a comment. Why not serve comments from the database at request time?&lt;/p&gt;
+&lt;p&gt;Because this is a static site. There is no request time in that sense. The HTML
+is generated once at build time, not per-visitor. Zola reads the &lt;code&gt;.toml&lt;/code&gt; files
+alongside each post during the build and injects the comments into the page
+template. That rendering code was already written and working for the historical
+Blogger comments, which sit in the same format. Keeping the same format from a
+new source means the display layer never needs to change.&lt;/p&gt;
+&lt;p&gt;So the build step exists to bridge two worlds:&lt;/p&gt;
+&lt;figure class=&quot;zt-mermaid&quot;&gt;
+  &lt;pre class=&quot;zt-mermaid__source&quot; dir=&quot;ltr&quot;&gt;flowchart LR
+    subgraph live [Live world]
+        direction TB
+        F[Comment form] --&amp;gt; W[Worker] --&amp;gt; DB[(Neon)]
+    end
+    subgraph build [Build]
+        direction TB
+        X[export script] --&amp;gt; T[comments.toml] --&amp;gt; Z[Zola] --&amp;gt; P[HTML page]
+    end
+    DB --&amp;gt;|SELECT at build time| X&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;The export script is the only thing that crosses the boundary. It runs at the
+start of every build — whether triggered by a push to &lt;code&gt;main&lt;/code&gt; or by the approval
+workflow — pulls approved rows from Neon, and writes them into the workspace
+where Zola can find them. The files are temporary: Zola reads them, produces
+HTML, and they vanish with the runner. Nothing is written back to the
+repository.&lt;/p&gt;
+&lt;p&gt;An earlier version of this system committed the &lt;code&gt;comments.toml&lt;/code&gt; files after
+each new submission, then let the resulting push trigger the build. It worked,
+but it meant every comment created a commit, the repository history filled with
+churn, and a second comment arriving while the first export was still running
+could race. Querying at build time is simpler and avoids all of that.&lt;/p&gt;
+&lt;p&gt;A comment still takes a few minutes to appear because a full build has to run.
+That tradeoff is fine for a personal blog.&lt;/p&gt;
+&lt;h2 id=&quot;security-without-login&quot;&gt;Security without login&lt;/h2&gt;
+&lt;p&gt;I made a deliberate call not to require login. The barrier to commenting on a
+personal blog is already high; most people read and move on. Adding an auth wall
+would not stop spam, it would stop the few people who might actually have
+something to say.&lt;/p&gt;
+&lt;p&gt;What is in place instead:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cloudflare Turnstile&lt;/strong&gt; sits on the form. It is effectively invisible to real
+users and works well against bots. Unlike reCAPTCHA it does not build a
+behavioural profile of your visitors.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A honeypot field&lt;/strong&gt; is hidden from real browsers but visible to bots scraping
+the DOM. Any submission with that field filled in receives a silent &lt;code&gt;201&lt;/code&gt; and is
+immediately discarded. The bot thinks it succeeded.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CORS is locked&lt;/strong&gt; to &lt;code&gt;mosab.co.uk&lt;/code&gt;. The Worker rejects requests from any other
+origin at the very top of the handler, before parsing the body or touching the
+database.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Input validation&lt;/strong&gt; checks every field: author length, text length, post slug
+format (a strict regex: &lt;code&gt;^[a-z0-9/_-]+$&lt;/code&gt;), and URL validity for the optional
+website field.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Nothing sensitive is stored raw.&lt;/strong&gt; Email, if provided, is only used to
+resolve a Gravatar avatar. The Worker hashes it with SHA-256 before inserting.
+The visitor IP is treated the same way.&lt;/p&gt;
+&lt;p&gt;The security layers in sequence:&lt;/p&gt;
+&lt;figure class=&quot;zt-mermaid&quot;&gt;
+  &lt;pre class=&quot;zt-mermaid__source&quot; dir=&quot;ltr&quot;&gt;flowchart TD
+    R[Incoming request] --&amp;gt; C1{Correct origin?}
+    C1 --&amp;gt;|no| X1[403 Forbidden]
+    C1 --&amp;gt;|yes| C2{POST method?}
+    C2 --&amp;gt;|no| X2[405 Method Not Allowed]
+    C2 --&amp;gt;|yes| C3{Honeypot empty?}
+    C3 --&amp;gt;|no| X3[201 silent discard]
+    C3 --&amp;gt;|yes| C4{Input valid?}
+    C4 --&amp;gt;|no| X4[400 Bad Request]
+    C4 --&amp;gt;|yes| C5{Turnstile passes?}
+    C5 --&amp;gt;|no| X5[400 CAPTCHA failed]
+    C5 --&amp;gt;|yes| OK[Insert pending + open issue]&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;Every comment lands in the database as &lt;code&gt;pending&lt;/code&gt; and is invisible until I
+approve it. The approval mechanism is a GitHub issue: the Worker opens one for
+each submission, I read the text, and if it looks fine I add the &lt;code&gt;approved&lt;/code&gt;
+label. An Actions workflow catches the label event, flips the status in the
+database, closes the issue, and triggers a build. If the submission is spam I
+just close the issue without labelling it and the comment stays pending forever.&lt;/p&gt;
+&lt;p&gt;No email infrastructure, no admin panel, no console queries. The issue inbox
+is the moderation queue.&lt;/p&gt;
+&lt;h2 id=&quot;what-it-took&quot;&gt;What it took&lt;/h2&gt;
+&lt;p&gt;The whole system is seven pieces:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A SQL migration: one &lt;code&gt;CREATE TABLE&lt;/code&gt; and one &lt;code&gt;CREATE INDEX&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;A one-time Python script that imports all existing Blogger comments from the
+exported TOML files into Neon, making the database the single source of truth.&lt;/li&gt;
+&lt;li&gt;A Cloudflare Worker in TypeScript (~150 lines): CORS, honeypot, validation,
+Turnstile check, SHA-256 hashing, DB insert as &lt;code&gt;pending&lt;/code&gt;, GitHub issue creation.&lt;/li&gt;
+&lt;li&gt;A moderation workflow (~30 lines of YAML): triggers on issue label, verifies
+the actor is the repo owner, runs the approval script, closes the issue, calls
+the build workflow.&lt;/li&gt;
+&lt;li&gt;A Python approval script (~30 lines): extracts the comment UUID from the issue
+body and sets &lt;code&gt;status = &#39;approved&#39;&lt;/code&gt; in Neon.&lt;/li&gt;
+&lt;li&gt;A Python export script (~60 lines): connect to Neon, group rows by slug,
+write &lt;code&gt;comments.toml&lt;/code&gt; files into the workspace with &lt;code&gt;tomli-w&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Two Zola template partials: one for rendering the comment list (with empty
+state), one for the form itself with RTL/LTR support for Arabic and English.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The form is at the bottom of this post. Comments are moderated, so yours will
+appear once I have had a chance to review it.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Joining the Tour De Ricky 200km Ride: A New Adventure Awaits!</title>
+          <pubDate>Sun, 28 Apr 2024 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/tour-de-ricky-2024/</link>
+          <guid>https://mosab.co.uk/blog/tour-de-ricky-2024/</guid>
+          <description xml:base="https://mosab.co.uk/blog/tour-de-ricky-2024/">&lt;figure class=&quot;s-image s-image--full s-image--center&quot;&gt;
+  &lt;img src=&quot;tour-de-ricky-2024-banner.png&quot; alt=&quot;Tour De Ricky 2024 Banner&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Tour De Ricky 2024 Banner&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;I am beyond excited to announce that I will be participating in the Tour De
+Ricky 200km (approximately 125 miles) ride event in 2024! As a beginner, yet
+passionate cyclist, I have always been drawn to challenging myself and pushing
+my limits (whenever I got time away from my job and other responsibilities),
+and this event promises to be an unforgettable experience.&lt;/p&gt;
+&lt;h2 id=&quot;what-is-tour-de-ricky&quot;&gt;What is Tour De Ricky?&lt;/h2&gt;
+&lt;p&gt;Tour De Ricky is an Audax event, part of Audax UK, a organization that promotes
+long-distance cycling events.&lt;/p&gt;
+&lt;p&gt;What is an Audax ride, you ask me? No better answer than what Audax UK&#39;s
+website itself &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.audax.uk/about-audax/new-to-audax/&quot;&gt;has to say&lt;/a&gt;,
+from which I quote:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;An Audax ride - known internationally as a Randonnée - is a cycle ride that
+has to be completed within a set time limit, including any stops to eat or
+rest. In most cases, riders have to maintain a minimum speed of 15km/h (some
+particularly long or hilly rides have a slightly lower minimum speed) and
+importantly a maximum speed of 30km/h. That&#39;s a little under 10mph and 20mph
+in Imperial measures.&lt;/p&gt;
+&lt;p&gt;It&#39;s not a race and individual riders&#39; times are not published; if you finish
+within the time limit, you&#39;ve succeeded.&lt;/p&gt;
+&lt;p&gt;Riders are expected to be self-sufficient. That doesn&#39;t mean that you have to
+ride alone or that you can&#39;t call on the services of a village blacksmith to
+help weld your frame back together, should the worst happen, but you navigate
+for yourself and if you do have any mechanical problems along the way, it&#39;s
+down to you to sort them or get yourself home.&lt;/p&gt;
+&lt;p&gt;Some rides offer food along the way; more often, you&#39;ll be finding your own
+sources of fuel, from cafes and pubs to village shops and service stations.&lt;/p&gt;
+&lt;p&gt;Throw in the hills, the British weather and distances ranging from 50km to
+1400km and what might have sounded like a simple bike ride becomes more of a
+challenge - one that is appealing to increasing numbers of cyclists year on
+year.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You can also watch this great video explaining what Audax is:&lt;/p&gt;
+&lt;div class=&quot;zt-embed zt-embed--video&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/qreIQjtClbw&quot;
+    title=&quot;YouTube video&quot; loading=&quot;lazy&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot;
+    allow=&quot;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;The Tour De Ricky event in particular offers a range of routes, 50km, 100km,
+and 200km long in distance, but I have set my sights on the 200km challenge.
+This particular route promises a full day of excitement, with a mix of rolling
+hills, scenic countryside, and quiet roads.&lt;/p&gt;
+&lt;h2 id=&quot;the-200km-route-a-challenge-awaits&quot;&gt;The 200km Route: A Challenge Awaits&lt;/h2&gt;
+&lt;p&gt;The 200km route is designed to test the rider&#39;s endurance and cycling skills.
+With a total elevation gain of 2,500 meters, I will need to be prepared for
+this ride, since it has been a long time with me out of the saddle, and in a
+relatively short period of time too (4-5 weeks). The route will take the riders
+through some of the most beautiful landscapes in the country, with picturesque
+villages, ancient woodlands, and stunning views of the surrounding countryside.&lt;/p&gt;
+&lt;h2 id=&quot;why-i-m-excited&quot;&gt;Why I&#39;m Excited&lt;/h2&gt;
+&lt;p&gt;I&#39;m excited to join the Tour De Ricky 200km bike ride for several reasons.&lt;/p&gt;
+&lt;p&gt;Firstly, I love the sense of community that comes with participating in a mass
+cycling event that is not competitive in nature (i.e. it is not a race). I&#39;m
+looking forward to meeting fellow cyclists, sharing stories, and making new
+friends.&lt;/p&gt;
+&lt;p&gt;Secondly, I&#39;m eager to challenge myself and push my limits. Completing this
+event will be a huge achievement, and I&#39;m excited to see how far I can push
+myself. Finally, I&#39;m looking forward to the scenic route and the opportunity to
+explore new parts of the country.&lt;/p&gt;
+&lt;p&gt;Thirdly, I have participated in the 100km ride in 2022, and it is still my
+longest ride so far (~120km). I did not get back to the start within the
+event&#39;s time limit, and I even lost my Brevit! So it was not counted as a
+success in Audax UK records (although it is a huge success in my personal
+records), so I am determined to get to the finish line within the time limit
+this year.&lt;/p&gt;
+&lt;h2 id=&quot;training-and-preparation&quot;&gt;Training and Preparation&lt;/h2&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;training-plan.png&quot; alt=&quot;Training Plan&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Training Plan&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;While I&#39;m excited, I&#39;m also aware that this event requires careful preparation
+and training. Over the coming weeks and months, I will be putting in the miles,
+honing my cycling skills, and building up my endurance. I will be working on my
+bike, making sure it&#39;s in top condition, and preparing myself mentally and
+physically for the challenge ahead.&lt;/p&gt;
+&lt;p&gt;Above is a hand drawn/written training calendar that fits my current work
+schedule (with return to office et al), and hopefully I can manage to finish
+it. It is not enough, but it will have to do.&lt;/p&gt;
+&lt;p&gt;I also discovered that the ride day will be in one of my oncall shifts, so I
+will have to find a swap for that! :D&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;The Tour De Ricky 200km ride, if successful, will be my first Century Ride, a
+ride that is a 100 miles long, or more, and will be a dream come true for me. I
+have done a &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://mosab.co.uk/blog/first-metric-century/&quot;&gt;Metric Centry&lt;/a&gt;
+before, also with Tour De Ricky. I&#39;m excited to be part of this amazing event
+once again, to challenge myself, and to experience the thrill of long-distance
+cycling. If you&#39;re a fellow cyclist, I encourage you to join me on this
+adventure. Let&#39;s ride together and make some unforgettable memories!&lt;/p&gt;
+&lt;h2 id=&quot;useful-links&quot;&gt;Useful Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://tourdericky.uk/&quot;&gt;Tour De Ricky Website&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://tourdericky.uk/200km-a-full-day-of-challenge/&quot;&gt;Tour De Ricky 200km Route&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.audax.uk/&quot;&gt;Audax UK Website&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      </item>
+      <item>
+          <title>Bike Shed Sketches</title>
+          <pubDate>Wed, 13 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/bike-shed/</link>
+          <guid>https://mosab.co.uk/blog/bike-shed/</guid>
+          <description xml:base="https://mosab.co.uk/blog/bike-shed/">&lt;p&gt;Here is a random sketch of a bike shed I am building!&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--full s-image--center&quot;&gt;
+  &lt;div class=&quot;s-image__row&quot;&gt;
+    &lt;img src=&quot;bike-shed-sketch-1.jpg&quot; alt=&quot;Bike Shed Hand Drawn Sketch.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+    &lt;img src=&quot;bike-shed-sketch-2.jpg&quot; alt=&quot;Bike Shed Hand Drawn Sketch.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+  &lt;/div&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Bike Shed Hand Drawn Sketch.&lt;/figcaption&gt;
+&lt;/figure&gt;
+</description>
+      </item>
+      <item>
+          <title>My First Ever Woodworking Project: The Moravian Workbench</title>
+          <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/moravian-workbench/</link>
+          <guid>https://mosab.co.uk/blog/moravian-workbench/</guid>
+          <description xml:base="https://mosab.co.uk/blog/moravian-workbench/">&lt;p&gt;For my first ever woodworking project I wanted to make a bench. A bench is an
+essential tool for a woodworker, and it is also an amazing project to learn
+from. After a LOT of time spent researching the type of bench I wanted to make,
+the Moravian Workbench was my favourite, so I went with it!&lt;/p&gt;
+&lt;p&gt;Started the project with a hand drawn sketch for the bench:&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;moravian-workbench-design.png&quot; alt=&quot;Moravian Workbench Design&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Moravian Workbench Design&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The design is a centuries old design called The Moravian Workbench that is
+portable. This can be knocked down moved and reassembled.&lt;/p&gt;
+&lt;p&gt;Everything was made with hand tools, with very few exceptions.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--full s-image--center&quot;&gt;
+  &lt;div class=&quot;s-image__row&quot;&gt;
+    &lt;img src=&quot;moravian-workbench-1.png&quot; alt=&quot;Behind the making scenes&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+    &lt;img src=&quot;moravian-workbench-2.png&quot; alt=&quot;Behind the making scenes&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+    &lt;img src=&quot;moravian-workbench-3.png&quot; alt=&quot;Behind the making scenes&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+  &lt;/div&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Behind the making scenes&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;There is a room for improvement, but I am pretty glad with the output. Not too
+bad for a first timer.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>My First Metric Century</title>
+          <pubDate>Sat, 21 May 2022 23:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/first-metric-century/</link>
+          <guid>https://mosab.co.uk/blog/first-metric-century/</guid>
+          <description xml:base="https://mosab.co.uk/blog/first-metric-century/">&lt;figure class=&quot;s-image s-image--full s-image--center&quot;&gt;
+  &lt;img src=&quot;audax-brevet.png&quot; alt=&quot;Audax Tour De Ricky&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Audax Tour De Ricky&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Today I finished my first &lt;em&gt;&lt;strong&gt;metric century&lt;/strong&gt;&lt;/em&gt; (a ride that is 100km or more)!
+Was riding in &lt;em&gt;&lt;strong&gt;Tour De Ricky&lt;/strong&gt;&lt;/em&gt; audax, and it was a challenging route for me.
+Took me 7 hours and 22 minutes of riding (10 hours if you include the cafe and
+rest stops) but I did it!&lt;/p&gt;
+&lt;h2 id=&quot;stats&quot;&gt;Stats&lt;/h2&gt;
+&lt;p&gt;Here are the basic stats from the ride:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Distance:&lt;/strong&gt; 120.8 km&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Elevation Gain:&lt;/strong&gt; 1134 m&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Time:&lt;/strong&gt; 7h 22m&lt;/p&gt;
+&lt;p&gt;And here is the ride on a map:&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;metric-century-strava.jpg&quot; alt=&quot;Metric Century Stats&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Metric Century Stats&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;lessons-learned&quot;&gt;Lessons Learned&lt;/h2&gt;
+&lt;p&gt;Some lessons I learned from this ride are (in a very raw format, will iterate
+on them later):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;I needed specific recommendations in regards to what to wear, and most
+resources talk guidelines,
+which is something you don&#39;t want for the first few rides. In order to be able
+to take a guideline,
+you need to have tried a few rides in different conditions first. I wanted
+specifics (like wear a
+bibshort if it 10 degrees celsius or above, etc).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I definitely need more gears for those hills&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It was great knowing my FTP, as I could only finish the ride by actively
+trying to keep my power below the FTP especially on those hill.&lt;/p&gt;
+&lt;p&gt;3.1. That required better shifting for the gears, and that&#39;s something I
+have always heard, but never really understood&lt;/p&gt;
+&lt;p&gt;3.2. I also don&#39;t know if I was crossing the chains, will need to see&lt;/p&gt;
+&lt;p&gt;3.3. This is one of the areas that people might benefit from videos on how
+to change the gears and in what order just like car drivers have&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I DEFINITELY need to increase my FTP&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I was lucky that I did not have any punctures, or mechanicals, but it was
+assuring that I got tools with me&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The back bag probably shouldn&#39;t have been there (over worrying about the
+weather made me pack extra just in case)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I probably should&#39;ve taken the power bank. Phones almost died at the end&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I had a rear freehub that needs changing (there is play in the cassette) but
+there is nothing I could do about it, as the part was delivered right before
+the ride. Was afraid it fails on me during the ride, and paid extra attention
+not to put sudden impact on the drivetrain, luckily it didn&#39;t fail!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Having the route on multiple devices was helpful&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cycling navigation experience could use a lot of improvement. This is not a
+solved problem yet.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Investing in a bike fit was one of the best things I did! Can&#39;t imagine
+doing this distance with the original bike setup I got!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Servicing the bike, and changing the worn chain was also a contributing
+factor to minimise the risk of getting a mechanical, I guess!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I should&#39;ve planned the transportation to and from the start/finish point
+better! That cost me a late start, and because of that I ended up doing the
+whole route alone instead of doing it with a bunch of fellow colleagues, but
+that&#39;s ok.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;metric-century-finish-line.jpg&quot; alt=&quot;At the finish line&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;At the finish line&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Here is a video about the ride:&lt;/p&gt;
+&lt;div class=&quot;zt-embed zt-embed--video&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/uhsU0AqyNgM&quot;
+    title=&quot;YouTube video&quot; loading=&quot;lazy&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot;
+    allow=&quot;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+      </item>
+      <item>
+          <title>Joining Production Engineering at Facebook/Meta</title>
+          <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/joining-facebook-meta/</link>
+          <guid>https://mosab.co.uk/blog/joining-facebook-meta/</guid>
+          <description xml:base="https://mosab.co.uk/blog/joining-facebook-meta/">&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;meta-logo.png&quot; alt=&quot;Meta Logo&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+&lt;/figure&gt;
+&lt;p&gt;Super excited and thrilled to share that I am joining the Production
+Engineering team at &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://facebook.com&quot;&gt;Meta/Facebook&lt;/a&gt; in London! Today is
+my first day.&lt;/p&gt;
+&lt;p&gt;Production Engineering was created at Facebook to work with engineering teams
+and partners to champion the Reliability, Scalability, Performance, and
+Security posture of production services. PEs are hybrid software and systems
+engineers; they are the glue holding things together, whether that’s
+infrastructure and software or teams and processes.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;london-infra.png&quot; alt=&quot;FB London Infra logo on the wall&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;FB London Infra logo on the wall&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The true power of Production Engineering comes from developing strong
+relationships with partner engineering teams and valuing collaboration and
+knowledge sharing to build technical expertise and community. PE’s write
+production code and solve hard problems in systems serving billions of people
+across Facebook, services like Instagram, WhatsApp, and Oculus, and in diverse
+infrastructure areas like machine learning/inference, storage, and networking.&lt;/p&gt;
+&lt;p&gt;If you still are trying to figure out what a production engineer does, watch &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.youtube.com/watch?v=TnCY6Apxibk&quot;&gt;this
+video&lt;/a&gt;!&lt;/p&gt;
+&lt;div class=&quot;zt-embed zt-embed--video&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/TnCY6Apxibk&quot;
+    title=&quot;YouTube video&quot; loading=&quot;lazy&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot;
+    allow=&quot;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;Or you can watch this presentation at SRECon 2015 that talks about Production
+Engineering at Facebook and how it evolved:&lt;/p&gt;
+&lt;div class=&quot;zt-embed zt-embed--video&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/ugkkza3vKbc&quot;
+    title=&quot;YouTube video&quot; loading=&quot;lazy&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot;
+    allow=&quot;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;Can not wait to get starts on a journey of challenges, learnings and hyper growth!&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>About SRE with null++</title>
+          <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/second-podcast-appearance-nullplusplus/</link>
+          <guid>https://mosab.co.uk/blog/second-podcast-appearance-nullplusplus/</guid>
+          <description xml:base="https://mosab.co.uk/blog/second-podcast-appearance-nullplusplus/">&lt;p&gt;Today, I was the guest in one of my favourite podcasts in Arabic:
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://nullplus.plus/&quot;&gt;&quot;null++&quot;&lt;/a&gt;. It is my favourite for two reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;One of the two co-hosts is a dear friend of mine, and I hope I become
+friends with the other co-host as well. Both co-hosts are active in the tech
+scene in Egypt, and are very competent engineers.&lt;/li&gt;
+&lt;li&gt;The podcast is a valuable resource for people in Egypt interested in the
+tech scene, especially new comers, to know not only the latest trends and
+best practices, but also have some guidance along the way to get there.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here is the link to &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://nullplus.plus/episodes/episode41-sre-with-mosab-ibrahim&quot;&gt;Episode #42: SRE with Mosab Ibrahim&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you have any feedback, or questions, please feel free to &lt;a href=&quot;/contact&quot;&gt;reach out&lt;/a&gt; to
+me.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>My First Podcast Appearance!</title>
+          <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/my-first-podcast-appearance/</link>
+          <guid>https://mosab.co.uk/blog/my-first-podcast-appearance/</guid>
+          <description xml:base="https://mosab.co.uk/blog/my-first-podcast-appearance/">&lt;p&gt;I have recently received an invitation from my dear friend &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://iahmadzain.me/&quot;&gt;Ahmed Zain&lt;/a&gt;, who
+runs a very interesting podcast under the name of &quot;Tech and Coffee&quot;, that is generally made for
+sharing experiences around tech and, you guessed it, coffee!&lt;/p&gt;
+&lt;p&gt;This is the first time I participate in a podcast, and it was a humbling experience. We talked about
+many things; How I started in tech, how my career developed over time, what it means to be an SRE,
+my journey from Egypt to Germany, and finally the United Kingdom, as well as other topics. The
+podcast and the episode are in Arabic.&lt;/p&gt;
+&lt;p&gt;You can listen to it on any of the following links&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.youtube.com/watch?v=1ehCq1HQ0P0&quot;&gt;Youtube&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://open.spotify.com/episode/79kBvpBKfbOp0agzCwnsDa?si=l2MJzyKLTdGmQfo4iEk4_A&quot;&gt;Spotify&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://podcasts.apple.com/eg/podcast/s1e9-tech-chat-with-mosab-ibrahim-the-sre/id1493504725?i=1000484512358&quot;&gt;Apple Podcast&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      </item>
+      <item>
+          <title>Joining Twitter SRE Team!</title>
+          <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/joining-twitter/</link>
+          <guid>https://mosab.co.uk/blog/joining-twitter/</guid>
+          <description xml:base="https://mosab.co.uk/blog/joining-twitter/">&lt;figure class=&quot;s-image s-image--md s-image--center&quot;&gt;
+  &lt;img src=&quot;twitter-logo.png&quot; alt=&quot;Twitter&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+&lt;/figure&gt;
+&lt;p&gt;Last Friday was my last day at &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://gocardless.com&quot;&gt;GoCardless&lt;/a&gt;. It has been
+a year -and change- full of knowing smart and great colleagues, and learning a
+lot from them. Special shout-out to the Core Infrastructure team!&lt;/p&gt;
+&lt;p&gt;I am super excited that starting next Monday I will be joining
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://twitter.com&quot;&gt;Twitter&lt;/a&gt;&#39;s Site Reliability Engineering team
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://twitter.com/TwitterSRE&quot;&gt;@TwitterSRE&lt;/a&gt; in London! I have met some of the
+team already, and can&#39;t wait to start working with them and meet the rest!&lt;/p&gt;
+&lt;p&gt;This is a huge step for me, and I look forward to months and years of hard
+working, learning and making new friends while empowering everyone in the world
+to create and share ideas and information instantly without barriers!&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Top 10 Man Pages Every Linux Sys Admin Should Read</title>
+          <pubDate>Sat, 08 Feb 2020 10:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/top-ten-linux-man-pages/</link>
+          <guid>https://mosab.co.uk/blog/top-ten-linux-man-pages/</guid>
+          <description xml:base="https://mosab.co.uk/blog/top-ten-linux-man-pages/">&lt;p&gt;Came across an interesting question on Quora (A great question and answers
+website where questions&lt;/p&gt;
+&lt;p&gt;are asked, answered, and edited by Quora&#39;s community, either factually or in
+the form of opinions).&lt;/p&gt;
+&lt;p&gt;The question was:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;What are the top 10 man pages that most Linux administrators should read?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Intrigued by the question, I spent some time reading the answers, and there
+were great answers, but&lt;/p&gt;
+&lt;p&gt;the question was inspiring. However, this was an opportunity for me to reflect
+on what man pages I&lt;/p&gt;
+&lt;p&gt;found useful, and thought it might benefit others as well, so here is the answer I provided:&lt;/p&gt;
+&lt;p&gt;Almost forgot all about it, until someone shared my answer today on Quora, which made me share it
+here as well.&lt;/p&gt;
+&lt;p&gt;The answer goes as follows:&lt;/p&gt;
+&lt;p&gt;sake of argument, if I had to choose 10 man pages they would beI agree with Jesse Pollard&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, most linux administrators should read all of them once. However for the&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;man man&lt;/code&gt;: understand how &lt;code&gt;man&lt;/code&gt; itself is organized, what the different man
+sections are and what they mean.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;man ps&lt;/code&gt;: contains a lot of useful information about processes, their life
+cycles, and their states. Every linux system administrator should know how
+processes work in linux. The information here is handy in interpreting the
+output of other commands that include any information about processes running
+on the linux box you are maintaining/debugging.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;man find&lt;/code&gt;: surprisingly, you can learn a lot about linux filesystems just by
+reading this (long) man page. Understanding this page helps you gain deeper
+levels of understanding. You will appreciate the output of commands like &lt;code&gt;ls&lt;/code&gt;
+much more when you do.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;man vmstat&lt;/code&gt;: (if you don’t have &lt;code&gt;vmstat&lt;/code&gt; installed, get it installed, now!)
+&lt;code&gt;vmstat&lt;/code&gt; is extremely handy for gaining interesting insights into how different
+linux subsystems and the processes running on it are behaving. Study &lt;code&gt;vmstat&lt;/code&gt;’s
+different options; it will make your life easier.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;man iptables&lt;/code&gt;: linux’s tool for IPv4 and Ipv6 filtration, as well as NAT.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;man ss&lt;/code&gt;: a linux utitlity to investigate socket related stuff.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;man sar&lt;/code&gt;: a utility to collect, report, and/or save system activity. Can
+prove useful in various areas of investigation.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;man iostat&lt;/code&gt;: a utility that provides statistics about CPU, io devices and
+partitions.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;man strace&lt;/code&gt;: traces system calls and signals that a process performs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;man lsof&lt;/code&gt;: a tool that lists open file descriptors for all processes. You
+can also zoom in on a single process using its &lt;code&gt;pid&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I think if an administrator masters those, anything else becomes that much easier.&lt;/p&gt;
+&lt;p&gt;To read the rest of the answers, you can check the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.quora.com/What-are-the-top-10-man-pages-that-most-Linux-administrators-should-read&quot;&gt;question on
+quora&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;footnote-definition&quot; id=&quot;1&quot;&gt;&lt;sup class=&quot;footnote-definition-label&quot;&gt;1&lt;/sup&gt;
+&lt;p&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.quora.com/What-are-the-top-10-man-pages-that-most-Linux-administrators-should-read/answer/Jesse-Pollard-1&quot;&gt;Jesse Pollard&#39;s answer&lt;/a&gt; to the question.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      </item>
+      <item>
+          <title>2018: State of the Union</title>
+          <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/2018-state-of-the-union/</link>
+          <guid>https://mosab.co.uk/blog/2018-state-of-the-union/</guid>
+          <description xml:base="https://mosab.co.uk/blog/2018-state-of-the-union/">&lt;figure class=&quot;s-image s-image--full s-image--center&quot;&gt;
+  &lt;img src=&quot;mosab-london-bridge.jpg&quot; alt=&quot;Standing on Millennium Bridge, London, United Kingdom&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Standing on Millennium Bridge, London, United Kingdom&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The last year, 2018, has been a very busy year for me, I barely had a break! I
+am going to list what has been accomplished, and important milestones very
+briefly in the following few paragraphs.&lt;/p&gt;
+&lt;h2 id=&quot;work-and-career&quot;&gt;Work and Career&lt;/h2&gt;
+&lt;h3 id=&quot;java-in-production&quot;&gt;Java in Production&lt;/h3&gt;
+&lt;p&gt;In November 2017, I joined an adtech company in Berlin, Germany to work on their
+ad delivery server which was written in PHP and used technologies like Nginx,
+MongoDB, and Redis. Most of the work was bug fixing, and little was about adding
+new features. The project quickly became very boring, and any attempt to enhance
+it, or refactor any part of it was rejected and foiled. Early last year, I
+switched to another interesting project that was being built from scratch. This
+time the project was built using the Java programming language, and the Vert.x
+framework was used. Later Spring framework was used for most of the
+microservices involved in the project. In both cases, this was my first time to
+develop, maintain and deploy Java code to production.&lt;/p&gt;
+&lt;h3 id=&quot;scalability&quot;&gt;Scalability&lt;/h3&gt;
+&lt;p&gt;Back in Egypt, the most traffic I have dealt with was around 100K requests per
+week! Looking to work on projects that handled large amounts of traffic was one
+of the main reasons I moved to Germany.&lt;/p&gt;
+&lt;p&gt;The PHP project was handling 100K requests per hour, compared to the maximum I
+had in Egypt that was a big step forward. But the production footprint of the
+java project kept growing month over month till we reached a milestone of
+handling more than &lt;strong&gt;1 billion requests per day&lt;/strong&gt;. It was a very exciting
+journey, and I learned a lot from it in terms of teams, companies and systems
+scalability.&lt;/p&gt;
+&lt;h3 id=&quot;the-year-of-the-good-reads&quot;&gt;The Year of The Good Reads&lt;/h3&gt;
+&lt;figure class=&quot;s-image s-image--lg s-image--center&quot;&gt;
+  &lt;img src=&quot;2018-good-reads.png&quot; alt=&quot;2018 Good Reads Challenge Results&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;2018 Good Reads Challenge Results&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;This year, I started with a pledge to read 10 books on the annual Good Reads
+challenge. I ended up &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.goodreads.com/user_challenges/10640205&quot;&gt;reading 18
+books&lt;/a&gt;! The books were
+mainly in the following areas&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux internals/kernel books&lt;/li&gt;
+&lt;li&gt;Data structures and algorithms&lt;/li&gt;
+&lt;li&gt;Python programming&lt;/li&gt;
+&lt;li&gt;Linux systems programming&lt;/li&gt;
+&lt;li&gt;Go programming&lt;/li&gt;
+&lt;li&gt;Java programming&lt;/li&gt;
+&lt;li&gt;A couple of non-fiction books, two of them about startups&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;One of the achievements I am particularly proud of is reading the entire
+&quot;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.brendangregg.com/sysperfbook.html&quot;&gt;Systems Performance: Enterprise and the
+Cloud&lt;/a&gt;&quot; by Brendan Gregg, in a
+single weekend!&lt;/p&gt;
+&lt;h3 id=&quot;new-personal-library&quot;&gt;New Personal Library&lt;/h3&gt;
+&lt;p&gt;Speaking of reading, one of the things that I really missed the most after
+moving out of Egypt is my personal library. I had to take only a small portion
+of it with me. But I managed to grow this portion into a little library over the
+past year and 2 months. I have expanded both the hard copy books, my Kindle book
+collection, and ebooks from other sources like Packt Publishing.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;small-library-berlin.jpg&quot; alt=&quot;My small library in Berlin&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;My small library in Berlin&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;the-year-of-finished-online-courses&quot;&gt;The year of “Finished” Online Courses&lt;/h3&gt;
+&lt;p&gt;For the past few years, I have always started, but not finished, a lot of online
+courses and MOOCs. This year, however, I managed to start and actually finish
+more than 15 courses, on platforms like &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://see.stanford.edu/&quot;&gt;Stanford’s Engineering
+Everywhere&lt;/a&gt;,
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.pluralsight.com/&quot;&gt;PluralSight&lt;/a&gt;,
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.educative.io/&quot;&gt;Educative&lt;/a&gt;, &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.udemy.com/&quot;&gt;Udemy&lt;/a&gt;, and
+even some Youtube playlists for courses by MIT, Waterloo, &amp;amp; Carnegie Mellon
+universities. You can find some of the interesting ones listed on my homepage.
+It is worth noting that not all the courses on my &lt;a href=&quot;/resources/&quot;&gt;resources
+page&lt;/a&gt; I have finished yet, but I found
+interesting enough to share with others.&lt;/p&gt;
+&lt;h3 id=&quot;technologies-and-skills&quot;&gt;Technologies and Skills&lt;/h3&gt;
+&lt;p&gt;In 2018, I have acquired some completely new technical skills/technologies, as
+well as worked on improving some existing ones.&lt;/p&gt;
+&lt;p&gt;The list of new technologies include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Golang&lt;/li&gt;
+&lt;li&gt;Java&lt;/li&gt;
+&lt;li&gt;Spring Framework&lt;/li&gt;
+&lt;li&gt;Vert.x Framework&lt;/li&gt;
+&lt;li&gt;Terraform&lt;/li&gt;
+&lt;li&gt;MongoDB&lt;/li&gt;
+&lt;li&gt;Redis&lt;/li&gt;
+&lt;li&gt;Kafka&lt;/li&gt;
+&lt;li&gt;Aerospike&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The technologies and skills I was keen on improving include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux internals, linux administration and linux troubleshooting&lt;/li&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;li&gt;PHP&lt;/li&gt;
+&lt;li&gt;Bash&lt;/li&gt;
+&lt;li&gt;Docker&lt;/li&gt;
+&lt;li&gt;Docker Swarm&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;pypi-package&quot;&gt;PyPI Package&lt;/h3&gt;
+&lt;p&gt;Towards the end of 2018, I published a silly Python package:
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://pypi.org/project/dir2html/&quot;&gt;dir2html&lt;/a&gt;. The package converts a folder of
+images, into an HTML album using a Bootstrap template. Here is an example of how
+it looks like after the album has been generated: &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://bitmoji.mosab.co.uk&quot;&gt;Mosab’s Bitmoji
+Album&lt;/a&gt;. There is a list of improvements and
+features to be added to the project, but they are not the top priority.&lt;/p&gt;
+&lt;h3 id=&quot;job-interviews&quot;&gt;Job Interviews&lt;/h3&gt;
+&lt;p&gt;Boy did I have tons of interviews in 2018! Before leaving Egypt, I was targeting
+to move to London, and if that didn’t work, I had Amsterdam as a backup plan. So
+in 2017, I did a lot of interviews for companies in both cities, as well as a
+couple of stray interviews for companies in other cities like Paris. When the
+first round didn’t yield a job offer in either, I started to believe that those
+companies required a significantly higher experience than I had at the time. The
+companies included Booking.com, Facebook, and Criteo Labs. Of course, all of
+them dealt with insanely high amounts of traffic and required a very deep
+understanding of more than just programming since I was also looking to switch
+to a Site Reliability Engineering role at the time. I have worked in startups
+most of my career and wanted to work with big companies, but it seemed I had to
+up my game first before trying again.&lt;/p&gt;
+&lt;p&gt;In order to acquire this experience, I decided to start targeting companies in
+between and started looking into other geographical locations like Germany,
+until I landed a job at an adtech company in Berlin and worked on projects like
+the mentioned above. I set a goal for the year to see whether Germany would be
+where my family and I decide to settle. Turns out, Germany is not for me for
+reasons that can be detailed in another future post, maybe. With that
+conviction, I set on a new round of interviews again with Facebook, Booking, and
+other companies, Mainly in London and Amsterdam again. There was one exception
+of N26, an amazing bank of the future that is located in Berlin. I also had
+interviews with Google for the same role.&lt;/p&gt;
+&lt;p&gt;The interview round yielded two offers, one from Booking, and one from a very
+promising fintech startup in London, which I accepted. Both offers were decent
+and choosing between them was a tough thing to do.&lt;/p&gt;
+&lt;p&gt;I did not pass Facebook and Google interviews, but I did learn a lot. In
+particular, I was in a way better shape for the second facebook interview than
+the one I had in 2017, and I feel confident I am close to passing it. The
+Facebook interviews were for the Production Engineering role, which is -in the
+words of a dear Production Engineer &amp;amp; friend- a software engineer + a systems
+engineer + a networks engineer. Those interviews are really tough.&lt;/p&gt;
+&lt;p&gt;But at the moment, I am preparing to move to London, finally! And as exhausting
+as the move is, even though we have not yet got the rest of the visas, it is
+also extremely exciting!&lt;/p&gt;
+&lt;h3 id=&quot;ielts-test&quot;&gt;IELTS Test&lt;/h3&gt;
+&lt;p&gt;As part of the visa process for the UK, I had to take an English language test,
+IELTS short for The International English Language Testing System. Ironically
+enough, I didn’t find a suitable appointment in Germany, and the version of the
+test that is approved by the UKVI (United Kingdom Visa and Immigration) is only
+conducted in Dusseldorf, Germany, which is a 4 hours trip, or a one hour flight
+from Berlin where I live. I looked for appointments in other cities, like
+Amsterdam, Paris, and London, since my short stay visa was still valid. I ended
+up taking the test in London.&lt;/p&gt;
+&lt;p&gt;The score I got was an overall band of 7, which translates to a C1 level in the
+Common European Framework of Reference for languages, or CEFR for short. Not
+bad, I guess, but I hoped to score better. Most importantly, it satisfies the UK
+visa requirements, so I can improve that later.&lt;/p&gt;
+&lt;h2 id=&quot;personal-stuff&quot;&gt;Personal Stuff&lt;/h2&gt;
+&lt;h3 id=&quot;cities-visited&quot;&gt;Cities Visited&lt;/h3&gt;
+&lt;p&gt;In 2018, I visited London 3 times, twice for interviews, and once to take the
+IELTS exam. The city never ceases to amaze me. I am deeply in love with it. In
+one of the trips, I visited the Museum of Science where I saw parts of the
+Apollo mission -among other things- that was absolutely mesmerizing, had fish
+and chips at “Sherlock” restaurant in Baker Street, had Egyptian pies, and
+overall great times.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--full s-image--center&quot;&gt;
+  &lt;img src=&quot;sherlock-fish-and-chips.jpg&quot; alt=&quot;Sherlock fish and chips restaurant, Baker Street, London&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Sherlock fish and chips restaurant, Baker Street, London&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;There was also a magical weekend that was well spent in Vienna, Austria. A
+friend of mine was visiting another country in Europe, and we spontaneously
+agreed to meet in Vienna for a weekend. A friend of his was amazing and gave us
+shelter at his house, and took great care of us during the entire visit.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;vienna-party.jpg&quot; alt=&quot;A party in Vienna, Austria&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;A party in Vienna, Austria&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;During the 4 days trip to Amsterdam for the second interview at Booking, I took
+some time to meet some friends in Amsterdam. I also visited Haarlem since it is
+a popular residential place for families and met another friend living there who
+took me on a tour of the city. The Netherlands is always a delight to visit.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--full s-image--center&quot;&gt;
+  &lt;img src=&quot;booking-office-view.jpg&quot; alt=&quot;The view from one of Booking.com’s offices&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;The view from one of Booking.com’s offices&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;first-tax-declaration&quot;&gt;First Tax Declaration!&lt;/h3&gt;
+&lt;p&gt;In Egypt, the situation is so messed up that many companies do not report the
+actual salaries of their employees in order to skip paying some of the tax and
+social insurance money. Since employees are not required, nor have the incentive
+to declare their income for tax purposes, most companies get away with it. Most
+of the companies I worked with were on the law-abiding side, but still, I
+personally did not have to declare my income for the tax authorities. This has
+changed in Germany. Last year was the first year I file my taxes, and I even got
+some refunds! The refunds didn’t last long as they were used to fund my family’s
+visit to Egypt a few months after they arrived in Germany, but still, that was a
+great thing to happen.&lt;/p&gt;
+&lt;h3 id=&quot;first-fine&quot;&gt;First Fine!&lt;/h3&gt;
+&lt;p&gt;In the first few months, I was experimenting with public transportation tickets
+in order to decide what was best for me. I decided on the second month that I
+will start buying monthly tickets until I figured out how to move forward. One
+day, 3months into buying monthly tickets, I hopped into the underground, and a
+few inspectors boarded the train. When the inspector came to me, I pulled out my
+monthly ticket, the inspector looked at it and started speaking in German. I was
+confused. No inspector ever spoke before, except to maybe say &quot;Danke schön&quot;,
+which mean &quot;Thank you&quot;. Then I realized the ticket had expired &lt;strong&gt;THE DAY
+BEFORE!&lt;/strong&gt; I had to pay a fine of 63 euros. That day I signed up for the annual
+card in order to avoid this situation in the future, and they charge my bank
+account every month without requiring me to intervene.&lt;/p&gt;
+&lt;h3 id=&quot;new-laptop-sticker&quot;&gt;New Laptop Sticker&lt;/h3&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;2018-laptop-stickers.jpg&quot; alt=&quot;My laptop sticker collection&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;My laptop sticker collection&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;This year, I bought a new personal laptop, and of course, needed some stickers
+to decorate it. I bought some stickers from Sticker Mule and got others from
+meetups. I am happy with the current status, but I am looking forward to adding
+new stickers to the collections.&lt;/p&gt;
+&lt;h3 id=&quot;cooking-adventures&quot;&gt;Cooking Adventures&lt;/h3&gt;
+&lt;p&gt;The Germans have a really poor taste in food and most of the restaurants are
+“Germanized”, thus most of the food experience in Germany isn’t something to
+look forward to. Given that I finally started having some work/life balance, I
+started looking for recipes online and trying my luck with cooking. The majority
+of the recipes I cook come from Asian cuisines because I believe they know how
+to eat best. I spend a lot of time searching for a recipe that I can actually
+follow, which is an exhausting task, then it is easy getting the ingredients
+from the supermarkets around. Sometimes, I have to go to ethnic stores to buy
+specific spices or herbs, but overall the ingredients abundance situation is way
+better than it was back in Egypt. You can find some pictures of the recipes I
+cooked on my &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.instagram.com/mos3abof&quot;&gt;Instagram account&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;our-lovely-neighbours&quot;&gt;Our Lovely Neighbours&lt;/h3&gt;
+&lt;p&gt;The first two months I was in Berlin, I was assigned a temporary guest house to
+stay in until I found a more permanent accommodation for my family and myself. A
+lot of friends recommended a company that rented furnished apartments, and after
+a few calls and emails which the HR helped me with, I got the apartment. At this
+point, my wife was still in Cairo. She was communicating with one of her friends
+who turns out lives in the same exact building we are moving into! That was such
+a great coincidence, and we had a great year together. They got our backs in
+countless occasions, often on short notice. Thank you, neighbours/friends!&lt;/p&gt;
+&lt;h3 id=&quot;a-friend-visited-from-egypt&quot;&gt;A Friend Visited from Egypt&lt;/h3&gt;
+&lt;figure class=&quot;s-image s-image--md s-image--center&quot;&gt;
+  &lt;img src=&quot;osama-shoenefeld.jpg&quot; alt=&quot;Picking Osama, on the right, from Schönefeld
+airport&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+&lt;/figure&gt;
+&lt;p&gt;In 2018, my friend Osama visited me from Egypt as part of a Euro-trip he had.
+Unfortunately, we coudln’t spend as much time together as we hoped to because of
+all the interviews I had coinciding with the visit. Let’s see what the future
+holds.&lt;/p&gt;
+&lt;h3 id=&quot;amazing-new-friends&quot;&gt;Amazing New Friends&lt;/h3&gt;
+&lt;p&gt;Throughout the past year, I got to know some amazing new friends. I also got to
+spend a lot more time with old friends I barely met back in Egypt. Some of them
+I got the privilege of working with them, either in the same company, or the
+same team. For that, I am ever thankful. I will miss them a lot after moving
+out.&lt;/p&gt;
+&lt;h3 id=&quot;adam-school-and-the-german-language&quot;&gt;Adam, School and The German Language&lt;/h3&gt;
+&lt;p&gt;My son, Adam, was afraid at first not being able to speak German and how that
+will affect his relationship with his colleagues at school. Turns out, he
+learned the fastest of us all and became very fluent in German. He especially
+enjoys the playgrounds that seem to be everywhere in Berlin. That’s not the case
+in Egypt, where you have to buy very expensive memberships in exclusive clubs in
+order to have someplace for your kids to play. Adam acquired a lot of friends,
+and he is very happy at school.&lt;/p&gt;
+&lt;h3 id=&quot;health-adventures&quot;&gt;Health Adventures&lt;/h3&gt;
+&lt;p&gt;The year 2018 had a lot of health-related stories. I had a tooth removed,
+leaving a big gap in my mouth. I had a surgery to remove some extra skin that
+looked suspicious but turned out to be nothing serious. I also had my first ever
+ambulance ride when I suspected having a blood clot because I travelled to
+London a few days after the surgery. I was held in the hospital for a few hours
+but was cleared shortly after.&lt;/p&gt;
+&lt;p&gt;But that’s nothing compared with the two times my daughter, Sofia, had us rush
+her into the ER. The first was a few days after they have arrived in Berlin, on
+the day we were supposed to register them. She fell off the bed and hit her head
+then threw up, which is a sign of a potential concussion. We immediately
+cancelled the appointment and went to the first hospital that appeared on Google
+maps.&lt;/p&gt;
+&lt;p&gt;The second time was when she decided she wanted a just-poured cup of tea and
+grabbed it from the table very quickly leading it to spill on her arm. She got a
+second-degree burn that we are still treating, but she has passed the danger
+zone, and feels no pain, thank God!&lt;/p&gt;
+&lt;p&gt;Overall, I admire the health care system in Germany and most European countries,
+although, sometimes you really have to wait to get some care.&lt;/p&gt;
+&lt;h3 id=&quot;chess&quot;&gt;Chess!&lt;/h3&gt;
+&lt;p&gt;I started &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.chess.com/member/mos3abof&quot;&gt;playing chess online&lt;/a&gt;, after
+so many years of not doing so. I finished the year with a 900 score, and I
+intend to continue playing this year.&lt;/p&gt;
+&lt;h3 id=&quot;new-year-s-eve-fireworks&quot;&gt;New Year’s Eve Fireworks&lt;/h3&gt;
+&lt;p&gt;My family and I have attended two New Year’s Eve fireworks nights. Most people
+living in Berlin complain about how loud the noise is, but given that I have
+spent many days on the streets protesting in Egypt’s 2011 revolution, in the
+midst of real bullets fired at us, tear gas bombs, and other stuff, the
+fireworks noise wasn’t much to handle. Adam enjoyed it very much though both
+years. Sofia enjoyed it the first time but was absolutely terrified the second
+time that Amira had to stay home with her, while I accompanied Adam on the
+street.&lt;/p&gt;
+&lt;h3 id=&quot;things-i-miss-in-egypt&quot;&gt;Things I Miss in Egypt&lt;/h3&gt;
+&lt;p&gt;A lot of my friends here kept telling me that by the end of the year I will miss
+Egypt again. Truth is, I have not. Not even a little. I only miss very few
+things there:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;My brothers, and few members of my family, and my wife’s family&lt;/li&gt;
+&lt;li&gt;A few friends from work and otherwise&lt;/li&gt;
+&lt;li&gt;A few restaurants&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Many of my friends say the weather here is gloomy, but the weather here is one
+of the things I like, and of the reasons I moved here.&lt;/p&gt;
+&lt;p&gt;I do not feel homesick, and I don’t think I will soon either.&lt;/p&gt;
+&lt;h2 id=&quot;the-next-year&quot;&gt;The Next Year&lt;/h2&gt;
+&lt;p&gt;We are only a few weeks into 2019, and a lot is going on already! My family and
+I are preparing to move to London where I will join a very promising fintech
+startup in the capacity of a Site Reliability Engineer. It is going to be a
+challenging yet an exciting year, and I hope it goes well without any unwanted
+surprises. I am excited!&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>How To Install Firefox On Debian Jessie</title>
+          <pubDate>Tue, 10 May 2016 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/how-to-install-firefox-on-debian-jessie/</link>
+          <guid>https://mosab.co.uk/blog/how-to-install-firefox-on-debian-jessie/</guid>
+          <description xml:base="https://mosab.co.uk/blog/how-to-install-firefox-on-debian-jessie/">&lt;figure class=&quot;s-image s-image--full s-image--center&quot;&gt;
+  &lt;img src=&quot;firefox-iceweasel-debian.png&quot; alt=&quot;logos&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;em&gt;Iceweasel&lt;/em&gt; is great, but I prefer &lt;em&gt;Firefox&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;A while back I decided to go back to my favorite linux distribution, &lt;em&gt;Debian&lt;/em&gt;.
+The current stable release of &lt;em&gt;Debian&lt;/em&gt; is code named &lt;em&gt;Jessie&lt;/em&gt;, and this is what
+I have installed on my laptop at the time of writing this post.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Mozilla&lt;/em&gt; has three famous desktop applications. Those applications are Firefox,
+Thunderbird, and &lt;em&gt;Seamonkey&lt;/em&gt;. But Debian has been shipping those products
+re-branded as &lt;em&gt;Iceweasel&lt;/em&gt;, &lt;em&gt;Icdeodove&lt;/em&gt;, and &lt;em&gt;Iceape&lt;/em&gt;, respectively. &lt;em&gt;Debian&lt;/em&gt;
+does this as a workaround for some incompatibilities between the Debian Free
+Software Guidelines and Mozilla’s trademark usage policy, and I think something
+related to the Mozilla logos licensing as well. I am not aware of the details of
+the conflicts, and I would like to read about it some other time.&lt;/p&gt;
+&lt;p&gt;For now, I wanted to install &lt;em&gt;Firefox&lt;/em&gt; instead of, or alongside, &lt;em&gt;Iceweasel&lt;/em&gt; on my
+laptop. &lt;em&gt;Iceweasel&lt;/em&gt; is great, but I was having a few problems. One example would
+be the different User Agent information, which causes some problems while using
+services on the internet, like Medium. Medium does not recognize my browser to be
+supported, and thus disables the option of writing stories if I am browsing it
+using &lt;em&gt;Iceweasel&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;I did a quick &lt;em&gt;Google&lt;/em&gt; search on how to install &lt;em&gt;Firefox&lt;/em&gt; on &lt;em&gt;Debian Jessie&lt;/em&gt;,
+and a majority of the results suggested adding repositories from &lt;em&gt;Ubuntu&lt;/em&gt;
+packages hosted on &lt;em&gt;Sourceforge&lt;/em&gt;. I had two major problems with that:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Problem 1:&lt;/strong&gt; I don’t like Sourceforge. At all. For various reasons, but that’s
+a story for another time.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Problem 2:&lt;/strong&gt; I don’t like the idea of adding the repositories of another
+distro to my current setup. Does not seem like a neat solution.&lt;/p&gt;
+&lt;p&gt;So I kept searching until I found this &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://mozilla.debian.net/&quot;&gt;“Debian Mozilla team”&lt;/a&gt; page. I
+knew I found my desired solution.&lt;/p&gt;
+&lt;p&gt;Below are the steps I followed from that page to get &lt;em&gt;Firefox&lt;/em&gt; installed on
+&lt;em&gt;Debian Jessie&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;step-1-add-mozilla-archive-to-apt-repositories&quot;&gt;Step 1: Add Mozilla Archive to APT Repositories&lt;/h2&gt;
+&lt;p&gt;Open a terminal as root, and add a new file to &lt;code&gt;/etc/apt/sources.list.d/&lt;/code&gt;
+directory:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;shell&quot;&gt;touch /etc/apt/sources.list.d/debian-mozilla.list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Open the file using your favorite text editor, mine happens to be vim, and add
+the following line to it:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;plaintext&quot;&gt;deb http://mozilla.debian.net/ jessie-backports firefox-release
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;step-2-add-the-mozilla-archive-key&quot;&gt;Step 2: Add the Mozilla Archive Key&lt;/h2&gt;
+&lt;p&gt;This line adds &lt;code&gt;mozilla.debian.net&lt;/code&gt; archive to your list of archives. Since the
+packages at &lt;code&gt;mozilla.debian.net&lt;/code&gt; are signed, running &lt;code&gt;apt-get update&lt;/code&gt; now will
+spit out a key not found error. To add the key you need to download the
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://mozilla.debian.net/pkg-mozilla-archive-keyring_1.1_all.deb&quot;&gt;pkg-mozilla-archive-keyring&lt;/a&gt;
+package, and install it. The package requires that &lt;code&gt;debian-keying&lt;/code&gt; package be
+installed.&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;shell&quot;&gt;cd ~/
+wget mozilla.debian.net/pkg-mozilla-archive-keyring_1.1_all.deb
+dpkg -i pkg-mozilla-archive-keyring_1.1_all.deb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;step-3-install-firefox&quot;&gt;Step 3: Install Firefox&lt;/h2&gt;
+&lt;p&gt;Now it is time to update the archives and install &lt;em&gt;Firefox&lt;/em&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;shell&quot;&gt;apt-get update
+apt-get install -t jessie-backports firefox
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And now you have &lt;em&gt;Firefox&lt;/em&gt; installed.&lt;/p&gt;
+&lt;p&gt;Note that &lt;em&gt;Iceweasel&lt;/em&gt; is also still installed, and they both will use the same
+settings and configurations. When I started Firefox, it had all the add-ons and
+settings and even the tabs that were opened in &lt;em&gt;Iceweasel&lt;/em&gt;, all preserved.&lt;/p&gt;
+&lt;p&gt;Check the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://mozilla.debian.net/&quot;&gt;mozilla.debian.net&lt;/a&gt; page for various
+combinations of &lt;em&gt;Debian&lt;/em&gt; release, &lt;em&gt;Mozilla&lt;/em&gt; desktop application you want to
+install, and the version of the &lt;em&gt;Mozilla&lt;/em&gt; desktop application you want
+installed.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>New Version of Power Close</title>
+          <pubDate>Mon, 09 May 2016 12:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/new-version-of-firefox-power-close/</link>
+          <guid>https://mosab.co.uk/blog/new-version-of-firefox-power-close/</guid>
+          <description xml:base="https://mosab.co.uk/blog/new-version-of-firefox-power-close/">&lt;p&gt;New website, new icon, and improvements for the tab addict Firefox add-on&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--full s-image--center&quot;&gt;
+  &lt;img src=&quot;firefox-mosaic.jpg&quot; alt=&quot;firefox-header&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;a-brief-history&quot;&gt;A Brief History&lt;/h2&gt;
+&lt;p&gt;I have recently noticed that Power Close, my Firefox add-on, has reached a 1.5 K
+downloads milestone, which is way more than what I anticipated when I first
+created it. It was a very small hack for a very personal itch I have, and I
+never thought this many people had the same problem.&lt;/p&gt;
+&lt;p&gt;The first version published version, 0.2.1, was officially released on September
+28th, 2014, on Mozilla’s add-on portal, and a couple days before that on GitHub.
+A few bug fixes and little improvements were released since that date, and then
+I got busy with my life and work.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;stats.png&quot; alt=&quot;download and usage stats&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;download and usage stats&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;what-s-new&quot;&gt;What’s New&lt;/h2&gt;
+&lt;p&gt;Earlier this month, a new version 0.5.2 of the add-on was released. Here is a
+quick overview of the changes that took place.&lt;/p&gt;
+&lt;h3 id=&quot;1-new-icon&quot;&gt;1. New Icon&lt;/h3&gt;
+&lt;p&gt;In older versions of the add-on, the logo used to be one of the icons designed
+by &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.freepik.com/&quot;&gt;Freepik&lt;/a&gt; from &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.flaticon.com/&quot;&gt;Flat
+Icon&lt;/a&gt;, that was licensed under &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://creativecommons.org/licenses/by/3.0/&quot;&gt;CC-BY
+License&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- &lt;figure class=&quot;s-image s-image--md s-image--center&quot;&gt;
+  &lt;img src=&quot;old-logo.png&quot; alt=&quot;Old version of the icon&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+&lt;/figure&gt; --&gt;
+&lt;p&gt;The new logo (used for the icon, and the toolbar button) is a mash of
+two icons from Google’s &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://design.google.com/icons/&quot;&gt;Material Design
+Icons&lt;/a&gt; that are published as an open source
+project under the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC-By License&lt;/a&gt;.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;div class=&quot;s-image__row&quot;&gt;
+    &lt;img src=&quot;old-logo.png&quot; alt=&quot;Old logo to the left, new logo to the right.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+    &lt;img src=&quot;new-logo.png&quot; alt=&quot;Old logo to the left, new logo to the right.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+  &lt;/div&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Old logo to the left, new logo to the right.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h3 id=&quot;2-selection-context-menu-option&quot;&gt;2. Selection Context Menu Option&lt;/h3&gt;
+&lt;p&gt;In previous versions of the add-on, the user had to click in a non-interactive
+part of the page to see the &lt;em&gt;&quot;close all tabs from this domain&quot;&lt;/em&gt; context menu
+item. This caused usability issues because the option didn’t appear if you
+right click on the page while having a portion of the text selected.&lt;/p&gt;
+&lt;p&gt;Now the same option is added to the “Selection Context Menu”, so now the user
+can still find this option in the context menu even if they have previously
+selected some text.&lt;/p&gt;
+&lt;h3 id=&quot;3-switched-to-the-new-firefox-add-on-sdk&quot;&gt;3. Switched to The New Firefox Add-on SDK&lt;/h3&gt;
+&lt;p&gt;The previous versions of the add-on were developed using the now deprecated
+“cfx” sdk provided by Mozilla for Firefox add-on developers.&lt;/p&gt;
+&lt;p&gt;This new version is updated to make use of the new SDK named “jpm”.&lt;/p&gt;
+&lt;h3 id=&quot;4-new-website&quot;&gt;4. New website&lt;/h3&gt;
+&lt;p&gt;I have also registered a domain name for the add-on, and moved it from the
+sub-domain under my personal website power-close.mos3abof.com, where it used to
+live, to &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://power-close.com&quot;&gt;power-close.com&lt;/a&gt;.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;website-facelift.png&quot; alt=&quot;website face lift&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;website face lift&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The website was given a face lift to make it more usable, but this is an early
+release with new enhancements and features in the backlog. The website is
+hosted on &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.dreamhost.com/r.cgi?1017456&quot;&gt;Dreamhost&lt;/a&gt;, and is HTTPs
+enabled using a certificate issued from &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://letsencrypt.org/&quot;&gt;Let’s
+Encrypt&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;5-newsletter&quot;&gt;5. Newsletter&lt;/h3&gt;
+&lt;p&gt;I am also starting a newsletter for a better channel of communication with the
+users, where I consider it a matter of principal not to spam the subscribers
+with unnecessary emails.&lt;/p&gt;
+&lt;p&gt;You can sign up for the newsletter on the website:
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://power-close.com&quot;&gt;power-close.com&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;6-social-media-presence&quot;&gt;6. Social Media Presence&lt;/h3&gt;
+&lt;p&gt;I have also started a &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://facebook.com/power.close.addon&quot;&gt;Facebook page&lt;/a&gt; and
+created a &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://twitter.com/powercloseaddon&quot;&gt;Twitter account&lt;/a&gt; for the add-on.&lt;/p&gt;
+&lt;h3 id=&quot;what-s-next&quot;&gt;What’s Next&lt;/h3&gt;
+&lt;p&gt;The downloads number has really caught me by surprise, mainly because I have not
+put any effort to marketing it. This inspired me to dedicate more effort into
+the project to make it more useful for the ones who are already using it.&lt;/p&gt;
+&lt;p&gt;This also inspired me to launch a side experiment by reading and learning about
+growth hacking, while applying what I learn on Power Close, and documenting my
+findings along the way.&lt;/p&gt;
+&lt;p&gt;I am still not 100% sure about the game plan for this experiment. If you have
+any tips, hints, or advice I would love to hear/read it.&lt;/p&gt;
+&lt;p&gt;Or you can click on the button below and add Power Close to your firefox browser
+now!&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--sm s-image--center&quot;&gt;&lt;a href=&quot;https://power-close.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+  &lt;img src=&quot;add-to-firefox.png&quot; alt=&quot;Get the power&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+</description>
+      </item>
+      <item>
+          <title>Power Close, My First Firefox Addon</title>
+          <pubDate>Sun, 28 Sep 2014 12:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/firefox-power-close/</link>
+          <guid>https://mosab.co.uk/blog/firefox-power-close/</guid>
+          <description xml:base="https://mosab.co.uk/blog/firefox-power-close/">&lt;p&gt;I open a lot of tabs on firefox, and I mean A LOT! I was searching for addons to
+help me close tabs as fast as I open them so that I would keep the rate of open
+tabs steady. The best I found was something that closed duplicate tabs.&lt;/p&gt;
+&lt;p&gt;I usually have a lot of tabs from the same domain name open most of the time
+when I am researching something, or even when I am surfing facebook. So I
+thought it would be cool if I could close tabs belonging to a specific domain
+name, and not just duplicate.&lt;/p&gt;
+&lt;p&gt;I didn&#39;t find it, so I created it. Pretty basic, no optimization whatsoever, but
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://addons.mozilla.org/en-US/firefox/addon/firefox-power-close/developers&quot;&gt;here it is&lt;/a&gt; and here is the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://github.com/mos3abof/firefox-power-close&quot;&gt;code&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I submitted it yesterday for review by Mozilla, and today I got an email stating
+that the addon has undergone full review :)&lt;/p&gt;
+&lt;h2 id=&quot;how-to-use-it&quot;&gt;How to use it&lt;/h2&gt;
+&lt;p&gt;After installation, this icon will appear as a button in your browser.&lt;/p&gt;
+&lt;p&gt;Press on it, and an input field will appear. Write the keyword or domain name in
+it and press enter, and voila!&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;div class=&quot;s-image__row&quot;&gt;
+    &lt;img src=&quot;icon.png&quot; alt=&quot;Click on the icon, then use the plugin!&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+    &lt;img src=&quot;1_IRXZxyKWj1vd4DpaT1Fl8g.png&quot; alt=&quot;Click on the icon, then use the plugin!&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img s-image__img--crop&quot;&gt;
+  &lt;/div&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Click on the icon, then use the plugin!&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id=&quot;what-s-next-for-power-close&quot;&gt;What’s next for &quot;Power Close&quot;&lt;/h2&gt;
+&lt;p&gt;There are a couple of ideas for future features :&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Context menu shortcut:&lt;/em&gt; Adding a context menu entry to close all tabs from
+current selected tab’s domain&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Autocomplete:&lt;/em&gt; I am planning on implementing autocomplete so you don’t have to
+type full domain names.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;List current open domains:&lt;/em&gt; a feature to list currently open domain names
+listed by the count of open tabs from every domain in a descending.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;IDN domain names support:&lt;/em&gt; currently the addon does not support domain names
+using non English letters and numbers. I am planning on adding this support at
+some point or another.&lt;/p&gt;
+&lt;p&gt;Other closing options would be thought of as well. Feel free to suggest ideas.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Heading For The Dark Ages!</title>
+          <pubDate>Mon, 18 Aug 2014 04:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/power-grid-load-graph/</link>
+          <guid>https://mosab.co.uk/blog/power-grid-load-graph/</guid>
+          <description xml:base="https://mosab.co.uk/blog/power-grid-load-graph/">&lt;figure class=&quot;s-quote s-quote--&quot; dir=&quot;ltr&quot;&gt;
+  &lt;blockquote class=&quot;s-quote__body&quot;&gt;tl;dr? Check the graph at the end of the post&lt;/blockquote&gt;
+&lt;/figure&gt;
+&lt;p&gt;In Egypt we are having an electricity crisis. It started in Mubrak&#39;s presidency,
+the dude ousted by the great Jan 2011 Revolution. After his removal, the crises
+started to deepen.&lt;/p&gt;
+&lt;p&gt;Morsi came to office as the president in the elections right after the
+revolution, and in his rule the crisis took an even worse turn. It became normal
+that electricity cuts off once a day for an hour. That was one of the main
+reasons people revolted against Morsi, and the military seized the opportunity
+and removed him from office and put the supreme court&#39;s president in his place
+for a year. Power outages were slightly improved right after ousting Morsi, but
+then it gradually was becoming worse and worse.&lt;/p&gt;
+&lt;p&gt;Marshall Sisi won the next presidential elections, he is the current president
+of Egypt and now we are having 5 or more power outages a day!!! This dude is a
+bloody savage and a mass murderer and if there was any justice in the world he
+would be considered a war criminal, but that&#39;s a story for another time!&lt;/p&gt;
+&lt;p&gt;Anyway, things were getting a lot worse without any government official having a
+shred of decency to come up and talk to the people about it. Not an apolgy, or a
+bit of information of how bad and/or how long will this go on. Not a statement
+on whatever measures the government put in place to solve this. Not a thing!!&lt;/p&gt;
+&lt;p&gt;Then I saw &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://eg.okfn.org/2014/08/egyptera_current_load/&quot;&gt;this post&lt;/a&gt; by my
+fried &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://tarekamr.appspot.com/&quot;&gt;Tarek Amr&lt;/a&gt;. He wrote that the Egyptian
+Electric Utility and Consumer Protection Regulatory Agency (EGYPTERA) has
+released an online meter to show the current load status on the Egyptian power
+grid. He said that the meter did not provide any way to be processed
+programmatically, like an API, and he invited his fellow programmers to try and
+do so.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--md s-image--center&quot;&gt;
+  &lt;img src=&quot;Screen-Shot-2014-08-06-at-19.59.15-222x300.png&quot; alt=&quot;EGYPTERA Load Meter&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;EGYPTERA Load Meter&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;I liked the idea very much, and worked on a &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.gridstatusnow.com/&quot;&gt;web
+application&lt;/a&gt; that parses the meter data and
+provides it as an &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.gridstatusnow.com/status&quot;&gt;API&lt;/a&gt; for other
+programmers to use, and open sourced &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://github.com/mos3abof/power-grid-status&quot;&gt;the code&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Unfortunately, EGYPTERA&#39;s load meter only shows if the power is in the &quot;Safe
+Zone&quot;, &quot;Warning Zone&quot; or &quot;Danger Zone&quot;. It also shows the load distribution
+throughout the day&#39;s hours. It does not show any historical data. It does not
+show location specific load status. Just a load status on the entire power
+network across Egypt!!&lt;/p&gt;
+&lt;p&gt;After I released the api, I worte another script that used that api to save the
+status into a database on my online server withe a timestamp. I collected data
+for the past 7 days and a half about the load status every 10 minutes.&lt;/p&gt;
+&lt;p&gt;When I plotted it using D3js, the output was scary!&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;15061405582_bb8de1c0cc_n.jpg&quot; alt=&quot;Load Distribution Graph&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Load Distribution Graph&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Each row represents a day, and every block stands for an hour of the day
+starting at 12 am and finishing at 12 am the next day.&lt;/p&gt;
+&lt;p&gt;Load level has a value of three :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Danger (represented in red)&lt;/li&gt;
+&lt;li&gt;Warning (represented in yellow)&lt;/li&gt;
+&lt;li&gt;Normal (represented in green)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can reach the load distribution graph &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.gridstatusnow.com/history&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We were heading for the &quot;Dark Ages&quot; figuratively with all that blood spilled and
+corrupted governments, corrupted military, corrupted judicial system, corrupted
+police and corrupted media. &lt;strong&gt;Now were are heading for the Dark Ages,
+LITERALLY!!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Update 1: The application has been featured on a TV show on Alnahar Alyoum
+channel. Ironically the name of the channel means &quot;The Day Light Daily&quot; while we
+are in a power crisis. Here is the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.youtube.com/watch?v=o2amh54k3eQ&quot;&gt;video link&lt;/a&gt;. I have been called by the
+program on phone from minute 17 to minute 27.&lt;/p&gt;
+&lt;p&gt;Update 2: The application now has been moved to its own domain name
+(www.gridstatusnow.com) and has been undergoing some UI enhancements for a
+better user experience.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>My Sublime Text 2 Setup</title>
+          <pubDate>Thu, 20 Jun 2013 00:53:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/my-sublime-text-2-setup/</link>
+          <guid>https://mosab.co.uk/blog/my-sublime-text-2-setup/</guid>
+          <description xml:base="https://mosab.co.uk/blog/my-sublime-text-2-setup/">&lt;p&gt;I have been suffering for a while with IDEs, and ventured out to see what
+options do I have. I ended up using mainly Vim and Sublime for a long while now,
+and my life was never easier and I was never happier! In this post however I am
+talking about my &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.sublimetext.com/&quot;&gt;Sublime Text&lt;/a&gt; Setup.&lt;/p&gt;
+&lt;h3 id=&quot;1-package-control&quot;&gt;1) Package Control&lt;/h3&gt;
+&lt;p&gt;You don&#39;t know what sublime is really capable of until you install the &quot;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://wbond.net/sublime_packages/package_control/&quot;&gt;Package
+Control&lt;/a&gt;&quot;.&lt;/p&gt;
+&lt;p&gt;The website describes it as:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A full-featured package manager that helps discovering, installing, updating
+and removing packages for Sublime Text 2. It features an automatic upgrader
+and supports GitHub, Bitbucket and a full channel/repository system.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you are using Sublime and not using it, STOP READING &amp;amp; NOW GO
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://wbond.net/sublime_packages/package_control/installation&quot;&gt;INSTALL IT&lt;/a&gt;! After that go have a look &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://wbond.net/sublime_packages/package_control/usage&quot;&gt;how to use it&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;2-the-packages-i-use&quot;&gt;2) The packages I use&lt;/h3&gt;
+&lt;p&gt;I have a list of awesome packages I use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SublimeLinter&lt;/strong&gt; : Uses &quot;lint&quot; programs to highlight lines of code the
+linter deems to contain (potential) errors. It also supports highlighting
+special annotations (for example: TODO) so that they can be quickly located.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SideBarEnhancements&lt;/strong&gt; : Adds lots of enhancements to default Sublime Text
+sidebar. Files and folders.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHubinator&lt;/strong&gt; : Allows you to select text in a Sublime Text 2 file, and
+see the highlighted lines on GitHub&#39;s remote repo, if one exists.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Git&lt;/strong&gt; : Plugin for some git integration into Sublime Text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Djaneiro&lt;/strong&gt; : Django support for Sublime Text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SublimeCodeIntel&lt;/strong&gt; : Full-featured code intelligence and smart
+autocomplete engine.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PHP-Twig&lt;/strong&gt; : Adds support for &lt;code&gt;.twig&lt;/code&gt; template files.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BracketHilighter&lt;/strong&gt; : Matches and highlights a variety of brackets for
+better readability.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SublimeRope&lt;/strong&gt; : Adds Python completions and some IDE-like functions to
+Sublime Text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;jQuery&lt;/strong&gt; : Provides help with jQuery functions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Xdebug&lt;/strong&gt; : Xdebug Interface for Sublime Text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SublimeREPL&lt;/strong&gt; : Helps you run an interpreter inside Sublime Text for
+various languages (like Python, Ruby, Shell) and you can configure it to run
+others as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To install any of these packages -after installing the Package Control- press
+&lt;code&gt;ctrl+shift+p&lt;/code&gt; then type &lt;code&gt;install package&lt;/code&gt;. A list will appear with all
+available packages to your, just click on the package you want and voila!&lt;/p&gt;
+&lt;p&gt;I highly recommend you watch this video on Youtube : &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.youtube.com/watch?v=TZ-bgcJ6fQo&quot;&gt;Perfect Workflow in
+Sublime Text 2&lt;/a&gt;. It might seem very long, but it is actually divided into 10
+minutes chunks -more or less- and it is one of the best resources I have seen
+about Sublime.&lt;/p&gt;
+&lt;p&gt;Happy hacking/coding with Sublime :)&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Toggl Target: An Open Source Project of My Own</title>
+          <pubDate>Mon, 17 Jun 2013 04:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/toggl-target-open-source-project/</link>
+          <guid>https://mosab.co.uk/blog/toggl-target-open-source-project/</guid>
+          <description xml:base="https://mosab.co.uk/blog/toggl-target-open-source-project/">&lt;p&gt;At our company, &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.yubb-software.com&quot;&gt;Yubb Software&lt;/a&gt;, we track our
+working hours using the great time tracker created by the folks at
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.toggl.com&quot;&gt;Toggl&lt;/a&gt;, and we have monthly goals that we need to
+achieve. I have always had a problem with time management, and this time I
+decided I should start working on them.&lt;/p&gt;
+&lt;p&gt;So I created this small project to calculate how many more hours I should work
+to achieve my monthly goals.&lt;/p&gt;
+&lt;p&gt;This is how the output of this script looks like :&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;plaintext&quot;&gt;Hi Checking Internet connectivity... Internet seems fine!
+
+Trying to connect to Toggl, hang on!
+
+So far you have tracked 120.00 hours
+
+Business days left till deadline : 7 Total days left till deadline : 10
+
+Required working hours for this month : 170
+
+To achieve the minimum : you should log 4.00 hours every business day or log
+3.00 hours every day
+
+To achieve the required : you should log 7.00 hours every business day or log
+5.0 hours every day
+
+So far you have achieved:
+
+70.59% [=================================================--------------|------]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This information has provided me with a whole new level of awareness of how
+productive I am! It is scary, but at the same time it gives you a great
+indicator of how good -or bad- you are sticking to your goals and if you need to
+have some crunch time or just relax the next weekend.&lt;/p&gt;
+&lt;p&gt;I then published the script under GPL license V2 on
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://github.com/mos3abof/toggl_target&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I got great deal of help from one of my role model software engineers in Egypt,
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.mtayseer.net/&quot;&gt;Mohammed Tayseer&lt;/a&gt;, making the code more Pythonic. He
+also added installation instructions for Windows users, as I don&#39;t use windows
+anymore, and he is now a contributor to the repository on Github.&lt;/p&gt;
+&lt;p&gt;Today, Monday June 17th, Toggl added a link to my script on their new
+documentation in the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://github.com/toggl/toggl_api_docs&quot;&gt;Code Examples&lt;/a&gt;
+section.&lt;/p&gt;
+&lt;p&gt;My little open source script that uses is the first -and so far the only-
+mentioned project in their new API Documentation. Check it on their &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://github.com/toggl/toggl_api_docs#code-examples&quot;&gt;API
+Documentation&lt;/a&gt; on Github,
+or check the following screenshot :&lt;/p&gt;
+&lt;p&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://farm8.staticflickr.com/7432/9069807810_0084073717_b.jpg&quot;&gt;My little open source script that uses is the first -and so far the only-
+mentioned in Toggl&#39;s API new
+Documentation.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This really made my day. Thank you Toggl :)&lt;/p&gt;
+&lt;h3 id=&quot;update-1-friday-june-21st-3-50-pm&quot;&gt;Update 1 : Friday June 21st, 3:50 PM&lt;/h3&gt;
+&lt;p&gt;I received an email today from someone with the following content :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hi Mosab,&lt;/p&gt;
+&lt;p&gt;I’m currently making a small Python app that interacts with the toggl API, and
+your toggl target script has been helpful in getting me started. I’m using a
+modified version of your api.py file, and I’d like to credit you in my project
+when I put it on GitHub, but I’m not sure how (I’m rather new to all of this).
+Is it sufficient to mention that in the readme or should I leave the line
+&quot;#@author Mosab Ahmad [mosab.ahmad@gmail.com][]&quot; at the beginning of the
+file?&lt;/p&gt;
+&lt;p&gt;If you’re interested, it’s an implementation of
+&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://blog.sethroberts.net/2011/05/01/percentile-feedback-and-productivity/&quot;&gt;this&lt;/a&gt;
+(percentile feedback)&lt;/p&gt;
+&lt;p&gt;Best&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I am really glad my code helped someone :)&lt;/p&gt;
+&lt;h3 id=&quot;update-2-wednesday-jul-10th-11-43-pm&quot;&gt;Update 2 : Wednesday Jul 10th, 11:43 PM&lt;/h3&gt;
+&lt;p&gt;Seems that my little Toggl Target script is picking up some momentum.&lt;/p&gt;
+&lt;p&gt;I got this email 45 minutes ago :&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hi,&lt;/p&gt;
+&lt;p&gt;you probably have already seen it, but i forked your toggl_target repo.&lt;/p&gt;
+&lt;p&gt;i just wanted to see how fast i could add reports api support and what data
+comes out of there... while doing that i replaced the way the config is loaded
+to something similar like django works and loading a config file directly from
+a user&#39;s home dir... and added a setup.py to install everything.&lt;/p&gt;
+&lt;p&gt;so now there is a separate script to get some reports and an api wrapper for
+reports subclassing yours. i also did a little refactoring in your code.&lt;/p&gt;
+&lt;p&gt;since you seem to plan on writing a separate pytoggle lib i thought some of
+that is useful for you... so i wanted to give you an overview of what i
+changed and let you know, i probably won&#39;t do anything more with that.&lt;/p&gt;
+&lt;p&gt;here is the sauce:&lt;/p&gt;
+&lt;p&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://github.com/fdemmer/toggl_target&quot;&gt;https://github.com/fdemmer/toggl_target&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;regards,&lt;/p&gt;
+&lt;p&gt;Florian&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I am really surprised and humbled by all your contributions, thank you.&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;9067864209_17b3b8d1c8_o.png&quot; alt=&quot;My little open source script Toggl Target in action.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;My little open source script Toggl Target in action.&lt;/figcaption&gt;
+&lt;/figure&gt;
+</description>
+      </item>
+      <item>
+          <title>Joining Yubb Software</title>
+          <pubDate>Fri, 01 Mar 2013 12:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/joining-yubb/</link>
+          <guid>https://mosab.co.uk/blog/joining-yubb/</guid>
+          <description xml:base="https://mosab.co.uk/blog/joining-yubb/">&lt;p&gt;I am very excited to join &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.yubb-software.com&quot;&gt;Yubb Software&lt;/a&gt;, a
+brilliant software development company.&lt;/p&gt;
+&lt;p&gt;I have worked with the founders and some of the workers there in previous
+companies, and I love this group. The project we are working on is challenging,
+and the role I am supposed to play is very interesting.&lt;/p&gt;
+&lt;p&gt;They are working from a co-working space called &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.district-egypt.com/&quot;&gt;The
+District&lt;/a&gt;, which is even more cool :)&lt;/p&gt;
+&lt;p&gt;I am looking forward for a bunch of hard working months to come.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Reading Data from Excel Sheets in Python</title>
+          <pubDate>Tue, 19 Feb 2013 11:18:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/reading-data-from-excel-sheets-in-python/</link>
+          <guid>https://mosab.co.uk/blog/reading-data-from-excel-sheets-in-python/</guid>
+          <description xml:base="https://mosab.co.uk/blog/reading-data-from-excel-sheets-in-python/">&lt;p&gt;On &lt;em&gt;May 22nd 2012&lt;/em&gt; I was approached by the official campaign of the presidential
+candidate &quot;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.abolfotoh.net/&quot;&gt;Abolfotoh&lt;/a&gt;&quot;.&lt;/p&gt;
+&lt;p&gt;They needed help setting up a Google App Engine application.&lt;/p&gt;
+&lt;p&gt;It was an interactive map that uses Google Maps to plot data about voters and
+polling stations.&lt;/p&gt;
+&lt;p&gt;What they wanted further was to create another application to collect data from
+their official representatives on the ground and use this tool to feed the
+Google App Engine application with data.&lt;/p&gt;
+&lt;p&gt;The application was originally created by &quot;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.espace.com.eg&quot;&gt;Espace&lt;/a&gt;&quot; &lt;em&gt;-an awesome Egyptian
+company-&lt;/em&gt; and published on &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://code.google.com/p/egypt-election-2012-demo/&quot;&gt;Google Code&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I helped the official campaign with the setup on Google App Engine, but that is
+another story.&lt;/p&gt;
+&lt;p&gt;Before running the project in production, we needed to import a lot of data
+about the polling stations and the voters, like the Governorate it belonged to,
+the city, the number of voters per every station, the police station it belongs
+to, address, etc.&lt;/p&gt;
+&lt;p&gt;This data was only available in an excel sheet so I had to find a quick
+programmatic way to import it.&lt;/p&gt;
+&lt;p&gt;For the sake of simplicity, lets assume the data in the excel sheet was
+formatted like this :&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;plaintext&quot;&gt;+-------------------+------------+------------------------+
+| Polling Station   | City       | Total Number of Voters |
++-------------------+------------+------------------------+
+| polling_station_1 | Cairo      | 7734                   |
++-------------------+------------+------------------------+
+| polling_station_2 | Giza       | 13332                  |
++-------------------+------------+------------------------+
+| polling_station_3 | Alexandria | 10901                  |
++-------------------+------------+------------------------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As in most spreadsheets, the first row is the header row that describes the
+data, and the actual data is in the rows to follow.&lt;/p&gt;
+&lt;p&gt;I did a quick search and found several libraries that deal with excel in Python,
+there is even a website dedicated to listing them &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.python-excel.org&quot;&gt;http://www.python-excel.org&lt;/a&gt;.
+I chose to go with &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://pypi.python.org/pypi/xlrd&quot;&gt;XLRD&lt;/a&gt;, and you can find it in &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.lexicon.net/sjmachin/xlrd.htm&quot;&gt;PyPi&lt;/a&gt; as well.&lt;/p&gt;
+&lt;p&gt;We need to install it first by running this command :&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;bash&quot;&gt;pip install xlrd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Or&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;bash&quot;&gt;easy_install xlrd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let&#39;s start coding.&lt;/p&gt;
+&lt;p&gt;XLRD calls the whole excel document a &quot;Workbook&quot;, to open it we can do the
+following in an interactive python shell from the same path as the file:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; from xlrd import open_workbook 
+book = open_workbook(&amp;#39;data.xls&amp;#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we can manipulate the excel document using this &quot;book&quot; object we created.
+Remember the book has all the document.&lt;/p&gt;
+&lt;p&gt;An excel document can have one or multiple sheets inside it that hold the data.&lt;/p&gt;
+&lt;p&gt;The first sheet has an index of 0, the second has an index of 1 and so on.&lt;/p&gt;
+&lt;p&gt;To open the first sheet which holds the sample data above we do this:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; first_sheet = book.sheet_by_index(0)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we are ready to manipulate the sheet, get information about it and extract
+data from it.&lt;/p&gt;
+&lt;p&gt;For example to know the number of &quot;effective columns&quot; in the sheet we can print
+the &lt;code&gt;ncols&lt;/code&gt; attribute of the sheet, or to know the number of &quot;effective rows&quot;,
+the rows that contain data, we can use the &lt;code&gt;nrows&lt;/code&gt; attribute.&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; print first_sheet.ncols
+3
+&amp;gt;&amp;gt;&amp;gt; print first_sheet.nrows
+4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We now know how many rows contain actual data in the first sheet of our excel
+document. Time to loop over the rows and extract data.&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; for i in range(1, first_sheet.nrows):
+      row = first_sheet.row_slice(i)
+      station = row[0].value        \
+      city = row[1].value
+      voters = row[2].value
+      print &amp;quot;Polling Station :{} in {} has {} voter&amp;quot;.format(station, city, voters)
+Polling station polling_station_1 in Cairo has 7734.0 voters
+Polling station polling_station_2 in Giza has 13332.0 voters
+Polling station polling_station_3 in Alexandria has 10901.0 voters
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the previous snippet of code we started to loop over the rows skipping the
+first row &lt;code&gt;range(1, first_sheet.nrows)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Then we sliced every row out of the sheet with &lt;code&gt;row_slice()&lt;/code&gt; and then accessed
+it by column index to extract data from columns &lt;code&gt;row[]&lt;/code&gt;, and then we accessed
+the value of the cell by calling the &lt;code&gt;row[].value&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This is a very simple usage of the library, I suggest you read its
+documentation, you will find many great stuff :&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import xlrd help(xlrd) help(xlrd.sheet)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally check my answer on a question about the issue on &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://stackoverflow.com/questions/13805274/have-no-idea-with-python-excel-read-data-file/13805734#13805734&quot;&gt;StackOverflow&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;That&#39;s it for now!&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Poor Man&#39;s Guide: Monitoring a Website Using Python</title>
+          <pubDate>Mon, 11 Feb 2013 15:34:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/poor-mans-guide-for-monitoring-a-website-using-python/</link>
+          <guid>https://mosab.co.uk/blog/poor-mans-guide-for-monitoring-a-website-using-python/</guid>
+          <description xml:base="https://mosab.co.uk/blog/poor-mans-guide-for-monitoring-a-website-using-python/">&lt;p&gt;In one of the projects I am working on there was a problem with Apache server.
+It went down almost on a daily basis, and we were reading the logs to get the
+bottom of the root cause. But until we got our solution we needed to monitor the
+server&#39;s accessibility through the web, and get alerted if it went down, and
+ultimately restart it when this happened.&lt;/p&gt;
+&lt;p&gt;So I fired up my console and text editor and started hacking a little script to
+do the above mentioned side goals.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Monitoring the Apache server&#39;s accessibility from a different server.&lt;/li&gt;
+&lt;li&gt;SSH the linux box running the server and restarting Apache.&lt;/li&gt;
+&lt;li&gt;Alerting the DevOps team about the issue.&lt;/li&gt;
+&lt;li&gt;Putting it all together&lt;/li&gt;
+&lt;li&gt;Setting up a cron job to run the script&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I am assuming you are running an Ubuntu machine.&lt;/p&gt;
+&lt;h2 id=&quot;monitoring-the-apache-server&quot;&gt;Monitoring the Apache Server&lt;/h2&gt;
+&lt;p&gt;I was confused between two &lt;code&gt;Python 2.x&lt;/code&gt; libraries (note that they are
+dramatically changed in &lt;code&gt;Python 3.x&lt;/code&gt; and choosing between them is subject to
+different criteria).&lt;/p&gt;
+&lt;p&gt;The first library was &lt;code&gt;python-httplib&lt;/code&gt; and the second was &lt;code&gt;urllib&lt;/code&gt;. After a
+quick reading through both library&#39;s manual and a quick reading on StackOverflow
+I have decided to go for urllib.&lt;/p&gt;
+&lt;p&gt;Basically what I had in mind was to send a GET request to the website served by
+Apache and check the HTTP response code I got.&lt;/p&gt;
+&lt;p&gt;If it is &lt;em&gt;200&lt;/em&gt; -which is the SUCCESS response code according to HTTP standards-
+then everything is fine.&lt;/p&gt;
+&lt;p&gt;You can try this in a python interactive shell :&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import urllib response_code =
+&amp;gt;&amp;gt;&amp;gt; urllib.urlopen(&amp;quot;http://www.example.com&amp;quot;).getcode() print response_code
+200
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If the printed value is 200 then the website is up and running, if it has a
+different value or raises an Exception then the site is likely down (Assuming
+you have internet connectivity, no firewalls blocking your way, etc).&lt;/p&gt;
+&lt;p&gt;Time to put it together in a script :&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;python&quot;&gt;import urllib
+
+try:
+  response_code = urllib.urlopen(&amp;quot;http://www.example.com&amp;quot;).getcode()
+  if response_code != 200:
+    raise ValueError
+except:
+  pass # Here write code to do whatever you want to do when the website is down.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;restart-the-apache-server-remotely&quot;&gt;Restart the Apache server remotely&lt;/h2&gt;
+&lt;p&gt;There is a wonderful Python library and a command-line tool called &lt;em&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://docs.fabfile.org/en/1.5/&quot;&gt;Fabric&lt;/a&gt;&lt;/em&gt;
+that helps you streamlining the use of SSH for application deployment or systems
+administration tasks. It is ideally used to automate tedious error prone tasks
+in an easy way.&lt;/p&gt;
+&lt;p&gt;You can read about more about it in their documentation.&lt;/p&gt;
+&lt;p&gt;Install it by running the following command:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;bash&quot;&gt;sudo apt-get install fabric
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We now need to create a new python file that I will name &lt;code&gt;fabfile.py&lt;/code&gt;, you can
+name it anything, but let&#39;s just follow the common name you will see in Fabric&#39;s
+documentation.&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;python&quot;&gt;from fabric.api import env, sudo
+
+env.hosts = [&amp;#39;user@server&amp;#39;] env.passwords = {&amp;#39;user@server&amp;#39; : &amp;#39;password&amp;#39;}
+
+def restart_apache():
+  sudo(&amp;quot;apache2ctl restart&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We start by importing what we need from Fabric. Then we tell it some information
+about the server we want to restart Apache on by setting the &lt;code&gt;env.hosts&lt;/code&gt; and
+&lt;code&gt;env.passwords&lt;/code&gt; variables.&lt;/p&gt;
+&lt;p&gt;Then we define a &lt;code&gt;restart_apache&lt;/code&gt; function that we will call later to do the
+actual restart.&lt;/p&gt;
+&lt;p&gt;There are three main functions that are used the most, &lt;code&gt;local()&lt;/code&gt; that runs local
+commands, &lt;code&gt;run()&lt;/code&gt; that runs commands on the remote server and &lt;code&gt;sudo()&lt;/code&gt; that runs
+commands on the remote server using &lt;code&gt;sudo&lt;/code&gt;. Since Apache restart requires a root
+user or sudo privileges we used the &lt;code&gt;sudo()&lt;/code&gt; function.&lt;/p&gt;
+&lt;p&gt;To run a Fabric script open up your terminal and run the following command:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;bash&quot;&gt;fabric fabfile.py restart_apache
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you want to run it from a different directory than the &lt;code&gt;fabfile.py&lt;/code&gt; then you
+need to use the &lt;code&gt;-f&lt;/code&gt; option like this :&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;bash&quot;&gt;fabric -f /path/to/your/fabfile.py function_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;alerting-the-devops-team-about-the-issue&quot;&gt;Alerting the DevOps team about the issue.&lt;/h2&gt;
+&lt;p&gt;We can re-use the email function from the previous post on this blog &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://mosab.co.uk/installing-gdata-python-client-on-dreamhost.html&quot;&gt;Installing
+Gdata Python Client on Dreamhost&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;python&quot;&gt;import smtplib
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEBase import MIMEBase
+from email.MIMEText import MIMEText
+from email import Encoders
+
+subject = &amp;#39;Your website is down&amp;#39; email_body = &amp;#39;Your website is down&amp;#39;
+gmail_user = &amp;#39;YOUR-GMAIL-ADDRESS&amp;#39; gmail_pwd = &amp;#39;YOUR-GMAIL-PASSWORD&amp;#39;
+recipient = &amp;#39;DEVOPS-EMAIL&amp;#39;
+
+def mail(to, subject, text, gmail_user, gmail_pwd):
+    &amp;#39;&amp;#39;&amp;#39;Sends mail using gmail&amp;#39;&amp;#39;&amp;#39;
+    msg = MIMEMultipart()
+
+    # Setting up message data
+    msg[&amp;#39;From&amp;#39;] = &amp;#39;DEVOPS-EMAIL&amp;#39;
+    msg[&amp;#39;To&amp;#39;] = to
+    msg[&amp;#39;Subject&amp;#39;] = subject msg.attach(MIMEText(text))
+
+    # Opening the connection with Gmail SMTP server
+    mailServer = smtplib.SMTP(&amp;quot;smtp.gmail.com&amp;quot;, 587)
+    mailServer.ehlo()
+    mailServer.starttls()
+    mailServer.ehlo()
+    mailServer.login(gmail_user, gmail_pwd)
+
+    # Actual sending of the email
+    mailServer.sendmail(gmail_user, to, msg.as_string())
+
+    # Closing the connection # Should be mailServer.quit(), but that crashes
+    mailServer.close()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;putting-it-all-together&quot;&gt;Putting it all together&lt;/h2&gt;
+&lt;p&gt;I have combined all the snippets mentioned above, modified them and added some
+logging functionality to it.&lt;/p&gt;
+&lt;p&gt;I have it installed on &lt;code&gt;/opt/fabfile.py&lt;/code&gt; and I have created a &lt;code&gt;/opt/fab_logs&lt;/code&gt;
+folder to hold the log files.&lt;/p&gt;
+&lt;p&gt;Here is a gist with the complete script:&lt;/p&gt;
+&lt;div class=&quot;zt-embed zt-embed--gist&quot; dir=&quot;ltr&quot;&gt;
+  &lt;script src=&quot;https://gist.github.com/mos3abof/4771874.js&quot;&gt;&lt;/script&gt;
+  &lt;noscript&gt;&lt;a class=&quot;al-link&quot; href=&quot;https://gist.github.com/mos3abof/4771874&quot;&gt;See the gist on GitHub&lt;/a&gt;&lt;/noscript&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;setting-up-a-cron-job-to-run-the-script&quot;&gt;Setting up a cron job to run the script&lt;/h2&gt;
+&lt;p&gt;Now we have a great script, and we know how to run it manually. But it would be
+inconvenient to run it manually all the time. We need to setup a cron job to do
+it periodically for us.&lt;/p&gt;
+&lt;p&gt;Run the following command in the terminal to edit your crontab file:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;bash&quot;&gt;crontab -e
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then add the following line to the file to run the script every hour:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;bash&quot;&gt;0 * * * * /usr/bin/fab -f /path/to/your/fabfile.py restart_apache
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Happy website monitoring.&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Installing Gdata Python Client on Dreamhost</title>
+          <pubDate>Thu, 29 Nov 2012 20:05:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/installing-gdata-python-client-on-dreamhost/</link>
+          <guid>https://mosab.co.uk/blog/installing-gdata-python-client-on-dreamhost/</guid>
+          <description xml:base="https://mosab.co.uk/blog/installing-gdata-python-client-on-dreamhost/">&lt;p&gt;Our company&#39;s website is hosted on &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://www.dreamhost.com&quot;&gt;Dreamhost&lt;/a&gt;. Today I needed to
+write a python script that utilizes some of Youtube&#39;s APIs to send us a daily
+digest of videos we are interested in, so I ran into the problem of needing to
+install a python library on our hosting account which I don&#39;t have root or
+admin access to.&lt;/p&gt;
+&lt;p&gt;Here is what I did.&lt;/p&gt;
+&lt;p&gt;First of all, I am assuming that you have enabled SSH access to your domain name
+you are doing this for. If this is not the case, then this article may be of
+great help : &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://ahappycustomer.dreamhosters.com/dreamhost-ssh.html&quot;&gt;DreamHost SSH&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;I downloaded the &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http://code.google.com/p/gdata-python-client/downloads/list&quot;&gt;gdata-python-client&lt;/a&gt; from
+code.google.com (at the moment&lt;/p&gt;
+&lt;p&gt;I am writing this post the latest stable version is 2.0.17) using the
+following command :&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;bash&quot;&gt;cd ~
+wget http://gdata-python-client.googlecode.com/files/gdata-2.0.17.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Untar the tarball:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;bash&quot;&gt;tar -xzvf gdata-2.0.17.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change your directory to the uncompressed folder:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;bash&quot;&gt;cd gdata-2.0.17
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Here is the trick, since we don&#39;t have administrative access, we can&#39;t
+install the library system-wide, but we can however install it for our
+account by running this command:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;bash&quot;&gt;python setup.py install --home=~/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To test if everything is right run the following command :&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;bash&quot;&gt;./tests/run_all_tests.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Although the library is now installed on your account, you can&#39;t yet import
+it directly, you need to add the path of libraries to the system.path in your
+python script in order to be able to import it, so at the beginning of your
+script add the following two lines:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;python&quot;&gt;import os
+import sys
+
+sys.path.append(os.environ[&amp;#39;HOME&amp;#39;] + &amp;#39;/lib/python&amp;#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;What these two lines do is constructing a dynamic path to your new lib folder
+that contains gdata-python-client by getting the home path from the system
+registered in the variable &lt;code&gt;os.environ[&#39;HOME&#39;]&lt;/code&gt; and concatenating &lt;code&gt;/lib/python&lt;/code&gt;
+to it, then it appends this dynamically generated path to the system path so
+that the python interpreter will look into this folder when importing gdata&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Now you can do stuff with gdata like :&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; import gdata.youtubeimport
+&amp;gt;&amp;gt;&amp;gt; gdata.youtube.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here is my final script that I wrote, and I set up a cron job to run it every
+morning:&lt;/p&gt;
+&lt;div class=&quot;zt-embed zt-embed--gist&quot; dir=&quot;ltr&quot;&gt;
+  &lt;script src=&quot;https://gist.github.com/mos3abof/4164654.js&quot;&gt;&lt;/script&gt;
+  &lt;noscript&gt;&lt;a class=&quot;al-link&quot; href=&quot;https://gist.github.com/mos3abof/4164654&quot;&gt;See the gist on GitHub&lt;/a&gt;&lt;/noscript&gt;
+&lt;/div&gt;
+&lt;p&gt;Happy Gdata programming on Dreamhost :)&lt;/p&gt;
+</description>
+      </item>
+      <item>
+          <title>Caffeine Code Cycle</title>
+          <pubDate>Wed, 11 Mar 2009 22:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/caffeine-code-cycle/</link>
+          <guid>https://mosab.co.uk/blog/caffeine-code-cycle/</guid>
+          <description xml:base="https://mosab.co.uk/blog/caffeine-code-cycle/">&lt;p&gt;I saw this quote and loved it:&lt;/p&gt;
+&lt;figure class=&quot;s-quote s-quote--2xl&quot; dir=&quot;ltr&quot;&gt;
+  &lt;blockquote class=&quot;s-quote__body&quot;&gt;Developers are living organisms that convert Caffeine into code!&lt;/blockquote&gt;
+  &lt;figcaption class=&quot;s-quote__by&quot;&gt;&amp;#8212; Source Unkown&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;So I made this diagram :&lt;/p&gt;
+&lt;figure class=&quot;s-image s-image--2xl s-image--center&quot;&gt;
+  &lt;img src=&quot;caffeineCode.png&quot; alt=&quot;Developers are living organisms that convert Caffeine into code&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;s-image__img&quot;&gt;
+  &lt;figcaption class=&quot;s-image__caption&quot; dir=&quot;ltr&quot;&gt;Developers are living organisms that convert Caffeine into code&lt;/figcaption&gt;
+&lt;/figure&gt;
+</description>
+      </item>
+    </channel>
+</rss>
