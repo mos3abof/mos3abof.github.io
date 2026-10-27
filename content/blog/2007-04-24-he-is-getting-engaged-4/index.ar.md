@@ -26,7 +26,7 @@ full_width = true
 جيمي حصب الله مبارك فبيرو كتب  ["بسلامته بيخطب
 (2)"](http://www.20at.com/newArticle.php?sid=2138)، وبعد كده بيرو بذات نفسيه
 خطب فكتبت أنا  ["بسلامته بيخطب
-(3)"](http://mos3abof.blogspot.com/2006/03/3.html)  
+(3)"](@/blog/2006-03-31-he-is-getting-engaged-3/index.ar.md)  
   
 ### اقرأوهم و ارجعوا اقرأوا دي  
   

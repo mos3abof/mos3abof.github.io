@@ -29,8 +29,8 @@ full_width = true
 لا أقوى على الكتابة الآن..  
 يغالبني نعاس انتصر أخيرا على قلق الأيام الماضية..
 
-[1]: https://mos3abof.blogspot.com/2008/01/blog-post.html
-[2]: https://mos3abof.blogspot.com/2008/01/blog-post_21.html
-[3]: http://mos3abof.blogspot.com/2007/10/beatiful-mine.html
-[4]: http://mos3abof.blogspot.com/2007/09/blog-post_27.html
+[1]: @/blog/2008-01-02-there-will-be-light/index.ar.md
+[2]: @/blog/2008-01-21-rain-season/index.ar.md
+[3]: @/blog/2007-10-13-a-beautiful-mine/index.ar.md
+[4]: @/blog/2007-09-27-a-strong-moment-of-weakness/index.ar.md
 [5]: http://amiraqassim.blogspot.com/

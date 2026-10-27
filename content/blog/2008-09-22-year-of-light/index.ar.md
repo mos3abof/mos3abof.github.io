@@ -27,4 +27,4 @@ while(1) {
 Happy birthday, my Princess..
 {% </quote> %}
 
-[1]: http://mos3abof.blogspot.com/2008/01/blog-post.html
+[1]: @/blog/2008-01-02-there-will-be-light/index.ar.md

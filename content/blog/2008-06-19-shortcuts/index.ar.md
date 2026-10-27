@@ -35,7 +35,7 @@ full_width = true
 
 (4)
 
-ولازلت مقتنعا أننا [نفقد برائتنا بمنتهى البراءة](http://mos3abof.blogspot.com/2008/01/blog-post_26.html).
+ولازلت مقتنعا أننا [نفقد برائتنا بمنتهى البراءة](@/blog/2008-01-26-why-oh-time/index.ar.md).
 
 (0)
 

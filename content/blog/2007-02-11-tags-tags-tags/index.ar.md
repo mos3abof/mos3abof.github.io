@@ -120,7 +120,7 @@ toc = true
   
 #### س: برجك ايه؟
 
-ج:  [الحوت](http://mos3abof.blogspot.com/2006/02/blog-post.html)  
+ج:  [الحوت](@/blog/2006-02-04-whale/index.ar.md)  
   
 #### س: شخصيتي نوعها ايه؟!
 
