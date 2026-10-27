@@ -59,13 +59,30 @@
             </span>
           </div>
         </header>
-        {#- The text is escaped, but for the <br />s Blogger kept. #}
+        {#- The text is escaped, but for the <br />s Blogger kept. Comments
+            imported from Blogger (the ones with a comment_url) also keep their
+            links, bold and italics, normalised on import to exactly
+            <a href="http…" rel="nofollow">, <b> and <i>. #}
+        {%- set text = comment.text | replace(from="<br />", to="|||BR|||") %}
+        {%- if comment.comment_url %}
+        {%- set text = text
+          | replace(from='<a href="http', to="|||A|||")
+          | replace(from='" rel="nofollow">', to="|||AC|||")
+          | replace(from="</a>", to="|||/A|||")
+          | replace(from="<b>", to="|||B|||") | replace(from="</b>", to="|||/B|||")
+          | replace(from="<i>", to="|||I|||") | replace(from="</i>", to="|||/I|||") %}
+        {%- endif %}
         <div class="s-comment__body">{{
-          comment.text
-          | replace(from="<br />", to="|||BR|||")
+          text
           | replace(from="&", to="&amp;")
           | replace(from="<", to="&lt;") | replace(from=">", to="&gt;")
+          | replace(from='"', to="&quot;")
           | replace(from="|||BR|||", to="<br />")
+          | replace(from="|||A|||", to='<a href="http')
+          | replace(from="|||AC|||", to='" rel="nofollow noopener" target="_blank">')
+          | replace(from="|||/A|||", to="</a>")
+          | replace(from="|||B|||", to="<b>") | replace(from="|||/B|||", to="</b>")
+          | replace(from="|||I|||", to="<i>") | replace(from="|||/I|||", to="</i>")
           | safe
         }}</div>
       </article>

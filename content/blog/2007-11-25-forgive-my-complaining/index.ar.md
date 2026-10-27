@@ -13,4 +13,4 @@ full_width = true
 {{ <image src="i_miss_u_dad.jpg" /> }}  
 
 كل سنة وأنت طيب ..، النهاردة عيد ميلادك  
-ولسة  [واحشني حضنك](http://mos3abof.blogspot.com/2006/12/blog-post_25.html)..
+ولسة  [واحشني حضنك](@/blog/2006-12-25-miss-you-dad/index.ar.md)..
