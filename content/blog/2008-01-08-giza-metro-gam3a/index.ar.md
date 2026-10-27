@@ -7,6 +7,7 @@ tags = ["نعناع الجنينة", "في دايرة الرحلة", "شبابي
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="metro.jpg" size="full" /> }}  

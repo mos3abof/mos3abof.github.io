@@ -7,6 +7,7 @@ tags = ["الجيرة والعشرة", "افتح قلبك", "في دايرة ا�
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="IMG_2429.jpg" size="fule" /> }}  

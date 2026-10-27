@@ -1,27 +1,29 @@
 {%- extends "base.html" -%}
 
-{#- A post or a page, on the theme's base: its title, when, by whom and in
-    which section it was posted, its contents when it asks for them
-    (extra.toc = true), its text and tags; on a post, its comments and the
-    posts either side. -#}
+{#- A page: where it sits, its title, lede and dates, "On this page" beside
+    it when it's long, its content, its terms, and the pages either side.
+
+    The theme's own (themes/arabesque/templates/page.html), but for three
+    changes: "On this page" lists each heading's subheadings under it, as a
+    second level; a page with extra.full_width = true takes the whole width
+    of the page column (css/overrides.css); and a post has its comments and
+    the form for a new one, after its terms. -#}
 
 {%- block main %}
-{%- set is_post = "blog/_index.md" in page.ancestors or "blog/_index.ar.md" in page.ancestors %}
-{%- set show_toc = page.extra.toc | default(value=false) and page.toc %}
-{#- The contents beside the post, as the theme's (zt-doc-layout): sticky at
-    the start, above the post on narrow screens. -#}
-<div class="al-page site-main zt-doc-layout{% if show_toc %} zt-doc-layout--toc{% endif %}">
+{%- set toc_min = config.extra.page.toc_min_headings %}
+{%- set show_toc = toc_min > 0 and page.toc | length >= toc_min %}
+{%- if page.extra.toc is defined %}{% set show_toc = page.extra.toc and page.toc | length > 0 %}{% endif %}
+<div class="al-page zt-main zt-doc-layout{% if show_toc %} zt-doc-layout--toc{% endif %}{% if page.extra.full_width %} site-doc--full{% endif %}">
   {%- if show_toc %}
-  <nav class="al-toc zt-toc post-toc" aria-labelledby="post-toc-title">
-    <p id="post-toc-title" class="al-toc__title">{{ t.table_of_contents }}</p>
+  <nav class="al-toc zt-toc" aria-label="{{ t.on_this_page }}">
+    <p class="al-toc__title" aria-hidden="true">{{ t.on_this_page }}</p>
     <ul>
-      {%- for h1 in page.toc %}
-      <li>
-        <a href="#{{ h1.id }}">{{ h1.title }}</a>
-        {%- if h1.children %}
+      {%- for h in page.toc %}
+      <li><a href="#{{ h.id }}">{{ h.title }}</a>
+        {%- if h.children | length > 0 %}
         <ul>
-          {%- for h2 in h1.children %}
-          <li><a href="#{{ h2.id }}">{{ h2.title }}</a></li>
+          {%- for c in h.children %}
+          <li><a href="#{{ c.id }}">{{ c.title }}</a></li>
           {%- endfor %}
         </ul>
         {%- endif %}
@@ -30,76 +32,48 @@
     </ul>
   </nav>
   {%- endif %}
-<article class="post">
-  <header class="post-head">
-    {{ <site.title text={page.title} /> }}
-
-    {%- if page.date %}
-    {%- set author = page.extra.author | default(value=config.extra.author_ar if lang == "ar" else config.extra.author) %}
-    <p class="post-meta">
-      {{ t.posted_on }}
-      {{ <site.date value={page.date} class="post-meta__date" /> }}
-      {%- if author %}
-      <span aria-hidden="true">·</span> {{ t.written_by }} <bdi>{{ author }}</bdi>
+  <article class="zt-doc" aria-labelledby="zt-title">
+    {%- set ancestors = page.ancestors %}
+    {%- include "partials/breadcrumbs.html" %}
+    <header class="zt-doc__head">
+      <h1 class="zt-doc__title" id="zt-title">{{ page.title }}
+        {%- if page.draft %} <span class="al-badge al-badge--warning">{{ t.draft }}</span>{% endif %}</h1>
+      {%- if page.description %}
+      <p class="al-lede zt-doc__lede">{{ page.description }}</p>
       {%- endif %}
-      {#- The section it's in, if not the home page. #}
-      {%- if page.ancestors | length > 1 %}
-      {%- set in_section = get_section(path=page.ancestors[-1], metadata_only=true) %}
-      <span aria-hidden="true">·</span> {{ t.posted_in }}
-      <a href="{{ in_section.permalink | safe }}" class="al-link al-link--muted">{{ in_section.title }}</a>
-      {%- endif %}
-    </p>
+      {%- set p = page %}{% set full_meta = true %}
+      {%- include "partials/page_meta.html" %}
+      {%- block doc_head %}{% endblock doc_head %}
+    </header>
+    <div class="al-prose zt-prose">{{ page.content | safe }}</div>
+    {%- include "partials/page_terms.html" %}
+    {%- if "blog/_index.md" in page.ancestors or "blog/_index.ar.md" in page.ancestors %}
+    {%- include "partials/comments.html" %}
+    {%- include "partials/comment-form.html" %}
     {%- endif %}
-
-    {%- if page.draft %}
-    <span class="al-badge al-badge--warning">{{ t.draft }}</span>
-    {%- endif %}
-    {#- As the theme's page.html, for templates that extend this one (its project.html). #}
-    {%- block doc_head %}{% endblock doc_head %}
-  </header>
-
-  <div class="site-prose">
-    {{ page.content | safe }}
-  </div>
-
-  {%- if page.taxonomies.tags %}
-  <p class="post-tags">
-    {%- for tag in page.taxonomies.tags %}
-    <a href="{{ get_taxonomy_url(kind='tags', term=tag, lang=lang) | safe }}" class="al-link al-link--muted">#{{ tag }}</a>
-    {%- endfor %}
-  </p>
-  {%- endif %}
-
-  {%- if is_post %}
-  {% include "partials/comments.html" %}
-  {% include "partials/comment-form.html" %}
-  {%- endif %}
-
-  {%- if is_post and (page.lower or page.higher) %}
-  <nav class="post-pager" aria-label="{{ t.post_list }}">
-    <div class="post-pager__prev">
-      {%- if page.higher %}
-      <a href="{{ page.higher.permalink | safe }}" rel="prev">
-        <span class="post-pager__label">{{ t.prev_post }}</span>
-        <span class="post-pager__title">{{ page.higher.title }}</span>
+    {%- if config.extra.page.page_nav and (page.lower or page.higher) %}
+    {#- Pages with dates are newer and older; others, previous and next. #}
+    {%- set dated = page.date and ((page.lower and page.lower.date) or (page.higher and page.higher.date)) %}
+    {#- Back at the start, on at the end: by date, the older page is back
+        (the list runs newest first, so it's `higher`) and the newer one on;
+        otherwise, the list's previous page and its next. #}
+    {%- if dated %}{% set back = page.higher %}{% set on = page.lower %}{% set back_word = t.older %}{% set on_word = t.newer %}
+    {%- else %}{% set back = page.lower %}{% set on = page.higher %}{% set back_word = t.previous %}{% set on_word = t.next %}{% endif %}
+    <nav class="zt-pager" aria-label="{{ t.more_pages }}">
+      {%- if back %}
+      <a class="al-card al-card--interactive zt-pager__link zt-pager__link--prev" href="{{ back.permalink | safe }}" rel="prev">
+        <span class="zt-pager__label">{{ <zt.icon name="arrow" class="al-icon--sm zt-pager__back" /> }}{{ back_word }}</span>
+        <span class="zt-pager__title">{{ back.title }}</span>
       </a>
       {%- endif %}
-    </div>
-    <a href="{{ get_url(path='@/blog/_index.md', lang=lang) | safe }}" class="post-pager__archive al-link al-link--muted">{{ t.post_list }}</a>
-    <div class="post-pager__next">
-      {%- if page.lower %}
-      <a href="{{ page.lower.permalink | safe }}" rel="next">
-        <span class="post-pager__label">{{ t.next_post }}</span>
-        <span class="post-pager__title">{{ page.lower.title }}</span>
+      {%- if on %}
+      <a class="al-card al-card--interactive zt-pager__link zt-pager__link--next" href="{{ on.permalink | safe }}" rel="next">
+        <span class="zt-pager__label">{{ on_word }}{{ <zt.icon name="arrow" class="al-icon--sm al-mirror" /> }}</span>
+        <span class="zt-pager__title">{{ on.title }}</span>
       </a>
       {%- endif %}
-    </div>
-  </nav>
-  {%- endif %}
-</article>
+    </nav>
+    {%- endif %}
+  </article>
 </div>
 {%- endblock main %}
-
-{%- block scripts %}
-<script src="{{ get_url(path='js/main.js') }}" defer></script>
-{%- endblock scripts %}

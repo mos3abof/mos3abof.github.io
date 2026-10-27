@@ -7,6 +7,7 @@ tags = ["بحر الحياة", "يا بنت يا اللي"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="42-15440216.jpg" size="2xl" /> }}  

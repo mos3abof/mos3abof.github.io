@@ -1,5 +1,8 @@
 +++
 title = "القراءة"
+
+[extra]
+full_width = true
 +++
 
 ألقِ نظرة على [مكتبتي][1] على LibraryThing.

@@ -7,6 +7,7 @@ tags = ["الله يا دايم"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="i_still_love_him_but_i_forgot.jpg" /> }}  

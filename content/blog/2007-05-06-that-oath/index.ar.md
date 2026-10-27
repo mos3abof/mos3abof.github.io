@@ -7,6 +7,7 @@ tags = ["حكايتي مع الزمان", "افتح قلبك", "في دايرة 
 
 [extra]
 comments = true
+full_width = true
 +++
 {{ <image src="oath.jpg" size="2xl" /> }}  
 

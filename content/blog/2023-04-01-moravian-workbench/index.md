@@ -4,6 +4,9 @@ date = "2023-04-16T00:00:00Z"
 
 [taxonomies]
 tags=["woodworking"]
+
+[extra]
+full_width = true
 +++
 
 For my first ever woodworking project I wanted to make a bench. A bench is an

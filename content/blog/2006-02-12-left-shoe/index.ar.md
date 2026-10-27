@@ -7,6 +7,7 @@ tags = ["نعناع الجنينة"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="./Phil_Shoe.jpg" size="md" /> }}

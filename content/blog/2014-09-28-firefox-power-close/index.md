@@ -1,6 +1,9 @@
 +++
 title = "Power Close, My First Firefox Addon"
 date = "2014-09-28T12:00:00Z"
+
+[extra]
+full_width = true
 +++
 
 I open a lot of tabs on firefox, and I mean A LOT! I was searching for addons to

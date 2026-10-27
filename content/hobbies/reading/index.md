@@ -1,5 +1,8 @@
 +++
 title = "Reading"
+
+[extra]
+full_width = true
 +++
 
 Have a look at [my library][1] on LibraryThing.

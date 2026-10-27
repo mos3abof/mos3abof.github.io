@@ -4,6 +4,9 @@ date = "2026-04-18"
 
 [taxonomies]
 tags=["الله يا دايم"]
+
+[extra]
+full_width = true
 +++
 
 {% <quran surah="الفاتحة" ayah="١-٧"> %}

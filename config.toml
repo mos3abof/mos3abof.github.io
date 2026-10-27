@@ -2,8 +2,8 @@
 base_url = "https://mosab.co.uk"
 
 # The site title and description; used in feeds by default.
-title = "Mosab Ahmad Ibrahim"
-description = "an oddly wired brain!"
+title = "Mosab Ibrahim"
+description = "I tell the machine stories about the world!"
 
 # The default language; used in feeds.
 default_language = "en"
@@ -225,30 +225,37 @@ author_ar = "مصعب إبراهيم"
 favicon = "images/favicon.ico"
 # After the design system's and the theme's: the Arabic faces (copied from
 # fonts/ by make copy-fonts), then the site's own (built by Tailwind).
-stylesheets = ["css/font-faces.css", "css/style.css"]
+stylesheets = ["css/font-faces.css", "css/components.css", "css/overrides.css"]
 # Comments system
 # Get the site key from dash.cloudflare.com → Turnstile after creating a widget for mosab.co.uk
 turnstile_site_key = "0x4AAAAAADPjTVV4b4KS6DQY"
 # URL of your deployed Cloudflare Worker (see comments/worker/wrangler.toml)
 comments_api_url = "https://api.mosab.co.uk/comments"
 
-# The header's links. Home is the lockup; keep this to four.
+# The header's links. Home is the lockup.
 [extra.menu]
 en = [
   { name = "Posts", url = "@/blog/_index.md" },
   { name = "Projects", url = "@/projects/_index.md" },
   { name = "Resume", url = "@/resume.md" },
   { name = "About", url = "@/about/index.md" },
+  { name = "Contact", url = "@/contact.md" },
 ]
 ar = [
   { name = "تدويناتي", url = "@/blog/_index.md" },
   { name = "مشاريعي", url = "@/projects/_index.md" },
+  { name = "سيرتي الذاتية", url = "@/resume.md" },
   { name = "من أنا", url = "@/about/index.md" },
+  { name = "تواصل معي", url = "@/contact.md" },
 ]
+
+[extra.home]
+# The home page lists the latest posts.
+section = "blog/_index.md"
 
 [extra.header]
 logo = "images/logo.png"
-sticky = false
+sticky = true
 
 [extra.page]
 # Posts show their contents only when they ask for it (extra.toc = true).
@@ -271,15 +278,15 @@ same_as = [
   "https://www.facebook.com/mos3abof",
 ]
 
+[extra.footer]
+# The feed is among the social icons (partials/social-icons.html).
+feed_link = false
+
 [extra.footer.links]
 en = [
   { name = "Talks", url = "@/talks/index.md" },
-  { name = "Contact", url = "@/contact.md" },
 ]
-ar = [
-  { name = "سيرتي الذاتية", url = "@/resume.md" },
-  { name = "تواصل معي", url = "@/contact.md" },
-]
+ar = []
 
 # %year is this year, in the language's own digits.
 [extra.footer.copyright]

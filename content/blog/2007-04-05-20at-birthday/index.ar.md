@@ -7,6 +7,7 @@ tags = ["في دايرة الرحلة", "الجيرة والعشرة"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="20atBirthDay.jpg" size="full" /> }}  

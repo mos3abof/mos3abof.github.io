@@ -1,6 +1,9 @@
 +++
 title = "Toggl Target: An Open Source Project of My Own"
 date = "2013-06-17T04:00:00Z"
+
+[extra]
+full_width = true
 +++
 
 At our company, [Yubb Software](http://www.yubb-software.com), we track our

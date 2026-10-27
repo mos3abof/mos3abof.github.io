@@ -7,6 +7,7 @@ tags = ["حكايتي مع الزمان"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="./confused-student.jpg" size="2xl" /> }}

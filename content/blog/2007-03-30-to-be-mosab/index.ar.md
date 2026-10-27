@@ -7,6 +7,7 @@ tags = ["افتح قلبك"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="CA-089-0105.jpg" size="2xl" /> }}  

@@ -7,6 +7,7 @@ tags = ["بحر الحياة", "حكايتي مع الزمان"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="42-18007823.jpg" size="2xl" /> }}  

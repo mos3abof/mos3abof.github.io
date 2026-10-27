@@ -4,6 +4,9 @@ date = "2007-04-15"
 
 [taxonomies]
 tags = ["الجيرة والعشرة", "افتح قلبك"]
+
+[extract]
+full_width = true
 +++
 
 {{ <image src="me_and_baraa.jpg" size="full" /> }}  

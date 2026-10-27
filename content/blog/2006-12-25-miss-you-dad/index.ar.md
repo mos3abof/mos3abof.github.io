@@ -7,6 +7,7 @@ tags = ["شيء من بعيد ناداني", "افتح قلبك", "أشكي لم
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="Corbis-CB052484.jpg" /> }}

@@ -4,6 +4,9 @@ date = "2020-05-08T00:00:00Z"
 
 [taxonomies]
 tags=["career"]
+
+[extra]
+full_width = true
 +++
 
 {{ <image src="twitter-logo.png" alt="Twitter" /> }}

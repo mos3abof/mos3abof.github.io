@@ -7,6 +7,7 @@ tags = ["نعناع الجنينة", "منشورات"]
 
 [extra]
 comments = true
+toc = true
 +++
 
 {{ <image src="https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sWtG21f5Mu2J15tD0Y6XMLRa_xhwwbWPPBcBIjCbIZIYJ879NIt2BvdAqFGX7l8hOTOHJoEt5vp-FyCo9E-X_0YTFtBuk=s0-d" alt="crocodile" link="http://www.20at.com/mosab/bogy.jpg" /> }}  

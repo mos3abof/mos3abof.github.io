@@ -7,6 +7,7 @@ tags = ["نعناع الجنينة"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="293033676_07c2730bfc.jpg" size="2xl" /> }}  

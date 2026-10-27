@@ -7,6 +7,7 @@ tags = ["نعناع الجنينة"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="Old_Helwan.jpg" size="2xl" text="حلوان القديمة" /> }}  

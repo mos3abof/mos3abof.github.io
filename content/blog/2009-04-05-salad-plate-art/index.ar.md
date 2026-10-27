@@ -7,6 +7,7 @@ tags = ["يا بنت يا اللي", "نعناع الجنينة"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="salad-plate-art.jpg" size="2xl" /> }}

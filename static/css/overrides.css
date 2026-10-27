@@ -1,0 +1,58 @@
+/* Changes to the theme's layout, loaded after its own stylesheets. */
+
+/* "On this page" in a column at the end, beside the article: on the right in
+   English, on the left in Arabic. Under md the theme stacks it above the
+   content, as it comes first in the page. */
+@media (min-width: 52.0625rem) {
+  .zt-doc-layout--toc { grid-template-columns: minmax(0, 1fr) min(13rem, calc(30% - var(--al-space-12))); }
+  .zt-doc-layout--toc > .zt-toc { grid-column: 2; grid-row: 1; }
+  .zt-doc-layout--toc > .zt-doc { grid-column: 1; grid-row: 1; }
+}
+
+/* A post's text takes at least 70% of the page column, in place of the
+   theme's 46rem and 65ch caps: all of what the column leaves beside "On this
+   page", which is never more than 30% of it, or 70% of it with none. Under md
+   it takes the whole width, as in the theme. */
+.zt-doc > :not(.zt-doc__head), .zt-doc .al-prose { max-inline-size: none; }
+@media (min-width: 52.0625rem) {
+  .zt-doc-layout:not(.zt-doc-layout--toc) > .zt-doc > :not(.zt-doc__head) { max-inline-size: 70%; }
+}
+
+/* The theme pads "On this page"'s links on the left, but draws their line at
+   the start: in Arabic, the line is on the right, against the text. */
+.al-toc a { padding-inline: var(--al-space-3) 0; }
+
+/* The home page's picture: a big square with softly rounded corners, in
+   place of the theme's circle. The halo follows the corners. */
+.zt-hero { --zt-media-size: clamp(12rem, 26vw, 22rem); }
+@media (max-width: 52rem) { .zt-hero { --zt-media-size: 10rem; } }
+.zt-hero__media--portrait, .zt-hero__media--portrait .zt-hero__image { border-radius: 1rem; }
+
+/* The home page's own text in the hero, as its lede (templates/index.html):
+   its paragraphs apart, as in prose. */
+.site-hero__content > p { margin: 0; }
+.site-hero__content > * + * { margin-block-start: 1em; }
+
+/* The hero's picture beside its text, at the end of the page column (on the
+   left in Arabic) and centred on the title and text together, in place of
+   the theme's three quarters across the window, where the pattern's tile
+   would be, wherever the column is. Under md, above the title, as in the
+   theme. */
+@media (min-width: 52.01rem) {
+  .zt-hero--media .zt-hero__body { display: grid; grid-template-columns: minmax(0, 1fr) var(--zt-media-size); column-gap: var(--al-space-16); align-items: center; }
+  .zt-hero--media .zt-hero__media { position: static; translate: none; grid-column: 2; grid-row: 1 / span 2; }
+  .zt-hero--media .zt-hero__title { grid-column: 1; grid-row: 1; align-self: end; }
+  .zt-hero--media .zt-hero__lede { grid-column: 1; grid-row: 2; align-self: start; max-inline-size: var(--al-size-measure); }
+}
+
+/* "On this page"'s second level (templates/page.html): indented from the
+   same line, so the line runs down the whole list. */
+.al-toc ul ul a { padding-inline-start: var(--al-space-6); font-size: var(--al-text-xs); }
+
+/* A page with extra.full_width = true (templates/page.html): its text takes
+   the whole of the page column, or all of it beside "On this page". */
+.zt-doc-layout.site-doc--full > .zt-doc > :not(.zt-doc__head) { max-inline-size: none; }
+
+/* A page's text one step up from the theme's, at the size it had before the
+   theme (the site's own .site-prose). */
+.zt-doc .al-prose { font-size: var(--al-text-lg); }

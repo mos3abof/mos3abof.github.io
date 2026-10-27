@@ -7,6 +7,7 @@ tags = ["في دايرة الرحلة"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="./ahram.jpg" text="حريدة الأهرام تتحدث عني!" size="full" /> }}  

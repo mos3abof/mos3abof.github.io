@@ -1,6 +1,9 @@
 +++
 title = "Heading For The Dark Ages!"
 date = "2014-08-18T04:00:00Z"
+
+[extra]
+full_width = true
 +++
 
 {% <quote> %}

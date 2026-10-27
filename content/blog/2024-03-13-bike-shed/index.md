@@ -4,6 +4,9 @@ date = "2024-03-13T00:00:00Z"
 
 [taxonomies]
 tags=["woodworking", "sketching"]
+
+[extra]
+full_width = true
 +++
 
 Here is a random sketch of a bike shed I am building!

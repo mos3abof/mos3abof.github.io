@@ -3,6 +3,9 @@ title = "My First Metric Century"
 date = "2022-05-21T23:00:00Z"
 [taxonomies]
 tags=["cycling"]
+
+[extra]
+full_width = true
 +++
 
 {{ <image src="audax-brevet.png" text="Audax Tour De Ricky" size="full" /> }}

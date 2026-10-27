@@ -7,6 +7,7 @@ tags = ["في دايرة الرحلة"]
 
 [extra]
 comments = true
+full_width = true
 +++
 
 {{ <image src="kalmeny.jpg" text="امبارح كان عمري سطرين" link="https://wanamaly.blogspot.com/2006/11/blog-post_30.html" /> }}

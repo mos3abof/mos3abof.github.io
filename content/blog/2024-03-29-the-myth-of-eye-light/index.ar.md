@@ -4,6 +4,9 @@ date = "2014-03-31T00:00:00Z"
 
 [taxonomies]
 tags = ["طفي النور يا بهية", "نعناع الجنينة"]
+
+[extra]
+full_width = true
 +++
 
 {{ <image src="black-future.jpg" text="سلسلة روايات ملف المستقبل ... الأسود! خيال علمي ... مريض!" size="full" /> }}
