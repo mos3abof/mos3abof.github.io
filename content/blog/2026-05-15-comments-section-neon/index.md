@@ -1,6 +1,7 @@
 +++
 title = "Comments Backed by Neon & Cloudflare"
 date = "2026-05-15"
+description = "How I built a comments section for this static site, and migrated comments from blogger."
 
 [taxonomies]
 tags = ["neon", "cloudflare", "postgres", "zola", "static-site"]

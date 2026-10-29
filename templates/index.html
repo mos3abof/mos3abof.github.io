@@ -7,8 +7,9 @@
     The theme's own (themes/arabesque/templates/index.html), but for two
     changes: the page's own content is the hero's lede, under its title, in
     place of a section after it, so the lede can have links and highlights
-    (a page with no content still takes extra.hero.lede); and the list's
-    title is for screen readers only. -#}
+    (a page with no content still takes extra.hero.lede); and the hero's icon
+    links are partials/social-icons.html, in place of extra.hero.links, for
+    the brand marks the theme's sprite doesn't have. -#}
 
 {%- block title %}{{ config.title }}{% if section.title and section.title != config.title %} · {{ section.title }}{% endif %}{% endblock title -%}
 
@@ -54,17 +55,7 @@
       {%- endfor %}
     </div>
     {%- endif %}
-    {%- set links = hero.links | default(value=[]) %}
-    {%- if links | length > 0 %}
-    <ul class="al-cluster zt-hero__links" role="list">
-      {%- for link in links %}
-      {%- if link.url is defined %}{% set href = <zt.url path={link.url} /> %}
-      {%- elif link.icon == "feed" and config.generate_feeds %}{% set href = get_url(path=config.feed_filenames[0], lang=lang) %}
-      {%- else %}{% continue %}{% endif %}
-      <li><a class="al-button al-button--icon al-button--quiet" href="{{ href | safe }}" aria-label="{{ link.name }}" title="{{ link.name }}">{{ <zt.icon name={link.icon | default(value="external")} /> }}</a></li>
-      {%- endfor %}
-    </ul>
-    {%- endif %}
+    {% include "partials/social-icons.html" %}
     {%- if home.pattern and hero.caption is defined %}
     <p class="al-pattern__caption" data-pattern-caption>{{ hero.caption }}</p>
     {%- endif %}
@@ -83,8 +74,7 @@
     <div class="al-cluster al-cluster--between zt-section-head">
       <hgroup class="al-section__head">
         <p class="al-eyebrow">{{ t.latest }}</p>
-        {#- Only for screen readers, which name the list by it. #}
-        <h2 class="al-section__title al-visually-hidden" id="zt-latest">{{ listed.title or t.latest }}</h2>
+        <h2 class="al-section__title" id="zt-latest">{{ listed.title or t.latest }}</h2>
       </hgroup>
     </div>
     {%- set dated = pages[0].date %}

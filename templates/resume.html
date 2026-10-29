@@ -1,0 +1,141 @@
+{%- extends "base.html" -%}
+
+{#- The resume, in either language: the page's text is its summary; the rest
+    comes from its front matter (extra.tagline, links, stats, roles, earlier,
+    projects, talks, skills, education, languages and labels), which keeps the two
+    translations in the same shape. Org names, role points and notes take
+    inline Markdown. Styled in css/components.css (.s-resume). -#}
+
+{%- block main %}
+{%- set r = page.extra %}
+{%- set labels = r.labels %}
+<div class="al-page zt-main zt-doc-layout site-doc--full">
+  <article class="zt-doc s-resume" aria-labelledby="zt-title">
+    {%- set ancestors = page.ancestors %}
+    {%- include "partials/breadcrumbs.html" %}
+    <header class="zt-doc__head">
+      <h1 class="zt-doc__title" id="zt-title">{{ page.title }}</h1>
+      <p class="al-lede zt-doc__lede">{{ r.tagline }}</p>
+      <div class="s-resume__links">
+        {%- for link in r.links %}
+        {%- set href = <zt.url path={link.url} /> %}
+        <a class="al-button{% if link.primary is defined %} al-button--primary{% endif %}" href="{{ href | safe }}"{% if link.download is defined %} download{% endif %}>
+          {%- if link.icon is defined %}{{ <zt.icon name={link.icon} /> }}{% endif %}{{ link.text }}</a>
+        {%- endfor %}
+      </div>
+    </header>
+
+    <div class="al-stats zt-stats s-resume__stats">
+      {%- for stat in r.stats %}
+      <div class="al-stat">
+        <span class="al-stat__label">{{ stat.label }}</span>
+        <span class="al-stat__value"><bdi>{{ stat.value }}</bdi></span>
+        <span class="al-stat__note">{{ stat.note }}</span>
+      </div>
+      {%- endfor %}
+    </div>
+
+    <div class="s-resume__layout">
+      <div class="s-resume__main">
+        <div class="al-prose zt-prose">{{ page.content | safe }}</div>
+
+        <section aria-labelledby="resume-experience">
+          <h2 class="s-resume__heading" id="resume-experience">{{ labels.experience }}</h2>
+          <ol class="al-timeline s-resume__roles" role="list">
+            {%- for role in r.roles %}
+            <li>
+              <span class="al-timeline__marker"{% if role.tone is defined %} data-tone="{{ role.tone }}"{% endif %} aria-hidden="true"></span>
+              <div class="al-timeline__event s-role">
+                <div class="s-role__head">
+                  <h3 class="al-timeline__title s-role__title">{{ role.title }}</h3>
+                  <span class="al-timeline__time s-role__time">{{ role.time }}</span>
+                </div>
+                <p class="s-role__org">{{ role.org | markdown(inline=true) | safe }} <span aria-hidden="true">·</span> {{ role.location }}</p>
+                {%- if role.earlier_title is defined %}
+                <p class="s-role__earlier">{{ labels.previously }}: <bdi>{{ role.earlier_title }}</bdi> <span aria-hidden="true">·</span> {{ role.earlier_time }}</p>
+                {%- endif %}
+                <ul class="s-role__points">
+                  {%- for point in role.points %}
+                  <li>{{ point | markdown(inline=true) | safe }}</li>
+                  {%- endfor %}
+                </ul>
+              </div>
+            </li>
+            {%- endfor %}
+          </ol>
+
+          <h3 class="s-resume__subheading">{{ labels.earlier }}</h3>
+          <ul class="s-resume__rows" role="list">
+            {%- for role in r.earlier %}
+            <li>
+              <div class="s-resume__row">
+                <span><bdi class="s-resume__row-title">{{ role.title }}</bdi> <span aria-hidden="true">·</span> <bdi>{{ role.org }}</bdi></span>
+                <span class="al-timeline__time">{{ role.time }}</span>
+              </div>
+              {%- if role.note is defined %}
+              <p class="s-resume__note">{{ role.note | markdown(inline=true) | safe }}</p>
+              {%- endif %}
+            </li>
+            {%- endfor %}
+          </ul>
+        </section>
+
+        <section aria-labelledby="resume-projects">
+          <h2 class="s-resume__heading" id="resume-projects">{{ labels.open_source }}</h2>
+          <div class="s-resume__projects">
+            {%- for project in r.projects %}
+            <a class="al-card al-card--interactive s-project" href="{{ project.url | safe }}">
+              <span class="s-project__head"><bdi class="s-project__name">{{ project.name }}</bdi> <span class="al-timeline__time">{{ project.year }}</span></span>
+              <span class="s-project__text">{{ project.text }}</span>
+            </a>
+            {%- endfor %}
+          </div>
+          <p class="s-resume__more">{{ <button url="@/projects/_index.md" text={labels.more_projects} style="arrow" /> }}</p>
+        </section>
+
+        <section aria-labelledby="resume-talks">
+          <h2 class="s-resume__heading" id="resume-talks">{{ labels.talks }}</h2>
+          <ul class="s-resume__rows" role="list">
+            {%- for talk in r.talks %}
+            <li>
+              <div class="s-resume__row">
+                <span><a class="s-resume__row-title" href="{{ talk.url | safe }}"><bdi>{{ talk.title }}</bdi></a> <span aria-hidden="true">·</span> <bdi>{{ talk.venue }}</bdi></span>
+                <span class="al-timeline__time">{{ talk.year }}</span>
+              </div>
+            </li>
+            {%- endfor %}
+          </ul>
+        </section>
+      </div>
+
+      <aside class="s-resume__aside">
+        <section aria-labelledby="resume-skills">
+          <h2 class="s-resume__aside-heading" id="resume-skills">{{ labels.skills }}</h2>
+          {%- for group in r.skills %}
+          <h3 class="s-resume__group">{{ group.name }}</h3>
+          <ul class="s-resume__chips" role="list">
+            {%- for item in group.items %}
+            <li><bdi>{{ item }}</bdi></li>
+            {%- endfor %}
+          </ul>
+          {%- endfor %}
+        </section>
+        <section aria-labelledby="resume-education">
+          <h2 class="s-resume__aside-heading" id="resume-education">{{ labels.education }}</h2>
+          <p class="s-resume__aside-title">{{ r.education.title }}</p>
+          <p class="s-resume__note">{{ r.education.org }} <span aria-hidden="true">·</span> {{ r.education.time }}</p>
+          <p class="s-resume__note">{{ r.education.note }}</p>
+        </section>
+        <section aria-labelledby="resume-languages">
+          <h2 class="s-resume__aside-heading" id="resume-languages">{{ labels.languages }}</h2>
+          <dl class="s-resume__langs">
+            {%- for language in r.languages %}
+            <div><dt>{{ language.name }}</dt><dd>{{ language.level }}</dd></div>
+            {%- endfor %}
+          </dl>
+        </section>
+      </aside>
+    </div>
+  </article>
+</div>
+{%- endblock main %}

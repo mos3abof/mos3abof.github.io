@@ -1,6 +1,7 @@
 +++
 title = "My First Ever Woodworking Project: The Moravian Workbench"
 date = "2023-04-16T00:00:00Z"
+description = "A centuries old design that can be knocked down and reassembled in a few minutes, making it easy to move and travel with"
 
 [taxonomies]
 tags=["woodworking"]
