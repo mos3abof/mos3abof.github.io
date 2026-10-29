@@ -1,6 +1,7 @@
 +++
-title = "CareerHunt App and Other Storeies!"
+title = "CareerHunt App and Other Stories!"
 date = "2026-10-26"
+description = "A collection of stories of why and how I built an open source job tracking rust application, and other projects!"
 
 [taxonomies]
 tags = ["careerhunt", "career", "self-hosting", "open-source", "arabesque", "side-quests"]
@@ -13,36 +14,49 @@ toc = true
 
 ## Intro
 
-I am in the looking for a job. If you have ever been in that position, you know
-the drill; dozens of applications, each one at a different stage, recruiters
-whose names you half remember, interview dates scribbled somewhere, job
-descriptions that vanish from the company's careers page the moment you need to
-re-read them, and a spreadsheet that starts tidy and becomes a crime scene by
-the second week.
+I am looking for a job [^1]. If you have ever been in that position, you know the
+drill; dozens of applications, each one at a different stage, recruiters whose
+names you half remember, interview dates scribbled somewhere, job descriptions
+that vanish from the company's careers page the moment you need to re-read
+them, and a spreadsheet that starts tidy and becomes a crime scene by the
+second week.
 
 I wanted a simple way to keep track of all of it: applications, interviews,
-contacts, notes, and progress. I also did not want to hand my career history
-over to yet another SaaS platform. I looked around, could not quite find what I
-wanted, so I did what any reasonable engineer would do: I built a little app
-and deployed it on my local Kubernetes cluster.
+contacts, notes, and progress. I looked around, could not quite find what I
+wanted, so I did what any reasonable engineer would do, and built a _**little
+app**_ and deployed it on my local Kubernetes cluster!
 
-**Problem solved, right?** Well, my brain had other plans. 😅
+**App built == Problem solved, right?** 
 
-Well, the post's title is an ode to a novel I read in school, and forgot
-everything about it except the title, which very aptly describes what you are
-about to read next! The novel's title was:
+Well, my brain had other plans. 😅
 
-> Thirteen O'clock and Other Stories
+The post's title is an ode to a collection of stories I read in school, and
+forgot everything about it except the title, and the plethora of feelings and
+imaginative worlds it immersed me in. That state very aptly describes what you
+are about to read next! The novel's title was:
 
-What followed was a few weeks of hyperfocus, one rabbit hole after the other,
-and a multi-layered scope creep that would make any project manager weep. Let
-me walk you through it, one side quest at a time.
+> Thirteen O'clock and Other Stories [^2]
+> 
+> by Enid Blyton
+
+{{ <image 
+    srcs={["thirteen-o-clock.png", "enid-blyton.png"]} 
+    alt="Cover of Thirteen O'clock and Other Stories, and author photo." 
+    text="Cover of Thirteen O'clock and Other Stories, and author photo." 
+    size="md"
+    crop={false} /> 
+}}
+
+
+What followed was a few weeks of hyperfocus, one rabbit hole after the other
+(and sometimes in parallel), and a multi-layered scope creep that would make
+any project manager weep. Let me walk you through it, one side quest at a time.
 
 {{ <separator style="dingbats" gap="sm" /> }}
 
 ## Side Quest #1: A Design System
 
-The little app needed a UI, and I did not want it to look like every other
+The _**little app**_ needed a UI, and I did not want it to look like every other
 admin dashboard on the internet. Arabesque Labs, my software venture, did not
 have a visual identity yet either. Two birds, one stone.
 
@@ -51,21 +65,14 @@ components and rules that I build everything at Arabesque Labs with.
 
 {{ <image src="design-system.jpg" alt="The Arabesque design system homepage" text="The Arabesque design system: everything around the star follows from the same rule." size="2xl" /> }}
 
-A few things I cared about from day one:
+A few core things (among others) I cared about from day one:
 
 - **Bidirectional from the start:** English and Arabic, left-to-right and
 right-to-left, as first class citizens. Not as an afterthought bolted on when
 someone files a bug about a mirrored arrow.
-- **Accessible:** WCAG 2.2 AA is the floor, not the ceiling. The contrast of
-every colour pair the system relies on is measured at build time.
 - **Efficient interaction:** people should get things done in the fewest steps,
 with actions that say what they do, and every consequence shown before, during,
 and after.
-- **Boring technology:** plain CSS custom properties and plain HTML. No
-framework, and no runtime dependency. A single token file is the source of
-truth, and a small Node script builds everything else from it. There are React
-components and a handful of optional JavaScript helpers too, for those who want
-them.
 
 And, of course, the geometric patterns. The eight-pointed star tile is the
 mark, and the patterns you see on the background of every Arabesque page are
@@ -77,7 +84,7 @@ and things will move around until it reaches 1.0.
 
 ## Side Quest #2: A Rebrand
 
-At some point the "little app" stopped being little. It grew into a proper
+At some point the _**little app**_ stopped being little. It grew into a proper
 project, so it deserved a proper name and a proper home: **CareerHunt**.
 
 A name, a domain, a landing page, a logo that uses the Arabesque star... You
@@ -93,14 +100,19 @@ So I built [Arabesque for Docusaurus][4], a Docusaurus 3 theme on top of
 Arabesque. It restyles the classic theme with the design system's tokens,
 typography and components, maps Infima (Docusaurus' CSS framework) onto them,
 and even brings its own colours for code highlighting. The result: a
-documentation site that looks and reads like the rest of Arabesque, in light and
-dark, and in left-to-right and right-to-left alike.
+documentation site that looks and reads like the rest of Arabesque, in light
+and dark, and in left-to-right and right-to-left alike.
 
 And because no rabbit hole is complete without going one level deeper, I even
 remixed the Docusaurus dinosaur using geometric patterns. Meet the
 Arabesquosaurus! (Okay, I just made that name up, but I think it might stick.)
 
-{{ <image srcs={["docusaurus-theme.png", "docusaurus-dinosaur.svg"]} alt="The Arabesque for Docusaurus homepage, and the Docusaurus dinosaur redrawn with Arabesque geometric patterns" text="Arabesque for Docusaurus, and Docusaurus' dinosaur, redrawn with Arabesque geometric patterns." size="xl" crop={false} /> }}
+{{ <image 
+    srcs={["docusaurus-theme.png", "docusaurus-dinosaur.svg"]} 
+    alt="The Arabesque for Docusaurus homepage, and the Docusaurus dinosaur redrawn with Arabesque geometric patterns" 
+    text="Arabesque for Docusaurus, and Docusaurus' dinosaur, redrawn with Arabesque geometric patterns." 
+    size="xl" 
+    crop={false} /> }}
 
 The theme is published on [npm][5], and comes with [its own documentation
 site][6], built with, you guessed it, the theme itself. Both CareerHunt's
@@ -226,9 +238,11 @@ me.)
 If you are job hunting, maintaining a homelab, or just enjoy trying out
 open-source projects, give CareerHunt a spin. Bug reports, feature requests,
 contributions, constructive criticism, jokes, memes, rants, or any type of
-feedback really, are all welcome. ❤️ The comments section below works too!
+feedback really, are all welcome. ❤️
 
-Hopefully, it makes someone's job hunt a little less chaotic.
+The comments section below works too, although with a bit of delay!
+
+I truly hope CareerHunt makes someone's job hunt a little less chaotic.
 
 ## The Links
 
@@ -237,10 +251,13 @@ Hopefully, it makes someone's job hunt a little less chaotic.
 - **Quick start guide:** [careerhunt.app/docs/quick-start][13]
 - **Design system:** [design.arabesquelabs.com][2]
 
-{{ <separator style="dingbats" gap="sm" /> }}
+<!-- footnotes -->
+[^1]: If you happen to be hiring for an interesting role, well, you know where
+    to find [my resume][16]. 😉
+[^2]: Check "Thirteen Oclock and Other Stories" [page on the open library][18].
 
-And if you happen to be hiring, well, you know where to find [my resume][16]. 😉
 
+<!-- link references -->
 [1]: @/projects/arabesque-design-system/index.md
 [2]: https://design.arabesquelabs.com
 [3]: https://github.com/ArabesqueLabs/design-system
@@ -258,3 +275,7 @@ And if you happen to be hiring, well, you know where to find [my resume][16]. �
 [15]: https://github.com/ArabesqueLabs/hunt
 [16]: @/resume.md
 [17]: https://careerhunt.app/features/
+[18]: https://www.goodreads.com/en/book/show/48032.Thirteen_O_Clock_and_Other_Stories
+
+
+

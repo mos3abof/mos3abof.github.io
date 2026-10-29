@@ -1,6 +1,7 @@
 +++
 title = "Joining the Tour De Ricky 200km Ride: A New Adventure Awaits!"
 date = "2024-04-28T00:00:00Z"
+description = "Tour De Ricky is an Audax event, part of Audax UK, a organization that promotes long-distance cycling events."
 
 [taxonomies]
 tags=["cycling"]

@@ -102,6 +102,10 @@ smart_punctuation = false
 # For example, `![xx](...)` is ok but `![*x*x](...)` isn’t ok
 lazy_async_image = true
 
+# Collect footnotes at the end of the page, each with a link back to where it
+# was cited (styled in css/components.css).
+bottom_footnotes = true
+
 # No highlighting at build time: the design system's script (js/highlight.js,
 # run by the theme's) colours code in the browser, in its own syntax colours.
 
@@ -278,23 +282,32 @@ same_as = [
   "https://www.facebook.com/mos3abof",
 ]
 
-[extra.footer]
-# The feed is among the social icons (partials/social-icons.html).
-feed_link = false
-
+# Beside these, the feed's icon (the theme's extra.footer.feed_link).
+# A path isn't given the language, as "@/" is: Arabic's tags say /ar/ themselves.
 [extra.footer.links]
 en = [
-  { name = "Talks", url = "@/talks/index.md" },
+  { name = "Archive", url = "@/archive.md" },
+  { name = "Tags", url = "/tags/" },
+  # { name = "Talks", url = "@/talks/index.md" },
 ]
-ar = []
+ar = [
+  { name = "الأرشيف", url = "@/archive.md" },
+  { name = "الوسوم", url = "/ar/tags/" },
+]
 
 # %year is this year, in the language's own digits.
 [extra.footer.copyright]
-en = "© %year"
-ar = "© %year"
+en = "© %year %name. All rights reserved."
+ar = "© %year مصعب إبراهيم. جميع الحقوق محفوظة."
+
+# A line under the copyright.
+[extra.footer.text]
+en = '<a class="al-link al-link--muted" href="https://github.com/ArabesqueLabs/zola-theme-arabesque">Arabesque</a>, the zola theme for this site, is open source ♥ '
+ar = '<a class="al-link al-link--muted" href="https://github.com/ArabesqueLabs/zola-theme-arabesque">آرابيسك</a>، القالب الذي يعمل به هذا الموقع، مفتوح المصدر ♥ '
 
 # The site's words, beside the theme's (theme.toml's [extra.i18n]).
 [extra.i18n.en]
+feed = "RSS feed"
 date_format = "MMM dd, y"
 date_locale = "en_US"
 project_website = "Homepage"

@@ -1,6 +1,7 @@
 +++
 title = "Bike Shed Sketches"
 date = "2024-03-13T00:00:00Z"
+description = "A hand drawn sketch of the bike shed I want to build"
 
 [taxonomies]
 tags=["woodworking", "sketching"]

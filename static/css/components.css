@@ -143,16 +143,15 @@
 .s-comment-form__status[data-state="success"] { color: var(--al-color-success); }
 .s-comment-form__status[data-state="error"] { color: var(--al-color-danger); }
 
-/* ---- footer (partials/footer.html) ------------------------------------------------------------ */
+/* ---- hero's social icons (partials/social-icons.html) ----------------------------------------- */
 
-/* The social profiles and the feed, as icons, after the links: muted, each
-   in its brand's colour on hover (--brand, set on each link). */
-/* At the end of the line; right after the links, when there are any. */
-.site-social { display: flex; flex-wrap: wrap; gap: var(--al-space-1); margin: 0; margin-inline-start: auto; padding: 0; list-style: none; }
-.zt-footer-nav + .site-social { margin-inline-start: 0; }
-.site-social a { display: grid; place-items: center; inline-size: var(--al-size-target-touch); block-size: var(--al-size-target-touch); border-radius: var(--al-radius-sm); color: var(--al-color-text-muted); transition: color var(--al-duration-fast) var(--al-ease-standard); }
+/* Laid out by the theme, as hero.links. The marks are filled, where the
+   system's icons are drawn in line; each in its brand's colour on hover
+   (--brand, set on each link). */
+.site-social .al-icon { fill: currentColor; stroke: none; }
 .site-social a:hover { color: var(--brand, var(--al-color-text)); }
-.site-social svg { inline-size: 1.5rem; block-size: 1.5rem; fill: currentColor; }
+
+/* ---- footer (partials/footer.html) ------------------------------------------------------------ */
 
 /* The glider, the hacker emblem, at the foot of every page, on its own row. */
 .site-emblem { display: flex; flex-basis: 100%; justify-content: center; color: var(--al-color-text-muted); }
@@ -166,8 +165,80 @@
 .al-prose .al-timeline { padding-inline-start: 0; }
 .al-prose .al-timeline > li + li { margin-block-start: 0; }
 .al-prose .al-timeline p { margin: 0; }
-/* The copyright line at the links' size, and the icons' row out by their
-   targets' padding, so the last glyph meets the column's edge as the
-   copyright meets the other. */
+/* The copyright line at the links' size. */
 .al-footer > .al-footer__legal:first-child { font-size: var(--al-text-sm); }
-.site-social { margin-inline-end: calc((1.5rem - var(--al-size-target-touch)) / 2); }
+
+/* ---- footnotes ([markdown] bottom_footnotes in config.toml) ------------------------------------ */
+
+/* At the end of the text, under a line, as the theme has them in its own markup. */
+.zt-prose .footnotes {
+  margin-block-start: var(--al-space-12);
+  padding-block-start: var(--al-space-4);
+  border-block-start: var(--al-border-hairline) solid var(--al-color-line);
+  font-size: var(--al-text-sm);
+  color: var(--al-color-text-muted);
+}
+.zt-prose .footnotes-list p { margin: 0; }
+
+/* The link back: as text, where some systems would draw an emoji, and pointing
+   the way the line reads, so to the right in Arabic. */
+.zt-prose .footnotes-list a[href*="#fr-"] {
+  display: inline-block;
+  text-decoration: none;
+  font-variant-emoji: text;
+}
+.zt-prose .footnotes-list a[href*="#fr-"]:dir(rtl) { transform: scaleX(-1); }
+
+/* ---- resume (templates/resume.html) ---------------------------------------------------------- */
+
+/* The page's own text beside a column of skills, education and languages: on
+   the right in English, on the left in Arabic. Under md, one after the other. */
+.s-resume__links { display: flex; flex-wrap: wrap; gap: var(--al-space-2); }
+.s-resume__links .al-button { gap: var(--al-space-2); }
+.s-resume__stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: var(--al-space-3); margin-block-end: var(--al-space-12); }
+.s-resume__stats .al-stat__value { font-size: var(--al-text-xl); }
+.s-resume__layout { display: grid; gap: var(--al-space-12); }
+.s-resume__main { display: flex; flex-direction: column; gap: var(--al-space-12); min-inline-size: 0; }
+.s-resume__aside { display: flex; flex-direction: column; gap: var(--al-space-8); min-inline-size: 0; }
+@media (min-width: 52.0625rem) {
+  .s-resume__layout { grid-template-columns: minmax(0, 1fr) 17rem; column-gap: var(--al-space-16); align-items: start; }
+  .s-resume__aside { padding-inline-start: var(--al-space-8); border-inline-start: var(--al-border-hairline) solid var(--al-color-line); }
+}
+
+.s-resume__heading { margin: 0 0 var(--al-space-6); font-size: var(--al-text-2xl); }
+.s-resume__subheading { margin: var(--al-space-8) 0 var(--al-space-3); font-size: var(--al-text-lg); font-weight: var(--al-weight-medium); }
+.s-resume__aside-heading { margin: 0 0 var(--al-space-3); font-size: var(--al-text-lg); font-weight: var(--al-weight-medium); }
+.s-resume__group { margin: var(--al-space-4) 0 var(--al-space-2); font-size: var(--al-text-sm); font-weight: var(--al-weight-regular); color: var(--al-color-text-muted); }
+
+/* One role: its title and dates on a line, then where, then what. */
+.s-role { flex: 1; gap: var(--al-space-2); }
+.s-role__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--al-space-1) var(--al-space-4); }
+.s-role__title { font-size: var(--al-text-lg); font-weight: var(--al-weight-medium); }
+.s-role__time, .s-resume__row > .al-timeline__time { white-space: nowrap; }
+.s-role__org, .s-role__earlier, .s-resume__note { margin: 0; font-size: var(--al-text-sm); color: var(--al-color-text-muted); }
+.s-role__org a { color: inherit; }
+.s-role__points { margin: var(--al-space-1) 0 0; padding-inline-start: var(--al-space-4); font-size: var(--al-text-base); line-height: var(--al-leading-prose); }
+.s-role__points li + li { margin-block-start: var(--al-space-2); }
+.s-role__points li::marker { color: var(--al-color-accent); }
+
+/* Roles from before: a line each, ruled apart. */
+.s-resume__rows { margin: 0; padding: 0; list-style: none; }
+.s-resume__rows > li { padding-block: var(--al-space-3); border-block-start: var(--al-border-hairline) solid var(--al-color-line); }
+.s-resume__row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--al-space-1) var(--al-space-4); }
+.s-resume__row-title { font-weight: var(--al-weight-medium); }
+
+.s-resume__projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: var(--al-space-3); }
+.s-project { gap: var(--al-space-2); color: inherit; text-decoration: none; }
+.s-project__head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--al-space-3); }
+.s-project__name { font-weight: var(--al-weight-medium); }
+.s-project__text { font-size: var(--al-text-sm); color: var(--al-color-text-muted); }
+.s-resume__more { margin: var(--al-space-4) 0 0; }
+
+/* The column beside the text. */
+.s-resume__chips { display: flex; flex-wrap: wrap; gap: var(--al-space-1-5); margin: 0; padding: 0; list-style: none; }
+.s-resume__chips > li { padding: var(--al-space-0-5) var(--al-space-2); border: var(--al-border-hairline) solid var(--al-color-line); border-radius: var(--al-radius-sm); background: var(--al-color-surface); font-size: var(--al-text-sm); }
+.s-resume__aside-title { margin: 0 0 var(--al-space-1); font-weight: var(--al-weight-medium); }
+.s-resume__aside .s-resume__note + .s-resume__note { margin-block-start: var(--al-space-2); }
+.s-resume__langs { margin: 0; }
+.s-resume__langs > div { display: flex; align-items: baseline; justify-content: space-between; gap: var(--al-space-3); padding-block: var(--al-space-1); }
+.s-resume__langs dd { margin: 0; font-size: var(--al-text-sm); color: var(--al-color-text-muted); }

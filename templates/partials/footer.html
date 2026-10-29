@@ -1,10 +1,8 @@
 {#- The footer (components/footer): the site's name, its links, and the legal line.
 
     The theme's own (themes/arabesque/templates/partials/footer.html), but
-    for two additions: the social profiles and the feed as icons, after the
-    links (partials/social-icons.html), and the glider, the hacker emblem,
-    on its own row below (partials/glider.html). Styled in
-    css/components.css. -#}
+    for one addition: the glider, the hacker emblem, on its own row below
+    (partials/glider.html). Styled in css/components.css. -#}
 {%- set footer = config.extra.footer -%}
 {%- set links = footer.links | get(key=lang, default=[]) -%}
 {%- set owner = (config.extra.author or config.author or config.title) | escape -%}
@@ -36,7 +34,6 @@
     {%- endif %}
   </ul></nav>
   {%- endif %}
-  {% include "partials/social-icons.html" %}
   {%- if footer.lockup %}{% include "partials/footer_legal.html" %}{% endif %}
   <a class="site-emblem" href="http://www.catb.org/hacker-emblem/" title="{{ t.glider_title }}" aria-label="{{ t.glider_title }}">
     {%- include "partials/glider.html" %}
