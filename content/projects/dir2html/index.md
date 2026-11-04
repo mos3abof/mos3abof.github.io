@@ -23,5 +23,5 @@ created over time. Here is the [resulting html page][1].
 [^1]: Bitmojo is a brilliant app to create your own "Bitmojis" and express
     yourself. [Check it out][2].
 
-[1]: https://web.mosab.me/bitmoji/
+[1]: https://mosab.co.uk/bitmoji/
 [2]: https://www.bitmoji.com/
