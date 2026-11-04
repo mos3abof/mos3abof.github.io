@@ -12,4 +12,16 @@ source = "https://github.com/mos3abof/dir2html"
 website = "https://pypi.org/project/dir2html/"
 +++
 
-Dir2HTML is a Python utility that scans a directory and generates a Bootstrap album HTML page from the images it finds. It was built to quickly turn a folder of photos into a shareable static gallery without any server-side setup.
+Dir2HTML is a Python utility that scans a directory and generates a Bootstrap
+album HTML page from the images it finds. It was built to quickly turn a folder
+of photos into a shareable static gallery without any server-side setup.
+
+For demo purposes, I used this utility on a directory of bitmoji[^1] memes I
+created over time. Here is the [resulting html page][1].
+
+
+[^1]: Bitmojo is a brilliant app to create your own "Bitmojis" and express
+    yourself. [Check it out][2].
+
+[1]: https://web.mosab.me/bitmoji/
+[2]: https://www.bitmoji.com/
