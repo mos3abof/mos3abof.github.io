@@ -3,17 +3,18 @@
 {#- A page: where it sits, its title, lede and dates, "On this page" beside
     it when it's long, its content, its terms, and the pages either side.
 
-    The theme's own (themes/arabesque/templates/page.html), but for three
+    The theme's own (themes/arabesque/templates/page.html), but for four
     changes: "On this page" lists each heading's subheadings under it, as a
     second level; a page with extra.full_width = true takes the whole width
-    of the page column (css/overrides.css); and a post has its comments and
-    the form for a new one, after its terms. -#}
+    of the page column (css/overrides.css); a doc_media block between the
+    head and the text, for what should be as wide as the text; and a post has
+    its comments and the form for a new one, after its terms. -#}
 
 {%- block main %}
 {%- set toc_min = config.extra.page.toc_min_headings %}
 {%- set show_toc = toc_min > 0 and page.toc | length >= toc_min %}
 {%- if page.extra.toc is defined %}{% set show_toc = page.extra.toc and page.toc | length > 0 %}{% endif %}
-<div class="al-page zt-main zt-doc-layout{% if show_toc %} zt-doc-layout--toc{% endif %}{% if page.extra.full_width %} site-doc--full{% endif %}">
+<div class="al-page zt-main zt-doc-layout{% if show_toc %} zt-doc-layout--toc{% endif %}{% block doc_width %}{% if page.extra.full_width %} site-doc--full{% endif %}{% endblock doc_width %}">
   {%- if show_toc %}
   <nav class="al-toc zt-toc" aria-label="{{ t.on_this_page }}">
     <p class="al-toc__title" aria-hidden="true">{{ t.on_this_page }}</p>
@@ -45,6 +46,7 @@
       {%- include "partials/page_meta.html" %}
       {%- block doc_head %}{% endblock doc_head %}
     </header>
+    {%- block doc_media %}{% endblock doc_media %}
     <div class="al-prose zt-prose">{{ page.content | safe }}</div>
     {%- include "partials/page_terms.html" %}
     {%- if "blog/_index.md" in page.ancestors or "blog/_index.ar.md" in page.ancestors %}

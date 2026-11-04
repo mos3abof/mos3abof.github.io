@@ -1,5 +1,11 @@
 {#- The site's own small parts, beside the theme's (components/theme.html):
-    <site.title /> and <site.date />. -#}
+    <site.title />, <site.date /> and <site.glider />. -#}
+
+{#- The glider, the hacker emblem, large, for a page's text. -#}
+{%- component site.glider(@config: map, @lang: string) -%}
+{%- set t = config.extra.i18n | get(key=lang, default=config.extra.i18n.en) -%}
+<div class="site-glider" role="img" aria-label="{{ t.glider_title }}">{% include "partials/glider.html" %}</div>
+{%- endcomponent site.glider -%}
 
 {#- A page's title, with the site's full stop. -#}
 {%- component site.title(text: string) -%}

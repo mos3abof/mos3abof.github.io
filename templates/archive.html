@@ -17,7 +17,7 @@
 {%- block main %}
 {%- set path = page.extra.section | default(value=config.extra.home.section) %}
 {%- set day_format = t.date_format | replace(from=", y", to="") | replace(from="، y", to="") | replace(from=" y", to="") %}
-<div class="al-page zt-main">
+<div class="al-page zt-main{% if page.extra.full_width %} site-list--full{% endif %}">
   {%- set ancestors = page.ancestors %}
   {%- include "partials/breadcrumbs.html" %}
   <header class="al-page-head zt-head">

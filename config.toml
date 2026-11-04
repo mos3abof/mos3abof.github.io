@@ -242,6 +242,7 @@ en = [
   { name = "Posts", url = "@/blog/_index.md" },
   { name = "Projects", url = "@/projects/_index.md" },
   { name = "Resume", url = "@/resume.md" },
+  { name = "Talks", url = "@/talks/_index.md" },
   { name = "About", url = "@/about/index.md" },
   { name = "Contact", url = "@/contact.md" },
 ]
@@ -249,6 +250,7 @@ ar = [
   { name = "تدويناتي", url = "@/blog/_index.md" },
   { name = "مشاريعي", url = "@/projects/_index.md" },
   { name = "سيرتي الذاتية", url = "@/resume.md" },
+  { name = "مشاركات عامة", url = "@/talks/_index.md" },
   { name = "من أنا", url = "@/about/index.md" },
   { name = "تواصل معي", url = "@/contact.md" },
 ]
@@ -288,7 +290,7 @@ same_as = [
 en = [
   { name = "Archive", url = "@/archive.md" },
   { name = "Tags", url = "/tags/" },
-  # { name = "Talks", url = "@/talks/index.md" },
+  # { name = "Talks", url = "@/talks/_index.md" },
 ]
 ar = [
   { name = "الأرشيف", url = "@/archive.md" },
@@ -348,6 +350,13 @@ comment_form_submit = "Post comment"
 comment_form_submitting = "Posting…"
 comment_form_success = "Your comment has been posted and will appear on the site shortly."
 comment_form_error = "Something went wrong. Please try again."
+talk_format_podcast = "Podcast"
+talk_format_video = "Video"
+talk_format_conference = "Conference"
+talk_format_meetup = "Meetup"
+talk_format_panel = "Panel"
+talk_language_ar = "In Arabic"
+talk_language_en = "In English"
 
 [extra.i18n.ar]
 date_format = "d MMMM، y"
@@ -355,7 +364,7 @@ date_locale = "ar_EG"
 project_website = "الصفحة الرئيسية"
 project_source = "المصدر"
 site_name = "مصعب إبراهيم"
-glider_title = "الطائرة الشراعية: شعار الهاكرز"
+glider_title = "جليدر: شعار الهاكرز"
 post_list = "الأرشيف"
 previous_posts = "→ السابق"
 next_posts = "التالي ←"
@@ -390,3 +399,10 @@ comment_form_submit = "نشر التعليق"
 comment_form_submitting = "جارٍ النشر…"
 comment_form_success = "تم نشر تعليقك وسيظهر على الموقع قريباً."
 comment_form_error = "حدث خطأ ما. يرجى المحاولة مرة أخرى."
+talk_format_podcast = "بودكاست"
+talk_format_video = "فيديو"
+talk_format_conference = "مؤتمر"
+talk_format_meetup = "لقاء تقني"
+talk_format_panel = "حلقة نقاش"
+talk_language_ar = "بالعربية"
+talk_language_en = "بالإنجليزية"

@@ -53,6 +53,11 @@
 /* A page with extra.full_width = true (templates/page.html): its text takes
    the whole of the page column, or all of it beside "On this page". */
 .zt-doc-layout.site-doc--full > .zt-doc > :not(.zt-doc__head) { max-inline-size: none; }
+.site-doc--full :is(.zt-doc__lede, .zt-project-cover) { max-inline-size: none; }
+
+/* A list with extra.full_width = true (templates/section.html, projects.html,
+   talks.html and archive.html): the same, for its text. */
+.site-list--full :is(.al-page-head__lede, .al-prose, .zt-post__summary) { max-inline-size: none; }
 
 /* A page's text one step up from the theme's, at the size it had before the
    theme (the site's own .site-prose). */

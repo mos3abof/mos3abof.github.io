@@ -1,0 +1,8 @@
+{%- extends "arabesque/templates/projects.html" -%}
+
+{#- The theme's projects, which a section with extra.full_width = true lets take
+    the whole width of the page column (css/overrides.css). -#}
+
+{%- block main %}
+<div{% if section.extra.full_width %} class="site-list--full"{% endif %}>{{ super() }}</div>
+{%- endblock main %}

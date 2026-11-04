@@ -1,0 +1,46 @@
+{%- extends "page.html" -%}
+
+{#- A talk: a page, with its details under the title, then its recording and
+    links. The talks section's page_template (see talks.html). Every field is
+    optional, and any format can have any of them, so a conference talk with a
+    video is only a matter of giving it both.
+
+    [extra]
+    format = "podcast"          # podcast, video, conference, meetup, panel
+    venue = "null++"            # the show, event or channel
+    venue_url = "https://..."
+    location = "London, UK"     # for a talk given in person
+    language = "ar"             # ar or en: the language it was given in
+    youtube = "1ehCq1HQ0P0"     # a video's ID, played on the page
+    audio = "https://....mp3"   # an audio file, played on the page
+    full_width = false          # talks take the page's whole width unless this says not to
+
+    [[extra.links]]             # anything else: other platforms, slides, a feed
+    name = "Slides"
+    url = "https://..." -#}
+
+{%- block doc_width %}{% if page.extra.full_width | default(value=true) %} site-doc--full{% endif %}{% endblock doc_width %}
+
+{%- block doc_head %}
+{%- set tk = page %}{% include "partials/talk_meta.html" %}
+{%- set x = page.extra %}
+{%- if x.links %}
+<p class="zt-project__links">
+  {%- for link in x.links %}
+  <a class="al-link zt-project__link" href="{{ link.url | safe }}"><bdi>{{ link.name }}</bdi>{{ <zt.icon name="external" class="al-icon--sm" /> }}</a>
+  {%- endfor %}
+</p>
+{%- endif %}
+{%- endblock doc_head %}
+
+{#- Outside the head, so the recording follows the text's width, and
+    extra.full_width widens both. #}
+{%- block doc_media %}
+{%- set x = page.extra %}
+{%- if x.youtube %}{{ <youtube id={x.youtube} title={page.title} /> }}{% endif %}
+{%- if x.audio %}
+<div class="zt-embed" dir="ltr">
+  <audio class="site-talk__audio" controls preload="none" src="{{ x.audio | safe }}"><a href="{{ x.audio | safe }}">{{ page.title }}</a></audio>
+</div>
+{%- endif %}
+{%- endblock doc_media %}

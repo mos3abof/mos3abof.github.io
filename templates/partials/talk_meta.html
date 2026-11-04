@@ -1,0 +1,10 @@
+{#- A talk's format, where it happened and its language, in a line: set `tk`.
+    A format or language without a word in config.toml's [extra.i18n] (its
+    talk_format_* and talk_language_*) shows as written. -#}
+{%- set x = tk.extra -%}
+<p class="zt-project__links">
+  {%- if x.format %}{{ <badge text={t | get(key="talk_format_" ~ x.format, default=x.format)} /> }}{% endif %}
+  {%- if x.venue %}<span>{% if x.venue_url %}<a class="al-link" href="{{ x.venue_url | safe }}"><bdi>{{ x.venue }}</bdi></a>{% else %}<bdi>{{ x.venue }}</bdi>{% endif %}</span>{% endif %}
+  {%- if x.location %}<span><bdi>{{ x.location }}</bdi></span>{% endif %}
+  {%- if x.language %}<span>{{ t | get(key="talk_language_" ~ x.language, default=x.language) }}</span>{% endif %}
+</p>

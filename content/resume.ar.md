@@ -38,7 +38,7 @@ url = "https://github.com/mos3abof"
 [[extra.stats]]
 label = "الخبرة"
 value = "أكثر من 20 عامًا"
-note = "من الشركات الناشئة إلى أضخم الأنظمة"
+note = "من الشركات الناشئة إلى أضخم الأنظمة عبر أربع قارات"
 
 [[extra.stats]]
 label = "النطاق في Meta"
@@ -200,16 +200,16 @@ text = "أداة سطر أوامر لتخطيط ساعات العمل الأسب
 title = "عن هندسة الاعتمادية"
 venue = "بودكاست null++"
 year = "2020"
-url = "https://nullplus.plus/episodes/episode41-sre-with-mosab-ibrahim"
+url = "/ar/talks/about-sre-with-null-plus-plus/"
 
 [[extra.talks]]
 title = "حديث عن مسيرتي في التقنية"
 venue = "بودكاست Tech and Coffee"
 year = "2020"
-url = "https://www.youtube.com/watch?v=1ehCq1HQ0P0"
+url = "/ar/talks/a-chat-with-tech-and-coffee/"
 
 [[extra.skills]]
-name = "مجالات التركيز"
+name = "مجالات الاهتمام"
 items = ["الأنظمة الموزعة", "البنية التحتية لقواعد البيانات", "الاعتمادية", "الاستجابة للحوادث"]
 
 [[extra.skills]]
