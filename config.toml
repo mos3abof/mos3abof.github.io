@@ -242,17 +242,24 @@ en = [
   { name = "Posts", url = "@/blog/_index.md" },
   { name = "Projects", url = "@/projects/_index.md" },
   { name = "Resume", url = "@/resume.md" },
-  { name = "Talks", url = "@/talks/_index.md" },
-  { name = "About", url = "@/about/index.md" },
-  { name = "Contact", url = "@/contact.md" },
+  { name = "About", url = "@/about/index.md", children = [
+    { name = "About", url = "@/about/index.md" },
+    { name = "Hobbies", url = "@/hobbies/_index.md" },
+    { name = "Talks", url = "@/talks/_index.md" },
+    { name = "Hacker Emblem", url = "@/hacker-emblem.md" },
+    { name = "Resources", url = "@/resources.md" },
+  ] },
 ]
 ar = [
   { name = "تدويناتي", url = "@/blog/_index.md" },
   { name = "مشاريعي", url = "@/projects/_index.md" },
   { name = "سيرتي الذاتية", url = "@/resume.md" },
-  { name = "مشاركات عامة", url = "@/talks/_index.md" },
-  { name = "من أنا", url = "@/about/index.md" },
-  { name = "تواصل معي", url = "@/contact.md" },
+  { name = "من أنا", url = "@/about/index.md", children = [
+    { name = "من أنا", url = "@/about/index.md" },
+    { name = "هواياتي", url = "@/hobbies/_index.md" },
+    { name = "مشاركات عامة", url = "@/talks/_index.md" },
+    { name = "شعار الهاكرز", url = "@/hacker-emblem.md" },
+  ] },
 ]
 
 [extra.home]
@@ -291,10 +298,12 @@ en = [
   { name = "Archive", url = "@/archive.md" },
   { name = "Tags", url = "/tags/" },
   # { name = "Talks", url = "@/talks/_index.md" },
+  { name = "Contact", url = "@/contact.md" },
 ]
 ar = [
   { name = "الأرشيف", url = "@/archive.md" },
   { name = "الوسوم", url = "/ar/tags/" },
+  { name = "تواصل معي", url = "@/contact.md" },
 ]
 
 # %year is this year, in the language's own digits.
