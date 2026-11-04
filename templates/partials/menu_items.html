@@ -1,0 +1,40 @@
+{#- The theme's menu links (partials/menu_items.html), and an item's `children`
+    under it: a dropdown in the bar, an indented list in the folded menu
+    (static/css/overrides.css). The current page is aria-current="page"; else
+    the closest section it's inside of (the longest link the address starts
+    with), "true". An item with the current page or section among its children
+    is "true" too. -#}
+{%- set_global closest = "" -%}
+{%- if current_url is defined -%}
+{%- for item in menu -%}
+{%- set href = <zt.url path={item.url} /> -%}
+{%- if href != home_url and current_url is starting_with(pat=href) and href | length > closest | length %}{% set_global closest = href %}{% endif -%}
+{%- for child in item | get(key="children", default=[]) -%}
+{%- set href = <zt.url path={child.url} /> -%}
+{%- if current_url is starting_with(pat=href) and href | length > closest | length %}{% set_global closest = href %}{% endif -%}
+{%- endfor -%}
+{%- endfor -%}
+{%- endif -%}
+{%- for item in menu -%}
+{%- set href = <zt.url path={item.url} /> -%}
+{%- set children = item | get(key="children", default=[]) -%}
+{%- set_global in_children = false -%}
+{%- for child in children -%}
+{%- set child_href = <zt.url path={child.url} /> -%}
+{%- if child_href == closest %}{% set_global in_children = true %}{% endif -%}
+{%- endfor -%}
+<li{% if children | length > 0 %} class="site-nav__parent"{% endif %}><a href="{{ href | safe }}"
+  {%- if current_url is defined and current_url == href %} aria-current="page"
+  {%- elif href == closest or in_children %} aria-current="true"{% endif %}>{{ item.name }}</a>
+  {%- if children | length > 0 -%}
+  <ul class="site-nav__children">
+    {%- for child in children -%}
+    {%- set child_href = <zt.url path={child.url} /> -%}
+    <li><a href="{{ child_href | safe }}"
+      {%- if current_url is defined and current_url == child_href %} aria-current="page"
+      {%- elif child_href == closest %} aria-current="true"{% endif %}>{{ child.name }}</a></li>
+    {%- endfor -%}
+  </ul>
+  {%- endif -%}
+</li>
+{%- endfor -%}

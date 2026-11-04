@@ -62,3 +62,26 @@
 /* A page's text one step up from the theme's, at the size it had before the
    theme (the site's own .site-prose). */
 .zt-doc .al-prose { font-size: var(--al-text-lg); }
+
+/* An item's children in the header (templates/partials/menu_items.html). In
+   the bar, a dropdown under the item, on hover or when a link in it has focus;
+   the ::before bridges the gap, so the pointer can cross it. */
+.al-site-header__nav .site-nav__parent { position: relative; }
+.al-site-header__nav .site-nav__children {
+  position: absolute; inset-block-start: 100%; inset-inline-start: calc(-1 * var(--al-space-4));
+  display: none; flex-direction: column; gap: 0;
+  margin-block-start: var(--al-space-3); padding-block: var(--al-space-2); min-inline-size: 12rem;
+  background: var(--al-color-bg); border: var(--al-border-hairline) solid var(--al-color-line); border-radius: var(--al-radius-md);
+}
+.al-site-header__nav .site-nav__children::before { content: ""; position: absolute; inset-inline: 0; inset-block-end: 100%; block-size: var(--al-space-3); }
+.al-site-header__nav .site-nav__parent:is(:hover, :focus-within) .site-nav__children { display: flex; }
+.al-site-header__nav .site-nav__children a { display: block; padding: var(--al-space-2) var(--al-space-4); font-size: var(--al-text-base); white-space: nowrap; }
+/* In the folded menu, always open and indented. */
+.al-site-header__menu .site-nav__children a { padding-inline-start: var(--al-space-6); padding-block: var(--al-space-3); font-size: var(--al-text-base); }
+/* Hovering isn't there to open a dropdown on a touch screen, however wide:
+   the folded menu, with its children showing, takes the bar's place. */
+@media (hover: none) {
+  .al-site-header__nav, .al-site-header__extras { display: none; }
+  .al-site-header__toggle { display: inline-flex; }
+  @container al-site-header (min-width: 52.0625rem) { .al-site-header__menu:not([hidden]) { display: block; } }
+}
