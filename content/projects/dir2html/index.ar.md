@@ -20,6 +20,6 @@ website = "https://pypi.org/project/dir2html/"
 
 [^1]: [اضغط هنا][2] لمعرفة المزيد عن تطبيق bitmoji.
 
-[1]: https://web.mosab.me/bitmoji/
+[1]: https://mosab.co.uk/bitmoji/
 [2]: https://www.bitmoji.com/
 
