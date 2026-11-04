@@ -153,10 +153,16 @@
 
 /* ---- footer (partials/footer.html) ------------------------------------------------------------ */
 
-/* The glider, the hacker emblem, at the foot of every page, on its own row. */
-.site-emblem { display: flex; flex-basis: 100%; justify-content: center; color: var(--al-color-text-muted); }
+/* The legal lines and, under them, the glider, the hacker emblem, at the
+   foot of every page. */
+.site-footer__sign { display: grid; justify-items: start; gap: var(--al-space-3); }
+.site-emblem { display: flex; color: var(--al-color-text-muted); }
 .site-emblem:hover { color: var(--al-color-text); }
 .site-emblem .al-mark { inline-size: 3rem; block-size: 3rem; }
+
+/* The glider on the page about it (<site.glider />). */
+.site-glider { display: flex; justify-content: center; margin-block-end: var(--al-space-8); color: var(--al-color-text); }
+.site-glider .al-mark { inline-size: 7.5rem; block-size: 7.5rem; }
 
 /* ---- timeline (components/timeline.html) ------------------------------------------------------ */
 
@@ -166,7 +172,7 @@
 .al-prose .al-timeline > li + li { margin-block-start: 0; }
 .al-prose .al-timeline p { margin: 0; }
 /* The copyright line at the links' size. */
-.al-footer > .al-footer__legal:first-child { font-size: var(--al-text-sm); }
+.site-footer__sign > .al-footer__legal { font-size: var(--al-text-sm); }
 
 /* ---- footnotes ([markdown] bottom_footnotes in config.toml) ------------------------------------ */
 
@@ -242,3 +248,7 @@
 .s-resume__langs { margin: 0; }
 .s-resume__langs > div { display: flex; align-items: baseline; justify-content: space-between; gap: var(--al-space-3); padding-block: var(--al-space-1); }
 .s-resume__langs dd { margin: 0; font-size: var(--al-text-sm); color: var(--al-color-text-muted); }
+
+/* ---- a talk's audio player (templates/talk.html) ----------------------------------------------- */
+
+.site-talk__audio { display: block; inline-size: 100%; }

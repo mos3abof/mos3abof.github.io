@@ -1,0 +1,35 @@
+{%- extends "base.html" -%}
+
+{#- The talks section: its title and introduction, then its talks, newest
+    first, each with its details (partials/talk_meta.html). For a talk's own
+    page and the fields it takes, see talk.html. -#}
+
+{%- block main %}
+<div class="al-page zt-main{% if section.extra.full_width %} site-list--full{% endif %}">
+  {%- set ancestors = section.ancestors %}
+  {%- include "partials/breadcrumbs.html" %}
+  <header class="al-page-head zt-head">
+    <h1>{{ section.title }}</h1>
+    {%- if section.description %}
+    <p class="al-page-head__lede">{{ section.description }}</p>
+    {%- endif %}
+  </header>
+  {%- if section.content %}
+  <div class="al-prose zt-prose">{{ section.content | safe }}</div>
+  {%- endif %}
+  <ol class="zt-posts" role="list">
+    {%- for p in section.pages %}
+    <li>
+      <article class="zt-post" aria-labelledby="zt-post-{{ loop.index }}">
+        {%- include "partials/page_meta.html" %}
+        <h2 class="zt-post__title" id="zt-post-{{ loop.index }}"><a href="{{ p.permalink | safe }}">{{ p.title }}</a></h2>
+        {%- set tk = p %}{% include "partials/talk_meta.html" %}
+        {%- if p.description %}
+        <p class="zt-post__summary">{{ p.description }}</p>
+        {%- endif %}
+      </article>
+    </li>
+    {%- endfor %}
+  </ol>
+</div>
+{%- endblock main %}

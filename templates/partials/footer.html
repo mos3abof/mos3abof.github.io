@@ -1,8 +1,8 @@
 {#- The footer (components/footer): the site's name, its links, and the legal line.
 
     The theme's own (themes/arabesque/templates/partials/footer.html), but
-    for one addition: the glider, the hacker emblem, on its own row below
-    (partials/glider.html). Styled in css/components.css. -#}
+    for one addition: the glider, the hacker emblem, under the legal lines
+    (partials/footer_sign.html). -#}
 {%- set footer = config.extra.footer -%}
 {%- set links = footer.links | get(key=lang, default=[]) -%}
 {%- set owner = (config.extra.author or config.author or config.title) | escape -%}
@@ -12,7 +12,7 @@
 <div class="al-page">
 <footer class="al-footer">
   {#- Without the site's name, the legal line comes first, on the links' row. #}
-  {%- if not footer.lockup %}{% include "partials/footer_legal.html" %}{% endif %}
+  {%- if not footer.lockup %}{% include "partials/footer_sign.html" %}{% endif %}
   {%- if footer.lockup %}
   <a class="al-lockup" href="{{ home_url | safe }}">
     {%- if config.extra.header.logo %}<img class="al-mark zt-logo" src="{{ get_url(path=config.extra.header.logo) }}" alt="">{% endif -%}
@@ -34,9 +34,6 @@
     {%- endif %}
   </ul></nav>
   {%- endif %}
-  {%- if footer.lockup %}{% include "partials/footer_legal.html" %}{% endif %}
-  <a class="site-emblem" href="http://www.catb.org/hacker-emblem/" title="{{ t.glider_title }}" aria-label="{{ t.glider_title }}">
-    {%- include "partials/glider.html" %}
-  </a>
+  {%- if footer.lockup %}{% include "partials/footer_sign.html" %}{% endif %}
 </footer>
 </div>

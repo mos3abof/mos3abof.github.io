@@ -1,0 +1,8 @@
+{#- The footer's legal lines and, under them, the glider: the hacker emblem,
+    linking to the page about it. Styled in css/components.css. -#}
+  <div class="site-footer__sign">
+    {%- include "partials/footer_legal.html" %}
+    <a class="site-emblem" href="{{ <zt.url path="@/hacker-emblem.md" /> | safe }}" title="{{ t.glider_title }}" aria-label="{{ t.glider_title }}">
+      {%- include "partials/glider.html" %}
+    </a>
+  </div>

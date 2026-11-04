@@ -38,7 +38,7 @@ url = "https://github.com/mos3abof"
 [[extra.stats]]
 label = "Experience"
 value = "20+ years"
-note = "From startups to hyperscale"
+note = "From startups to hyperscale, across 4 continents"
 
 [[extra.stats]]
 label = "Scale at Meta"
@@ -206,13 +206,13 @@ text = "A CLI tool for planning weekly working hours, featured in Toggl's docs a
 title = "About SRE"
 venue = "null++ podcast (in Arabic)"
 year = "2020"
-url = "https://nullplus.plus/episodes/episode41-sre-with-mosab-ibrahim"
+url = "/talks/about-sre-with-null-plus-plus/"
 
 [[extra.talks]]
 title = "A chat about my career in tech"
 venue = "Tech and Coffee podcast (in Arabic)"
 year = "2020"
-url = "https://www.youtube.com/watch?v=1ehCq1HQ0P0"
+url = "/talks/a-chat-with-tech-and-coffee/"
 
 [[extra.skills]]
 name = "Focus"
@@ -252,7 +252,7 @@ level = "Professional"
 With two decades of experience as a Software & Systems Engineer, I've built a
 career on designing, deploying, and maintaining high-performance systems at
 scale. My journey has taken me through diverse industries and some of the
-world's most demanding environments, including Meta (Facebook) and Twitter.
+world's most demanding environments, including Meta (fka Facebook) and Twitter.
 
 My passion lies in solving intricate problems related to large-scale systems,
 Linux, databases, systems programming, distributed systems, and automation. I'm
