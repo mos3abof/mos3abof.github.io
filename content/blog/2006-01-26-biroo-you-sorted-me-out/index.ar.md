@@ -10,7 +10,7 @@ comments = true
 full_width = true
 +++
 
-![](http://www.20at.com/mosab/mos3ab_sagheeran1-updated.jpg)
+{{ <image src="http://www.20at.com/mosab/mos3ab_sagheeran1-updated.jpg" size="2xl" /> }}
 
 النهاردة براء نشر عني موضوع في الموقع اللي احنا شغالين فيه علشان يقول لي بأحبك  
 أنا فرحان مووووووت  

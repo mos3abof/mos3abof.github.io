@@ -20,20 +20,6 @@ full_width = true
   
 آدي الصور و قبل ما تتفرج ادعي معايا ربنا يحفظه و يحميه و يفرح بيه أبوه و أمه :
 
-{{ <image src="DSC00035.jpg" size="2xl" /> }}
-
-{{ <image src="DSC00036.jpg" size="2xl" /> }}
-
-{{ <image src="DSC00037.jpg" size="2xl" /> }}
-
-{{ <image src="DSC00038.jpg" size="2xl" /> }}
-
-{{ <image src="DSC00039.jpg" size="2xl" /> }}
-
-{{ <image src="DSC00040.jpg" size="2xl" /> }}
-
-{{ <image src="DSC00041.jpg" size="2xl" /> }}
-
-{{ <image src="DSC00043.jpg" size="2xl" /> }}
-
-{{ <image src="DSC00044.jpg" size="2xl" /> }}
+{{ <image srcs={["DSC00035.jpg", "DSC00036.jpg", "DSC00037.jpg"]} size="4xl" crop={false} /> }}
+{{ <image srcs={["DSC00038.jpg", "DSC00039.jpg", "DSC00040.jpg"]} size="4xl" crop={false} /> }}
+{{ <image srcs={["DSC00041.jpg", "DSC00043.jpg", "DSC00044.jpg"]} size="4xl" crop={false} /> }}

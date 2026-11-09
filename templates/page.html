@@ -8,13 +8,31 @@
     second level; a page with extra.full_width = true takes the whole width
     of the page column (css/overrides.css); a doc_media block between the
     head and the text, for what should be as wide as the text; and a post has
-    its comments and the form for a new one, after its terms. -#}
+    its comments and the form for a new one, after its terms.
+
+    A page with extra.tufte = true is laid out as Tufte's (css/tufte.css,
+    js/tufte.js, components/tufte.html): its text in a column, its notes and
+    footnotes in a margin beside it. It has no column for "On this page": the
+    contents go above the text, as under md. -#}
+
+{%- block head %}
+{%- if page.extra.tufte %}
+<link rel="stylesheet" href="{{ get_url(path='css/tufte.css', cachebust=true) }}">
+{%- endif %}
+{%- endblock head %}
+
+{%- block scripts %}
+{%- if page.extra.tufte %}
+<script type="module" src="{{ get_url(path='js/tufte.js', cachebust=true) }}"></script>
+{%- endif %}
+{%- endblock scripts %}
 
 {%- block main %}
 {%- set toc_min = config.extra.page.toc_min_headings %}
 {%- set show_toc = toc_min > 0 and page.toc | length >= toc_min %}
 {%- if page.extra.toc is defined %}{% set show_toc = page.extra.toc and page.toc | length > 0 %}{% endif %}
-<div class="al-page zt-main zt-doc-layout{% if show_toc %} zt-doc-layout--toc{% endif %}{% block doc_width %}{% if page.extra.full_width %} site-doc--full{% endif %}{% endblock doc_width %}">
+{%- set tufte = page.extra.tufte | default(value=false) %}
+<div class="al-page zt-main zt-doc-layout{% if show_toc and not tufte %} zt-doc-layout--toc{% endif %}{% if tufte %} site-doc--tufte{% endif %}{% block doc_width %}{% if page.extra.full_width %} site-doc--full{% endif %}{% endblock doc_width %}">
   {%- if show_toc %}
   <nav class="al-toc zt-toc" aria-label="{{ t.on_this_page }}">
     <p class="al-toc__title" aria-hidden="true">{{ t.on_this_page }}</p>
@@ -37,7 +55,40 @@
     {%- set ancestors = page.ancestors %}
     {%- include "partials/breadcrumbs.html" %}
     <header class="zt-doc__head">
-      <h1 class="zt-doc__title" id="zt-title">{{ page.title }}
+      {#- extra.title: the heading in Markdown, for emphasis, code or a
+          citation; title stays the plain text for the tab, feeds and lists.
+          A citation in the title, [^name], comes first: the title's notes
+          are numbered 1, 2, … in the order the title cites them, and lead
+          the footnotes; the text's other notes are numbered after them. A
+          note cited only in the title, which Zola drops, is read from the
+          page's file. #}
+      {%- set title_md = page.extra.title | default(value="") %}
+      {%- set_global names_str = "]" %}
+      {%- if title_md %}
+      {%- set parts = title_md | split(pat="[^") %}
+      {%- for part in parts[1:] %}
+      {%- set name = part | split(pat="]") | first %}
+      {%- if "]" ~ name ~ "]" in names_str %}{% else %}{% set_global names_str = names_str ~ name ~ "]" %}{% endif %}
+      {%- endfor %}
+      {%- endif %}
+      {#- The title's note names, in order; [] if it cites none. #}
+      {%- if names_str == "]" %}{% set_global title_names = [] %}
+      {%- else %}{% set_global title_names = (names_str | split(pat="]"))[1:-1] %}{% endif %}
+      {%- if title_md %}
+      {%- set_global title_html = parts | first %}
+      {%- for part in parts[1:] %}
+      {%- set bits = part | split(pat="]") %}
+      {%- set name = bits | first %}
+      {%- set rest = bits[1:] | join(sep="]") %}
+      {%- for n in title_names %}{% if n == name %}{% set_global num = loop.index %}{% endif %}{% endfor %}
+      {%- if '#fn-' ~ name ~ '">[' in page.content %}
+      {%- set_global title_html = title_html ~ '<sup class="footnote-reference"><a href="#fn-' ~ name ~ '">' ~ num ~ '</a></sup>' ~ rest %}
+      {%- else %}
+      {%- set_global title_html = title_html ~ '<sup class="footnote-reference" id="fr-' ~ name ~ '-t"><a href="#fn-' ~ name ~ '">' ~ num ~ '</a></sup>' ~ rest %}
+      {%- endif %}
+      {%- endfor %}
+      {%- endif %}
+      <h1 class="zt-doc__title" id="zt-title">{% if title_md %}{{ title_html | markdown(inline=true) | trim | safe }}{% else %}{{ page.title }}{% endif %}
         {%- if page.draft %} <span class="al-badge al-badge--warning">{{ t.draft }}</span>{% endif %}</h1>
       {%- if page.description %}
       <p class="al-lede zt-doc__lede">{{ page.description }}</p>
@@ -47,7 +98,60 @@
       {%- block doc_head %}{% endblock doc_head %}
     </header>
     {%- block doc_media %}{% endblock doc_media %}
-    <div class="al-prose zt-prose">{{ page.content | safe }}</div>
+    {#- The footnotes: each number without the brackets Zola puts around
+        it, the title's notes first (see extra.title above), then the
+        text's, in the text's order. #}
+    {%- set k = title_names | length %}
+    {%- if '<section class="footnotes">' in page.content %}
+    {%- set halves = page.content | split(pat='<section class="footnotes">') %}
+    {%- set_global text = halves | first %}
+    {%- set ol_parts = halves | last | split(pat="</ol>") %}
+    {%- set_global fn_tail = "</ol>" ~ ol_parts | last %}
+    {%- set items = ol_parts[:-1] | join(sep="</ol>") | split(pat='<li id="fn-') %}
+    {%- set_global fn_head = items | first %}
+    {%- set_global fn_items = items[1:] %}
+    {%- else %}
+    {%- set_global text = page.content %}
+    {%- set_global fn_head = '<ol class="footnotes-list">' %}
+    {%- set_global fn_tail = '</ol></section>' %}
+    {%- set_global fn_items = [] %}
+    {%- endif %}
+    {%- set_global others = 0 %}
+    {%- set_global rest_li = "" %}
+    {%- for item in fn_items %}
+    {%- set nm = item | split(pat='">') | first %}
+    {%- set old = text | split(pat='#fn-' ~ nm ~ '">[') | nth(n=1) | default(value="") | split(pat="]") | first %}
+    {%- if "]" ~ nm ~ "]" in names_str %}
+    {%- for n in title_names %}{% if n == nm %}{% set_global new = loop.index %}{% endif %}{% endfor %}
+    {%- else %}
+    {%- set_global others = others + 1 %}
+    {%- set_global new = k + others %}
+    {%- set_global rest_li = rest_li ~ '<li id="fn-' ~ item %}
+    {%- endif %}
+    {%- set_global text = text | replace(from='#fn-' ~ nm ~ '">[' ~ old ~ ']</a></sup>', to='#fn-' ~ nm ~ '">' ~ new ~ '</a></sup>') %}
+    {%- endfor %}
+    {%- set_global title_li = "" %}
+    {%- if k > 0 %}
+    {%- set raw = load_data(path="content/" ~ page.relative_path, format="plain") %}
+    {%- for n in title_names %}
+    {%- set_global hit = "" %}
+    {%- for item in fn_items %}{% if (item | split(pat='">') | first) == n %}{% set_global hit = '<li id="fn-' ~ item %}{% endif %}{% endfor %}
+    {%- if hit %}
+    {%- set_global title_li = title_li ~ hit %}
+    {%- else %}
+    {%- set defs = raw | split(pat="[^" ~ n ~ "]:") %}
+    {%- if defs | length < 2 %}{{ throw(message="extra.title in " ~ page.relative_path ~ " cites [^" ~ n ~ "], which has no note: add [^" ~ n ~ "]: …") }}{% endif %}
+    {%- set note = defs | nth(n=1) | split(pat="\n\n") | first | split(pat="\n[^") | first | trim %}
+    {%- set_global title_li = title_li ~ '<li id="fn-' ~ n ~ '"><p>' ~ note | markdown(inline=true) | trim ~ ' <a href="#fr-' ~ n ~ '-t">↩</a></p></li>' %}
+    {%- endif %}
+    {%- endfor %}
+    {%- endif %}
+    {%- if title_li or rest_li %}
+    {%- set_global body = text ~ '<section class="footnotes">' ~ fn_head ~ title_li ~ rest_li ~ fn_tail %}
+    {%- else %}
+    {%- set_global body = text %}
+    {%- endif %}
+    <div class="al-prose zt-prose">{{ body | safe }}</div>
     {%- include "partials/page_terms.html" %}
     {%- if "blog/_index.md" in page.ancestors or "blog/_index.ar.md" in page.ancestors %}
     {%- include "partials/comments.html" %}

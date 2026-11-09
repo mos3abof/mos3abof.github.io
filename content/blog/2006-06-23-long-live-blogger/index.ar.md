@@ -10,7 +10,12 @@ comments = true
 full_width = true
 +++
 
-{{ <image src="page_brin.jpg" size="2xl" /> }}
+{{ <image 
+    src="page_brin.jpg"
+    size="4xl"
+    alt="لاري بايج وسيرجي برين: مؤسسا جوجل"
+    text="لاري بايج وسيرجي برين: مؤسسا جوجل"
+/> }}
 
 ما أخدتش بالي منها غير دلوقتي ..  
 أو تقدروا تقولوا .. شفتها بس ما علقتش معايا غير دلوقتي ..  
@@ -18,17 +23,22 @@ full_width = true
   
 المهم شايفين الصورة دي:
 
-{{ <image src="bloggerbutton1.gif" size="2xl" /> }}
+{{ <image src="bloggerbutton1.gif" size="sm" /> }}
 
 موجودة على بلوجات الناس بتاع blogger.com  
   
 كل المواقع التانية اللي بتقدم خدمات بتحط جملة :  
-Poewred by ...  
+
+> Poewred by ...  
+
 إنما بلوجر و لانه فاهم دوره و بيحترم مستخدمينه خلاك أنت اللي تقول :  
-I power Blogger!  
+
+> I power Blogger
   
 يعني من الآخر :  
-Blogger Powered by US
 
-و ما أقدرش أقول غير "النت لسة بخير"!  
-و عمار يا بلوجر!
+> Blogger powered by us
+
+وما أقدرش أقول غير "النت لسة بخير"!  
+
+وعمار يا بلوجر!

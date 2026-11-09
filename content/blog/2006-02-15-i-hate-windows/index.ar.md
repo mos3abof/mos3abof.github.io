@@ -15,10 +15,9 @@ full_width = true
 دي تجميعة من الحاجات اللي لقيتها عن ويندوز  
 ملحوظة : للمتخصصين أو المهتمين فقط!
 
-(1)  
+## Undocumented windows errors
   
-Undocumented windows errors:  
-  
+```
 WinErr: 001 Windows loaded - System in danger  
 WinErr: 002 No Error - Yet  
 WinErr: 003 Dynamic linking error - Your mistake is now  
@@ -81,47 +80,42 @@ WinErr: 683 Time out error - Operator fell asleep while
 waiting for the system to complete boot procedure.  
 WinErr: 815 Insufficient Memory - Only 50,312,583 Bytes  
 available
+```
 
-(2)
+## The Top-14 ways things would be different if Microsoft built cars.  
+  
 
-The Top-14 ways things would be different if Microsoft built cars.  
+```
+1. A particular model year of car wouldn't be available until  AFTER that year,
+   instead of before.  
+2. Every time they repainted the lines on the road, you'd  have to buy a new
+   car.  
+3. Occasionally your car would just die for no reason, you'd  have to restart
+   it. For some strange reason, you would  just accept this.  
+4. You could only have one person at a time in your car,  unless you bought a
+   car '95 or a car NT, but then you'd  have to buy more seats.  
+5. You would be constantly pressured to upgrade your car.  Wait a sec, it's
+   that way NOW!  
+6. Sun Motorsystems would make a car that was solar  powered, twice as
+   reliable, 5 times as fast, but only ran  on 5% of the roads.  
+7. The oil, alternator, gas, engine warning lights would be  replaced with a
+   single "General Car Fault" warning light.  
+8. People would get excited about the "new" features in  Microsoft cars,
+   forgetting completely that they had been  available in other brands for
+years.  
+9. We would still be waiting on the "6000 sux 58'" model to  come out.  
+10. We'd all have to switch to Microsoft Gas (tm).  
+11. Lee Iacocca would be hired on as Bill G.'s chauffeur.  
+12. The US government would be GETTING subsidies from an  automaker, instead of
+    giving them.  
+13. New seats will force everyone to have the same size  butt.  
+14. Ford, General Motors and Chrysler would all be  complaining because
+    Microsoft was putting a radio in all  its models.  
+```
   
-1.A particular model year of car wouldn't be available until  
-AFTER that year, instead of before.  
-2.Every time they repainted the lines on the road, you'd  
-have to buy a new car.  
-3.Occasionally your car would just die for no reason, you'd  
-have to restart it. For some strange reason, you would  
-just accept this.  
-4.You could only have one person at a time in your car,  
-unless you bought a car '95 or a car NT, but then you'd  
-have to buy more seats.  
-5.You would be constantly pressured to upgrade your car.  
-Wait a sec, it's that way NOW!  
-6.Sun Motorsystems would make a car that was solar  
-powered, twice as reliable, 5 times as fast, but only ran  
-on 5% of the roads.  
-7.The oil, alternator, gas, engine warning lights would be  
-replaced with a single "General Car Fault" warning light.  
-8.People would get excited about the "new" features in  
-Microsoft cars, forgetting completely that they had been  
-available in other brands for years.  
-9.We would still be waiting on the "6000 sux 58'" model to  
-come out.  
-10.We'd all have to switch to Microsoft Gas (tm).  
-11.Lee Iacocca would be hired on as Bill G.'s chauffeur.  
-12.The US government would be GETTING subsidies from an  
-automaker, instead of giving them.  
-13.New seats will force everyone to have the same size  
-butt.  
-14.Ford, General Motors and Chrysler would all be  
-complaining because Microsoft was putting a radio in all  
-its models.  
+## Microsoft slogans  
   
-(3)
-
-Microsoft slogans  
-  
+```
 Double your drive space: delete Windows!  
   
 Ever noticed how fast Windows runs? Hey, neither did I!  
@@ -191,3 +185,4 @@ manual?
 Masochist: Windows programmer with a smile  
   
 New from McAfee - WinScan: removes all Windows programs
+```

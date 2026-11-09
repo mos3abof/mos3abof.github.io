@@ -1,0 +1,56 @@
+{#-
+  Tufte-style components, for pages with extra.tufte = true (templates/page.html,
+  styled in css/tufte.css). After https://rstudio.github.io/tufte/ and Tufte CSS.
+  On another page they still work, in the text: notes in a smaller type, after
+  their reference.
+
+  Usage:
+    Text.{{ <sidenote text="A numbered note, in the margin beside its line." /> }}
+    Text.{{ <marginnote text="An unnumbered note in the margin." /> }}
+    {{ <newthought text="In his later books" /> }}, Tufte starts a section so.
+    {% <epigraph author="Edward Tufte" source="Beautiful Evidence"> %}The quote.{% </epigraph> %}
+    {% <fullwidth> %}Markdown that takes the text's width and the margin's.{% </fullwidth> %}
+
+  sidenote, marginnote
+    text (string) The note, in Markdown (inline: links, emphasis, code, images).
+    In the margin beside the line, on the right in English and on the left in
+    Arabic. On a narrow screen, hidden behind its number (sidenote) or ⊕
+    (marginnote), which shows it under the line. Put no space before it: the
+    number sits on the word, as a footnote's does. Its output is on one line,
+    so the paragraph it's in isn't broken.
+
+  newthought
+    text (string) The first words of a section, in small capitals.
+
+  epigraph
+    author (string, optional) Who said it.
+    source (string, optional) Where: a book, a talk. In italics, after author.
+    Body: the quote, in Markdown.
+
+  fullwidth
+    Body: Markdown (a table, a figure, a wide code block) across the text and
+    the margin. Keep blank lines out of it but between paragraphs: Markdown
+    ends the block at one it doesn't expect.
+-#}
+{%- component sidenote(text: string, @config: map, @lang: string) -%}
+{%- set t = config.extra.i18n | get(key=lang, default=config.extra.i18n.en) -%}
+<span class="tf-note tf-note--side"><label class="tf-note__ref"><input type="checkbox" class="tf-note__toggle" aria-label="{{ t.sidenote_toggle | default(value='Show the note') }}"></label><span class="tf-note__text">{{ text | markdown(inline=true) | trim | safe }}</span></span>
+{%- endcomponent sidenote -%}
+
+{%- component marginnote(text: string, @config: map, @lang: string) -%}
+{%- set t = config.extra.i18n | get(key=lang, default=config.extra.i18n.en) -%}
+<span class="tf-note tf-note--margin"><label class="tf-note__ref"><input type="checkbox" class="tf-note__toggle" aria-label="{{ t.marginnote_toggle | default(value='Show the margin note') }}"></label><span class="tf-note__text">{{ text | markdown(inline=true) | trim | safe }}</span></span>
+{%- endcomponent marginnote -%}
+
+{%- component newthought(text: string) -%}
+<span class="tf-newthought">{{ text | markdown(inline=true) | trim | safe }}</span>
+{%- endcomponent newthought -%}
+
+{%- component epigraph(author: string = "", source: string = "") -%}
+<figure class="tf-epigraph"><blockquote>{{ body | trim | markdown | trim | safe }}</blockquote>
+{%- if author or source %}<figcaption>&#8212; {{ author | markdown(inline=true) | trim | safe }}{% if author and source %}, {% endif %}{% if source %}<cite>{{ source | markdown(inline=true) | trim | safe }}</cite>{% endif %}</figcaption>{% endif %}</figure>
+{%- endcomponent epigraph -%}
+
+{%- component fullwidth() -%}
+<div class="tf-fullwidth">{{ body | trim | markdown | trim | safe }}</div>
+{%- endcomponent fullwidth -%}
