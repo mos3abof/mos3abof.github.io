@@ -20,8 +20,8 @@ full_width = true
   
 المهم آدي بقية الصور: (3 صور) :
 
-![](http://static.flickr.com/122/316508005_48ce2100f2_o.jpg)
+{{ <image src="http://static.flickr.com/122/316508005_48ce2100f2_o.jpg" size="2xl" /> }}
 
-![](http://static.flickr.com/109/316507750_b45fc502c0_o.jpg)
+{{ <image src="http://static.flickr.com/109/316507750_b45fc502c0_o.jpg" size="2xl" /> }}
 
-![](http://static.flickr.com/103/316507313_7ea8bd24e6_o.jpg)
+{{ <image src="http://static.flickr.com/103/316507313_7ea8bd24e6_o.jpg" size="2xl" /> }}

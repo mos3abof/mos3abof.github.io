@@ -186,6 +186,27 @@
 }
 .zt-prose .footnotes-list p { margin: 0; }
 
+/* The reference: its number, without brackets (templates/page.html), bold and
+   raised, in the accent; in the text and in a title (extra.title). */
+.zt-prose sup.footnote-reference,
+.zt-doc__title sup.footnote-reference {
+  font-family: var(--al-font-sans);
+  font-size: 0.72em;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 0;
+  vertical-align: super;
+  padding-inline-start: 0.1em;
+}
+.zt-doc__title sup.footnote-reference { font-size: 0.5em; }
+.zt-prose sup.footnote-reference a,
+.zt-doc__title sup.footnote-reference a {
+  color: var(--al-color-accent);
+  text-decoration: none;
+}
+.zt-prose sup.footnote-reference a:hover,
+.zt-doc__title sup.footnote-reference a:hover { text-decoration: underline; }
+
 /* The link back: as text, where some systems would draw an emoji, and pointing
    the way the line reads, so to the right in Arabic. */
 .zt-prose .footnotes-list a[href*="#fr-"] {
@@ -252,3 +273,12 @@
 /* ---- a talk's audio player (templates/talk.html) ----------------------------------------------- */
 
 .site-talk__audio { display: block; inline-size: 100%; }
+
+/* ---- Tufte's notes (components/tufte.html), off a Tufte page ------------------------------------ */
+
+/* A page with extra.tufte = true has css/tufte.css, which puts them in the
+   margin. Anywhere else, a note shows under its line, in a smaller type, with
+   no box to tick. */
+.tf-note__toggle, .tf-note--margin .tf-note__ref { display: none; }
+.tf-note__text { display: block; margin-block: var(--al-space-2); padding-inline-start: var(--al-space-3); border-inline-start: 2px solid var(--al-color-line); font-size: var(--al-text-sm); color: var(--al-color-text-muted); }
+.tf-newthought { font-variant: small-caps; letter-spacing: 0.04em; }

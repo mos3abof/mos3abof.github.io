@@ -8,6 +8,7 @@ tags = ["careerhunt", "career", "self-hosting", "open-source", "arabesque", "sid
 
 [extra]
 toc = true
+tufte = true
 +++
 
 {{ <image src="careerhunt-social-card.png" alt="CareerHunt: Your job hunt, captured. Your data, set free." size="full" /> }}

@@ -19,6 +19,26 @@ replaces it. Don't edit the copy: the site's `templates/` and `static/`
 override its files of the same name, and `styles/input.css` restyles it
 (`make compile-css` builds `static/css/style.css`).
 
+## Tufte-style pages
+
+A page or post with `tufte = true` under `[extra]` is laid out after [Tufte
+CSS][11]: the text in a column, with a margin beside it for notes. Its
+footnotes move into that margin by themselves. The components in
+`templates/components/tufte.html` add the rest:
+
+```markdown
+Text.{{ <sidenote text="A numbered note in the margin." /> }}
+Text.{{ <marginnote text="An unnumbered one." /> }}
+{{ <newthought text="In his later books" /> }}, a section starts in small caps.
+{% <epigraph author="Edward Tufte" source="Beautiful Evidence"> %}A quote.{% </epigraph> %}
+{% <fullwidth> %}A table or figure across the text and the margin.{% </fullwidth> %}
+```
+
+On narrow screens a note hides behind its number (or ⊕), and tapping it shows
+the note. For now a Tufte page puts its table of contents (`toc = true`) above
+the text, not in a column. Styles: `static/css/tufte.css`; footnotes:
+`static/js/tufte.js`.
+
 [1]: https://mosab.co.uk
 [2]: https://getzola.com
 [3]: https://www.rust-lang.org/
@@ -29,5 +49,6 @@ override its files of the same name, and `styles/input.css` restyles it
 [8]: https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https
 [9]: https://letsencrypt.org/
 [10]: https://github.com/ArabesqueLabs/zola-theme-arabesque
+[11]: https://rstudio.github.io/tufte/
 
 [^1]: [mosab.co.uk](https://mosab.co.uk) 

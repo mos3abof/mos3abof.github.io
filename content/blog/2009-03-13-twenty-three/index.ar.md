@@ -8,6 +8,7 @@ tags = ["يا بنت يا اللي"]
 [extra]
 comments = true
 full_width = true
+tufte = true
 +++
 
 {{ <image src="mosab.jpg" size="2xl" /> }}

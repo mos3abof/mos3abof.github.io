@@ -27,8 +27,8 @@ full_width = true
 هو لازم أرغي و للا ايه؟!!  
 هو أنا بأكتب لي و للا بأكتب لكم؟!! 
 
-{{ <image src="006.gif" size="2xl" /> }}
+{{ <image src="006.gif" size="sm" /> }}
 
 مش عاجبكم ما تقرووش 
 
-{{ <image src="012.gif" size="2xl" /> }}
+{{ <image src="012.gif" size="sm" /> }}

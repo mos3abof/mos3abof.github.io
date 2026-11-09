@@ -12,6 +12,4 @@ full_width = true
 
 كم أحب برجي الحوت ..  
   
-زوروا الرابط التالي :  
-  
-[برج الحوت](http://m3loma.com/abraj1_files/Page2171.htm)
+زوروا الرابط التالي: [برج الحوت](http://m3loma.com/abraj1_files/Page2171.htm)

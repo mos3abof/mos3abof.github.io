@@ -1,0 +1,150 @@
+/* A page with extra.tufte = true (templates/page.html), after Tufte CSS
+   (https://rstudio.github.io/tufte/): its text in a column, beside a margin for
+   its notes (templates/components/tufte.html, and its footnotes: js/tufte.js).
+   Loaded on those pages only, after the theme's and the site's stylesheets, so
+   the rest of the page looks as any other: the theme's type, colours and
+   header. The margin is at the end, so on the left in Arabic; logical
+   properties throughout.
+
+   Widths are in the article's own: the text 60% of it, the margin's notes 30%,
+   6% between. Under md, the text takes the whole width, and a note shows under
+   its line when its number (or ⊕) is pressed. */
+
+.site-doc--tufte {
+  --tf-text: 60cqi;
+  --tf-gap: 6cqi;
+  --tf-note: 30cqi;
+}
+.site-doc--tufte > .zt-doc { container: tf-doc / inline-size; }
+
+/* "On this page", while a Tufte page has no column for it: above the text, as
+   under md, at the text's width. */
+.site-doc--tufte > .zt-toc { position: static; margin-block-end: var(--al-space-8); }
+
+@media (min-width: 52.0625rem) {
+  /* Everything under the head at the text's width: the text, its terms, the
+     comments and the pager, so the margin stays clear for the notes. */
+  .zt-doc-layout.site-doc--tufte > .zt-doc > :not(.zt-doc__head),
+  .zt-doc-layout.site-doc--tufte > .zt-toc { max-inline-size: var(--tf-text); }
+}
+
+/* ---- notes ----------------------------------------------------------------------------------- */
+
+.site-doc--tufte .zt-prose { counter-reset: tf-sidenote; }
+.tf-note--side .tf-note__ref { counter-increment: tf-sidenote; }
+
+/* The number, on the word, in the accent; again before its note. */
+.tf-note--side .tf-note__ref::after,
+.tf-note--side .tf-note__text::before {
+  font-family: var(--al-font-sans);
+  font-size: 0.72em;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 0;
+  vertical-align: super;
+  color: var(--al-color-accent);
+}
+.tf-note--side .tf-note__ref::after { content: counter(tf-sidenote); padding-inline-start: 0.1em; }
+.tf-note--side .tf-note__text::before { content: counter(tf-sidenote) "\2009"; }
+
+.tf-note__text {
+  display: block;
+  margin: 0; padding: 0; border: 0;
+  font-family: var(--al-font-serif);
+  font-size: var(--al-text-sm);
+  font-style: normal;
+  font-weight: var(--al-weight-regular);
+  line-height: 1.5;
+  text-align: start;
+  color: var(--al-color-text-muted);
+}
+.tf-note__text img { display: block; max-inline-size: 100%; block-size: auto; margin-block: var(--al-space-2); }
+.tf-note__text code { font-size: 0.9em; }
+/* Footnotes made into notes (js/tufte.js): their paragraphs apart,
+   the first on the line with its number. */
+.tf-note__para { display: block; }
+.tf-note__para:first-child { display: inline; }
+.tf-note__para + .tf-note__para { margin-block-start: 0.5em; }
+
+/* (Off a Tufte page, where this sheet isn't loaded, a note shows under its
+   line: css/components.css.) */
+.tf-note__toggle { display: none; }
+.tf-note--margin .tf-note__ref { display: none; }
+
+@media (min-width: 52.0625rem) {
+  /* In the margin, beside the line its reference is on. One under the other
+     when they'd meet. */
+  .site-doc--tufte .tf-note__text {
+    float: inline-end;
+    clear: inline-end;
+    inline-size: var(--tf-note);
+    margin-block: 0.3em var(--al-space-4);
+    margin-inline-end: calc(-1 * (var(--tf-gap) + var(--tf-note)));
+    position: relative;
+  }
+}
+
+@media (max-width: 52rem) {
+  /* Hidden behind its number, or ⊕, which shows it under the line. The box
+     stays reachable from the keyboard, its focus on the number. */
+  .site-doc--tufte .tf-note__ref { cursor: pointer; }
+  .site-doc--tufte .tf-note__toggle {
+    display: inline;
+    position: absolute;
+    inline-size: 1px; block-size: 1px;
+    margin: -1px; padding: 0; border: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .site-doc--tufte .tf-note__ref:has(.tf-note__toggle:focus-visible) {
+    outline: 2px solid var(--al-color-accent);
+    outline-offset: 2px;
+    border-radius: var(--al-radius-sm);
+  }
+  .site-doc--tufte .tf-note--margin .tf-note__ref { display: inline; }
+  .site-doc--tufte .tf-note--margin .tf-note__ref::after {
+    content: "\2295";
+    padding-inline-start: 0.15em;
+    font-family: var(--al-font-sans);
+    color: var(--al-color-accent);
+  }
+  .site-doc--tufte .tf-note__text { display: none; }
+  .site-doc--tufte .tf-note:has(.tf-note__toggle:checked) .tf-note__text {
+    display: block;
+    margin-block: var(--al-space-3);
+    padding-inline-start: var(--al-space-3);
+    border-inline-start: 2px solid var(--al-color-accent);
+  }
+}
+
+/* The footnotes' list, once they're all notes (js/tufte.js). */
+.site-doc--tufte .footnotes[hidden] { display: none; }
+
+/* ---- new thought: a section's first words in small capitals ----------------------------------- */
+
+.tf-newthought { font-variant: small-caps; letter-spacing: 0.04em; font-size: 1.08em; }
+/* Arabic has no small capitals: its words in the semibold, without the tracking. */
+.tf-newthought:dir(rtl) { font-variant: normal; letter-spacing: normal; font-size: inherit; font-weight: var(--al-weight-semibold, 600); }
+
+/* ---- epigraph ---------------------------------------------------------------------------------- */
+
+.zt-prose .tf-epigraph { margin-block: var(--al-space-8) var(--al-space-12); }
+.zt-prose .tf-epigraph > blockquote { padding: 0; border: 0; font-style: italic; color: var(--al-color-text); }
+.zt-prose .tf-epigraph > blockquote > * + * { margin-block-start: 0.75em; }
+.tf-epigraph > figcaption {
+  margin-block-start: var(--al-space-3);
+  font-family: var(--al-font-serif);
+  font-size: var(--al-text-base);
+  text-align: end;
+  color: var(--al-color-text-muted);
+}
+.tf-epigraph > figcaption cite { font-style: italic; }
+
+/* ---- full width: across the text and the margin ------------------------------------------------ */
+
+.tf-fullwidth { clear: both; }
+.tf-fullwidth > * + * { margin-block-start: 1em; }
+@media (min-width: 52.0625rem) {
+  .site-doc--tufte .tf-fullwidth { inline-size: calc(var(--tf-text) + var(--tf-gap) + var(--tf-note)); max-inline-size: none; }
+}

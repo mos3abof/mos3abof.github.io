@@ -15,24 +15,7 @@ full_width = true
 يا رب تعجبكم..  
 لو ما عجبتكمش، اضغط على ctrl+w بسرعة علشان تقفل الموضوع!
 
-{{ <image src="one-heart.jpg" size="2xl" /> }}
-
-{{ <image src="do-not-give-bigger.jpg" size="2xl" /> }}
-
-{{ <image src="do-not-give-up.jpg" size="2xl" /> }}
-
-{{ <image src="failure.jpg" size="2xl" /> }}
-
-{{ <image src="good-deeds.jpg" size="2xl" /> }}
-
-{{ <image src="good-use-oif-time.jpg" size="2xl" /> }}
-
-{{ <image src="love-god.jpg" size="2xl" /> }}
-
-{{ <image src="love-you-in-GOD.jpg" size="2xl" /> }}
-
-{{ <image src="take-it-easy.jpg" size="2xl" /> }}
-
-{{ <image src="thief-time.jpg" size="2xl" /> }}
-
-{{ <image src="yaseen.jpg" size="2xl" /> }}
+{{ <image srcs={["one-heart.jpg", "do-not-give-bigger.jpg", "do-not-give-up.jpg"]} size="4xl" /> }}
+{{ <image srcs={["failure.jpg", "good-deeds.jpg", "good-use-oif-time.jpg"]} size="4xl" /> }}
+{{ <image srcs={["love-god.jpg", "love-you-in-GOD.jpg", "take-it-easy.jpg"]} size="4xl" /> }}
+{{ <image srcs={["thief-time.jpg", "yaseen.jpg"]} size="4xl" /> }}

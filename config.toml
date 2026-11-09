@@ -166,8 +166,9 @@ include_content = true
 # truncate_content_length = 100
 
 # Whether to produce the search index as a javascript file or as a JSON file
-# Accepted value "elasticlunr_javascript" or "elasticlunr_json"
-index_format = "elasticlunr_javascript"
+# Accepted values: "elasticlunr_javascript", "elasticlunr_json", "fuse_json", "fuse_javascript".
+# The theme's search page (templates/search.html) reads fuse_json.
+index_format = "fuse_json"
 
 # Optional translation object for the default language
 # Example:
@@ -204,7 +205,10 @@ description = " رب الكيبورد و الماوس"
 
 generate_feeds = true
 taxonomies = [{ name = "tags", feed = true, render = true, paginate_by = 50 }]
-build_search_index = false
+build_search_index = true
+
+[languages.ar.search]
+index_format = "fuse_json"
 
 
 ###################################################################################################################
@@ -261,6 +265,10 @@ ar = [
     { name = "شعار الهاكرز", url = "@/hacker-emblem.md" },
   ] },
 ]
+
+# The search page (the theme's templates/search.html), linked from the header.
+[extra.search]
+page = "@/search.md"
 
 [extra.home]
 # The home page lists the latest posts.
@@ -366,6 +374,8 @@ talk_format_meetup = "Meetup"
 talk_format_panel = "Panel"
 talk_language_ar = "In Arabic"
 talk_language_en = "In English"
+sidenote_toggle = "Show the note"
+marginnote_toggle = "Show the margin note"
 
 [extra.i18n.ar]
 date_format = "d MMMM، y"
@@ -415,3 +425,5 @@ talk_format_meetup = "لقاء تقني"
 talk_format_panel = "حلقة نقاش"
 talk_language_ar = "بالعربية"
 talk_language_en = "بالإنجليزية"
+sidenote_toggle = "اعرض الحاشية"
+marginnote_toggle = "اعرض الملاحظة الجانبية"

@@ -10,8 +10,10 @@
     src    (string)          Path to a single image.
     srcs   (array, optional) Paths to multiple images displayed in a flex row,
                              sharing the same caption. Can be combined with src.
-    alt    (string, optional) HTML alt attribute. Defaults to text.
-    text   (string, optional) Caption text rendered below the image(s).
+    alt    (string, optional) HTML alt attribute. Defaults to text, as plain
+                             text.
+    text   (string, optional) Caption below the image(s), in Markdown (inline:
+                             emphasis, links, code).
     dir    (string, optional) Caption text direction: "ltr" or "rtl".
                              Defaults to the current page language.
     align  (string, optional) Figure alignment: "left" | "center" | "right"
@@ -31,7 +33,9 @@
 -#}
 {%- component image(src: string = "", srcs: array = [], alt: string = "", text: string = "", dir: string = "", align: string = "center", size: string = "md", link: string = "", crop: bool = true, @page: map = {}, @lang: string) -%}
 {%- set images = [src, ...srcs] if src else srcs -%}
-{%- set resolved_alt = alt or text -%}
+{%- set caption = text | markdown(inline=true) | trim -%}
+{#- As an attribute: escaped, as the caption's Markdown already is but for quotes. -#}
+{%- set resolved_alt = alt | escape if alt else caption | striptags | replace(from='"', to="&quot;") -%}
 {#- Caption direction: explicit dir param → page language -#}
 {%- set caption_dir = dir if dir else ("rtl" if lang == "ar" else "ltr") -%}
 {#- Alignment: left/right are the start/end of the line, so they mirror in RTL -#}
@@ -62,7 +66,7 @@
   {%- endif %}
   {%- if text %}
   <figcaption class="s-image__caption" dir="{{ caption_dir }}">
-    {{- text -}}
+    {{- caption | safe -}}
   </figcaption>
   {%- endif %}
 </figure>
