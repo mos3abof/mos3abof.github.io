@@ -96,8 +96,8 @@ full_width = true
 
 
 
-[1]: http://masr.20at.com
-[2]: http://masr.20at.com/article.php?sid=218
+[1]: https://el20at.com/tm/masr/
+[2]: https://el20at.com/articles/masr-218/
 [3]: http://admins.20at.com/masr/tafy-elnour.swf
 [4]: http://admins.20at.com/masr/d3wa.doc
 [5]: http://admins.20at.com/masr/d3wa.doc

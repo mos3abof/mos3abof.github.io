@@ -16,4 +16,4 @@ full_width = true
 أنا فرحان مووووووت  
 وأنا بأحبه بضراوة!!  
   
-<http://www.20at.com/article2.php?sid=329>
+<https://el20at.com/articles/b329/>

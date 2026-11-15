@@ -145,5 +145,5 @@ definition of a planet, nor will we use it. A better definition is needed”
 
 
 [^1]: للمزيد من المعلومات عن بلوتو : [اضغط هنا](http://www.space.com/scienceastronomy/solarsystem/pluto-ez.html) لتطالع صفحته على موقع [space.com](http://www.space.com/)
-[^2]: [نص بيان الحملة](http://www.20at.com/assets/pluto/Petition_Release_Planet.pdf).
-[^3]: [توقيعات العلماء المعترضين](http://www.20at.com/assets/pluto/signatures_final.pdf).
+[^2]: [نص بيان الحملة](https://el20at.com/media/assets/pluto/petition_release_planet.pdf).
+[^3]: [توقيعات العلماء المعترضين](https://el20at.com/media/assets/pluto/signatures_final.pdf).

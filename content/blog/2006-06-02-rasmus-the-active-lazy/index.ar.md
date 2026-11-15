@@ -110,8 +110,8 @@ _*مصعب أحمد - وجوه - القاهرة*_ [^1]
 
 
 
-[1]: http://www.20at.com/article2.php?sid=883
-[2]: http://www.20at.com
+[1]: https://el20at.com/articles/b883/
+[2]: https://el20at.com/
 [3]: http://blog.360.yahoo.com/rlerdorf?l=11&u=15&amp;amp;amp;amp;amp;mx=26&lmt=5&p=37
 [4]: http://blog.360.yahoo.com/rlerdorf
 [5]: http://lerdorf.com/resume/
