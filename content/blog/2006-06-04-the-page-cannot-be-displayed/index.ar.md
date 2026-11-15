@@ -23,4 +23,4 @@ The Page Can not be Displayed!
   
 أدخل على موقع السيرفر لأكتشف أن سيرفرنا الهمام تعرض لـ[DoS Attack!!](http://en.wikipedia.org/wiki/DOS_attack)  
   
-و في انتظار عودة السيرفر علشان نعرف ننزل صفحة [كأس العالم](http://worldcup2006.20at.com)!..
+و في انتظار عودة السيرفر علشان نعرف ننزل صفحة [كأس العالم](https://el20at.com/tm/worldcup2006/)!..

@@ -12,5 +12,5 @@ full_width = true
 
 {{ <image src="East-Jerusalem.jpg" size="2xl" /> }}
 
-موضوع جميل عاجبني كاتبه [أحمد الهواري](http://fromgrave.blogspot.com/) على موقع [عشرينات](http://www.20at.com/)  
+موضوع جميل عاجبني كاتبه [أحمد الهواري](http://fromgrave.blogspot.com/) على موقع [عشرينات](https://el20at.com/)  
 [روحوا شوفوا بنفسكم](http://www.20at.com/newArticle.php?sid=3198)

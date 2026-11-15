@@ -167,5 +167,5 @@ full_width = true
 [2]: http://bintbalad.blogspot.com
 [3]: https://mosab.co.uk/ar/blog/2006-02-01-day-from-start-to-end/
 [4]: http://kwalis.20at.com/dodo/gallery/
-[5]: http://www.20at.com/article2.php?sid=133
-[6]: http://www.20at.com/article2.php?sid=502
+[5]: https://el20at.com/articles/b133/
+[6]: https://el20at.com/articles/masr-7eta-mn-baladi-3628/
