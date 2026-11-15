@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Mosab Ibrahim - postgres</title>
+      <link>https://mosab.co.uk</link>
+      <description>I tell the machine stories about the world!</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://mosab.co.uk/tags/postgres/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Fri, 15 May 2026 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Comments Backed by Neon &amp; Cloudflare</title>
+          <pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://mosab.co.uk/blog/comments-section-neon/</link>
+          <guid>https://mosab.co.uk/blog/comments-section-neon/</guid>
+          <description xml:base="https://mosab.co.uk/blog/comments-section-neon/">&lt;p&gt;Between the years of 2006 and 2014, I used to maintain an Arabic blog on
+Blogger.com. In parallel, although a few years after I started my blog, I also
+maintained a personal website (initially on the mos3abof.com domain name, and
+now mosab.co.uk). Both the blog and the website have undergone many phases of
+upgrades, tweaks, and re-purposing; they were merged and split multiple times
+across the years, and recently, I decided to import the Arabic posts into this
+website&#39;s blog section again, and make the website multilingual.&lt;/p&gt;
+&lt;p&gt;I was happy with the results, with the occasional theme tweak here and there,
+but I missed the comments. Comments on posts were part of the soul of the blog,
+and without them, the imported blogs were incomplete; So, in one of my previous
+weekends, I ported the comments into a &lt;code&gt;comments.toml&lt;/code&gt; file, and all the
+comments on the posts that were on blogger.com were also in here! The posts
+started feeling like &quot;home&quot; again!&lt;/p&gt;
+&lt;p&gt;Something was still missing thgough: the ability to write new ones. If you
+wanted to leave a comment on older or newer posts, there was simply nowhere to
+send it.&lt;/p&gt;
+&lt;p&gt;I have been meaning to fix that for a while. This weekend I finally did.&lt;/p&gt;
+&lt;div class=&quot;zt-separator zt-separator--dingbats zt-separator--gap-sm zt-separator--size-xl zt-separator--width-1-2&quot; role=&quot;separator&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;✦ ✦ ✦&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;The core problem with comments on a static site is that a static site has no
+server. When you hit &quot;submit&quot; on a form, something has to catch the request,
+validate it, and store it somewhere. A static file host does none of that.&lt;/p&gt;
+&lt;p&gt;There are two ways out. You outsource to a third-party commenting service
+(Disqus is the obvious one, there are smaller alternatives), or you build a
+small backend yourself and keep control of the data. I used Disqus before in
+one of the incarnations of the website, and I was not a big fan. They are good,
+but no matter what I did, it just didn&#39;t fit right in my website&#39;s theme, and I
+go headaches getting it to work properly for Arabic content (RTL).&lt;/p&gt;
+&lt;p&gt;An even more fundamental problem, that did not sit right with me with using 3rd
+party services: the tracker payload, the ads, the constant account nagging.&lt;/p&gt;
+&lt;p&gt;Building the backend is also the more interesting problem, so that is what I
+did.&lt;/p&gt;
+&lt;h2 id=&quot;architecture&quot;&gt;Architecture&lt;/h2&gt;
+&lt;p&gt;The shape of the solution at a glance:&lt;/p&gt;
+&lt;figure class=&quot;zt-mermaid&quot;&gt;
+  &lt;pre class=&quot;zt-mermaid__source&quot; dir=&quot;ltr&quot;&gt;flowchart LR
+    subgraph Browser
+        A[Comment Form]
+    end
+    subgraph CF [Cloudflare]
+        B[Worker]
+        T[Turnstile]
+    end
+    subgraph N [Neon]
+        D[(PostgreSQL)]
+    end
+    subgraph GH [GitHub]
+        I[Issue]
+        E[Approve Action]
+        BW[Build Action]
+        R[Repository]
+    end
+    A --&amp;gt;|POST JSON| B
+    B &amp;lt;--&amp;gt;|verify token| T
+    B --&amp;gt;|INSERT pending| D
+    B --&amp;gt;|open issue| I
+    I --&amp;gt;|approved label| E
+    E --&amp;gt;|UPDATE approved| D
+    E --&amp;gt;|workflow_call| BW
+    BW --&amp;gt;|SELECT approved| D
+    BW --&amp;gt;|zola build| R
+    R --&amp;gt; S([Live Site])&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;A form on the page posts JSON to a Cloudflare Worker. The Worker validates the
+input, checks a Turnstile CAPTCHA token, hashes the email and IP, and inserts
+the comment into Neon with &lt;code&gt;status = &#39;pending&#39;&lt;/code&gt;. It then opens a GitHub issue
+containing the comment text for review. When I add the &lt;code&gt;approved&lt;/code&gt; label to that
+issue, an Actions workflow sets the status to &lt;code&gt;&#39;approved&#39;&lt;/code&gt; in the database,
+closes the issue, and calls the build workflow. That build queries all approved
+comments, writes ephemeral &lt;code&gt;comments.toml&lt;/code&gt; files into the workspace, runs
+&lt;code&gt;zola build&lt;/code&gt;, and deploys. The TOML files are never committed back to the
+repository.&lt;/p&gt;
+&lt;h2 id=&quot;the-submission-flow-in-detail&quot;&gt;The submission flow in detail&lt;/h2&gt;
+&lt;figure class=&quot;zt-mermaid&quot;&gt;
+  &lt;pre class=&quot;zt-mermaid__source&quot; dir=&quot;ltr&quot;&gt;sequenceDiagram
+    actor User
+    participant Form
+    participant TS as Turnstile
+    participant W as Cloudflare Worker
+    participant DB as Neon PostgreSQL
+    participant GH as GitHub API
+    User-&amp;gt;&amp;gt;Form: fills in name + comment
+    Form-&amp;gt;&amp;gt;TS: widget solves challenge
+    TS--&amp;gt;&amp;gt;Form: one-time token
+    Form-&amp;gt;&amp;gt;W: POST {author, text, email, token, ...}
+    W-&amp;gt;&amp;gt;W: CORS origin check
+    W-&amp;gt;&amp;gt;W: POST method check
+    W-&amp;gt;&amp;gt;W: honeypot field check
+    W-&amp;gt;&amp;gt;W: input validation
+    W-&amp;gt;&amp;gt;TS: verify token + visitor IP
+    TS--&amp;gt;&amp;gt;W: success: true
+    W-&amp;gt;&amp;gt;W: SHA-256(email), SHA-256(IP)
+    W-&amp;gt;&amp;gt;DB: INSERT INTO comments ...
+    DB--&amp;gt;&amp;gt;W: row inserted
+    W--&amp;gt;&amp;gt;Form: 201 {ok: true}
+    W-)GH: open issue (pending review)
+    Form--&amp;gt;&amp;gt;User: &amp;quot;Comment posted!&amp;quot;&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;Before inserting, the Worker normalises line endings to &lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt; so that
+paragraph breaks in the comment body render correctly in the Zola template,
+which outputs the text as raw HTML after escaping everything else.&lt;/p&gt;
+&lt;p&gt;The issue is opened via &lt;code&gt;ctx.waitUntil&lt;/code&gt;, meaning the Worker returns the 201
+to the browser immediately and creates the issue in the background. The
+commenter does not wait for it.&lt;/p&gt;
+&lt;h2 id=&quot;the-approval-flow&quot;&gt;The approval flow&lt;/h2&gt;
+&lt;figure class=&quot;zt-mermaid&quot;&gt;
+  &lt;pre class=&quot;zt-mermaid__source&quot; dir=&quot;ltr&quot;&gt;sequenceDiagram
+    actor Me
+    participant GH as GitHub Issues
+    participant A as Approve Action
+    participant DB as Neon PostgreSQL
+    participant B as Build Action
+    GH-&amp;gt;&amp;gt;Me: notification: new comment issue
+    Me-&amp;gt;&amp;gt;GH: add &amp;quot;approved&amp;quot; label
+    GH-&amp;gt;&amp;gt;A: issues.labeled event
+    A-&amp;gt;&amp;gt;A: verify label added by repo owner
+    A-&amp;gt;&amp;gt;DB: UPDATE SET status=&amp;#39;approved&amp;#39;
+    DB--&amp;gt;&amp;gt;A: row updated
+    A-&amp;gt;&amp;gt;GH: close issue
+    A-&amp;gt;&amp;gt;B: workflow_call
+    B-&amp;gt;&amp;gt;DB: SELECT all approved comments
+    DB--&amp;gt;&amp;gt;B: rows grouped by post_slug
+    B-&amp;gt;&amp;gt;B: write comments.toml, zola build
+    B-&amp;gt;&amp;gt;B: deploy to gh-pages&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;The approval workflow runs only when the label is added by the repository owner,
+checked via &lt;code&gt;github.actor == github.repository_owner&lt;/code&gt;. Anyone else adding the
+label causes the job to be skipped entirely.&lt;/p&gt;
+&lt;h2 id=&quot;the-build-pipeline&quot;&gt;The build pipeline&lt;/h2&gt;
+&lt;figure class=&quot;zt-mermaid&quot;&gt;
+  &lt;pre class=&quot;zt-mermaid__source&quot; dir=&quot;ltr&quot;&gt;sequenceDiagram
+    participant GH as GitHub Actions
+    participant A as Build Action
+    participant DB as Neon PostgreSQL
+    participant R as Repository
+    GH-&amp;gt;&amp;gt;A: workflow_call from approve action
+    A-&amp;gt;&amp;gt;R: checkout main
+    A-&amp;gt;&amp;gt;DB: SELECT all approved comments
+    DB--&amp;gt;&amp;gt;A: rows grouped by post_slug
+    A-&amp;gt;&amp;gt;A: write content/.../comments.toml per post
+    Note over A: files exist only in the CI workspace
+    A-&amp;gt;&amp;gt;A: zola build (reads .toml files)
+    A-&amp;gt;&amp;gt;R: deploy ./public to gh-pages&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;The export script is plain Python with &lt;code&gt;psycopg2&lt;/code&gt; and &lt;code&gt;tomli-w&lt;/code&gt;. It queries
+every approved comment, groups them by &lt;code&gt;post_slug&lt;/code&gt;, and writes one &lt;code&gt;comments.toml&lt;/code&gt;
+per post directory. Zola then reads those files during the build exactly as it
+does for the historical Blogger comments. The &lt;code&gt;comments.toml&lt;/code&gt; files are never
+staged or committed; the CI workspace is discarded after the build completes.&lt;/p&gt;
+&lt;h2 id=&quot;the-database&quot;&gt;The database&lt;/h2&gt;
+&lt;p&gt;One table, no ORM, no migration framework:&lt;/p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;sql&quot;&gt;CREATE TABLE IF NOT EXISTS comments (
+  id                   UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+  post_slug            TEXT        NOT NULL,
+  lang                 TEXT        NOT NULL DEFAULT &amp;#39;en&amp;#39;,
+  author               TEXT        NOT NULL,
+  email_hash           TEXT,          -- SHA-256(lower(trim(email))), for Gravatar only
+  website              TEXT,          -- optional; becomes profile_url in TOML
+  text                 TEXT        NOT NULL,
+  status               TEXT        NOT NULL DEFAULT &amp;#39;pending&amp;#39;,  -- Worker always sets explicitly
+  ip_hash              TEXT,          -- SHA-256(IP), never the raw address
+  submitted_at         TIMESTAMPTZ NOT NULL DEFAULT now(),
+  is_author            BOOLEAN     NOT NULL DEFAULT false,
+  -- Fields populated only for comments imported from Blogger
+  avatar_url           TEXT,
+  profile_url          TEXT,
+  blogger_comment_url  TEXT        UNIQUE
+);
+
+CREATE INDEX IF NOT EXISTS comments_slug_status_date
+  ON comments (post_slug, status, submitted_at);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;email_hash&lt;/code&gt; column deserves a note. Gravatar uses a SHA-256 hash of the
+lowercased, trimmed email address to look up avatars, so storing the hash is
+sufficient. The raw address never touches the database. Same for the IP: it is
+hashed before insert and only useful if I ever want to rate-limit by identity
+without knowing who the person is.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;blogger_comment_url&lt;/code&gt; column is only populated for comments imported from
+the old Blogger export. New comments leave it null. The &lt;code&gt;UNIQUE&lt;/code&gt; constraint
+prevents importing the same Blogger comment twice.&lt;/p&gt;
+&lt;h2 id=&quot;why-these-pieces&quot;&gt;Why these pieces&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Neon&lt;/strong&gt; is serverless PostgreSQL. Connections are handled over HTTP via their
+&lt;code&gt;@neondatabase/serverless&lt;/code&gt; driver, which matters a great deal when your backend
+is an edge function that might run in dozens of locations: you cannot hold a
+traditional TCP connection open. Neon&#39;s free tier is generous, the SQL is just
+SQL, and I can inspect or edit rows directly in their console without installing
+anything.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cloudflare Workers&lt;/strong&gt; was the obvious choice for the API layer because the
+domain is already on Cloudflare, and Workers run at the edge. The free tier is
+absurdly generous for a personal blog. Turnstile, the CAPTCHA widget I am using
+for bot protection, is also a Cloudflare product, so the server-side
+verification is a single internal API call.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Actions&lt;/strong&gt; handles moderation, site deployment, and Worker deployment.
+The build workflow runs on push to &lt;code&gt;main&lt;/code&gt;, on &lt;code&gt;repository_dispatch&lt;/code&gt;, and as a
+reusable workflow via &lt;code&gt;workflow_call&lt;/code&gt;. On a push to &lt;code&gt;main&lt;/code&gt; it also deploys the
+Cloudflare Worker via &lt;code&gt;wrangler deploy&lt;/code&gt;, so Worker and site changes ship
+together. The approval workflow triggers on any issue label event, checks that
+the actor is the repository owner, flips the status in Neon, and calls the
+build workflow. No separate deploy step: the same build path runs regardless of
+what triggered it.&lt;/p&gt;
+&lt;h2 id=&quot;bridging-two-worlds&quot;&gt;Bridging two worlds&lt;/h2&gt;
+&lt;p&gt;The bit that sounds strangest is regenerating static files every time someone
+leaves a comment. Why not serve comments from the database at request time?&lt;/p&gt;
+&lt;p&gt;Because this is a static site. There is no request time in that sense. The HTML
+is generated once at build time, not per-visitor. Zola reads the &lt;code&gt;.toml&lt;/code&gt; files
+alongside each post during the build and injects the comments into the page
+template. That rendering code was already written and working for the historical
+Blogger comments, which sit in the same format. Keeping the same format from a
+new source means the display layer never needs to change.&lt;/p&gt;
+&lt;p&gt;So the build step exists to bridge two worlds:&lt;/p&gt;
+&lt;figure class=&quot;zt-mermaid&quot;&gt;
+  &lt;pre class=&quot;zt-mermaid__source&quot; dir=&quot;ltr&quot;&gt;flowchart LR
+    subgraph live [Live world]
+        direction TB
+        F[Comment form] --&amp;gt; W[Worker] --&amp;gt; DB[(Neon)]
+    end
+    subgraph build [Build]
+        direction TB
+        X[export script] --&amp;gt; T[comments.toml] --&amp;gt; Z[Zola] --&amp;gt; P[HTML page]
+    end
+    DB --&amp;gt;|SELECT at build time| X&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;The export script is the only thing that crosses the boundary. It runs at the
+start of every build — whether triggered by a push to &lt;code&gt;main&lt;/code&gt; or by the approval
+workflow — pulls approved rows from Neon, and writes them into the workspace
+where Zola can find them. The files are temporary: Zola reads them, produces
+HTML, and they vanish with the runner. Nothing is written back to the
+repository.&lt;/p&gt;
+&lt;p&gt;An earlier version of this system committed the &lt;code&gt;comments.toml&lt;/code&gt; files after
+each new submission, then let the resulting push trigger the build. It worked,
+but it meant every comment created a commit, the repository history filled with
+churn, and a second comment arriving while the first export was still running
+could race. Querying at build time is simpler and avoids all of that.&lt;/p&gt;
+&lt;p&gt;A comment still takes a few minutes to appear because a full build has to run.
+That tradeoff is fine for a personal blog.&lt;/p&gt;
+&lt;h2 id=&quot;security-without-login&quot;&gt;Security without login&lt;/h2&gt;
+&lt;p&gt;I made a deliberate call not to require login. The barrier to commenting on a
+personal blog is already high; most people read and move on. Adding an auth wall
+would not stop spam, it would stop the few people who might actually have
+something to say.&lt;/p&gt;
+&lt;p&gt;What is in place instead:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cloudflare Turnstile&lt;/strong&gt; sits on the form. It is effectively invisible to real
+users and works well against bots. Unlike reCAPTCHA it does not build a
+behavioural profile of your visitors.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A honeypot field&lt;/strong&gt; is hidden from real browsers but visible to bots scraping
+the DOM. Any submission with that field filled in receives a silent &lt;code&gt;201&lt;/code&gt; and is
+immediately discarded. The bot thinks it succeeded.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CORS is locked&lt;/strong&gt; to &lt;code&gt;mosab.co.uk&lt;/code&gt;. The Worker rejects requests from any other
+origin at the very top of the handler, before parsing the body or touching the
+database.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Input validation&lt;/strong&gt; checks every field: author length, text length, post slug
+format (a strict regex: &lt;code&gt;^[a-z0-9/_-]+$&lt;/code&gt;), and URL validity for the optional
+website field.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Nothing sensitive is stored raw.&lt;/strong&gt; Email, if provided, is only used to
+resolve a Gravatar avatar. The Worker hashes it with SHA-256 before inserting.
+The visitor IP is treated the same way.&lt;/p&gt;
+&lt;p&gt;The security layers in sequence:&lt;/p&gt;
+&lt;figure class=&quot;zt-mermaid&quot;&gt;
+  &lt;pre class=&quot;zt-mermaid__source&quot; dir=&quot;ltr&quot;&gt;flowchart TD
+    R[Incoming request] --&amp;gt; C1{Correct origin?}
+    C1 --&amp;gt;|no| X1[403 Forbidden]
+    C1 --&amp;gt;|yes| C2{POST method?}
+    C2 --&amp;gt;|no| X2[405 Method Not Allowed]
+    C2 --&amp;gt;|yes| C3{Honeypot empty?}
+    C3 --&amp;gt;|no| X3[201 silent discard]
+    C3 --&amp;gt;|yes| C4{Input valid?}
+    C4 --&amp;gt;|no| X4[400 Bad Request]
+    C4 --&amp;gt;|yes| C5{Turnstile passes?}
+    C5 --&amp;gt;|no| X5[400 CAPTCHA failed]
+    C5 --&amp;gt;|yes| OK[Insert pending + open issue]&lt;/pre&gt;
+&lt;/figure&gt;
+&lt;p&gt;Every comment lands in the database as &lt;code&gt;pending&lt;/code&gt; and is invisible until I
+approve it. The approval mechanism is a GitHub issue: the Worker opens one for
+each submission, I read the text, and if it looks fine I add the &lt;code&gt;approved&lt;/code&gt;
+label. An Actions workflow catches the label event, flips the status in the
+database, closes the issue, and triggers a build. If the submission is spam I
+just close the issue without labelling it and the comment stays pending forever.&lt;/p&gt;
+&lt;p&gt;No email infrastructure, no admin panel, no console queries. The issue inbox
+is the moderation queue.&lt;/p&gt;
+&lt;h2 id=&quot;what-it-took&quot;&gt;What it took&lt;/h2&gt;
+&lt;p&gt;The whole system is seven pieces:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A SQL migration: one &lt;code&gt;CREATE TABLE&lt;/code&gt; and one &lt;code&gt;CREATE INDEX&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;A one-time Python script that imports all existing Blogger comments from the
+exported TOML files into Neon, making the database the single source of truth.&lt;/li&gt;
+&lt;li&gt;A Cloudflare Worker in TypeScript (~150 lines): CORS, honeypot, validation,
+Turnstile check, SHA-256 hashing, DB insert as &lt;code&gt;pending&lt;/code&gt;, GitHub issue creation.&lt;/li&gt;
+&lt;li&gt;A moderation workflow (~30 lines of YAML): triggers on issue label, verifies
+the actor is the repo owner, runs the approval script, closes the issue, calls
+the build workflow.&lt;/li&gt;
+&lt;li&gt;A Python approval script (~30 lines): extracts the comment UUID from the issue
+body and sets &lt;code&gt;status = &#39;approved&#39;&lt;/code&gt; in Neon.&lt;/li&gt;
+&lt;li&gt;A Python export script (~60 lines): connect to Neon, group rows by slug,
+write &lt;code&gt;comments.toml&lt;/code&gt; files into the workspace with &lt;code&gt;tomli-w&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Two Zola template partials: one for rendering the comment list (with empty
+state), one for the form itself with RTL/LTR support for Arabic and English.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The form is at the bottom of this post. Comments are moderated, so yours will
+appear once I have had a chance to review it.&lt;/p&gt;
+</description>
+      </item>
+    </channel>
+</rss>
